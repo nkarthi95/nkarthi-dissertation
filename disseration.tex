@@ -1,0 +1,173 @@
+\documentclass[12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[doublespacing]{setspace}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathptmx}
+\usepackage{mathrsfs}
+
+\usepackage{graphicx}
+\usepackage[left = 1in, top = 1in, right = 1in, bottom = 1in]{geometry}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{times}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{wrapfig}
+\usepackage[section]{placeins}
+\usepackage{breqn}
+%\usepackage{endfloat}
+
+\newcommand{\tens}[1]{{\ensuremath{\mathchoice
+                     {\mbox{$\displaystyle\mathsf{#1}$}}
+                     {\mbox{$\textstyle\mathbf{#1}$}}
+                     {\mbox{$\scriptstyle\mathsf{#1}$}}
+                     {\mbox{$\scriptscriptstyle\mathsf{#1}$}}}}}
+
+\graphicspath{{figures/}}
+
+\title{PhD dissertation}
+\author{Nikhil Karthikeyan}
+\date{August 10, 2025}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{3cm}
+
+\Large
+\textbf{Lattice Boltzmann simulations of magnetically responsive anisotropic particle stabilized emulsions}
+
+% \vspace{0.5cm}
+
+% \large
+% Characterizing the effect of magnetic fields  formation kinetics, rheology and particle arrangement of bijels under the infleunce of magnetic fields
+
+\vspace{0.5cm}
+\textbf{Nikhil Karthikeyan} \\
+\textbf{Schiller Research Group}
+
+\vspace{3cm}
+
+PhD Dissertation \\
+Department of Materials Science and Engineering \\
+Pierre S. Du Pont Hall, 127 The Green, Newark, DE 19716 \\
+University of Delaware
+
+\end{center}
+\end{titlepage}
+
+\newpage
+
+% \section*{Abstract}
+\section*{Abstract}
+\pagenumbering{roman}
+Porous materials have found greater importance in applications such as water filtration, catalyst supports, battery electrodes and bio engineered materials. To accommodate a greater variety of pore sizes and continuous fabrication techniques with minimal waste, bottom up synthesis techniques have been gaining in popularity. 
+
+One such bottom up fabrication technique relies on jamming of particle stabilized emulsions into bicontinuous interfacially jammed emulsion gels(bijels). However, casting mixture independent microstructure control has not been identified, especially applicable in continuous bijel synthesis strategies such as Solvent Transfer Induced Phase separation. Stimuli response has been identified as a technique to enable this. This study focuses on utilizing stimuli response of bijels stabilized with ellipsoidal microparticles, and the resulting microstructure and rheological implications this induces. 
+
+We first identify that upon application of a field to a bijel stabilized with ellipsoidal particles during synthesis, microstructure change is observed, not present when analyzing bijels stabilized with spherical particles. Upon application of the field, particles reorient to the direction of the field, dragging the interface along with them. This causes the bijel to have axially dependent jamming, causing anisotropic microstructures to form.
+
+We then identify that bijels stabilized with ellipsoidal particles have tunable microstructures after jamming. This process is dependent upon the initial particle order present in the bijel, as well as the difference between the initial and final particle order. We also show that the structural response observed is state dependent, meaning that the time of magnetic field application affects the microstructure change observed.
+
+\newpage
+
+\section*{Acknowledgements}
+
+In the development of this dissertation, I extend my deepest gratitude to Dr Ulf Schiller whose support, motivation and opportunities have been indispensible during my PhD. I believe his approach to mentorship, methodical problem solving strategies, depth and breadth of knowledge have been invaluable sources of inspiration for this research as well as motivating myself to strive towards those ideals.
+
+I would also like to thank members of my committee, especially Dr Arthi Jayaraman from the University of Delaware and Dr Olga Kuksenok from Clemson University for their mentorship and motivation that pushed me to increase my breadth of knowledge and to think outside the box.
+
+Listing everyone I am grateful for who have provided me non-academic support would be too long for this page although I shall try to summarize this. I am grateful to my family, with whom I may not be the best at discussing my future plans, but they have been an indispensible source of support during my time away from home. I am thankful to my lab members especially for adding brief moments of levity during my PhD and giving me the opportunity to be a part of their own journey in graduate school. Thank you to everyone who has been with me through thick and thin, and to many more celebrations of our achievements. 
+
+\newpage
+
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+\listoftables
+
+\newpage
+
+\pagenumbering{arabic} 
+\setcounter{page}{1}
+
+\chapter{Stimuli response and its applications in porous materials}
+\input{chapters/introduction}
+
+\chapter{Literature Review}
+\input{chapters/lit_review}
+
+\chapter{The multicomponent Lattice Boltzmann Method}
+\input{chapters/LBM_technique}
+
+\input{chapters/model_params}
+
+\input{chapters/analysis_techniques}
+
+% \section{Expected and current results}
+
+% \subsection{Fields applied during fabrication}
+
+\chapter{Microstructure analysis upon application of a constant magnetic field onto a forming bijel}
+
+\input{chapters/paper1}
+
+\chapter{Structural response of bijels and the influence of particle order on the observed response}
+
+\input{chapters/paper2}
+
+\chapter{Rheological response of bijels under magnetic fields}
+
+\input{chapters/paper3}
+
+% % Extensions to this work can be accomplished by investigating the effect of applying a magnetic field on the bijel while under shear. Ferrofluid models that predict bingham plastic like flows, $\frac{\eta}{eta_{f}} = 1 + \frac{Mn^{*}(\phi_p)}{Mn}$, have been developed and defined using the Mason number, $Mn = \frac{8\eta_{f} \dot{\gamma}}{\mu_{0} \mu_{f} \beta^{2} H_0^2}$. \textcolor{blue}{https://doi.org/10.1122/1.4935850, https://linkinghub.elsevier.com/retrieve/pii/S1359029405000385} 
+
+% % and to ensure that the imposed velocity does not exceed the limitations of the model, the range of capillary numbers will be between $10^-7 \geq Ca_s \leq 10^{-5}$. These ensure that the applied shear rates stay well below the maximum mach number required for the model to be stable $(Ma \leq 0.03)$
+
+% % Porous materials have found a great number of applications in materials science such as developing more efficient batteries, catalyst supports and filters \cite{samdani_bicontinuous_2017, cha_bicontinuous_2019, skale_feasibility_2017}. Currently, particle stabilized emulsions have found uses in pharmaceutical, food and oil recovery applications \cite{bago_rodriguez_capsules_2019, song_physical_2020, jalili_darbandi_sofla_effect_2020}. However, they have now found new uses in templates for porous materials. One specific microstructure known as the bicontinuous interfacially jammed emulsion gel (bijel) is of interest owing to its highly tortuous, continuous architecture and ease of fabrication \cite{lee_bicontinuous_2010, haase_continuous_2015, wang_scalable_2020, ching_rapid_2021}.
+
+% % Solvent Transfer Induced Phase Separation (STrIPS), Vapour Induced Phase separation (VIPS) and Non-solvent Induced Phase Separation (NIPS) have been identified as methods to synthesize bijels at a large scale \cite{haase_continuous_2015, wang_scalable_2020, ching_rapid_2021}. However, controlling the microstructure of bijels synthesized through these techniques is usually done through the volume fraction of particles, quench depth and composition of the casting mixture \cite{haase_continuous_2015, wang_scalable_2020, ching_rapid_2021}.
+
+% % Under magnetic fields, particles have been shown to rearrange into chains and spirals, which have are now of interest as a means to tune the microstructure of emulsions. This project seeks to identify how magnetic fields can be used to tune the microstructure of bijels to identify and characterize additional control schemes that can be used for STrIPS. It will identify the underlying mechanisms that cause these changes in microstructure, the timescales on which these changes occur and the extent to which magnetic fields affect the microstructure of bijels through computational simulations enabled through the Lattice Boltzmann Method. 
+% % Owing to the particle re-arrangement that occurs, the rheology of the bijel is thought to be different to the same bijel not under a field. Thus, the shear, storage and loss modulus of the bijel will be measured to compare how magnetic fields affect these properties. Furthermore, the particle's propensity to stay at the interface while experiencing shear under the influence of a magnetic field will be measured. This will allow one to determine if the failure point of bijels are affected by magnetic fields. The yield stress will also be investigated to observe how magnetic fields change this parameter. 
+
+% % Pickering emulsions (PE's) are partially miscible system of two or more liquids stabilized with particle surfactants \cite{to_ngai_particle-stabilized_2015}. Unlike conventional emulsions, which utilize stabilizers such as Sodium Dodecyl Sulfate or Cetyl Trimethyl Ammonium Bromide PE's use nanoparticle such as a metal oxide or silica to stabilize the small domains of the dispersed phase in the continuous phase. They posess many microstructures, one of which known as the bicontinuous interfacially jammed emulsion gel (bijel) is of interest owing to the broad number of applications it possesses \cite{velankar_non-equilibrium_2015, cha_bicontinuous_2019}.
+
+% % This aim of this project is to elucidate the structure-property relationship between particle stabilized emulsions stabilized using anisotropic magnetic nanoparticles interacting with magnetic fields.   Bijels formed with plate like, rod-like and spherical particles will be analyzed under various magnetic field strengths to assess the governing criteria behind any differences in coarsening or curvature observed. Properties of the particles adsorbing onto the interface will also be tracked to assess how the particles arrange on the interface to note any self assembling behaviour or other patterns that may form. 
+
+% % %Various particle morphologies ranging from plate to rod-like nanoparticles will be analyzed, along with their impact on the coarsening and curvature of the resulting bijel. Additionally, the particle orientation and arrangement on the interface will be tracked to note any behaviour indicating self-assembly. Through this work, understanding how magnetic fields affect the structure of particle stabilized emulsions will be developed, thus adding additional insight into how stimuli response can be added to particle stabilized emulsions and can be designed and optimized for various use-cases.%
+
+% % Many techniques to synthesize bijels at industrially relevant scales have been suggested as Solvent Transfer Induced Phase Separation (STRIPPS), Vapour Induced Phase Separation (VIPS) and homogenization \cite{haase_continuous_2015, wang_scalable_2020, huang_bicontinuous_2017}. However, complex changes to quench depths, composition or shear rates are needed to control the microstructure independently of process parameters. This reduces the number of systems that can be synthesized using these techniques.
+
+% % This work seeks to elucidate the link between particle anisotropy, magnetic fields and particle volume fractions to determine new techniques to control the microstructure and rheology of bijels through using the Lattice Boltzmann Method(LBM). Through this analysis, it is hoped that the characterization of the structure-property relationship will allow control of the microstructure to enhance the robustness of manufacturing techniques like STRIPPS. 
+
+% \section{Timeline of proposed research}
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{figures/timeline.jpg}
+%     \caption{Timeline of research activities to be conducted for this project}
+%     \label{fig:project_timeline}
+% \end{figure}
+
+% \textcolor{blue}{Image of research timeline}
+
+\chapter{Final remarks}
+\input{chapters/final_remarks}
+% \newpage
+
+\bibliographystyle{myphpf}
+\bibliography{references}
+
+\end{document}
