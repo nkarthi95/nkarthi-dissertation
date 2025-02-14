@@ -6,7 +6,10 @@ The dynamics of the binary fluid mixture is governed by inertial,
 viscous, and surface tension forces. The relative magnitudes of these
 forces at a characteristic length scale \(L\) and characteristic
 velocity \(U\) are captured by the capillary number $\mathrm{Ca}=\frac{\eta U}{\sigma}$ and the Weber number
-\(\mathrm{We}=\frac{\rho U^2 L}{\sigma}\). Here we are primarily interested in spinodal decomposition of the mixture, where we analyze the dynamics after the initial formation of the interfaces and neglect residual diffusion. Hence the Peclet number \(\mathrm{Pe}=\frac{UL}{\Gamma}\) is of lesser importance and we do not consider it when choosing our simulation parameters.
+\(\mathrm{We}=\frac{\rho U^2 L}{\sigma}\). Here we are primarily interested in spinodal decomposition of the mixture, 
+where we analyze the dynamics after the initial formation of the interfaces and neglect residual diffusion. Hence the 
+Peclet number \(\mathrm{Pe}=\frac{UL}{\Gamma}\) is of lesser importance and we do not consider it when choosing our 
+simulation parameters.
 
 The equations of motion of our model comprise the relevant materials
 properties: the density \(\rho\), viscosity \(\nu\), and surface tension \(\sigma\) of the binary fluid, and the mass \(m_p\), size \(R_p\) and aspect ratio \(\alpha\), and dipole moment \(m\) of the particles. In addition, we can control the particle volume fraction \(\phi_p\) and
@@ -100,7 +103,9 @@ remained in its initial configuration, until the minimum particle
 distance exceeded \(1.2\cdot\max(R_\parallel,R_\parallel/\alpha)\).
 After the equilibration, the magnetic flux density
 \(\vec{B}=B\hat{\vec{z}}\) was switched on and the full system was
-evolved for \(10^5\) timesteps. In the course of the simulation, the binary mixture undergoes spinodal decomposition. The particles adsorb at the coarsening interface and eventually become jammed, resulting in the bicontinuous phase morphology of the bijel.
+evolved for \(10^5\) timesteps. In the course of the simulation, the binary mixture undergoes spinodal decomposition. 
+The particles adsorb at the coarsening interface and eventually become jammed, resulting in the bicontinuous phase 
+morphology of the bijel.
 
 It is worth discussing briefly the possible realization of our model in
 experiments. A common choice for bijel formation in binary liquids is a
