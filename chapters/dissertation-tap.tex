@@ -1,0 +1,107 @@
+% 
+% This is the Title and Approval Page file (dissertation-tap.tex) for
+% a dissertation.
+%
+% The order of the commands below is very important.
+% You may choose to add or eliminate a \prefacesection 
+% in the front material but the order should remain 
+% the same especially \maketocloflot followed by 
+% \prefacesectiontoc{Abstract}
+
+% Title and author are also used for PDF file properties
+% No special character or commands can be used for the PDF definition; 
+% use the [options] paramater to specify a different title or author 
+% to remove special characters or commands like \\ for example.
+\title[First Line of Title Second Line of Title]{Lattice Boltzmann simulations of magnetically responsive\\
+anisotropic particle stabilized emulsions}
+\author{Nikhil Karthikeyan}
+\type{dissertation}
+\degree{Doctor of Philosophy}
+\majorfieldtrue\majorfield{Materials Science and Engineering}
+\degreedate{Spring 2025}
+% Optional PDF properties
+\keywords{Keyord,Keyword,Keyword}
+\subject{Subject}
+
+\maketitlepage % Generates Title Page
+
+\begin{approvalpage}
+\chair{Joshua Zide, PhD}{Chair of the Department of Materials Science and Engineering}
+\dean{Jamie Phillips, PhD}{Dean of the College of Engineering}
+\end{approvalpage}
+
+\begin{signedpage} % Up to 4 signatures
+\profmember{Ulf D. Schiller, PhD}
+\member{Eric Furst, PhD}
+\member{Arthi Jayaraman, PhD}
+\member{Darrin Pochan, PhD}
+\end{signedpage}
+
+% For additional signatures beyond 4, uncomment and use
+% \begin{signedpagecont}
+% \member{Xxxx Xxxx, Highest Degree}
+% \member{Xxxx Xxxx, Highest Degree}
+% \end{signedpagecont}
+
+\begin{front} % Starts front material (Roman style page numbers)
+
+\prefacesection{Acknowledgements}
+%\input{acknowl} % This file (acknowl.tex) contains the text
+                % for the acknowledgments or type text here.
+
+In the development of this dissertation, I extend my deepest gratitude to Dr Ulf Schiller whose support, motivation and 
+opportunities have been indispensible during my PhD. I believe his approach to mentorship, methodical problem solving 
+strategies, depth and breadth of knowledge have been invaluable sources of inspiration for this research as well as 
+motivating myself to strive towards those ideals. I would also like to thank members of my committee, especially 
+Dr Arthi Jayaraman from the University of Delaware and Dr Olga Kuksenok from Clemson University for their mentorship 
+and motivation that pushed me to increase my breadth of knowledge and to think outside the box.
+
+Listing everyone I am grateful for who have provided me non-academic support would be too long for this page 
+although I shall try to summarize this. I am grateful to my family, with whom I may not be the best at 
+discussing my future plans, but they have been an indispensible source of support during my time away from home. 
+I am thankful to my lab members especially for adding brief moments of levity during my PhD and giving me the 
+opportunity to be a part of their own journey in graduate school. Thank you to everyone who has been with me 
+through thick and thin, and to many more celebrations of our achievements. 
+
+% Table of Contents is always created, but you
+% may set \tablespagefalse and \figurespagefalse 
+% if you don't want these generated automatically
+% (i.e. List of Tables and List of Figures).
+% These are set to true by default (i.e. \tablespagetrue,
+% \figurespagetrue).
+
+% Uncomment if you do not want a List of Figures.
+%\figurespagefalse
+
+% Uncomment if you do not want a List of Tables.
+%\tablespagefalse 
+
+\maketocloflot
+
+\prefacesectiontoc{Abstract}
+%\input{abstract} % This file (abstract.tex) contains the text
+                 % for an abstract or type text here.
+
+Porous materials have found greater importance in applications such as water filtration, catalyst supports, battery 
+electrodes and bio engineered materials. To accommodate a greater variety of pore sizes and continuous fabrication 
+techniques with minimal waste, bottom up synthesis techniques have been gaining in popularity. 
+
+One such bottom up fabrication technique relies on jamming of particle stabilized emulsions into bicontinuous 
+interfacially jammed emulsion gels(bijels). However, casting mixture independent microstructure control has not 
+been identified, especially applicable in continuous bijel synthesis strategies such as Solvent Transfer Induced 
+Phase separation. Stimuli response has been identified as a technique to enable this. This study focuses on utilizing 
+stimuli response of bijels stabilized with ellipsoidal microparticles, and the resulting microstructure and rheological 
+implications this induces. 
+
+We first identify that upon application of a field to a bijel stabilized with ellipsoidal particles during synthesis, 
+microstructure change is observed, not present when analyzing bijels stabilized with spherical particles. Upon 
+application of the field, particles reorient to the direction of the field, dragging the interface along with 
+them. This causes the bijel to have axially dependent jamming, causing anisotropic microstructures to form.
+
+We then identify that bijels stabilized with ellipsoidal particles have tunable microstructures after jamming. 
+This process is dependent upon the initial particle order present in the bijel, as well as the difference 
+between the initial and final particle order. We also show that the structural response observed is state 
+dependent, meaning that the time of magnetic field application affects the microstructure change observed.
+
+\end{front}
+
