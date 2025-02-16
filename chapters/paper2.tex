@@ -1,4 +1,4 @@
-\section{Introduction}
+
 \section{Results}\label{sec:results_p2}
 
 \subsection{Hysteresis curve}
@@ -29,11 +29,8 @@ approximately equal to the k value. Furthermore, the structure factor and the le
  with periodic domains are subject to finite size effects. Nevertherless, trends about the average domain size can be 
  determined from this measurement.
 
-Before the structure factor was calculated, the location of the particles were filled with the average density of the 
-surrounding lattice sites using Equation \ref{eq:fill_particles} to generate a smooth interface. The particles are 
-iteratively filled from outside in until all lattice points corresponding to the particle are filled with the average 
-density of the fluid surrounding the lattice point. Within the red and blue fluid densities, sites representing the 
-particles are filled before the order parameter is calculated. By filling the particles, we are able to analyze the 
+Before the structure factor was calculated, the location of the particles were filled using the procedure detailed in
+Section \ref{section:filling_routine} to generate a smooth interface. By filling the particles, we are able to analyze the 
 microstructure without the influence of the particles. We calculate the hysteresis curve by calculating the domain 
 size at the final timestep of each magnetic field change. We then plot these domain sizes against the magnetic field 
 applied to obtain them and split them in the descending and ascending magnetic field directions to demonstrate the 
@@ -41,7 +38,7 @@ differences observed. We plot these results in Figure \ref{fig:hysteresis_curve}
 
 \begin{figure} 
     \centering 
-    \includegraphics[scale=0.7]{../figures/results/paper2/hysteresis_curve.png} 
+    \includegraphics[width=\textwidth]{../figures/results/paper2/hysteresis_curve.png} 
     \caption{Hysteresis curve of bijels stabilized with magnetically responsive ellipsoidal particles. The y-axis is the average length scale $\frac{L}{R}$ normalized with the radius of the particle, while the x-axis corresponds to the dimensionless magnetic field strength $\bar{B}$. We show that there is domain coarsening upon increase of the field strength, followed by jamming of the structure as the field strength is decreased indicating the path dependence of the bijel microstructure.} 
     \label{fig:hysteresis_curve} 
 \end{figure}
@@ -68,7 +65,7 @@ before and after the application of magnetic fields.
 
 \begin{figure} 
     \centering 
-    \includegraphics[scale=0.7]{../figures/results/paper2/microstructure_viz-field_on.png} 
+    \includegraphics[width=\columnwidth]{../figures/results/paper2/microstructure_viz-field_on.png} 
     \caption{Visualizations of bijels simulated under no fields at $t = 0$ (left) and $t = 10^5$ (right). The top 
             column demonstrates the microstructure evolution if no field is used while the bottom column demonstrates 
             the microstructure evolution when the system is exposed to a field strength of $\bar{B} = 1$. Particle 
@@ -88,7 +85,7 @@ nematic order parameter. \cite{cuesta_monte_1990}
 
 \begin{figure} 
     \centering 
-    \includegraphics[scale=0.7]{../figures/results/paper2/domain_size-field_on.png} 
+    \includegraphics[width=\columnwidth]{../figures/results/paper2/domain_size-field_on.png} 
     \caption{Plotting the spherically averaged domain size normalized with $R_p$($L/R$) of the 
              particle at different magnetic field strengths, $\bar{B}$, and the nematic order parameter $S$ in lines.
              We quantify the domain size and ordering of the particles, and show that the change in both parameters
@@ -130,7 +127,7 @@ tortuosity in Figure \ref{fig:domain_size_aniso-field_on}.
 
 \begin{figure} 
     \centering 
-    \includegraphics{../figures/results/paper2/domain_size_aniso-field_on.png} 
+    \includegraphics[width=\columnwidth]{../figures/results/paper2/domain_size_aniso-field_on.png} 
     \caption{Plotting the anisotropic domain size and tortuosities against the applied magnetic field strength on 
              the left and right respectively for bijels stabilized with magnetically responsive prolate ellipsoids. 
              We see that upon application of the field, the domain size parallel to the applied field direction, 
@@ -156,7 +153,7 @@ before and after application of a magnetic field.
 
 \begin{figure} 
     \centering 
-    \includegraphics[scale=0.7]{../figures/results/paper2/particle_viz-field_on.png} 
+    \includegraphics[width=\columnwidth]{../figures/results/paper2/particle_viz-field_on.png} 
     \caption{Visualizations of bijels simulated under no fields at $t = 0$ (left) and $t = 10^5$ (right). 
             The top column demonstrates the microstructure evolution if no field is used while the bottom column 
             demonstrates the microstructure evolution when the system is exposed to a field strength of $\bar{B}_z = 1$. 
@@ -227,7 +224,7 @@ timescales in Figure \ref{fig:domain_size-field_on-scaled}.
 
 \begin{figure} 
     \centering 
-    \includegraphics{../figures/results/paper2/domain_size-field_on-scaled.png} 
+    \includegraphics[width=\columnwidth]{../figures/results/paper2/domain_size-field_on-scaled.png} 
     \caption{Plots of domain size with different timescales. The figure on the left rescales time with the nematic to 
             isotropic transition time while the figure on the right rescales time with the time taken till the 1st minimum in 
             the interface angle is reached. We show that the controlling timescale when applying a magnetic field onto bijels 

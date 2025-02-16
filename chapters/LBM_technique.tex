@@ -1,3 +1,5 @@
+\label{section:methods}
+
 This work uses a multicomponent Lattice Boltzmann Method (LBM) to simulate the hydrodynamics of two partially miscible, 
 incompressible fluids as implemented in LB3D. The LBM solves the Navier-Stokes equation at the incompressible limit, 
 $\rho \frac{d \overrightarrow{u}}{dt} = \eta \Delta \overrightarrow{u} + \frac{\nabla P}{\rho} + F_{body}$, at low 
@@ -12,6 +14,7 @@ interactions. \cite{davies_interface_2014, xie_direct_2017, xie_controllable_202
 provided in the following sections
 
 \section{Hydrodynamics} 
+\label{section:lbm_hydrodynamics}
 
 The lattice boltzmann method works by evolving a population distribution $f_{i}(\mathbf{x}, t)$ on a cubic lattice with 
 timestep $\Delta t$ with lengthscale $\Delta x$. \cite{qian_lattice_1992, succi_lattice_2018, he_theory_1997} The D3Q19 
@@ -60,7 +63,8 @@ for simulations in this work as the $ 1 \leq Re \leq 100 $ and the mach number, 
 criterion and usage requirements for the presented hydrodynamic model.
 
 \section{Non-ideal mixing}
- 
+\label{section:lbm_hydrodynamics}
+
 The SC model mimics Cahn-Hilliard type behaviour through a force applied from the other fluid species $k'$ in adjacent 
 cells $\mathbf{x'}$ on fluid species $k$ at point $\mathbf{x}$. \cite{shan_lattice_1993, shan_simulation_1994, 
 shan_multicomponent_1995, he_discrete_1998, jansen_bijels_2011, chin_lattice_2002} Both fluid species are defined
@@ -80,6 +84,7 @@ In this model, the SC force is incorporated into the macroscopic velocities writ
 $\mathbf{u}_k =  \mathbf{u}_k + \frac{\tau}{\rho} F_{k}$ and finally the equilibrium distribution of each fluid species. 
 
 \section{Suspended particle dynamics}
+\label{section:lbm_colloids}
 
 Suspended particles will be coupled to the LB fluid based on the work conducted by Ladd. \cite{ladd_numerical_1994, 
 aidun_direct_1998, ladd_lattice-boltzmann_2001} The particles follow Newtonian mechanics with force 
@@ -109,6 +114,7 @@ move, they cover and uncover fluid grid points. Covered points are removed, whil
 points in a multiphase fluid is averaged from adjacent grid points. 
 
 \subsection{Anisotropic particles}
+\label{section:lbm_colloids_ellipsoids}
 
 Under 1 lattice unit additional lubrication forces are required to reduce the likelihood of particle overlap. For 
 spherical particles, this is defined in Equation \ref{eq:sphere_lube}
@@ -162,6 +168,7 @@ $\mathbf{\Bar{F}}(r) = \hat{\mathbf{r_{ij}}}(\hat{\mathbf{r_{ij}}}(\mathbf{u}_i 
 \end{equation}
 
 \subsection{Magnetic field and particle coupling}
+\label{section:lbm_colloids_magnetics}
 
 The magnetic dipole potential is defined as
 
