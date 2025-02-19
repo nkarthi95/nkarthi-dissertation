@@ -8,21 +8,20 @@ phase. Surfactants function through reducing the surface tension between dispers
 of an interface.
 
 The existence of particle stabilized emulsions has been known for more than a century now, after Pickering and Ramsden independently identified dispersed 
-droplets of oil within a water matrix after vigorous stirring of an oil, water and particle mixture. 
-\textcolor{blue}{10.1098/rspl.1903.0034, http://pubs.rsc.org/en/content/articlelanding/1907/ct/ct9079102001} Unlike surfactants, 
-particles act as emulsion stabilizers through the reduction of contact between dispersed and continuous phases as they adsorb into 
+droplets of oil within a water matrix after vigorous stirring of an oil, water and particle mixture. \cite{ramsden_separation_1904, pickering_cxcvi.emulsions_1907} 
+Unlike surfactants, particles act as emulsion stabilizers through the reduction of contact between dispersed and continuous phases as they adsorb into 
 the interface between phases. The Pieranski model derived from observations of \textcolor{blue}{insert derivation of pieranski model} 
 and is used to determine the adsorption energy of a particle at an interface. It is defined as $G_{ads} = \sigma A_{rm} (1 - \cos{\theta_c})^2$, where $G_{ads}$ 
 is the free energy reduction from a particle adsorption, $\sigma$ is the surface tension between the partially miscible fluids, $\theta_c$ is the contact angle 
 of the particle. The particles can be considered to be irreversibly adsorb even for nanoparticles, and for particles larger than 100nm, the adsorption energy 
-is so great that thermal fluctuations at the interface can be considered to have no effect. \textcolor{blue}{https://doi.org/10.1063/1.3618553} 
+is so great that thermal fluctuations at the interface can be considered to have no effect. \cite{cheung_molecular_2011}
 
 After their discovery, interest in particle stabilized emulsions became minimal. However, increased interest in them has resurfaced since the 1980s owing to 
 their applications in food science. One such example is fat crystals stabilizing water droplets in oil to create margarine. Particle stabilization has also 
-been of interest owing to their lower toxicity and greater ease of sustainable sourcing through the usage of cellulose or chitin particles. \
-textcolor{blue}{https://www.tandfonline.com/doi/full/10.1080/14686996.2017.1401423, 10.1021/acs.biomac.6b00144, 10.1021/acs.langmuir.7b03959} 
+been of interest owing to their lower toxicity and greater ease of sustainable sourcing through the usage of cellulose or chitin particles. 
+\cite{fujisawa_nanocellulose-stabilized_2017, tang_stimuli-responsive_2016, kalliola_carboxymethyl_2018}
 Additionally, chemical surfactants can be toxic to aquatic life, acting as a xeno-hormone and interfering with their reproduction. 
-\textcolor{blue}{https://www.sciencedirect.com/science/article/pii/S0304389420302879, https://www.sciencedirect.com/science/article/pii/S014765131530172X} 
+\cite{kaczerewska_environmental_2020, lechuga_acute_2016}
 
 Compared to emulsions stabilized using surfactants, particle stabilized emulsions offer greater resistance to coarsening, resulting in increased interest in 
 them once again. The microstructure properties of particle stabilized emulsions were explored in the early 2000s by Lumsdon and Binks among many others. They 
@@ -56,7 +55,7 @@ In the past decade, methods to synthesize particles which have anisotropic geome
 depending on the type of particle shape desired. Ellipsoids can be easily created by mechanical deformation of polymer spheres. Dumbbell shaped particles can be 
 synthesized using microfluidic devices or emulsion templating. Square particles can be generated using crystallization of material. \cite{morgan_understanding_2013} 
 These variety of techniques mean that particle geometry is no longer as constraint when investigating prospective particle stabilizers of bijels. 
-\textcolor{blue}{https://onlinelibrary.wiley.com/doi/10.1002/smll.201600877}
+\cite{wu_recent_2016}
 
 Anisotropic particles have shape dependent properties owing to their induction of multipolar interactions by deforming the interface to ensure the mean 
 curvature is 0,  fulfilling the Young-Laplace equation shown in Figure \ref{fig:anisotropic_particle_interface}. \cite{loudet_capillary_2005, 
@@ -70,7 +69,7 @@ as shown by Günther et al. and Hijnen et al. \cite{gunther_timescales_2014, hij
 from particle re-orientation and increased mechanical rigidity, enhancing the stability of emulsions with ellipsoidal particles, as evidenced in rheological 
 studies. \cite{gunther_timescales_2014, daware_emulsions_2015, witt_bijel_2013} It has also been shown that particle shape changes how and when jamming occurs. 
 Using graphene plate like particles, it was shown that the plate like particles can have their own elasticity to them, affecting when jamming occurs. 
-\textcolor{blue}{https://doi.org/10.1039/C3MH00047H, https://pubs.acs.org/doi/10.1021/la402436w}
+\cite{imperiali_simple_2014, sun_assembly_2013}
 
 Control over the orientation of ellipsoidal particles at interfaces balances interfacial capillary and magnetic field forces. 
 \cite{bresme_orientational_2007, davies_assembling_2014} Theory and simulations indicate a critical field strength above which particle orientation 
@@ -181,8 +180,7 @@ and Reynolds numbers and simplicity of implementation, the BGK operator is often
 \cite{bhatnagar_model_1954} These limitations are present owing to the implicit link between the fluid properties and the relaxation rate necessitating 
 relaxation rates above 0.5, and to ensure fluid incompressibility from an equation that intrinsically simulates a compressible fluid. To get over these 
 limitations, Two Relaxation Time (TRT) and Multiple Relaxation Time (MRT) operators also exist, expanding the possible application of the LBM to visco-elastic 
-flows and implementation of fluctuating hydrodynamics in the LBM. 
-\textcolor{blue}{https://pubs.acs.org/doi/10.1021/acsomega.3c06663, https://iopscience.iop.org/article/10.1209/epl/i2004-10542-5, https://link.aps.org/doi/10.1103/PhysRevE.82.056714}
+flows and implementation of fluctuating hydrodynamics in the LBM. \cite{liu_simulation_2023, adhikari_fluctuating_2005}
 
 Five primary techniques to model multicomponent or multiphase systems exist in the LBM literature. A quick review of the Shan-Chen or 
 interparticle potential model  will be provided here from the perspective of a binary mixture. Additionally, the names and descriptions of 
@@ -198,6 +196,4 @@ functional to recover interfacial dynamics and effects in a thermodynamically co
 simplicity and ease of implementation. The mean field theory 
 
 The non-ideal mixing dynamics are recovered during the "recoloring" step, of which the technique proposed by Latva-Kokko and Rothman is more commonly 
-used for soft matter flows.
-
-\textcolor{blue}{https://pure.tue.nl/ws/files/25832941/1404.7523.pdf}
+used for soft matter flows. \cite{liu_multiphase_2016}

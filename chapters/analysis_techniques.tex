@@ -39,8 +39,7 @@ factor. The spherical averaging is done by averaging the values of the structure
 till the nyquist frequency. The spherically averaged structure factor is defined as $S(k)$ where $k$ represents the 
 wave numbers obtained from the spherical averaging. Next, the first moment $\langle k_1 \rangle$ is calculated as 
 $\langle k_1 \rangle = \frac{\Sigma_{k} k\cdot S(k)}{\Sigma_{k} S(k)}$. Finally, the domain size is calculated as 
-$L_1 = \frac{2 \pi}{\langle k_1 \rangle}$. This domain size is used in past literature 
-\textcolor{blue}{https://doi.org/10.1017/S0022112001004682, https://www.doi.org/10.1103/PhysRevE.67.046304} 
+$L_1 = \frac{2 \pi}{\langle k_1 \rangle}$. \cite{kendon_inertial_2001,kendon_3d_1999} This domain size is used in past literature 
 to calculate the correct scaling regime of a system undergoing spinodal decomposition. 
 
 While it cannot be used to correlate physical phenomena the second moment of the structure factor derived domain 
@@ -89,7 +88,7 @@ or Pore Network Modelling (PNM) based techniques such as PoreSpy have been intro
 for speed. Taufactor in particular is implemented on GPU's with a periodic boundary condition, allowing for rapid and 
 accurate calculation of the tortuosity.
 
-\textcolor{blue}{https://joss.theoj.org/papers/10.21105/joss.05358, https://doi.org/10.1016/j.softx.2019.100277, https://joss.theoj.org/papers/10.21105/joss.01296}
+% \textcolor{blue}{https://joss.theoj.org/papers/10.21105/joss.05358, https://doi.org/10.1016/j.softx.2019.100277, https://joss.theoj.org/papers/10.21105/joss.01296}
 
 Before using taufactor, the microstructure is first binarized. This is done by first calculating the order parameter of 
 the system with $\phi = \rho_b - \rho_r$ where $\phi$ is the order parameter and $\rho_b, \rho_r$ are the densities of 
@@ -97,11 +96,11 @@ the blue and red fluid respectively. Next, the interface described with $\phi$ i
 in section \ref{section:filling_routine}. \texttt{taufactor} determines the tortuosity by comparison
 of steady-state diffusive flow through a porous medium with the bulk
 diffusive flow in a control volume of the same size, molecular
-diffusivity, and driving force \cite{cooper_taufactor_2016}. We used
+diffusivity, and driving force \cite{cooper_taufactor_2016, kench_taufactor_2023}. We used
 the \texttt{PeriodicSolver} to employ periodic boundary conditions. In many of the bijels synthesized using small molecule liquids, monomer is 
 introduced into the oil phase and polymerized. Therefore, to perform the binarization step, we select all points where 
 $\phi \leq 0$ and set their value to $0$, and all other values are set to $1$. To taufactor, $1$ represents void spaces 
-and 0's are solid. \cite{cooper_taufactor_2016}
+and 0's are solid. \cite{cooper_taufactor_2016, kench_taufactor_2023}
 
 \subsection{Nematic order parameter}
 \label{section:nematic_order_parameter}
@@ -159,7 +158,7 @@ The orientation of the particle is obtained from the output files from the simul
 be calculated from $\phi$. This is done by taking $\phi$ as calaculated from the red and blue fluid densities, then 
 performing the particle fill routine described in section \ref{section:filling_routine}. Next, a mesh corresponding 
 to the interface is obtained using a marching cubes algorithm at a countour level of 0 with a cube length of 4 lattice 
-units, which corresponds to the thickness of the interface. \textcolor{blue}{https://doi.org/10.7717/peerj.453} The 
+units, which corresponds to the thickness of the interface. \cite{van_der_walt_scikit-image:_2014} The 
 position of the particle and its closest vertex is calculated. If this distance is larger than the first minimum in 
 the radial distribution function, it is considered to be not on the interface and the next step is not performed. The 
 vertex and corresponding normal closest to the position of a particle is used in the dot product, 
@@ -230,4 +229,4 @@ utilized to fit the shear viscosity as a function of shear rate to calculate the
 applications, this parameter gives insight into the material stability and processability.
 
 \subsection{Shear banding}
-\label{section:yield_stress}
+\label{section:shear_banding}
