@@ -170,7 +170,7 @@ Upon uncovering of a grid point, it is assigned a density value that represents 
 
 For particles close to contact, meaning with inter-surface distances under 1 lattice unit the hydrodynamics are unresolved as the
 distance is smaller than what the model can resolve. Lubrication forces are added to reduce the likelihood of particle overlap. For 
-spherical particles, this is defined in Equation \ref{eq:sphere_lube}
+spherical particles, this is defined in Equation \eqref{eq:lubrication}
 
 \begin{equation}
     \vec{F}_l = -6 \pi \eta \frac{R_1^2 R_2^2}{\left(R_1+R_2\right)^2}\left(\frac{1}{|\vec{r}_{ij}|-R_1-R_2}-\frac{1}{d_c}\right) \frac{\left(\vec{u}_{12}\cdot\vec{r}_{12}\right)\vec{r}_{12}}{|\vec{r}_{12}|^2} ,% \qquad d<d_c,
@@ -180,7 +180,7 @@ spherical particles, this is defined in Equation \ref{eq:sphere_lube}
 where $R_i$ and $R_j$ are the radii of each particle involved in the interaction, $\vec{r}_{ij}$ is the distance
 vector between the particle centers, $\mathbf{u}_{ij}$ are the relative velocities of the particles and $\Delta_c$ 
 is the cutoff distance when the lubrication force begins to act. If particles are able to overcome the lubrication forces, 
-a hertzian contact force is also added to ensure that there is no particle overlap, defined in Equation \ref{eq:hertz_def}
+a hertzian contact force is also added to ensure that there is no particle overlap, defined in Equation \eqref{eq:hertz}
 
 \begin{equation}
     \phi_{H} = K_{H}(R_i + R_j - |\mathbf{r}_{ij}|)^{5/2}, r < R_i + R_j
