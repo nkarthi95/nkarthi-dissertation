@@ -41,24 +41,24 @@
 \section{Introduction}
 \label{section:introduction}
 
-Porous materials are defined as materials that contain pores or voids within their structure where no material is present. 
-Homogeneous materials in contrast have a uniform structure with no pores. These pores vary in shape and distribution, with materials 
-being categorized by pore size per IUPAC as $(L)$ as microporous $(L < 2nm)$, mesoporous $(2nm < L < 50nm)$ and macroporous materials 
-$(50nm < L)$. \cite{sing_reporting_1985} The presence of these pores increases the surface area to volume 
-ratio of porous materials compared to their homogeneous counterparts. A common experimental technique used to estimate the surface area 
-of a porous material derived from Brunauer-Emmett-Teller(BET) theory shows that porous materials can have surface areas more than a 
-hundred times larger than homogenous materials, dependent upon the pore size and pore size distribution. \cite{shimizu_surface_2022}
+Porous materials are characterized by the presence of pores or voids within their structure, where no solid material is present. 
+In contrast, homogeneous materials exhibit a uniform structure devoid of pores. The shape and distribution of these pores can vary, 
+and according to the IUPAC classification, materials are categorized based on pore size as microporous ($L < 2$ nm), 
+mesoporous ($2 < L < 50$ nm), or macroporous ($L > 50$ nm) \cite{sing_reporting_1985}. The presence of pores significantly 
+increases the surface area-to-volume ratio of porous materials compared to their homogeneous counterparts. A commonly used experimental 
+technique for estimating the surface area of porous materials, based on Brunauer-Emmett-Teller (BET) theory, has demonstrated that such 
+materials can exhibit surface areas more than a hundred times greater than those of homogeneous materials, depending on pore size and pore 
+size distribution \cite{shimizu_surface_2022}.  
 
-In addition to the pore size and its distribution within the material, the arrangement of pores within the material contribute to the 
-performance of the synthesized material, commonly measured using the tortuosity. Tortuosity here is defined as the path length between 
-two points divided by the euclidean length between those points. A tortuosity larger than one implies that the path length is longer 
-than the euclidean length, and vice versa if the tortuosity if less than one. Highlighting the confluence of these factors are the 
-large variety of tailored microstructures for various applications. Each of the specified pore length scales have their unique uses, 
-such as microporous materials being used as zeolites and photonic bandgap materials while macroporous materials facilitate greater 
-transport properties, suitable in applications such as battery electrodes and drug delivery systems. \cite{chen_tortuosity_2020, 
-ebner_tortuosity_2014} This increased surface area to volume ratio enhances the properties of the base material in applications such 
-as catalysis, battery electrodes and drug delivery systems among many more making them valuable microstructures. 
-\cite{cha_bicontinuous_2019, samdani_bicontinuous_2017, thorson_bijel-templated_2019, zhao_highly_2014}
+In addition to pore size and its distribution, the spatial arrangement of pores within a material significantly influences its performance, 
+often quantified by tortuosity. Tortuosity is defined as the ratio of the actual path length between two points to the Euclidean distance 
+between them. A tortuosity greater than one indicates that the path length is longer than the Euclidean distance, whereas a tortuosity less 
+than one suggests a more direct pathway. The interplay of these factors has led to the development of a wide range of tailored microstructures 
+for diverse applications. Each pore size regime serves distinct functions; for example, microporous materials are commonly used in zeolites and 
+photonic bandgap materials, while macroporous materials enhance transport properties, making them suitable for applications such as battery 
+electrodes and drug delivery systems \cite{chen_tortuosity_2020, ebner_tortuosity_2014}. The increased surface area-to-volume ratio of porous 
+materials further enhances the properties of the base material in various applications, including catalysis, energy storage, and biomedical 
+systems, making them important microstructures. \cite{cha_bicontinuous_2019, samdani_bicontinuous_2017, thorson_bijel-templated_2019, zhao_highly_2014}.  
 
 \begin{figure}
     \centering
@@ -67,22 +67,24 @@ as catalysis, battery electrodes and drug delivery systems among many more makin
     \label{fig:bijel_template}
 \end{figure}
 
-Conventionally, porous materials have been synthesized through solvothermal synthesis or pyrolysis used in the synthesis of zeolites and 
-activated carbon respectively. With more targeted applications of porous materials, synthesis techniques such as sol-gel synthesis, 
-freeze drying and various forms of templating have been utilized to synthesize porous materials from length scales of $10^{-9}m$ to 
-$10^{-3}m$. \cite{stein_morphological_2008, ray_comprehensive_2016, cervellere_mesoscopic_2019, garcia-bennett_unique_2020, zhang_emulsion_2019, 
-alves-rosa_design_2013} Industry has also taken up techniques such as electrospinning to generate non woven fibers, used in membrane synthesis. 
-Templating techniques in particular offer access to various pore length scales, bottom up synthesis and functionality through leveraging various 
-physical phenomena. Colloidal templating works through the close packing of particles. Surfactant and polymer templating work through the 
-assembly of macromolecules into their equilibrium configurations. Emulsion templating utilizes the phase separation of partially miscible 
-liquids to form the pore structure of a porous material. 
+Conventionally, porous materials have been synthesized through methods such as solvothermal synthesis and pyrolysis, which are commonly 
+used for producing zeolites and activated carbon, respectively. With the increasing demand for tailored porous materials, advanced synthesis 
+techniques—including sol-gel synthesis, freeze-drying, and various templating methods—have been developed to fabricate porous structures across 
+length scales ranging from $10^{-9}$ m to $10^{-3}$ m 
+\cite{stein_morphological_2008, ray_comprehensive_2016, cervellere_mesoscopic_2019, garcia-bennett_unique_2020, zhang_emulsion_2019, alves-rosa_design_2013}. 
+Industry has also adopted techniques such as electro-spinning to produce nonwoven fibers, which are widely used in membrane synthesis.  
+Among these approaches, templating techniques provide precise control over pore size, enable bottom-up synthesis, and introduce functionality by 
+leveraging various physical phenomena. Colloidal templating relies on the close packing of particles to define pore structures. Surfactant and 
+polymer templating utilize the self-assembly of macromolecules into their equilibrium configurations to generate porous networks. Emulsion templating, 
+on the other hand, exploits the phase separation of partially miscible liquids to form the pore architecture of the resulting material.  
 
-Emulsion templating offers access to a large length scale of tunable pore sizes, continuous production through microfluidic junctions or 
-other flow media, functionalization through the addition of additives or stabilizers, scope of accessible microstructures and mild synthesis 
-conditions. It can further be extended to include heirarchical porosity, further enhancing its utility and fabricated material properties. 
-\cite{yang_hierarchically_2017, thompson_hierarchically_2019, wang_morphology_2023} Figure \ref{fig:bijel_template} demonstrates how emulsion 
-templating allows bottom up synthesis of hierarchically porous materials, although other examples do exist. 
-\cite{garcia_scalable_2019, santiago_cordoba_aerobijels_2020, thorson_bijel-templated_2019, lu_controllable_2020, wang_morphology_2023}
+Emulsion templating enables the fabrication of porous materials with a wide range of tunable pore sizes, continuous production through microfluidic 
+junctions or other flow-based systems, and functionalization through the incorporation of additives or stabilizers. This technique also offers a broad 
+scope of accessible microstructures and benefits from mild synthesis conditions. Additionally, it can be extended to generate hierarchical porosity, 
+further enhancing the functionality and properties of the resulting materials \cite{yang_hierarchically_2017, thompson_hierarchically_2019, wang_morphology_2023}.  
+Figure \ref{fig:bijel_template} illustrates how emulsion templating enables the bottom-up synthesis of hierarchically porous materials, although various 
+alternative approaches also exist 
+\cite{garcia_scalable_2019, santiago_cordoba_aerobijels_2020, thorson_bijel-templated_2019, lu_controllable_2020, wang_morphology_2023}.
 
 \begin{figure}
     \centering
@@ -93,22 +95,23 @@ templating allows bottom up synthesis of hierarchically porous materials, althou
     \label{fig:bijel_coarsen}
 \end{figure}
 
-One such emulsion microstructure of interest is the bicontinuous interfacially jammed emulsion gel(bijel). 
-\cite{stratford_colloidal_2005, herzig_bicontinuous_2007, lee_bicontinuous_2010} Bijels are made by arresting the spinodal decomposition of 
-partially miscible liquids, caused by particles adsorbing on the interface and jamming as the cross sectional area of the particles match that 
-of the interface, summarized in Figure \ref{fig:bijel_coarsen}. Bijels are of interest due to their co-continuous, tortuous microstructure which 
-represent excellent fits for several porous material applications.
+One particularly interesting emulsion-derived microstructure is the bicontinuous interfacially jammed emulsion gel (bijel) 
+\cite{stratford_colloidal_2005, herzig_bicontinuous_2007, lee_bicontinuous_2010}. Bijels are formed by arresting the spinodal decomposition of partially 
+miscible liquids, a process driven by the adsorption of colloidal particles at the interface. As the interfacial area contracts, the particles become 
+jammed, stabilizing the bicontinuous structure, as summarized in Figure \ref{fig:bijel_coarsen}. The resulting co-continuous and tortuous microstructure 
+of bijels makes them highly suitable for various porous material applications.  
 
-Bijels were discovered in simulations in 2005 and experimentally realized in 2007 when a mixture of water and 2-6-lutidine mixed with 
-surface modified silica nanoparticles underwent thermally induced spinodal decomposition. \cite{stratford_colloidal_2005, herzig_bicontinuous_2007}
-Since then, multiple other casting mixtures and particle chemistry's have been used to fabricate bijels using Thermally Induced Spinodal 
-Decomposition (TIPS). \cite{lee_bicontinuous_2010, bai_dynamics_2015} More recently, techniques such as Solvent Transfer Induced Phase 
-Separation (STrIPS), Vapor Induced Phase Separation (VIPS), Non-solvent Induced Phase Separation (NIPS), homogenization and liquid in 
-liquid printing have been utilized to fabricate bijels, demonstrating the ability for bijels to be synthesized in a continuous process, 
-suitable for scale up. \cite{haase_continuous_2015, wang_scalable_2020, cai_bijels_2017, yabuno_preparation_2020, wang_bicontinuous_2023, 
-amirfattahi_fabrication_2024} These techniques also offer preparation of bijels in various different shapes and form-factors for various 
-uses such as fibers, coatings and capsules, seen in Figure \ref{fig:strips}. \cite{haase_continuous_2015, boakye-ansah_controlling_2020, 
-kharal_hightensile_2020, wang_bicontinuous_2023}
+Bijels were first predicted in simulations in 2005 and experimentally realized in 2007 when a mixture of water and 2,6-lutidine, combined with 
+surface-modified silica nanoparticles, underwent thermally induced spinodal decomposition \cite{stratford_colloidal_2005, herzig_bicontinuous_2007}. 
+Since then, various casting mixtures and particle chemistries have been explored to fabricate bijels using thermally induced spinodal decomposition (TIPS) 
+\cite{lee_bicontinuous_2010, bai_dynamics_2015}. More recently, alternative fabrication techniques such as solvent transfer-induced phase separation (STrIPS), 
+vapor-induced phase separation (VIPS), non-solvent-induced phase separation (NIPS), homogenization, and liquid-in-liquid printing have been developed. 
+These methods enable the continuous synthesis of bijels, making them more suitable for large-scale production 
+\cite{haase_continuous_2015, wang_scalable_2020, cai_bijels_2017, yabuno_preparation_2020, wang_bicontinuous_2023, amirfattahi_fabrication_2024}. 
+Additionally, these techniques allow for the fabrication of bijels in various shapes and form factors, including fibers, coatings, and capsules, expanding 
+their applicability across different fields, as illustrated in Figure \ref{fig:strips} 
+\cite{haase_continuous_2015, boakye-ansah_controlling_2020, kharal_hightensile_2020, wang_bicontinuous_2023}.  
+
 \begin{figure}[h]
     \centering
     \includegraphics[scale = 2]{figures/literature_review/STRIPPS.jpg}
@@ -117,50 +120,54 @@ kharal_hightensile_2020, wang_bicontinuous_2023}
     \label{fig:strips}
 \end{figure}
 
-However, these techniques all depend upon controlling the rate of phase separation, which involve changing the casting mixture composition to 
-modify the obtained microstructure. In STrIPS, the obtained bijel microstructure is a function of the flow rate and selected co-solvent, 
-selected to change the rate of phase separation. \cite{haase_continuous_2015} This affects material properties such as the mechanical 
-performance of the bijel, important in fields such as catalysis where rigidity of the particle monolayer is crucial in ensuring consistent 
-performance. \cite{reeves_particle-size_2015, haase_situ_2016, boakye-ansah_controlling_2020} Identification of other techniques that can 
-be utilized to modify the microstructure of a bijel would enable bijels to continue using the desired composition of constituents, while 
-also adding other unique properties. Stimuli response offers one such road to microstructure modification.
+However, all of these techniques rely on precisely controlling the rate of phase separation, which typically involves adjusting the composition 
+of the casting mixture to modify the resulting microstructure. In STrIPS, for example, the bijel microstructure is influenced by both the flow rate 
+and the choice of co-solvent, which are selected to regulate the phase separation dynamics \cite{haase_continuous_2015}. These factors directly 
+impact material properties such as the mechanical stability of the bijel, which is particularly important in applications like catalysis, where the 
+rigidity of the particle monolayer is essential for maintaining consistent performance 
+\cite{reeves_particle-size_2015, haase_situ_2016, boakye-ansah_controlling_2020}. Identifying alternative techniques for modifying the microstructure of 
+bijels would allow for greater tunability while maintaining the desired composition of the constituent materials. One promising approach for achieving 
+such control is the use of stimuli-responsive mechanisms.  
 
 \textcolor{blue}{ADD IN PICTURE FROM THAM 2021 AND CUI 2013 ON EXAMPLES OF STIMULI RESPONSE IN EMULSIONS}
 
-Stimuli response based on pH, external fields and temperature have been used in past works when looking at modifying the microstructure of 
-emulsion droplets for enhanced oil recovery, pharmaceutical and cell adhesion. \cite{haase_nanoparticle_2011, tham_magnetophoresis_2021, 
-cui_stabilizing_2013, manfredini_limonene--water_2021}  It was shown that external fields can be used to move, control emulsion stability 
-and elongate emulsion droplets. \cite{tham_magnetophoresis_2021, cui_stabilizing_2013, melle_pickering_2005} Bijels stabilized spherical 
-particles under a magnetic field showed no meaningful microstructure changes. \cite{kim_bijels_2010} Bijels stabilized with spherical 
-particles under an electric field showed more promise. \cite{carmack_tuning_2018} However, magnetic fields offer targeted stimuli 
-response, allowing even weak fields to incite a response. Magnetic fields non-interaction in many situations offer advantages to many of 
-the desired uses of bijels within pharmaceutical or bioengineering applications. \cite{vanoli_bijels_2022, thorson_bijel-templated_2019, thorson_composite_2018} 
-These applications can also take advantage of in-situ microstructure modification that would enable tunable drug delivery rates, separations or
-catalyst efficiency and permeability improvements in the system. Therefore, identifying schemes that allow modification of the pore size 
-and tortuosity without synthesis of a new material would enhance the use case of bijels. 
+Stimuli-responsive mechanisms based on pH, external fields, and temperature have been explored in previous studies to modify the microstructure of emulsion 
+droplets for applications such as enhanced oil recovery, pharmaceuticals, and cell adhesion 
+\cite{haase_nanoparticle_2011, tham_magnetophoresis_2021, cui_stabilizing_2013, manfredini_limonene--water_2021}. External fields have been shown to 
+manipulate emulsion stability, control droplet movement, and induce elongation in emulsion droplets 
+\cite{tham_magnetophoresis_2021, cui_stabilizing_2013, melle_pickering_2005}.  
+In the case of bijels, spherical particle-stabilized systems subjected to a magnetic field exhibited no significant microstructural changes 
+\cite{kim_bijels_2010}. However, bijels stabilized with spherical particles under an electric field demonstrated greater potential for microstructure 
+modification \cite{carmack_tuning_2018}. Despite this, magnetic fields present a promising avenue for targeted stimuli-responsive behavior, as even 
+weak fields can induce a response while remaining non-invasive in many contexts. This property is particularly advantageous for pharmaceutical and 
+bioengineering applications, where external control over material properties is desirable 
+\cite{vanoli_bijels_2022, thorson_bijel-templated_2019, thorson_composite_2018}.  
+Such applications could benefit from in-situ microstructural modifications, enabling tunable drug delivery rates, improved separations, and enhanced catalyst 
+efficiency and permeability. Therefore, developing strategies to modify pore size and tortuosity without requiring the synthesis of a new material would 
+significantly expand the functional versatility of bijels.  
 
-Anisotropic particles at interfaces have shown self assembly due to the presence of multi-polar pressure fields caused by interface deformation. 
-Self assembly has also been shown for ellipsoidal particles at interfaces under magnetic fields. Ellipsoidal particles have also been shown to 
-exhibit magnetic field controlled orientations at interfaces, as Bresme and Faraudo showed. \cite{bresme_orientational_2007, davies_interface_2014}
-Under magnetic fields, assemblies of multiple ellipsoidal particles have been shown to have energy minima at orientations different from isolated particles,
-meaning that the interface coverage of interfaces decorated with ellipsoidal particles can be varied using stimuli response. 
-\cite{newton_influence_2014, newton_capillary_2018} Thus ellipsoidal particles at interfaces, whose orientations and packing can be 
-controlled through external fields, offer a potential means to control the microstructure of bijels.
+Anisotropic particles at interfaces have been shown to undergo self-assembly due to the presence of multipolar pressure fields induced by interface 
+deformation. Similarly, self-assembly has been observed for ellipsoidal particles at interfaces under magnetic fields. Additionally, ellipsoidal particles 
+exhibit magnetic field-controlled orientation at interfaces, as demonstrated by Bresme and Faraudo \cite{bresme_orientational_2007, davies_interface_2014}.  
+When subjected to a magnetic field, assemblies of multiple ellipsoidal particles exhibit energy minima at orientations different from those of isolated 
+particles. This suggests that the interfacial coverage of surfaces decorated with ellipsoidal particles can be dynamically tuned using external 
+stimuli \cite{newton_influence_2014, newton_capillary_2018}. Therefore, ellipsoidal particles at interfaces—whose orientation and packing can be externally 
+controlled—present a promising strategy for tailoring the microstructure of bijels.  
 
-Bijels present a bottom up synthesis strategy for porous material templates for hard and soft material applications in a scalable and 
-continuous method using STrIPS and other techniques. However, the microstructure control these techniques offer are intrinsically linked 
-to the casting mixture composition. Stimuli response offers a way to modify the microstructure of bijels while still maintaining the 
-various form factors these continuous synthesis techniques can output. Magnetic stimuli response has been explored in the past using bijels 
-stabilized with spherical particles with little success. \cite{kim_bijels_2010} 
+Bijels offer a bottom-up synthesis approach for porous material templates, enabling scalable and continuous fabrication for both hard and soft material 
+applications through STrIPS and related techniques. However, the degree of microstructural control provided by these methods is inherently dependent on 
+the composition of the casting mixture. Stimuli-responsive strategies present a means to modify the microstructure of bijels while preserving the 
+diverse form factors achievable through continuous synthesis techniques. Previous attempts to induce magnetic stimuli response in bijels stabilized 
+with spherical particles have shown limited success \cite{kim_bijels_2010}.  
 
-With this background, we propose anisotropic particles as a technique to enable microstructure modification of bijels 
-upon application of an external field during and after fabrication. This work seeks to identify means to control the bijel microstructure independent 
-of the casting mixture composition by utilizing magnetic stimuli on bijels stabilized with magnetically responsive ellipsoidal particles. 
-The proposed mechanism of microstructure modification is driven through reorientation of the particles to the applied magnetic field altering 
-how the particles pack on the interface. By changing the interfacial packing of the particles, we change when the particles jam, which in turn changes 
-the jamming point of the bijel. This mechanism is predicted to be effective during and after synthesis. The processability of bijels fabricated using 
-this technique will also be investigated to ascertain how changes in particle packing affect the rheology of the material. An overview of three major 
-research aims will be presented below.
+Building on this background, we propose the use of anisotropic particles as a technique to enable microstructure modification of bijels upon the application 
+of an external field, both during and after fabrication. This work aims to explore methods for controlling the bijel microstructure independently of the casting 
+mixture composition by utilizing magnetic stimuli on bijels stabilized with magnetically responsive ellipsoidal particles.  
+The proposed mechanism of microstructure modification is based on the reorientation of particles in response to the applied magnetic field, which alters the 
+packing arrangement of the particles at the interface. By modifying the interfacial packing, the point at which the particles jam is also altered, thereby 
+affecting the jamming point of the bijel. This mechanism is expected to be effective both during and after the synthesis process. Additionally, the 
+processability of bijels produced using this technique will be examined to assess how changes in particle packing influence the rheological properties of 
+the material.  
 
 \section{Research objective}
 
@@ -169,71 +176,72 @@ research aims will be presented below.
 \subsection{Aim 1: Determination of the degree of microstructure changes expected when applying a constant field during bijel formation}
 \label{section:aim1_desc}
 
-The jamming point of a bijel controls the obtained microstructure, as shown by previous work comparing the length scale of bijels synthesized 
-with different particle volume fractions and particle sizes. \cite{jansen_bijels_2011, reeves_particle-size_2015} It has also been shown how magnetic fields 
-can be used to enable self assembly of ansisotropic particles at interfaces and control the interfacial angle between the particle axis of symmetry and the interface. 
-\cite{davies_interface_2014, davies_assembling_2014}
-On a curved interface with many other particles, it is unknown how multiple particles orienting to a field and having regular structure will affect when and how the bijel 
-will jam. \cite{bresme_orientational_2007, davies_interface_2014}
+The jamming point of a bijel plays a crucial role in determining the resulting microstructure, as demonstrated by previous studies comparing the length scales 
+of bijels synthesized with varying particle volume fractions and sizes \cite{jansen_bijels_2011, reeves_particle-size_2015}. Additionally, it has been shown 
+that magnetic fields can facilitate the self-assembly of anisotropic particles at interfaces and control the interfacial angle between the particle's axis 
+of symmetry and the interface \cite{davies_interface_2014, davies_assembling_2014}. However, on a curved interface with numerous other particles, it remains 
+unclear how the orientation of multiple particles in response to the field and their regular arrangement will influence the jamming behavior of the bijel 
+\cite{bresme_orientational_2007, davies_interface_2014}.  
 
-To assess the obtained microstructure upon application of a field during formation of the bijel, homogenous mixtures containing spherical and 
-ellipsoidal particles will be subjected to field strengths above and below the critical field strength when particle orientations to the 
-interface are controlled by the applied field strength, as calculated by Bresme and Faraudo for the particle aspect ratio. \cite{bresme_orientational_2007, davies_interface_201} This selection of fields 
-will allow insight into the controlling mechanisms behind microstructural changes observed, allowing verification of the hypothesis and 
-ascertainment where the most control over the microstructure can be exercised.
+To evaluate the microstructure obtained upon the application of a field during the formation of the bijel, homogeneous mixtures containing spherical and 
+ellipsoidal particles will be subjected to field strengths both above and below the critical field strength. This critical field strength is the threshold 
+at which particle orientations to the interface are governed by the applied field, as calculated by Bresme and Faraudo for the particle aspect ratio 
+\cite{bresme_orientational_2007, davies_interface_2014}. The range of selected field strengths will provide insight into the mechanisms controlling 
+microstructural changes, enabling verification of the hypothesis and identification of the conditions under which the most control over the microstructure 
+can be achieved.
 
-The average and directional domain sizes in addition to their relation with tortuosity will allow characterization of the microstructural properties 
-of the resulting bijel. The nematic order parameter and average interfacial angle will be used to investigate how the application of the 
-field affects the particle ordering to each other, and to the interface. Finally, the radial distribution function will be used to assess 
-if the orientational changes expected upon field application, affects the packing of the particles on the interface.
+The average and directional domain sizes, along with their relationship to tortuosity, will be used to characterize the microstructural properties of the 
+resulting bijel. The nematic order parameter and the average interfacial angle will provide insight into how the application of the field influences particle 
+ordering, both among the particles and relative to the interface. Finally, the radial distribution function will be employed to assess whether the expected 
+orientational changes upon field application affect the packing of particles at the interface.
 
 \subsection{Aim 2: Microstructure changes and timescales upon application of a magnetic field after formation}
 \label{section:aim2_desc}
 
-Particles on the surface of emulsion droplets have been shown to unjam and rejam into new, stable microstructures upon application of 
-stimuli. \cite{cui_stabilizing_2013} Magnetic fields applied to bijels stabilized with ellipsoidal particles will facilitate unjamming and rejamming of
-the particle monolayer, resulting in microstructure modification of the bijel. Due to local changes in the state of the particles, specifically the 
-interfacial ordering in a specific direction and arrangement of particles, we expect that there will be microstructure modification even when the 
-magnetic field is switched off. Two techniques of microstructure change are proposed. The first technique is that the adsorption 
-energy is so strong that the interface is dragged along with the particles until they rejam in their new location and orientation to the 
-field. The second technique is that the particles tilt in place out of the interface, causing domain coarsening before the particles jam 
-in their new positions and orientations. The mechanism, derived microstructure change and timescales will be assessed in this aim.
+Particles at the surface of emulsion droplets have been shown to unjam and rejam into new, stable microstructures upon the application of stimuli 
+\cite{cui_stabilizing_2013}. Magnetic fields applied to bijels stabilized with ellipsoidal particles will promote the unjamming and rejamming of the 
+particle monolayer, leading to modifications in the bijel's microstructure. Due to local changes in the state of the particles—specifically, alterations 
+in the interfacial ordering and the direction and arrangement of particles—we anticipate that microstructure changes will persist even after the magnetic 
+field is turned off. Two mechanisms for microstructure modification are proposed. The first suggests that the adsorption energy is sufficiently strong to 
+cause the interface to move with the particles, allowing them to rejam in new locations and orientations relative to the field. The second mechanism posits 
+that the particles tilt within the interface, leading to domain coarsening before jamming in their new positions and orientations. This study will assess the 
+mechanism, the resulting microstructural changes, and the associated timescales.
 
-The response of bijels to magnetic fields will be assessed through analyzing how model bijels made with no fields respond to field strengths 
-above and below the critical field strength as calculated from Bresme Faraudo theory. The microstructure properties such as the average domain 
-size, particle orientation to the field and interface and the Steinhardt 6 fold bond order parameter to examine the spatial relationship of 
-the particles to their neighbors. These techniques will allow elucidation of which mechanism is present at which magnetic field strength. 
-Additionally, the microstructure changes observed will be characterized and compared to one another to assess how the applied magnetic field 
-changes the final microstructure obtained. 
+The response of bijels to magnetic fields will be evaluated by analyzing how model bijels, synthesized without applied fields, respond to field 
+strengths both above and below the critical field strength, as calculated using Bresme and Faraudo's theory. Microstructural properties, including the 
+average domain size, particle orientation relative to the field and interface, and the Steinhardt 6-fold bond order parameter, will be used to examine 
+the spatial relationships between particles and their neighbors. These techniques will enable the identification of the mechanisms active at different 
+magnetic field strengths. Additionally, the observed microstructure changes will be characterized and compared to assess how the applied magnetic field 
+influences the final microstructure.
 
-Next, the importance of the initial order of the particle monolayer will also be assessed through increasing the applied field to equal to the 
-surface tension forces on bijel templates simulated under various field strengths. The applied field will also be switched off on bijel templates 
-simulated under the same field strengths. The same analysis metrics mentioned earlier will be used. Additionally, the microstructures with the 
-same difference in applied field,  will be assessed to investigate the reversibility of bijel microstructures. 
+Next, the importance of the initial ordering of the particle monolayer will be assessed by increasing the applied field to levels equal to the surface 
+tension forces on bijel templates simulated under various field strengths. The applied field will also be switched off for bijel templates simulated under 
+the same conditions. The same analysis metrics mentioned previously will be used. Additionally, microstructures with the same difference in applied field 
+will be examined to investigate the reversibility of bijel microstructures.
 
 \subsection{Aim 3: Rheological characterization of bijels formed under and subjected to a magnetic field}
 \label{section:aim3_desc}
 
-In many of the fabrication processes described above, the rheology of the bijel casting mixture is essential. 
-\cite{haase_continuous_2015, cai_bijels_2017, amirfattahi_fabrication_2024} Ching showed that rheologically, bijels are 
-colloidal glasses percolating in 3D space. \cite{ching_bijel_2022} A shear capillary number, $Ca_s$, is defined that correlates the 
-applied strain rate to the capillary forces derived from surface tension. \cite{frijters_effects_2012, yang_capillary_2022} We are interested 
-in identifying the effect of the initial microstructure and an applied field on the rheological properties of the bijel.
+In many of the fabrication processes described above, the rheology of the bijel casting mixture plays a crucial role 
+\cite{haase_continuous_2015, cai_bijels_2017, amirfattahi_fabrication_2024}. Ching demonstrated that, rheologically, bijels behave as colloidal 
+glasses percolating in 3D space \cite{ching_bijel_2022}. A shear capillary number, \( Ca_s \), is defined to correlate the applied strain rate 
+with the capillary forces derived from surface tension \cite{frijters_effects_2012, yang_capillary_2022}. This study aims to identify the effect 
+of the initial microstructure and applied field on the rheological properties of the bijel.
 
 % $Ca_s = \frac{\eta_{f} \dot{\gamma} L_{1}}{\sigma}$ where $\dot{\gamma} = \frac{u_{LE}}{L_x}$ is the strain rate and 
 % $L_1$ is the average domain size. \cite{frijters_effects_2012, yang_capillary_2022} Lower capillary numbers in the range of
 %  $ 10^{-7} \geq Ca_s \leq 10^{-5}$ will be utilized. 
 % which corresponds to a $Ma << 0.01$ to accommodate the hydrodynamic model utilized.
 
-For this study, the yield stress and viscosity of the bijels will be explored as a function of the initial microstructure under 
-various $Ca_s$. The initial microstructure will be derived from bijels stabilized with ellipsoidal particles made with no magnetic field 
-and with a field strength equal to the surface tension energy. We then apply constant shear defined with $Ca_s$ to determine the yield stress and non-newtonian
-characteristics of the bijel. Previous investigations have revealed that the ordering of particles in the direction of shear change
-the rheological behavior significantly compared to unordered systems. Additionally, the domains of the bijel may create additional mechanisms for 
-rheological behavior modification which have not been probed in detail yet. 
+In this study, the yield stress and viscosity of the bijels will be examined as a function of the initial microstructure under various $Ca_s$ values. 
+The initial microstructure will be derived from bijels stabilized with ellipsoidal particles, synthesized both without a magnetic field and with a field 
+strength equal to the surface tension energy. Constant shear, defined by $Ca_s$, will be applied to determine the yield stress and non-Newtonian 
+characteristics of the bijel. Previous studies have shown that particle ordering in the direction of shear significantly alters the rheological behavior 
+compared to unordered systems. Additionally, the domains within the bijel may introduce new mechanisms for modifying rheological properties, which have 
+yet to be explored in detail.
 
-We will then identify the complex rheology of the bijels, calculating the loss and storage modulus of the bijel microstructures detailed earlier
-as a function of the oscillation of shear. The loss and storage modulus detail the viscous and elastic behavior of the bijel respectively, meaning 
-that the gel point of the bijel can be established as the point when the storage modulus exceeds the loss modulus. We will pay special attention to the 
-state of the particles in all simulations, correlating changes in the properties of the particle to observed rheological events. We will also identify if shear banding
-is observed. 
+We will then investigate the complex rheology of the bijels by calculating the loss and storage moduli of the bijel microstructures described 
+earlier as a function of oscillatory shear. The loss and storage moduli describe the viscous and elastic behavior of the bijel, respectively, 
+allowing the gel point of the bijel to be determined as the point at which the storage modulus exceeds the loss modulus. Special attention will be 
+given to the state of the particles in all simulations, correlating changes in particle properties with observed rheological events. Additionally, 
+we will assess whether shear banding occurs.

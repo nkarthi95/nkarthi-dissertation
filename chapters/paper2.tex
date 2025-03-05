@@ -1,3 +1,66 @@
+Stimuli responsive emulsions have seen interest for use in fields such
+as enhanced oil recovery, porous material templates, in-situ reaction
+seperation systems and drug delivery scaffolds.
+\cite{tang_stimuli-responsive_2016,} \cite{bago_rodriguez_capsules_2019}
+These applications are enabled through stimuli response driven
+microstructure modification, changing the permeability, sueface area and
+morphology of the emulsion. Leveraging advances in particle synthesis
+techniques and citing concerns over surfactant toxicity and
+environmental concerns, particle stabilized emulsions have made a
+resurgence in popularity after their discovery in 1907 by Ramsden and
+Pickering. \cite{rozynek_opening_2019} \cite{zhou_magnetic_2011} Stimuli
+response has been enabled in particle stabilized emulsions using pH,
+temperature or chemical composition changes.
+\cite{maingret_dextran-based_2020} \cite{lin_ph-responsive_2018}
+\cite{raju_ph-responsive_2018} \cite{zhang_ph_2022}
+
+Owing to its tortuous, co-continuous domain morphology, bicontinuous
+interfacially jammed emulsion gels (bijel) are studied for their
+possible applications to fabricate membranes, catalyst supports, battery
+electrodes and pharmaceutical products. \cite{yabuno_preparation_2020}
+\cite{samdani_bicontinuous_2017} \cite{cha_bicontinuous_2019}
+\cite{garcia_scalable_2019} \cite{santiago_cordoba_aerobijels_2020}
+Bijels are formed through the arresting of spinodal decomposition of
+partially miscible fluids. \cite{stratford_colloidal_2005}
+\cite{herzig_bicontinuous_2007} \cite{tavacoli_novel_2011} Once phase
+separation begins, the incipient interface begins to sweep through the
+system causing particles to begin to adsorbing into it. Once the
+interfacial area matches that of the cross sectional area of the
+adsorbed particles, the structure jams in place.
+\cite{stratford_colloidal_2005} \cite{herzig_bicontinuous_2007}
+\cite{tavacoli_novel_2011} After their discovery in simulations and
+subsequent synthesis in experiments, a rich diversity of bijel
+literature has developed around various fluid systems that allow for
+bijel synthesis, methods to fabricate them at scale and their
+applications.
+
+Bijels stabilized by ellipsoidal particles exhibit distinct domain evolution timescales compared to those stabilized by 
+spherical particles \cite{gunther_timescales_2014}. Unlike spherical particles, ellipsoidal particle reorientation at the 
+interface influences microstructure. After jamming, additional timescales emerge due to capillary interactions that drive 
+particle reorientation and prolonged domain coarsening \cite{gunther_timescales_2014}. Bijels behave as 2D glasses percolating 
+in 3D space, with locally jammed particles as observed by Günther et al. 
+\cite{ching_bijel_2022, torquato_jammed_2010, gunther_timescales_2014}. Studies on jammed suspensions indicate subdiffusive 
+particle movement, further confirming local jamming in bijel monolayers \cite{savelev_diffusion_2006}.
+
+Magnetic fields have gained interest as external stimuli due to their targeted interactions, biocompatibility, and material 
+versatility. The structural response of magnetically responsive hydroxyapatite crystals depends on initial particle orientation
+\cite{nakayama_stimuli-responsive_2018}. Magnetophoresis, where particles move along field lines, has been observed in Pickering 
+emulsions stabilized by magnetic microspheres \cite{tham_magnetophoresis_2021}. Structural deformation and de-emulsification occur due 
+to particle migration or tilting at the interface \cite{yang_rapid_2020, misra_magnetic_2020}. However, how these effects influence 
+bijel microstructure post-jamming remains unclear. Given the locally jammed nature of bijels, magnetic field responses, combined with 
+anisotropic particle stabilization, may offer a means to control bijel microstructure.
+
+
+This work investigates the structural response of bijels stabilized by anisotropic magnetic particles. Using a Lattice Boltzmann Method 
+coupled with Molecular Dynamics, we simulate a binary fluid system where ellipsoidal particles, modeled as magnetic dipoles along their 
+symmetry axis, stabilize bijel templates. Simulations without an applied field reveal anisotropic bijel formation, with microstructure 
+evolution dependent on particle reordering at the interface, quantified using the six-fold Steinhardt order parameter \(\langle Q_6 \rangle\).
+
+We further assess how initial microstructure influences structural changes, showing that the difference in order between initial and final 
+particle monolayers dictates the extent of microstructure evolution. Additionally, applying and removing a magnetic field results in distinct 
+microstructural properties and timescales, highlighting the importance of processing history. These findings demonstrate how magnetic fields, 
+combined with anisotropic particle-stabilized bijels, enable on-demand microstructure switching for potential applications.
+
 \section{Results}\label{sec:results_p2}
 \subsection{Field strength dependence on domain
 size}\label{field-strength-dependence-on-domain-size}
@@ -39,71 +102,9 @@ in the figure can be explained through the ordering of particles at the
 interface, causing a reduction in the available area that the particles
 have for stabilization.
 
-We characterize the microstructure changes observed through calculating
-a characteristic length scale, called the average domain size. The
-average domain size is calculated using the first moment of the 3D
-averaged structure factor. Past work has shown that this method
-correctly reproduces the scaling expected in phase separating systems.
-The structure factor is calculated from the fourier transform of the
-fluctuations in the order parameter. \cite{kendon_inertial_2001}
-
-\begin{equation}
-S(\mathbf{k}, t) = \widetilde{\phi}(\mathbf{k}, t)\widetilde{\phi}(\mathbf{-k}, t)
-\end{equation}
-
-\(\mathbf{k}\) represents the wave vector in each direction of each
-lattice grid point. The fluctuations in the order parameter are
-calculated from the order parameter of the bijel defined as
-\(\widetilde{\phi} = \phi - \langle \phi \rangle\). \(\phi\) is
-calculated through subtraction of the red from the blue fluid density,
-\(\phi = \rho^b - \rho^r\). The average domain size is commonly
-calculated using the spherically averaged structure factor where all
-points corresponding to \(k = |\mathbf{k}|\) are binned, where \(k\) is
-the magnitude of \(\mathbf{k}\).
-
-\begin{equation}
-S(k, t) = \frac{1}{n} \sum_{k - \Delta < k < k + \Delta} S(\mathbf{k}, t)
-\label{eq:structure_factor_calc}
-\end{equation}
-
-The average domain size can then be calculated from the spherically
-averaged structure factor after calculating the first moment of the
-structure factor using the following expression.
-
-\begin{equation}
-L(t) = 2\pi \frac{\sum S(k, t) }{ \sum k S(k, t) }
-\end{equation}
-
-We found that this method for determining domain size generally
-overestimated the observed channel diameter. However, previous studies
-have demonstrated that the scaling behavior of the first-moment-derived
-domain size aligns with the expected phase separation in spinodal
-decomposition. The overestimation arises due to the limited number of
-samples at small k values, where the bin size is roughly equivalent to
-the k value. Additionally, in simulations with periodic domains, both
-the structure factor and computed length scale are influenced by
-finite-size effects. Nonetheless, this measurement still provides
-valuable insight into trends in the average domain size.
-
 To correlate the microstructure evolution to the ordering of the
 particle monolayer to the magnetic field, we calculate the nematic order
-parameter. \cite{cuesta_monte_1990} First, the average orientational
-tensor is calculated from the particle orientations in Eq
-\ref{eq:orientational_order_tensor}
-
-\begin{equation}
-Q = \frac{1}{n_p} \sum_{i} (\frac{3}{2}[\hat{\mathbf{o}}_i \otimes \hat{\mathbf{o}}_i] - \frac{1}{2}\mathbf{I})
-\label{eq:orientational_order_tensor}
-\end{equation}
-
-In Eq \ref{eq:orientational_order_tensor}, \(\hat{\mathbf{o}}_i\)
-defines the orientation vector of particle \(i\) and \(\mathbf{I}\) is
-the identity matrix. The nematic director or average particle
-orientation is the eigenvector corresponding to the largest eigenvalue
-of \(Q\) which is the value of the nematic order parameter, \(S\). The
-assembly of particles can be said to have nematic order if
-\(S \geq 0.3\) and is fully aligned to the director if \(S = 1.0\).
-\cite{cuesta_monte_1990}
+parameter. \cite{veerman_phase_1992}
 
 \begin{figure} 
 \centering 
@@ -155,43 +156,19 @@ Precise characterization of the anisotropic microstructure is essential
 for the tailored design of application-specific porous materials. To
 quantify the characteristic length scales in each Cartesian direction,
 we compute the second-moment-derived structure factor without radial
-averaging. \cite{jansen_bijels_2011} Following the structure factor
-calculation described in Eq. \ref{eq:structure_factor_calc}, the second
-moment of the structure factor in direction \(\beta\) is determined for
-each Cartesian coordinate axis as
-
-\begin{equation}
-L_{\beta}(t) = 2 \pi \sqrt{\frac{\sum_{\mathbf{k_{\beta}}}  S(\mathbf{k}, t) }{\sum_{\mathbf{k_{\beta}}}  k_{\beta}^2S(\mathbf{k}, t)}}
-\label{eq:second_moment_domain}
-\end{equation}
-
-From Eq \ref{eq:second_moment_domain}, we can calculate the length scale
-in each cartesian direction, \(L_x, L_y, L_z\). Here, we make a further
+averaging. \cite{jansen_bijels_2011} We also calculate the tortuosity 
+in each cartesian direction. Here, we make a further
 refinement simplifying the domain sizes to directions parallel and
 orthogonal to the magnetic field. These result in the length scales and
 their associated calculation, \(L_{\parallel} = L_{z}\) and
-\(L_{\perp} = \frac{L_x + L_y}{2}\). Tortuosity has been defined using
+\(L_{\perp} = \frac{L_x + L_y}{2}\). We perform the same simplification
+with the directional tortuosities.
+
+Tortuosity has been defined using
 the geometric, diffusional and hydraulic tortuosities. Here we define
 the diffusional tortuosity, \(\tau = \frac{D}{D_{eff}}\) which
 characterizes the ratio between the free diffusion of a tracer and the
-effective diffusion of a tracer in the material.
-
-To calculate the tortuosities of the structures generated from our
-simulations, we first calculate \(\phi\) of the system over time from
-the filled densities. Many bijels are synthesized from monomer diffused
-into the oil phase, or the oil phase itself is intrinsically
-polymerizable. Our next step is to binarize the order parameter with the
-condition, \(\phi \leq 0 = 0\) and \(\phi > 0 = 1\) which reflects a
-solid red fluid phase and void blue fluid. We then mask all unconnected
-components, using the \texttt{label} function in \texttt{skimage}
-leaving only the percolating domain representing the bijel.
-\cite{van2014scikit} We utilize the python package taufactor which
-solves the diffusion equation for the structure, calculating the time
-taken for a tracer to go from one side of the system to the other.
-\cite{kench_taufactor_2023} We utilize the periodic boundary condition
-solver for this investigation. In previous work, we identified that the
-length scale derived from the second moment of the structure factor is
-only useful for identifying length scale anisotropy. Therefore, we plot
+effective diffusion of a tracer in the material. Therefore, we plot
 the directional second moment derived length scales and tortuosity in
 Figure \ref{fig:domain_size_aniso-field_on}.
 
@@ -274,57 +251,11 @@ high adsorption energy. Upon particle reorientation, the microstructure
 change can be driven solely through particle unjamming and re-jamming,
 or it can be driven through the particles dragging the interface during
 this process. The mechanism of unjamming and re-jamming can be
-investigated using the average interfacial angle, \(\psi\).
-
-The interface angle of each particle is defined as
-\(\psi = \arccos{\frac{ \hat{\mathbf{o_i}}\cdot \hat{\mathbf{n_i}}}{|\hat{\mathbf{o_i}}| |\hat{\mathbf{n_i}}|}}\)
-where \(\hat{\mathbf{n_i}}\) is the normal of the interface closest to
-the center of the particle \(i\) and \(\hat{\mathbf{o_i}}\) is the
-orientation of particle \(i\) which follows the symmetry axis of the
-ellipsoid. For prolate particles, they prefer to lie flat on the
-interface, meaning that with no field \(\psi = 90^{\circ}\).
-\(\hat{\mathbf{n_i}}\) is calculated by first using the particle filling
-algorithm described and calculating the order parameter. Next, a mesh of
-the isocontour at \(\phi = 0\) is generated using the marching cubes
-algorithm in scikit-image with a box length of 4. \cite{van2014scikit}
-Next, the vertex closest to the center of particle \(i\) was found.
-\(\hat{\mathbf{n_i}}\) was then obtained from the normal corresponding
-to the vertex identified in the previous step.
-
-Another factor affected by the application of the magnetic field is the
-Steinhardt 6 fold order parameter, \(Q_6\), which characterized the
-local particle ordering. \cite{steinhardt_bond-orientational_1983} It
-has been used to characterize crystallization, glass transitions and
-crystal structures for colloidal and molecular crystals. We utilize the
-average across all particles on the interface, \(\langle Q_6 \rangle\)
-and track this parameter as a function of time. Past work has identified
-that local crystallization of colloidal crystals takes place at
-\(\langle Q_6 \rangle = 0.38\), and that
-\(\langle Q_6 \rangle^{HCP} = 0.485\).
-\cite{steinhardt_bond-orientational_1983} \cite{toxvaerd_role_2020}
-\cite{mickel_shortcomings_2013} We utilize a voronoi cell derived
-definition of the neighbor list of each particle, addressing some of the
-shortcomings highlighted in the original distance based definition.
-\cite{steinhardt_bond-orientational_1983}
-\cite{mickel_shortcomings_2013} We first define a complex orientational
-vector, \(q_{lm}\)
-
-\begin{equation}
-q_{lm}(i) = \frac{1}{N_b(i)} \Sigma_{j = 1}^{N_b(i)} Y_{lm}(\vec{R}_{ij})
-\end{equation}
-
-Where \(N_b\) is the number of nearest neighbors of particle \(i\),
-\(l\) is controls to the degree of spherical harmonic to be calculated,
-\(m\) is an integer defined as \(-l \leq m \leq l\) that defines which
-spherical harmonic is being calculated and \(\vec{r}_{ij}\) is the
-distance between two particle centers. The neighbor list \(N_b\) is
-usually defined by a cutoff distance from the center of particle \(i\)
-to its nearest neighbors \(j\). Steinhardt then defined a bond order
-parameter \(q_l\) from \(q_{lm}\) as
-
-\begin{equation}
-Q_{l}(i) = \sqrt{\frac{4 \pi}{2l + 1} \Sigma_{m = -l}^{l} |q_{lm}(i)|^2}
-\end{equation}
+investigated using the average interfacial angle, $\langle \psi \rangle$
+and the local ordering of the particles characterized with 
+$\langle Q_6 \rangle$ Past work has identified that local crystallization 
+of colloidal crystals takes place at \(\langle Q_6 \rangle = 0.38\). 
+\cite{toxvaerd_role_2020}
 
 \begin{figure} 
 \centering 
