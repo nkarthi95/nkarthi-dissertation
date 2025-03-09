@@ -8,7 +8,7 @@ phase (droplets) and the continuous phase (bulk fluid), thereby lowering the int
 The existence of particle-stabilized emulsions has been recognized for over a century, following the independent discoveries by Pickering and Ramsden, who observed dispersed 
 oil droplets within a water matrix after vigorous stirring of an oil-water-particle mixture \cite{ramsden_separation_1904, pickering_cxcvi.emulsions_1907}. Unlike surfactants, 
 which stabilize emulsions by reducing interfacial tension, particles act as stabilizers by adsorbing at the interface between the dispersed and continuous phases, thereby 
-preventing direct contact between them. The Pieranski model, derived from \textcolor{blue}{insert derivation of Pieranski model}, is commonly used to determine the adsorption 
+preventing direct contact between them. The Pieranski model is commonly used to determine the adsorption 
 energy of a particle at an interface. It is expressed as $ G_{ads} = \sigma A_{rm} (1 - \cos{\theta_c})^2 $ where $G_{ads}$ represents the free energy reduction upon particle 
 adsorption, $\sigma$ is the surface tension between the partially miscible fluids, and $ \theta_c $ is the contact angle of the particle. Particles at the interface are 
 generally considered irreversibly adsorbed, even at the nanoscale. For particles larger than 100 nm, the adsorption energy is sufficiently high that thermal fluctuations at 
@@ -78,11 +78,27 @@ assemblies, underscoring the intricate interplay between these forces \cite{morg
 
 \section{Bijel synthesis techniques}
 
-Bijels were first synthesized using Thermally Induced Phase Separation (TIPS) \cite{herzig_bicontinuous_2007, lee_bicontinuous_2010, bai_dynamics_2015}. 
+The existence of bijels was first identified computationally using a multicomponent lattice boltzmann method which looked at 
+the jamming of spherical particles in a binary fluid system with equal volume fraction of each fluid. 
+\cite{stratford_colloidal_2005} Once phase separation was initiated, the particles adsorb onto the interface until the interfacial
+area matches the cross sectional area of the particles at the interface, when domain coarsening is ceased. The simulation assumed
+an equal volume fraction of fluid components and neutrally wetting particles to not impart preferential curvature onto the interface.
+Figure \ref{fig:state_diagram_particle_emulsions} demonstrates a schematic derived from experimental results of particle stabilized
+emulsion microstructures that form when changing the volume fraction and particle contact angle.
+
+In experiments, bijels were first synthesized using Thermally Induced Phase Separation (TIPS) \cite{herzig_bicontinuous_2007, lee_bicontinuous_2010, bai_dynamics_2015}. 
 The process begins by identifying a small-molecule or polymer blend with a critical point, referred to as the casting mixture, and preparing it at a composition 
 corresponding to this critical point. The casting mixture is then combined with particle surfactants while remaining in a single-phase state. Once the particles 
 are homogeneously distributed, phase separation is induced by adjusting the temperature to bring the system into the two-phase region. By ensuring that the 
-composition aligns with the critical point, the casting mixture undergoes spinodal decomposition, preventing nucleation and growth.  
+composition aligns with the critical point, the casting mixture undergoes spinodal decomposition, preventing nucleation and growth. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.2]{figures/literature_review/state_diagram.jpg}
+    \caption{Formation criteria for a particle stabilized emulsion that can form bijel. 
+            Reproduced from Velankar 2015 using license number 1551968-1. \cite{velankar_non-equilibrium_2015}}
+    \label{fig:state_diagram_particle_emulsions}
+\end{figure}
 
 TIPS enables batch synthesis of bijels in research laboratories. However, for bijels to become industrially viable, a continuous fabrication process is required—one 
 that also allows for the production of various bijel form factors suited to different applications. Solvent Transfer Induced Phase Separation (STrIPS) has been proposed 
@@ -91,15 +107,11 @@ separation is initiated as the co-solvent diffuses out of the bijel. The surfact
 is then extruded into a bath of a non-solvent, which is immiscible with the bijel-forming fluids but miscible with the co-solvent. The diffusion of the co-solvent triggers 
 phase separation, leading to bijel formation. The resulting microstructure is influenced by both the surfactant concentration and the flow rate of the casting mixture.
 
-\textcolor{blue}{Description of VIPS}
-
 Vapor Induced Phase Separation(VIPS) has also been identified as a technique for continuous fabrication of bijels. \cite{wang_scalable_2020} A quarternary casting mixture
 containing particles, solvent and two partially miscible liquids is prepared. The solvent and liquid species are carefully selected to ensure that removal of the
 solvent will cause phase separation of the two partially miscible liquids. One system that has been used is the water/hexanediol-diacrylate solvated by ethanol.
 Selection of the composition of the system facilitates crossing of the binodal through the critical point, causing phase separation through spinodal decomposition.
 This technique has been used to fabricate thin films of bijels blade and spray coated onto substrates.
-
-\textcolor{blue}{Description of homogenization}
 
 Instead of relying upon spinodal decomposition to generate the bijel morphology, homogenization uses shear to join phase separating domains, resulting in a 
 structure that has the properties of a bijel even if not fabricated from fluids undergoing spinodal decomposition. \cite{huang_bicontinuous_2017, cai_bijels_2017} 
@@ -108,9 +120,9 @@ shear to cause limited coalescence of droplets. As coarsening occurs, particles 
 adsorbed particles, the microstructure jams. Tuning of the method can be done through modifying the contact angle of the particles at the interface as well as
 the viscosity of the fluids. 
 
-\textcolor{blue}{Description of liquid in liquid printing}
+% \textcolor{blue}{Description of liquid in liquid printing}
 
-Enter something about this method. \cite{amirfattahi_fabrication_2024}
+% Enter something about this method. \cite{amirfattahi_fabrication_2024}
 
 \section{Rheological models and shear response of bijels}
 
@@ -126,7 +138,7 @@ in shear thinning \cite{vermant_flow-induced_2005, brader_nonlinear_2010}.
     \centering
     \includegraphics[scale = 2]{figures/literature_review/bijel_under_shear.jpeg}
     \caption{Schematic of a bijel with hard-sphere particles undergoing shear, demonstrating migration and detachment of particles at the interface. 
-    \cite{bonaccorso_shear_2020}}
+             Reproduced from Bonaccorso et al. under the Creative Commons CC BY License. \cite{bonaccorso_shear_2020}}
     \label{fig:bijel_under_shear}
 \end{figure} 
 
@@ -164,12 +176,27 @@ monolayer's dynamics \cite{weeks_introduction_2017}.
 %     \end{itemize}
 % \end{itemize}
 
-\section{Stimuli response in particle stabilized emulsions}
+\section{Microstructure control in bijels}
 
-Kim et al. found that strong magnetic fields do not significantly alter the microstructure of a bijel stabilized with spherical particles, as the particles orient 
-to the field without affecting interface ordering. \cite{kim_bijels_2010} In contrast, Carmack and Millet demonstrated that polarizable fluids and particles under 
-an electric field show significant microstructural changes, with particles self-assembling into chains and forming cylindrical domains parallel to the applied field, 
-thus modifying the microstructure. \cite{carmack_tuning_2018}
+Kim et al. used a free energy based lattice boltzmann method coupled with particles and magnetic fields to investigate the influence of magnetic fields on 
+the microstructure of bijels stabilized with spherical particles. \cite{kim_bijels_2010}
+They observed that applying strong magnetic fields did not significantly alter the bijel microstructure, as the particles aligned with 
+the field without disrupting the interfacial ordering. This finding suggests that spherical particles, due to their isotropic shape, do 
+not induce anisotropic stresses on the interface when subjected to magnetic fields, thereby maintaining the structural integrity of the bijel.
+
+In contrast to the minimal impact of magnetic fields on bijels stabilized with spherical particles, Carmack and Millett investigated the effects of 
+applied electric fields on thin-film bijels using a Cahn-Hilliard coupled with Langevin dynamics computational model. \cite{carmack_tuning_2018} 
+Their study revealed that electric fields can induce significant microstructural changes in bijels, with particles self-assembling into chains and forming 
+cylindrical domains aligned parallel to the applied field, thereby modifying the overall microstructure. Carmack and Millet observed that the dielectric contrast 
+between liquid domains governs liquid domain alignment, and the dielectric contrast between colloidal particles and the liquid matrix induces dipolar particle 
+interactions. By changing the dielectric contrast between particle and fluid, different bijel morphologies could be formed. Additionally, particle chains were found to 
+act as nucleation sites for phase separation, influencing the resultant morphologies in terms of particle attachment to phase interface regions and average 
+channel diameter. 
+
+While not strictly stimuli-responsive, microstructure modifications have been achieved by applying a particle volume fraction gradient during the formation of 
+bijels using Thermally Induced Phase Separation (TIPS). \cite{french_bicontinuous_2022} In their study, French et al. allowed particles to partially sediment in the bijel casting mixture
+before initiating thermal quenching. The gradient in particle volume fraction along the height of the reaction vessel caused the jamming point of the bijel
+to vary along the gradient axis, causing a channel size gradients of up to 2.8\% per millimeter, as measured using confocal microscopy.
 
 \section{Lattice Boltzmann Method}
 
@@ -207,7 +234,5 @@ allow for simulations of various types of multiphase and/or multicomponent flows
 implemented by Gunstensen et al relies upon modelling two particle distributions. These represent a binary fluid mixture with the collision step 
 able to recover the hydrodynamics and non-ideal mixing dynamics. The free energy model utilizes phase field theory and constructs a free energy 
 functional to recover interfacial dynamics and effects in a thermodynamically consistent manner. Often, a square gradient free energy is used for 
-simplicity and ease of implementation. The mean field theory 
-
-The non-ideal mixing dynamics are recovered during the "recoloring" step, of which the technique proposed by Latva-Kokko and Rothman is more commonly 
-used for soft matter flows. \cite{liu_multiphase_2016}
+simplicity and ease of implementation. The mean field theory The non-ideal mixing dynamics are recovered during the "recoloring" step, of which the 
+technique proposed by Latva-Kokko and Rothman is more commonly used for soft matter flows. \cite{liu_multiphase_2016}

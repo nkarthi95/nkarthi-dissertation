@@ -114,7 +114,7 @@ their applicability across different fields, as illustrated in Figure \ref{fig:s
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale = 2]{figures/literature_review/STRIPPS.jpg}
+    \includegraphics[scale = 4]{figures/introduction/STrIPS.jpg}
     \caption{STrIPS in action. Extrusion of the bijel casting mixture into a non-solvent bath, followed by removal of solvent from 
     the casting mixture through diffusion. Reproduced from Haase et al. 2015 under license number 5913140219015. \cite{haase_continuous_2015}}
     \label{fig:strips}
@@ -129,13 +129,22 @@ rigidity of the particle monolayer is essential for maintaining consistent perfo
 bijels would allow for greater tunability while maintaining the desired composition of the constituent materials. One promising approach for achieving 
 such control is the use of stimuli-responsive mechanisms.  
 
-\textcolor{blue}{ADD IN PICTURE FROM THAM 2021 AND CUI 2013 ON EXAMPLES OF STIMULI RESPONSE IN EMULSIONS}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{figures/introduction/magnetophoresis_emulsion.jpeg}
+    \caption{Enhanced oil recovery of oil from water using magnetically responsive emulsion stabilizers, allowing for 
+             locomotion and controlled coalescence of cargo from a matrix phase using magnetic fields relevant in 
+             water filtration and oil refining applications. Reproduced from Tham et al. 2021 under the ACS standard license \cite{tham_magnetophoresis_2021}}
+    \label{fig:magnetophoresis_droplet}
+\end{figure}
 
 Stimuli-responsive mechanisms based on pH, external fields, and temperature have been explored in previous studies to modify the microstructure of emulsion 
 droplets for applications such as enhanced oil recovery, pharmaceuticals, and cell adhesion 
 \cite{haase_nanoparticle_2011, tham_magnetophoresis_2021, cui_stabilizing_2013, manfredini_limonene--water_2021}. External fields have been shown to 
 manipulate emulsion stability, control droplet movement, and induce elongation in emulsion droplets 
-\cite{tham_magnetophoresis_2021, cui_stabilizing_2013, melle_pickering_2005}.  
+\cite{tham_magnetophoresis_2021, cui_stabilizing_2013, melle_pickering_2005}. One such example is shown in Figure \ref{fig:magnetophoresis_droplet}
+where enhanced oil recovery was performed using magnetically responsive particle stabilizers which could capture oil droplets,
+move the droplets away from the matrix and cause controlled coalescence elsewhere.
 In the case of bijels, spherical particle-stabilized systems subjected to a magnetic field exhibited no significant microstructural changes 
 \cite{kim_bijels_2010}. However, bijels stabilized with spherical particles under an electric field demonstrated greater potential for microstructure 
 modification \cite{carmack_tuning_2018}. Despite this, magnetic fields present a promising avenue for targeted stimuli-responsive behavior, as even 
@@ -146,9 +155,17 @@ Such applications could benefit from in-situ microstructural modifications, enab
 efficiency and permeability. Therefore, developing strategies to modify pore size and tortuosity without requiring the synthesis of a new material would 
 significantly expand the functional versatility of bijels.  
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.4]{figures/introduction/anisotropic_particles_assembly.jpg}
+    \caption{Assembly of prolate particles on a flat interface at various interfacial coverages and field strengths,
+             showing the self assembly into chains that ellipsoidal particles can undergo under applied magnetic fields at
+             interfaces. Reproduced from Davies et al. under the Creative Commons CC BY license \cite{davies_assembling_2014}}
+    \label{fig:anisotropic_assembly}
+\end{figure}
+
 Anisotropic particles at interfaces have been shown to undergo self-assembly due to the presence of multipolar pressure fields induced by interface 
-deformation. Similarly, self-assembly has been observed for ellipsoidal particles at interfaces under magnetic fields. Additionally, ellipsoidal particles 
-exhibit magnetic field-controlled orientation at interfaces, as demonstrated by Bresme and Faraudo \cite{bresme_orientational_2007, davies_interface_2014}.  
+deformation caused by magnetic stimuli, visualized in Figure \ref{fig:anisotropic_assembly}. \cite{bresme_orientational_2007, davies_interface_2014}
 When subjected to a magnetic field, assemblies of multiple ellipsoidal particles exhibit energy minima at orientations different from those of isolated 
 particles. This suggests that the interfacial coverage of surfaces decorated with ellipsoidal particles can be dynamically tuned using external 
 stimuli \cite{newton_influence_2014, newton_capillary_2018}. Therefore, ellipsoidal particles at interfaces—whose orientation and packing can be externally 
@@ -223,10 +240,13 @@ will be examined to investigate the reversibility of bijel microstructures.
 \label{section:aim3_desc}
 
 In many of the fabrication processes described above, the rheology of the bijel casting mixture plays a crucial role 
-\cite{haase_continuous_2015, cai_bijels_2017, amirfattahi_fabrication_2024}. Ching demonstrated that, rheologically, bijels behave as colloidal 
-glasses percolating in 3D space \cite{ching_bijel_2022}. A shear capillary number, \( Ca_s \), is defined to correlate the applied strain rate 
-with the capillary forces derived from surface tension \cite{frijters_effects_2012, yang_capillary_2022}. This study aims to identify the effect 
-of the initial microstructure and applied field on the rheological properties of the bijel.
+\cite{haase_continuous_2015, cai_bijels_2017, amirfattahi_fabrication_2024}. Furthermore, the mechanical performance of the
+resulting bijel is a key constraint for bijels in cross flow reactors or water filtration applications. \cite{boakye-ansah_controlling_2020}
+Under high shear, the bijel can fail due to particles being ejected from the interface limiting the flow rate and pressure that can
+be used when using bijels as cross flow reactors or water filtration systems. Ching demonstrated that, rheologically, bijels behave 
+as colloidal glasses percolating in 3D space \cite{ching_bijel_2022}. This implies a yield stress above which flow of the material
+will initiate. Bijels are also shear thinning as fluid-particle interactions increase the effective viscosity at lower shear rates.
+
 
 % $Ca_s = \frac{\eta_{f} \dot{\gamma} L_{1}}{\sigma}$ where $\dot{\gamma} = \frac{u_{LE}}{L_x}$ is the strain rate and 
 % $L_1$ is the average domain size. \cite{frijters_effects_2012, yang_capillary_2022} Lower capillary numbers in the range of
@@ -234,14 +254,17 @@ of the initial microstructure and applied field on the rheological properties of
 % which corresponds to a $Ma << 0.01$ to accommodate the hydrodynamic model utilized.
 
 In this study, the yield stress and viscosity of the bijels will be examined as a function of the initial microstructure under various $Ca_s$ values. 
-The initial microstructure will be derived from bijels stabilized with ellipsoidal particles, synthesized both without a magnetic field and with a field 
+A shear capillary number, $Ca_s$, is defined to correlate the applied strain rate with the capillary forces derived from surface tension 
+\cite{frijters_effects_2012, yang_capillary_2022}. This study aims to identify the effect 
+of the initial microstructure and applied field on the rheological properties of the bijel.The initial microstructure will be 
+derived from bijels stabilized with ellipsoidal particles, synthesized both without a magnetic field and with a field 
 strength equal to the surface tension energy. Constant shear, defined by $Ca_s$, will be applied to determine the yield stress and non-Newtonian 
 characteristics of the bijel. Previous studies have shown that particle ordering in the direction of shear significantly alters the rheological behavior 
 compared to unordered systems. Additionally, the domains within the bijel may introduce new mechanisms for modifying rheological properties, which have 
 yet to be explored in detail.
 
-We will then investigate the complex rheology of the bijels by calculating the loss and storage moduli of the bijel microstructures described 
-earlier as a function of oscillatory shear. The loss and storage moduli describe the viscous and elastic behavior of the bijel, respectively, 
-allowing the gel point of the bijel to be determined as the point at which the storage modulus exceeds the loss modulus. Special attention will be 
-given to the state of the particles in all simulations, correlating changes in particle properties with observed rheological events. Additionally, 
-we will assess whether shear banding occurs.
+% We will then investigate the complex rheology of the bijels by calculating the loss and storage moduli of the bijel microstructures described 
+% earlier as a function of oscillatory shear. The loss and storage moduli describe the viscous and elastic behavior of the bijel, respectively, 
+% allowing the gel point of the bijel to be determined as the point at which the storage modulus exceeds the loss modulus. Special attention will be 
+% given to the state of the particles in all simulations, correlating changes in particle properties with observed rheological events. Additionally, 
+% we will assess whether shear banding occurs.
