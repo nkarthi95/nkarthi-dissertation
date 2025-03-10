@@ -117,7 +117,8 @@ $\langle Q \rangle = \frac{1}{N} \sum_{i}^{N} \langle \frac{3}{2}u_i u_i - \frac
 orientation of particle $i$ and $I$ is an identity matrix. \cite{veerman_phase_1992} While there are multiple 
 methods to evaluate the nematic order parameter, the one we have picked is where the largest eigenvector is $S$, 
 with its corresponding eignvector referring to the director of the system. \cite{veerman_phase_1992} 
-\textcolor{blue}{https://doi.org/10.1080/00268978400101951} A system is defined to be ordered nematically, 
+% \textcolor{blue}{https://doi.org/10.1080/00268978400101951} 
+A system is defined to be ordered nematically, 
 if $S > 0.3$. In this work, the direction of the director will be compared to the direction of the magnetic 
 field. We utilize the implementation in Freud to calculate the nematic order parameter.
 
@@ -190,53 +191,68 @@ bond order parameter $q_l$ from $q_{lm}$ as
 Q_{l}(i) = \sqrt{\frac{4 \pi}{2l + 1} \Sigma_{m = -l}^{l} |q_{lm}(i)|^2}
 \end{equation}
 
-In the literature, crystal structures can be distinguished from one another by plotting the distribution of two or more $Q_{l}$.
+In the literature, crystal structures can be distinguished from one another by plotting the distribution of two or more $Q_{l}$. 
+\cite{lechner_accurate_2008, mickel_shortcomings_2013} Given that bijels form colloidal glasses, we only expect there to be
+short range order which means conclusions made from this parameter can only be used to guide trends of order, not quantitative 
+calculations of crystal structures.
 
 
-\subsection{Shear viscosity}
+\subsection{Shear stress}
 \label{section:shear_viscosity}
 
-Shear viscosity is a physical parameter measured through the dissipation of applied strain onto a fluid, resulting in 
-an applied shear stress. In an incompressible fluid, the viscosity $(\eta)$ is defined as the ratio between the measured 
+In an incompressible fluid, the viscosity $(\eta)$ is defined as the ratio between the measured 
 shear stress $(\sigma)$ and the applied strain rate $(\dot{\gamma})$, $\sigma = \eta \dot{\gamma}$. In rheological 
-experiments, the shear viscosity is measured through a viscometer based on Couette or shear viscometry and Poiselle or 
+experiments, the viscosity is measured through a viscometer based on Couette or shear viscometry and Poiselle or 
 pressure gradient viscometry. A Couette cell functions by applying a shear velocity to one or more walls, and measuring 
 the shear stress response of the fluid. Common geometries for Couette cells include the cone and plate and concentric 
-cylinder viscometers. 
+cylinder viscometers. In simulations, shear can be applied to walls of the simulation domain through either a shearing 
+wall boundary condition or a Lees Edwards boundary condition. We select the Lees Edwards boundary condition as shearing 
+results are unaffected by finite size effects and wall effects. Finite size effects are observed as a system size
+dependent shear stress at the same shear rate. Wall effects can be seen as stick-slip effects of the particles or 
+unphysical velocity gradients near the wall.
+
+In a lattice boltzmann, the shear stress is measured as the sum of the equilibrium and nonequilibrium contributions.
+\cite{kruger_shear_2009} These terms are defined as,
+
+\begin{equation}
+    \sigma_{\alpha \beta} = \sigma_{\alpha \beta}^{0} + \sigma_{\alpha \beta}^{1}
+\end{equation}
+
+This expression is obtained from the Chapman Enskog expansion of the lattice boltzmann method. The equilibrium and
+non-equilibrium contributions of the stress are defined as
+
+\begin{equation}
+    \begin{split}
+        \sigma_{\alpha \beta}^{0} &= \rho c_s^2 \delta_{\alpha \beta} + \rho u_{\alpha} u_{\beta} \\
+        \sigma_{\alpha \beta}^{1} &= (1 - \frac{1}{2 \tau})\Sigma_{i} (f_{i} - f_{i}^{eq})c_{i \alpha}c_{i \beta} \\
+    \end{split}
+\end{equation}
 
 In this work, a shear velocity is imparted in the z direction, across the x-axis. Therefore, the shear stress in the x 
-and z directions, $\sigma_{xz}$, is measured. $\sigma_{xz}$ is output per lattice in the output file, which is then 
-averaged across the entire volume to obtain an average shear stress $\hat{\sigma_{xz}}$. The effective viscosity of the 
-system, $\eta_{eff}$ is calculated using $\eta_{eff} = \frac{\hat{\sigma_{xz}}}{\dot{\gamma}}$ where $\dot{\gamma} = 
-\frac{2 u_{LE}}{L_x}$. $u_{LE}$ is the shear velocity is enforced through the Lees-Edwards boundary condition, as 
-described in section \textcolor{blue}{description of lees edwards BC}.
+and z directions, $\sigma_{xz}$, is measured. $\sigma_{xz}$ is output as calculated from the simulation for the entire 
+domain after applying this equation to the system. 
 
-\subsection{Yield stress and zero shear rate viscosity}
-\label{section:yield_stress}
+% \subsection{Yield stress and zero shear rate viscosity}
+% \label{section:yield_stress}
 
-The yield stress of bijels can be calculated using the flow curve, stress ramp or from oscillatory rheological techniques. 
-The flow curve method involves the steady application of shear, followed by measurements of the shear stress response of 
-the material. The plateau of the shear stress response is indicative of the yield stress of the material. The stress ramp 
-method involves the application of a shear stress onto the material, followed by measurements of the strain rate. A 
-perfectly elastic material will have no strain rate, while a perfectly disspitative material will have high strain rate. 
-The yield stress is characterized as the point when a rapid increase in strain rate is observed. The yield stress from 
-oscillatory rheology is defined when the storage modulus is lower than the loss modulus. This work will utilize the flow 
-curve method.
+% The yield stress of bijels can be calculated using the flow curve, stress ramp or from oscillatory rheological techniques. 
+% The flow curve method involves the steady application of shear, followed by measurements of the shear stress response of 
+% the material. The plateau of the shear stress response is indicative of the steady state stress of the material. The stress ramp 
+% method involves the application of a shear stress onto the material, followed by measurements of the strain rate. A 
+% perfectly elastic material will have no strain rate, while a perfectly dissipative material will have high strain rate. 
+% The yield stress is characterized as the point when a rapid increase in strain rate is observed. The yield stress from 
+% oscillatory rheology is defined when the storage modulus is lower than the loss modulus. This work will utilize the flow 
+% curve method.
 
-The shear viscosity calculated using the method detailed in Section \ref{section:shear_viscosity} will be plotted as a 
-function of applied shear rate. Rheological models such as the Herschel Buckley, Bingham Plastic or Carreu models can be 
-utilized to fit the shear viscosity as a function of shear rate to calculate the zero shear rate viscosity. In bijel 
-applications, this parameter gives insight into the material stability and processability.
-
-\subsection{Shear stress calculation}
-
-\textcolor{blue}{https://doi.org/10.1103/PhysRevE.79.046704}
+% The shear viscosity calculated using the method detailed in Section \ref{section:shear_stress} will be plotted as a 
+% function of applied shear rate. Rheological models such as the Herschel Buckley, Bingham Plastic or Carreu models can be 
+% utilized to fit the shear viscosity as a function of shear rate to calculate the zero shear rate viscosity. In bijel 
+% applications, this parameter gives insight into the material stability and processability.
 
 
+% \subsection{Shear banding}
+% \label{section:shear_banding}
 
-\subsection{Shear banding}
-\label{section:shear_banding}
+% \textcolor{blue}{https://doi.org/10.1073/pnas.0812519106}
 
-\textcolor{blue}{https://doi.org/10.1073/pnas.0812519106}
-
-\textcolor{blue}{https://doi.org/10.1103/PhysRevX.11.021017}
+% \textcolor{blue}{https://doi.org/10.1103/PhysRevX.11.021017}

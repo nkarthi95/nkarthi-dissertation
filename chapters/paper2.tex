@@ -38,7 +38,7 @@ anisotropic particle stabilization, may offer a means to control bijel microstru
 This work investigates the structural response of bijels stabilized by anisotropic magnetic particles. Using a Lattice Boltzmann Method 
 coupled with Molecular Dynamics, we simulate a binary fluid system where ellipsoidal particles, modeled as magnetic dipoles along their 
 symmetry axis, stabilize bijel templates. Simulations without an applied field reveal anisotropic bijel formation, with microstructure 
-evolution dependent on particle reordering at the interface, quantified using the six-fold Steinhardt order parameter \(\langle Q_6 \rangle\).
+evolution dependent on particle reordering at the interface, quantified using the six-fold Steinhardt order parameter \(\langle Q6 \rangle\).
 
 We further assess how initial microstructure influences structural changes, showing that the difference in order between initial and final 
 particle monolayers dictates the extent of microstructure evolution. Additionally, applying and removing a magnetic field results in distinct 
@@ -269,14 +269,18 @@ or it can be driven through the particles dragging the interface during
 this process. The mechanism of unjamming and re-jamming can be
 investigated using the average interfacial angle, $\langle \psi \rangle$
 and the local ordering of the particles characterized with 
-$\langle Q_6 \rangle$ Past work has identified that local crystallization 
-of colloidal crystals takes place at \(\langle Q_6 \rangle = 0.38\). 
+$\langle Q6 \rangle$ Past work has identified that local crystallization 
+of colloidal crystals takes place at \(\langle Q6 \rangle = 0.38\). 
 \cite{toxvaerd_role_2020}
 
 \begin{figure} 
 \centering 
-\includegraphics[scale=0.5]{../figures/results/paper2/interface_angle-nint-field_on.png} 
-\caption{Plots of the interface angle $(\langle \psi \rangle)$ and six fold Steinhardt order parameter $(\langle Q_6 \rangle)$ on the left and right respectively, versus time for bijels stabilized with oblate and prolate ellipsoids on the top and bottom rows respectively. We demonstrate that upon application of a magnetic field, the behavior of $(\langle \psi \rangle)$ and $(\langle Q_6 \rangle)$ differ significantly between oblate and prolate ellipsoids indicating that the dynamics for both particle morphologies differ. We also observe magnetic field dependence in each property for both particle types, suggesting that these changes are driven primarily through the change in the applied field strength.} 
+\includegraphics[scale=0.3]{../figures/results/paper2/interface_angle-nint-field_on.png} 
+\caption{Plots of the interface angle $(\langle \psi \rangle)$ and six fold Steinhardt order parameter 
+         $(\langle Q6 \rangle)$ on the left and right respectively, versus time for bijels stabilized with 
+         oblate and prolate ellipsoids on the top and bottom rows respectively. We demonstrate that upon application 
+         of a magnetic field, the behavior of $(\langle \psi \rangle)$ and $(\langle Q6 \rangle)$ differ significantly 
+         between oblate and prolate ellipsoids indicating that the dynamics for both particle morphologies differ. We also observe magnetic field dependence in each property for both particle types, suggesting that these changes are driven primarily through the change in the applied field strength.} 
 \label{fig:interface_angle-nint-field_on} 
 \end{figure}
 
@@ -300,7 +304,7 @@ strength.
 
 When analyzing \(\langle \psi \rangle\) for bijels stabilized by prolate
 particles, this behavior can also be observed. \(\langle \psi \rangle\)
-begins at \(80 ^{circ}\). The difference in the initial
+begins at \(80 ^{\circ}\). The difference in the initial
 \(\langle \psi \rangle\) compared to oblate particles is due to the
 direction of the axis of symmetry. In prolate particles, the axis of
 symmetry lies parallel with the interface and \(\langle \psi \rangle\)
@@ -314,31 +318,31 @@ particles. The changes in \(\langle \psi \rangle\) for bijels stabilized
 with prolate particles are small compared to bijels stabilized with
 oblate particles. We believe this is due to local particle effects at
 the interface. We probe this by identifying the local particle ordering
-at the interface characterized by \(\langle Q_6 \rangle\).
+at the interface characterized by \(\langle Q6 \rangle\).
 
-We see that for oblate particles, \(\langle Q_6 \rangle\) sees a
+We see that for oblate particles, \(\langle Q6 \rangle\) sees a
 decrease from its initial value. However the dynamics are controlled by
 the applied magnetic field strength. We split the phases of dynamics
 into three sections, similar to \(\langle \psi \rangle\) with the first
-section seeing a decrease in \(\langle Q_6 \rangle\) upon application of
+section seeing a decrease in \(\langle Q6 \rangle\) upon application of
 the magnetic field, followed by a plateau and finally a gradual increase
 before jamming takes place. These results indicate that the ordering of
 the particles is reduced by the applied magnetic field, before a
 restoration of some of the pre-existing order. The final values of
-\(\langle Q_6 \rangle\) are magnetic field dependent, with a stronger
-magnetic field having a lower final \(\langle Q_6 \rangle\) value
+\(\langle Q6 \rangle\) are magnetic field dependent, with a stronger
+magnetic field having a lower final \(\langle Q6 \rangle\) value
 indicating that either the ordering of particles influence the angle at
 the interface or vice versa. We observe that for bijels stabilized by
 oblate particles, the interface ordering of the particles increases as a
 function of the applied field strength. We also observe from plotting
-\(\langle Q_6 \rangle\) that application of a magnetic field creates a
+\(\langle Q6 \rangle\) that application of a magnetic field creates a
 local crystallization of the colloid monolayer characterized as
-\(\langle Q_6 \rangle > 0.38\). \cite{toxvaerd_role_2020}
+\(\langle Q6 \rangle > 0.38\). \cite{toxvaerd_role_2020}
 
 Figure \ref{fig:domain_size-field_on}, we observed a gap between the
 growth of the nematic order parameter and an increase in the domain
 size. To probe why this occurs, we recast \(\langle \psi \rangle\),
-\(\langle Q_6 \rangle\) and \(S\) in terms of the physical phenomena
+\(\langle Q6 \rangle\) and \(S\) in terms of the physical phenomena
 they represent. The nematic order parameter represents the ordering of
 particles to an average direction, which in the case of the application
 of a magnetic field, is the field direction. Therefore, a timescale
@@ -352,18 +356,18 @@ define \(\tau_S\) for this section of the analysis by identifying when
 \(S \geq 0.3\).
 
 We can also do the same for \(\langle \psi \rangle\) and
-\(\langle Q_6 \rangle\). A timescale derived from
+\(\langle Q6 \rangle\). A timescale derived from
 \(\langle \psi \rangle\) named \(\tau_{\langle \psi \rangle}\)
 represents the capillary timescale between the interface and the
 particle. Given the shape of the plot, we assign the
 \(\tau_{\langle \psi \rangle}\) to be the time when the first minimum of
 \(\langle \psi \rangle\) is observed for prolate particles and the first
 maximum for oblate particles. A timescale derived from
-\(\langle Q_6 \rangle\), named \(\tau_{\langle Q_6 \rangle}\) is also
+\(\langle Q6 \rangle\), named \(\tau_{\langle Q6 \rangle}\) is also
 calculated which represents a timescale of local particle rearrangement.
-We define \(\tau_{\langle Q_6 \rangle}\) as the time when
-\(\langle Q_6 \rangle \geq 0.38\) for prolate particles and the global
-minimum of \(\tau_{\langle Q_6 \rangle}\) for the oblate particles. We
+We define \(\tau_{\langle Q6 \rangle}\) as the time when
+\(\langle Q6 \rangle \geq 0.38\) for prolate particles and the global
+minimum of \(\tau_{\langle Q6 \rangle}\) for the oblate particles. We
 omit \(\bar{B} = 0\) as previous results have identified the domain size
 changes observed there. We then plot the average domain size \(L\)
 against time rescaled with these three timescales in Figure
@@ -372,7 +376,7 @@ against time rescaled with these three timescales in Figure
 \begin{figure} 
 \centering 
 \includegraphics[scale=0.4]{../figures/results/paper2/domain_size-field_on-scaled.png} 
-\caption{Plots of domain size with different timescales. The top and bottom row represent the average domain size for bijels stabilized with oblate and prolate particles respectively. The figures on the left plots the domain size against time rescaled with the nematic to isotropic transition time, $\tau_S$. The figures in the middle plot the domain size against time rescaled with the interfacial capillary timescale, $\tau_{\langle \psi \rangle}$. The figures on the right plot the domain size against time rescaled with the particle rearrangement timescale, $\tau_{\langle Q_6 \rangle}$. We show that the controlling timescale when applying a magnetic field onto bijels with disordered particles is the latter timescale, indicating that the dominating effect is steric hindrance of the particles during rearrangment at the interface.} 
+\caption{Plots of domain size with different timescales. The top and bottom row represent the average domain size for bijels stabilized with oblate and prolate particles respectively. The figures on the left plots the domain size against time rescaled with the nematic to isotropic transition time, $\tau_S$. The figures in the middle plot the domain size against time rescaled with the interfacial capillary timescale, $\tau_{\langle \psi \rangle}$. The figures on the right plot the domain size against time rescaled with the particle rearrangement timescale, $\tau_{\langle Q6 \rangle}$. We show that the controlling timescale when applying a magnetic field onto bijels with disordered particles is the latter timescale, indicating that the dominating effect is steric hindrance of the particles during rearrangment at the interface.} 
 \label{fig:domain_size-field_on-scaled} 
 \end{figure}
 
@@ -390,13 +394,13 @@ transition has started. However for oblate particles we see that this
 timescale does not describe the dynamics well.
 
 The right plot demonstrates the domain size change after rescaling time
-with \(\tau_{\langle Q_6 \rangle}\) where we see good collapse between
+with \(\tau_{\langle Q6 \rangle}\) where we see good collapse between
 all plots while the domain size transition also begins at
-\(\frac{t}{\tau_{\langle Q_6 \rangle}} = 1\). The latter point
+\(\frac{t}{\tau_{\langle Q6 \rangle}} = 1\). The latter point
 demonstrates that the dynamics for the structural response of randomly
 oriented particles are controlled by the local particle rearrangement at
 the interface rather than the orientation of the particle to the
-magnetic field.We see that before \(\tau_{\langle Q_6 \rangle} = 1\),
+magnetic field.We see that before \(\tau_{\langle Q6 \rangle} = 1\),
 \(\bar{B} = 0.2\) for the oblate particles does not collapse onto the
 other plots, indicating that the dynamics before that point are
 controlled by another phenomena.
@@ -565,7 +569,7 @@ the long axis of the particles to the magnetic field, demonstrating the
 origin of the microstructure anisotropy. To understand how the particle
 reorientation at the interface causes microstructure reorientation we
 quantify the average interface angle, \(\langle \psi \rangle\) and the
-local interface order of the material, \(\langle Q_6 \rangle\) in Figure
+local interface order of the material, \(\langle Q6 \rangle\) in Figure
 \ref{fig:interface_angle-nint-field_up}.
 
 \begin{figure} 
@@ -578,7 +582,7 @@ local interface order of the material, \(\langle Q_6 \rangle\) in Figure
 From Figure \ref{fig:interface_angle-nint-field_up}, we identify that
 prolate and oblate particles respond differently at the interface. We
 show that there are three time evolution trends for
-\(\langle \psi \rangle\) and \(\langle Q_6 \rangle\) for both oblate and
+\(\langle \psi \rangle\) and \(\langle Q6 \rangle\) for both oblate and
 prolate particles despite the differences in the initial state of the
 particles. In oblate particles \(\langle \psi \rangle\) begins closer to
 \(0 ^{\circ}\) as the axis of symmetry lies close to the interface
@@ -593,18 +597,18 @@ stabilized by prolate particles. \(\langle \psi \rangle\) begins near
 \(80 ^{\circ}\). We see a decrease before reorientation ceases, and
 finally \(\langle \psi \rangle\) increases again.
 
-When looking at \(\langle Q_6 \rangle\) for \(\bar{B}: 0 \rightarrow 1\)
+When looking at \(\langle Q6 \rangle\) for \(\bar{B}: 0 \rightarrow 1\)
 and \(\bar{B}: 0.2 \rightarrow 1\) for oblate particles, we see that the
 trends are similar with an initial decrease, followed by a plateau and
-increase over time before plateauing again. \(\langle Q_6 \rangle\)
+increase over time before plateauing again. \(\langle Q6 \rangle\)
 generally decreases with a large decrease observed for
 \(\bar{B}: 0 \rightarrow 1\) from an initial hexagonally packed system
 to a structure that is locally ordered but not close packed. For prolate
-particles, we see an increase in \(\langle Q_6 \rangle\) with a plateau
+particles, we see an increase in \(\langle Q6 \rangle\) with a plateau
 occurring in both systems around 5000 timesteps. The significance of
 this time is unknown for \(\bar{B}: 0.2 \rightarrow 1\) but for
 \(\bar{B}: 1 \rightarrow 1\), this is approximately the local
-crystallization point when \(\langle Q_6 \rangle \geq 0.38\).
+crystallization point when \(\langle Q6 \rangle \geq 0.38\).
 
 For oblate particles, we can conclude that structural response dynamics
 arise from particle tilting on the interface identified as the large
@@ -614,7 +618,7 @@ coarsening. We see that this interfacial tilting causes a loss in the
 close packing of oblate particles at the interface. For prolate
 particles, we observe a small degree of particle tilting as can be seen
 from \(\langle \psi \rangle\), although the dynamics are primarily
-driven by the change in \(\langle Q_6 \rangle\), indicated as a slight
+driven by the change in \(\langle Q6 \rangle\), indicated as a slight
 dip and plateau before the particles begin reordering and packing more
 tightly, decreasing the interfacial area. Larger domain size response is
 observed for the prolate particles as the interfacial area change from
@@ -624,7 +628,7 @@ packing at the interface.
 For both particle morphologies we analyze the response of bijels with a
 field history of \(\bar{B}: 0.5 \rightarrow 1\) and
 \(\bar{B}: 1 \rightarrow 1\). We see a decrease in
-\(\langle Q_6 \rangle\) for bijels stabilized with oblate particles with
+\(\langle Q6 \rangle\) for bijels stabilized with oblate particles with
 field application of \(\bar{B}: 0.5 \rightarrow 1\) compared to an
 increase for \(\bar{B}: 1 \rightarrow 1\). This behavior arises from the
 slight increase in the nematic order for particles in bijels
@@ -637,7 +641,7 @@ in behavior between \(\bar{B}: 0.5 \rightarrow 1\) and
 case, we see a slight increase in \(\langle \psi \rangle\) before a
 decrease and increase compared to the \(\bar{B}: 1 \rightarrow 1\) case
 where we characterize a slight decrease over time. We also characterize
-a slight decrease in \(\langle Q_6 \rangle\) over time for the
+a slight decrease in \(\langle Q6 \rangle\) over time for the
 \(\bar{B}: 1 \rightarrow 1\) case while characterizing a larger decrease
 for the \(\bar{B}: 0.5 \rightarrow 1\) case. Similar to the oblate
 particles, these results originate from the slight increase in the
@@ -736,7 +740,7 @@ local state of the particles at the interface. However the results shown
 thus far demonstrate that that these changes do not seem to affect the
 coarsening of the bijel once stimuli is removed. To investigate why this
 is the case, we plot \(\langle \psi \rangle\) and
-\(\langle Q_6 \rangle\) for bijels stabilized with ellipsoidal particles
+\(\langle Q6 \rangle\) for bijels stabilized with ellipsoidal particles
 below.
 
 \begin{figure} 
@@ -747,9 +751,9 @@ below.
 \end{figure}
 
 In Figure \ref{fig:interface_angle-field_down}, we plot
-\(\langle \psi \rangle\) and \(\langle Q_6 \rangle\) in the left and
+\(\langle \psi \rangle\) and \(\langle Q6 \rangle\) in the left and
 right columns respectively. While there are minor differences to the
-time when \(\langle \psi \rangle\) and \(\langle Q_6 \rangle\) increase
+time when \(\langle \psi \rangle\) and \(\langle Q6 \rangle\) increase
 and decrease respectively for bijels stabilized by oblate particles the
 trends are identical. This suggests that the differences in particle
 angle, local ordering and nematic order only change when coarsening will
@@ -768,16 +772,16 @@ value for \(\langle \psi \rangle\). \(\bar{B}: 0.2\rightarrow 0\) and
 occurring, although its affects manifest as insignificant changes in the
 microstructure of the material.
 
-Looking at \(\langle Q_6 \rangle\), we see that all simulations see a
+Looking at \(\langle Q6 \rangle\), we see that all simulations see a
 decrease over time. We see that contrary to previous trends, the
 \(\bar{B}: 1\rightarrow 0\) simulation has a smaller change in
-\(\langle Q_6 \rangle\) than \(\bar{B}: 0.5\rightarrow 0\) although this
+\(\langle Q6 \rangle\) than \(\bar{B}: 0.5\rightarrow 0\) although this
 difference is also a result of the initial particle orientation and
 position, rather than a defining feature of a broader trend. We see that
 the \(\bar{B}: 0.5\rightarrow 0\) case is near the
-\(Q_6^{HCP} \approx 0.485\) boundary, suggesting it is most susceptible
+\(Q6^{HCP} \approx 0.485\) boundary, suggesting it is most susceptible
 to lose short range order upon removal of the magnetic field that
-enforces it, resulting in the large decrease in \(\langle Q_6 \rangle\)
+enforces it, resulting in the large decrease in \(\langle Q6 \rangle\)
 observed.
 
 We see from the microstructure evolution that steric effects are the

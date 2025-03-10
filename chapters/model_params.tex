@@ -1,144 +1,6 @@
 \section{Simulation setup}
 \label{section:sim_setup}
 
-% The dynamics of the binary fluid mixture is governed by inertial,
-% viscous, and surface tension forces. The relative magnitudes of these
-% forces at a characteristic length scale \(L\) and characteristic
-% velocity \(U\) are captured by the capillary number $\mathrm{Ca}=\frac{\eta U}{\sigma}$ and the Weber number
-% \(\mathrm{We}=\frac{\rho U^2 L}{\sigma}\). Here we are primarily interested in spinodal decomposition of the mixture, 
-% where we analyze the dynamics after the initial formation of the interfaces and neglect residual diffusion. Hence the 
-% Peclet number \(\mathrm{Pe}=\frac{UL}{\Gamma}\) is of lesser importance and we do not consider it when choosing our 
-% simulation parameters.
-
-% The equations of motion of our model comprise the relevant materials
-% properties: the density \(\rho\), viscosity \(\nu\), and surface tension \(\sigma\) of the binary fluid, and the mass \(m_p\), size \(R_p\) and aspect ratio \(\alpha\), and dipole moment \(m\) of the particles. In addition, we can control the particle volume fraction \(\phi_p\) and
-% magnetic field strength \(B\). These nine quantities involve four unit
-% dimensions (mass, length, time, and charge), hence we can use five
-% dimensionless variables to specify the parameters of the system. These
-% are the particle aspect ratio $\alpha$, particle volume fraction
-% \(\phi_p\), particle vs.~fluid density ratio
-% $\xi = \frac{3m_p}{4\pi \rho V_p}$, nominal Weber number $\mathrm{We} = \frac{\rho \sigma V_p^{1/3}}{\eta^2}$, and magnetic Bond
-% number \(\bar{B} = m B/(\sigma A_p)\), where
-% \(V_p=(4/3)\pi R_\parallel^3/\alpha^2\) is the particle volume and
-% \(A_p=\max\left( \pi R_\parallel^2/\alpha, \pi R_\parallel^2/\alpha^2 \right)\)
-% the area of the larger cross-section of the ellpsoidal particles.
-
-% For our simulations, we choose units \(\Delta x\), \(\Delta t\),
-% \(\Delta m\), and \(\Delta i\) such that \(V_p=\hat{V}_p(\Delta x)^3\),
-% \(\nu=\hat{\nu}(\Delta x)^2/\Delta t\),
-% \(\sigma=\hat{\sigma}\Delta m/(\Delta t)^2\), and
-% \(m=\hat{m}\Delta i(\Delta x)^2\). We used \(V_p=2000\pi/3\),
-% \(\hat{\nu}=1/6\), \(\hat{\sigma}=0.0267\), \(\hat{m}=1\), and a density
-% ratio \(\xi=1/\hat{\rho}\). For reference, the values of the model
-% parameters are listed in table \ref{tab:parameters}. The values of
-% \(\alpha\) and \(\bar{B}\) are variable and are reported
-% with the results in section \ref{sec:results}.
-
-% %\new{We note that the dynamics of the simulations are determined by
-% %the dimensionless numbers, and the actual unit values $\Delta x$,
-% %$\Delta t$, $\Delta m$, and $\Delta j$ are arbitrary and only become
-% %meaningful when a connection to an experimental system is made (see
-% %below).}
-
-% \begin{table}
-% \centering
-% \caption{Summary of the parameters of the numerical model and the values used in the simulations}
-% \label{tab:parameters}
-% \begin{tabular}{|c|r|}
-% \hline
-% Parameter & Value \\
-% \hline
-% $L_V/\Delta x$ & 256 \\
-% $\rho \cdot (\Delta x)^3/\Delta m$ & 0.7 \\
-% $\nu \cdot \Delta t/(\Delta x)^2$ & 1/6 \\
-% $\sigma \cdot (\Delta t)^2/\Delta m$ & 0.0267 \\
-% $\tau/\Delta t$ & 1 \\
-% $g \cdot \Delta m(\Delta t)^2/(\Delta x)^5$ & 0.08 \\
-% $\phi_f$ & 0.5 \\
-% $\phi_p$ & 0.15 \\
-% $n_p$ & 1200 \\
-% $\rho_p \cdot (\Delta x)^3/\Delta m$ & 1 \\
-% $V_p/(\Delta x)^3$ & $2000\pi/3$ \\
-% $m/(\Delta i(\Delta x)^2)$ & 1 \\
-% $d_c/\Delta x$ & 2/3 \\
-% $K_H\cdot (\Delta x)^{1/2}(\Delta t)^2/\Delta m$ & 100 \\
-% \hline
-% \end{tabular}
-% \end{table}
-
-% We performed simulations of a binary fluid using the software package
-% LB3D \cite{schmieschek_lb3d_2017} that implements the lattice Boltzmann method described in section
-% \ref{section:methods}. The multicomponent
-% lattice Boltzmann model is solved in a cubic box of size
-% \(L_V=256\Delta x\) with periodic boundary conditions. The simulation
-% box is filled with equal volume fractions \(\phi_f=0.5\) of two fluids,
-% initially homogeneously mixed with a density
-% \(\rho=0.7\Delta m/(\Delta x)^3\). The BGK relaxation time is set to
-% \(\tau=\Delta t\) and the Shan-Chen interaction strength is set to
-% \(g_{kk^\star}=0.08(\Delta x)^2/(\Delta m(\Delta t)^2)\). We performed
-% preliminary simulations of a spherical droplet with these parameters and
-% fitted the pressure difference inside and outside the droplet to the
-% Young-Laplace law, which yielded a surface tension
-% \(\sigma=0.0267\Delta m/(\Delta t)^2\). To study the influence of
-% anisotropic particle shapes on the bijel formation, we performed
-% simulations for particles with three different aspect ratios:
-% \(\alpha=1\) for spherical particles, \(\alpha=2\) for prolate
-% ellipsoids, and \(\alpha=1/2\) for oblate ellipsoids. To match the
-% particle volume fraction \(\phi_p\) between the different particle
-% shapes, we kept the volume of the particles fixed and used the same
-% number of particles for each aspect ratio. The radius along the symmetry
-% axis of the particles was calculated from
-% \(V_p=(4/3)\pi R_\parallel^3/\alpha^2\), yielding
-% \(R_\parallel=7.9\Delta x\) for spheres, \(R_\parallel=12.6\Delta x\)
-% for prolate ellipsoids, and \(R_\parallel=5\Delta x\) for oblate
-% ellipsoids, respectively. Particles were added to the fluid by placing
-% them randomly inside the box. The lubrication cutoff distance was set to
-% the value \(d_c=(2/3)\Delta x\) recommended by Ladd
-% \cite{ladd_lattice-boltzmann_2001}, and the strength of the Hertz
-% potential was set to \(K_H=100\Delta m/((\Delta x)^{1/2}(\Delta t)^2)\).
-% We first equilibrated the particle positions and orientations by
-% evolving only the equations of motion of the particles, while the fluid
-% remained in its initial configuration, until the minimum particle
-% distance exceeded \(1.2\cdot\max(R_\parallel,R_\parallel/\alpha)\).
-% After the equilibration, the magnetic flux density
-% \(\vec{B}=B\hat{\vec{z}}\) was switched on and the full system was
-% evolved for \(10^5\) timesteps. In the course of the simulation, the binary mixture undergoes spinodal decomposition. 
-% The particles adsorb at the coarsening interface and eventually become jammed, resulting in the bicontinuous phase 
-% morphology of the bijel.
-
-% It is worth discussing briefly the possible realization of our model in
-% experiments. A common choice for bijel formation in binary liquids is a
-% mixture of water and lutidine
-% \cite{clegg_emulsification_2007,herzig_bicontinuous_2007}. The surface
-% tension between the phases of a water-lutidine system at
-% \(40^\circ\mathrm{C}\) is around \(\sigma=0.22\ \mathrm{mN/m}\) and the
-% dynamic viscosity of the lutidine-rich phase is around
-% \(\eta=2.38\ \mathrm{mPa\,s}\) \cite{grattoni_lower_1993}. Ellipsoidal
-% particles with various aspect ratios can be formed by mechanically
-% stretching spherical particles \cite{trevenen_gradient_2021}. Such
-% particles can be magnetically functionalized by e-beam deposition of a
-% Nickel layer. Fei et
-% al.~\cite{fei_magneto-capillary_2018,fei_magneto-capillary_2020}
-% fabricated coated \(4\ \mathrm{\mu m}\) polystyrene particles with a
-% permanent magnetic dipole moment of
-% \(m\approx3\cdot10^{-14}\ \mathrm{Am^2}\). It was shown that the dipole moment is oriented in the direction parallel to the coated interface \cite{yan_linking_2012,yan_rotating_2014}, i.e., it can be aligned with the axis of ellipsoidal particles.
-% For the given surface tension, the capillary torque on a particle adsorbed at an interface is approximately
-% $8.8\cdot10^{-16}\ \mathrm{Nm}$. We thus can estimate that a magnetic
-% flux density of \(30\ \mathrm{mT}\) is able to exert a magnetic torque
-% that exceeds the capillary torque.
-% We note that under these conditions,
-% the dipole-dipole interaction is on the order of
-% \(10^{-16}\ \mathrm{J}\) and an order of magnitude smaller than the
-% particle-interface interaction which is of order
-% \(10^{-15}\ \mathrm{J}\). %Unlike previous works
-% %\cite{xie_direct_2017,xie_controllable_2021}, we therefore cannot
-% %neglect the magnetic dipole-dipole interactions between particles.For these bijel properties and the parameters given in
-% table \ref{tab:parameters}, the spatial resolution of our
-% simulations is $\Delta x\approx252\ \mathrm{nm}$, and the time step
-% is $\Delta t=624\ \mathrm{ns}$. This corresponds to a system side length of $L_V \approx 64.5\ \mathrm{\mu m}$ and a runtime of
-% $T \approx 62.4\ \mathrm{ms}$.
-
-
 Critical parameters in this system include fluid density $\rho_f$, dynamic viscosity $\eta$, surface tension $\sigma$, 
 length scale $L$, and applied magnetic field strength $B$. The dynamic viscosity and surface tension is determined 
 by the relaxation time using the BGK collision operator, $\eta = \rho_f c_s^2(\tau - \frac{1}{2})$ and $g_{kk'}$ 
@@ -170,7 +32,7 @@ $R_{\parallel}$ and $R_{\perp}$ is the radius of the particle parallel and perpe
 the particle respectively. These values are identical to what was used in Gunther et al, allowing comparisons to the 
 trends they observed. \cite{gunther_timescales_2014} The particles were randomly placed in the system and an equilibration
 step was performed to push the particles further away from each after placement. Once equilibration is performed, a 
-constant magnetic field is switched on with dimensionless strengths defined using $Bo_m$.
+constant magnetic field is switched on with dimensionless strengths defined using $\bar{B}$.
 
 The initial condition of the system when simulating bijels sets the density of each grid to $0.5\rho_f + \varepsilon$ of 
 each fluid where $\varepsilon = 0.0001N(0,1)$. The model parameters trigger phase separation with a sharp interface at 
@@ -185,13 +47,14 @@ Bijel templates have been synthesized using water/2-6-lutidine for further appli
 While intrinsically polymerizable bijels have been prepared using oligomeric polymers, STRIPS and VIPS currently 
 utilize small molecule liquids in their bijel casting mixtures. Therefore, an experimentally viable system using 
 water/2-6-lutidine will be discussed in the context of the work presented here. The critical temperature (UCST) 
-for this system is $T_c = 37 ^{\circ}C$, with many systems heated to $T = 40^{\circ}C$ to form the bijel. At this 
+for this system is $T_c = 34 ^{\circ}C$, with many systems heated to $T = 40^{\circ}C$ to form the bijel. At this 
 temperature, the fluid properties are $\sigma = 0.22 mN/m$ and $\eta = 2.38 mPas$. \cite{grattoni_lower_1993} 
 Fei et al. developed a method to synthesize polystyrene microparticles ($(R_p = 2 \mu m)$) with tunable geometries 
 by mechanically stretching or compressing them, then coating them with nickel to create magnetic microparticles with 
 a dipole moment of approximately$\approx 3 \cdot 10^{-14} Am^2$. \cite{fei_active_2017, fei_magneto-capillary_2020} 
-Comparing the physical properties to simulation parameters, the simulations correspond to a box side length of 
-$L \approx 64.5 \mu m$ and a timestep duration of $\Delta t \approx 624 ns$. 
+Comparing the physical properties to simulation parameters, the simulations correspond to a length scale of
+$\Delta x = 252 \cdot 10^{-9} \text{m}$, timescale of $\Delta t = 624 \cdot 10^{-9} \text{s}$, 
+mass scale of $\Delta m = 2.24 \cdot 10^{-15} \text{kg}$ and charge scale of $\Delta q = 2.948 \cdot 10^{-7} \text{C}$. 
 
 \section{Model results}
 \label{section:model_results}

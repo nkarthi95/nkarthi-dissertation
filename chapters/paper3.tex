@@ -210,16 +210,17 @@ Where appropriate, we include results corresponding to a shear capillary number 
 \end{figure}
 
 From Figure \ref{fig:stress_strain}, we show that bijels stabilized with ellipsoidal particles are shear thinning regardless of the initial 
-microstructure and the processing applied. We quantify the fit and tabulate the results in Table \ref{tab:rheology_fit}. From Table 
-\ref{tab:rheology_fit}, we can see that as particle order increases, signified by an increase in the initial magnetic field, the flow index 
+microstructure and the processing applied. We quantify the fit and tabulate the results in Table \ref{table:rheology_fit}. From Table 
+\ref{table:rheology_fit}, we can see that as particle order increases, signified by an increase in the initial magnetic field, the flow index 
 of the material increases, indicating more Newtonian fluid like behavior. This is due to the more ordered particles being able to slip
 while undergoing fluid particle interactions without affecting other particles due to orientational ordering imposed from the application 
 of magnetic fields.
 
-\begin{center}
+\begin{table}[h!]
+    \centering
     \begin{tabular}{||c c c c c||} 
      \hline
-     Processing & $\alpha$ & $n$ & $K \frac{\Delta m (\Delta t)^{n-2}}{\Delta m} $ & $\sigma_{y} \frac{\Delta m}{\Delta m (\Delta t)^2}$ \\ [0.5ex] 
+     Processing & $\alpha$ & $n$ & $K \frac{\Delta m (\Delta t)^{n-2}}{\Delta x} $ & $\sigma_{y} \frac{\Delta m}{\Delta x (\Delta t)^2}$ \\ [0.5ex] 
      \hline\hline
      $\bar{B}: 0 \rightarrow 0$ & 0.5 & 0.522 & 1.030 & $1.054 \cdot 10^{-4}$ \\ 
      \hline
@@ -238,8 +239,22 @@ of magnetic fields.
      $\bar{B}: 1 \rightarrow 1$ & 2 & 0.618 & 0.909 & $7.161 \cdot 10^{-5}$ \\ [1ex] 
      \hline
     \end{tabular}
-\label{tab:rheology_fit}
-\end{center}
+    \caption{Hershel Buckley fit parameters for different processing conditions applied to bijels stabilized by ellipsoidal particles.}
+    \label{table:rheology_fit}
+\end{table}
+
+% \begin{table}[h!]
+%     \centering
+%     \begin{tabular}{||c c c c c c c c c c c c c||} 
+%      \hline
+%      $t_{sim}$ & $L_x$ & $\rho_f$ & $\tau$ & $\eta_f$ & $g_{cc'}$ & $\sigma$ & $\phi_f$ & $\rho_p$ & $\phi_p$ & $V_p$ & $d_c$ & $K_H$ \\ [0.5ex] 
+%      \hline\hline
+%      $10^5$ & 256 & 0.7 & 1 & 0.117 & 0.08 & 0.0267 & 0.5 & 1 & 0.15 & 2000$\pi$ & 2/3 & 100\\ [1ex] 
+%      \hline
+%     \end{tabular}
+%     \caption{Summary of the fluid, particle and model parameters used in the proposed simulations}
+%     \label{table:model_params}
+%     \end{table}
  
 We characterize that the yield stress of bijels stabilized with oblate particles decrease as particle order increases while decreasing then increasing for 
 prolate particles. This can be attributed to the morphology differences that lead to different interfacial packing, characterized with the rdf in Figure 
