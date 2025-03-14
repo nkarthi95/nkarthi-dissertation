@@ -244,10 +244,28 @@ in the plateau increase with a larger applied magnetic field. The final angle at
 strength.
 
 When analyzing $\langle \psi \rangle$ for bijels stabilized by prolate particles, this behavior can also be observed. $\langle \psi \rangle$
-begins at $10 ^{\circ}$.We see $\langle \psi \rangle$ decrease slightly, before plateauing and slowly increasing again. The rate of decrease in 
+begins at $10 ^{\circ}$.We see $\langle \psi \rangle$ increases, before plateauing and slowly decreasing. The initial peak height and rate of increase in 
 $\langle \psi \rangle$ is field dependent, although given the small decrease in $\langle \psi \rangle$ it is unclear if the final value of this parameter 
 is field dependent for bijels stabilized with prolate particles. The changes in $\langle \psi \rangle$ for bijels stabilized with prolate particles are 
-small compared to bijels stabilized with oblate particles. We believe this is due to local particle effects at the interface. We probe this by identifying 
+small compared to bijels stabilized with oblate particles. We visualize this process by color coding snapshots of the particle monolayer at the initial
+and final timesteps of bijels stabilized by prolate particles with a field strength of $\bar{B} = 1$ applied.
+
+\begin{figure} 
+    \centering 
+    \includegraphics[scale=0.4]{../figures/results/paper2/psi_concat_startB-0_endB-1.png} 
+    \caption{Visualizations of bijel stabilized by ellipsoidal particles made with no applied field having a field strength of $\bar{B} = 1$ applied. The top and bottom 
+             rows show $\psi$ for each particle at the initial and final timesteps respectively.The intensity
+             of the red color qualitatively indicates the magnitude of the $\psi$ for each particle. Field application causes particles to flip out of the interface for
+             oblate particles, while prolate particles tilt out of the interface. The interface is shaded with the Gaussian curvature.} 
+    \label{fig:psi_field_on_visualize} 
+\end{figure}
+
+From the visualizations in Figure \ref{fig:psi_field_on_visualize}, we see that the particles lie mostly flat on the interface at the initial timestep for bijels
+stabilized with oblate and prolate particles. Upon application of a field strength of $\bar{B} = 1$, we observe that the particles in the snapshot at the final timestep 
+are in different conformations for bijels stabilized with oblate and prolate particles. Oblate particles tend to flip on the interface into a metastable state where
+the interface covered by each particle is done with the $R_p$ and $R_o$ compared to its lowest energy state where it lies flat with radii $R_o$. The particle monolayer
+of bijels stabilized by prolate particles tilt out of the interface with no metastable configurations observed. This effect explains the trends seen in $\langle \psi \rangle$
+at long times for both particle morphologies. This particle flipping on the interface affects the way the particles can arrange on the interface. We probe this by identifying 
 the local particle ordering at the interface characterized by $\langle Q6 \rangle$.
 
 We see that for oblate particles, $\langle Q6 \rangle$ sees a decrease from its initial value. However the dynamics are controlled by

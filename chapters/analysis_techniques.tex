@@ -102,6 +102,48 @@ introduced into the oil phase and polymerized. Therefore, to perform the binariz
 $\phi \leq 0$ and set their value to $0$, and all other values are set to $1$. To taufactor, $1$ represents void spaces 
 and 0's are solid. \cite{cooper_taufactor_2016, kench_taufactor_2023}
 
+\subsection{Interface order}
+\label{section:interface_order}
+
+We can calculate the ordering of the interface from the iso-surface of the interface. The simulation data was first pre-processed by calculating the 
+order parameter of the densities, $\phi$. We then apply the particle filling algorithm described in section \ref{section:filling_routine} 
+to the $\phi$ distribution. We then mesh the filled order parameter at $\phi = 0$ using the marching cubes algorithm and obtain the normals of the
+vertices representing the points of the interface. We then computed the interfacial orientation tensor and plot that 
+%
+\begin{equation}
+\tens{Q}_{\text{int}} = \frac{1}{\langle \mathrm{tr}(\tens{A}) \rangle} 
+\left\langle \tens{A} - \frac{1}{3} \mathrm{tr}(\tens{A}) \mathsf{1} \right\rangle ,
+\end{equation}
+%
+where the local tensor field $\tens{A}$ is defined by
+%
+\begin{equation}
+\tens{A} = \nabla\phi\otimes\nabla\phi .
+\end{equation}
+%
+The largest eigenvalue of $\tens{Q}$ is taken as the
+interface nematic order parameter $S_{\text{int}}$.
+
+\subsection{Channel size distribution}
+\label{section:channel_size_distribution}
+
+We use a method based on that outlined in Chan and Thornton. We create our distance function by performing an Eularian Distance Transform on 
+our order parameter data $\phi$ to obtain $\phi_{edt}$. \cite{chan_channel_2012} We smooth $\phi_{edt}$ using a boxcar algorithm with side length 3. 
+We then normalize the distance from the interface in $\phi_{edt}$ using the characteristic length scale of the system defined as $\Sigma = \frac{V}{A_{int}}$
+to obtain $\bar{\phi}_{edt}$ and a normalized distance from the interface, $\bar{r}$. A schematic of this workflow is demonstrated in Figure \ref{fig:csd_prep_viz}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.4]{figures/analysis/csd_prep.png}
+    \caption{Schematics detailing the order of operations of the steps to calculate the channel size distribution.}
+    \label{fig:csd_prep_viz}
+\end{figure}
+
+The number of handles, $h$
+in the iso-surface at different distances from the interface of $\bar{\phi}_{edt}$ is calculated. $h$ is also normalized by $\Sigma$ and the system volume
+to obtain $\bar{h} = \frac{h}{V\Sigma^{-3}}$. The magnitude of the derivative of $\bar{h}$ with respect to $\bar{r}$, $f$, represents the channel size distribution.
+A mean channel size can also be calculated from the first moment of the $f$.
+
 \subsection{Nematic order parameter}
 \label{section:nematic_order_parameter}
 

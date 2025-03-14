@@ -423,7 +423,28 @@ bijels that can withstand the remixing of their constituent liquids.
 \cite{sanz_colloidal_2009, lee_making_2013} This process cannot occur in
 our simulations as we are utilizing repulsive particles. Therefore, the
 change in curvature arises from the differences in local state of the
-colloids at the interface.
+colloids at the interface. From the microstructure results in Figures \ref{fig:D2a_B}
+in addition to the genus differences characterized in Figure \ref{fig:curvature_vs_coverage},
+the connectivity of the microstructure is affected through the application of magnetic fields.
+We can use the channel size distribution to investigate how the connectivity of the microstructure and thus the 
+channel size is affected as a function of the applied magnetic field.
+
+While minor run to run variation is observed, the combined data of the channel size distribution shown in Figure \ref{fig:CSD_B_ss} shows some major differences 
+in the channel size distribution in each bijel stabilized with oblate particles. It was expected that the domain anisotropy obtained using second moment of the 
+structure factor would manifest as two peaks in the channel size distribution. \cite{karthikeyan_formation_2024} This behavior is observed in the channel size 
+distribution for bijels stabilized with oblate and prolate particles with $\bar{B} = 1$, but is more difficult to see when smaller magnetic fields are applied. 
+We see that there is a shift to larger channel sizes upon application of the magnetic field for bijels stabilized by ellipsoids. These differences arise from the 
+particle ordering and local distribution changes observed. 
+
+\begin{figure} 
+        \centering 
+        \includegraphics[scale = 0.4]{figures/results/paper1/CSD_ss.png} 
+        \caption{Plots of the channel size distribution for bijels stabilized by oblate, spherical and oblate particles at the final timestep plotted
+                 against the distance from the interface normalized with the characteristic length scale. The channel sizes obtained are averaged over 
+                 three runs. We see that the peak locations are shifted to larger and smaller positions for bijels stabilized with ellipsoidal particles
+                 upon field application} 
+        \label{fig:CSD_B_ss}
+    \end{figure}
 
 \subsection{Kinetics of bijel formation in magnetic fields}
 
@@ -528,24 +549,8 @@ themselves and cause a capillary torque on the particles that competes
 with the magnetic torque. This competition intermittently perturbs the
 nematic order of the particles leading to the observed decay and plateau
 of the nematic order parameter. Accordingly, the decay of \(S\) is most
-pronounced at the weakest magnetic field \(\bar{B}=0.2\).
-
-To further corroborate this mechanism, we quantify the orientational
-order of the interfaces. We computed the interfacial orientation tensor
-%
-\begin{equation}
-\tens{Q}_{\text{int}} = \frac{1}{\langle \mathrm{tr}(\tens{A}) \rangle} 
-\left\langle \tens{A} - \frac{1}{3} \mathrm{tr}(\tens{A}) \mathsf{1} \right\rangle ,
-\end{equation}
-%
-where the local tensor field $\tens{A}$ is defined by
-%
-\begin{equation}
-\tens{A} = \nabla\phi\otimes\nabla\phi .
-\end{equation}
-%
-The largest eigenvalue of $\tens{Q}$ is taken as the
-interface nematic order parameter $S_{\text{int}}$.
+pronounced at the weakest magnetic field \(\bar{B}=0.2\). To further corroborate 
+this mechanism, we plot the time evolution of the orientational order of the interfaces. 
 
 \begin{figure}
 \centering
@@ -628,30 +633,38 @@ the tilting of oblate particles. %For oblate particles, the liquid-solid
 %weaker and allows larger tilting relative to the the preferred alignment
 %with the interface.
 Hence the prolate particles remain mostly aligned with the interface
-even in the stronger applied magnetic fields.
+even in the stronger applied magnetic fields. We plot the interface angle of bijels
+stabilized by ellipsoidal particles at the final timestep to demonstrate the differences
+that the application of magnetic fields have on the particle monolayer.
 
-Information on the average ordering of the particles towards a
-direction can be characterized using the nematic order parameter.
-\cite{veerman_phase_1992, gunther_timescales_2014} However, we would
-like to understand the local ordering of the particles over time. We
-utilize the 6 fold Steinhardt order parameter Q6.
-\cite{steinhardt_bond-orientational_1983, lechner_accurate_2008, mickel_shortcomings_2013} 
-This parameter has been used extensively to characterize nucleation
-rates, glass transitions of colloidal systems and crystal structure
-transitions of ceramics and colloidal crystals.
-\cite{vagberg_glassiness_2011, besseling_three-dimensional_2007, schall_structural_2007}
-The original implementation has been further improved through the use an
-averaged bond order parameter, adding the next nearest neighbor to the
-neighbor list or utilizing voronoi cells to define the neighbor list
-instead of a cutoff distance. The latter provides the more robust
-implementation of the bond order parameter and is implemented in the
-package Freud. \cite{ramasubramani_freud_2020} This method has been used
-to characterize the jamming of discs at interfaces.
-\cite{ozawa_jamming_2012} We select \(Q6\) as the parameter to calculate
-due to the hexagonal ordering seen in the visualizations of the particle
-monolayer. We plot the averaged bond order parameter for each timestep,
-\(\langle Q6 \rangle\) calculated using a neighbor list derived from
-voronoi cells below.
+\begin{figure}
+        \centering
+        \includegraphics[scale = 0.4]{figures/results/paper1/psi_concat.png}
+        \caption{Visualizations of the particle monolayer at the last timestep shaded with the interface angle of each particle in red. The top and bottom
+                 rows correspond to snapshots of bijels with no field and a field strength of $\bar{B} = 1$ applied. We see that the oblate particles flip
+                 out of the interface into a non energetically favored position while the bijels stabilized with prolate particles tilt out of the interface
+                 but are less likely to flip out.}
+        \label{fig:psi_viz_ss}
+\end{figure}
+
+From Figure \ref{fig:psi_viz_ss} we can see the differences in the particle alignment to the interface characerizing the differences in $\psi$ observed. Oblate
+particles can be seen to tilt out of the interface more readily than prolate particles at the same magnetic field strength. Due to the strong surface tension
+between the fluids, the particles are strongly adsorbed onto the interface. We also see that the arrangement of particles on the interface is modified through the
+application of the magnetic field for both particle morphologies. We can obtain quantitative metrics regarding this ordering using the Steinhardt 2 and 6 fold
+order parameters, $\langle Q2 \rangle$ and $\langle Q6 \rangle$. 
+
+This parameter has been used extensively to characterize nucleation rates, glass transitions of colloidal systems and crystal structure transitions of ceramics 
+and colloidal crystals. \cite{vagberg_glassiness_2011, besseling_three-dimensional_2007, schall_structural_2007} The original implementation has been further 
+improved through the use an averaged bond order parameter, adding the next nearest neighbor to the neighbor list or utilizing voronoi cells to define the 
+neighbor list instead of a cutoff distance. The latter provides a more robust definition of the neighbor list, without needing to assume the structure of 
+the particles and is implemented in the package Freud. \cite{ramasubramani_freud_2020} This method has been used to characterize the jamming of discs at 
+interfaces. \cite{ozawa_jamming_2012}
+
+We select $\langle Q6 \rangle$ and $\langle Q2 \rangle$ as the bond order parameters to calculate as we are interested in identifying the point when ordering 
+of the material changes. Kapfer et al. demonstrated that only using $\langle Q6 \rangle$ to identify the ordering of particles in the system can result in 
+false positives when the particles have icosahedral or amorphous structure. \cite{kapfer_jammed_2012} Mickel et al. showed how increasing deviations from 
+$\langle Q2 \rangle = 0$ can be used to characterize increasing disorder in a system. \cite{mickel_shortcomings_2013} By plotting $\langle Q6 \rangle$ and 
+$\langle Q2 \rangle$, we will be able to identify changes in the local ordering of the system even if we cannot directly assess the local structure.
 
 \begin{figure} 
     \centering 
@@ -659,39 +672,28 @@ voronoi cells below.
     \caption{Time dependence of the mean two and six fold symmetry parameter, $\langle Q2 \rangle$ and $\langle Q6 \rangle$ 
     for bijels stabilized with oblate(left), spherical(middle) and prolate(right) particles. We use $\langle Q2 \rangle$ as an
     indicator of global particle translational order while $\langle Q6 \rangle$ is an indicator of local order.} 
-    \label{fig:Q6_coverage} 
+    \label{fig:steinhardt_coverage} 
 \end{figure}
 
-From Figure \ref{fig:Q6_coverage}, we observe that
-\(\langle Q6 \rangle \approx 0.34\) for all systems before increasing.
-For bijels stabilized with spherical particles, we observe that
-\(\langle Q6 \rangle\) monotonically increases until
-\(\langle Q6 \rangle \approx 0.485\), indicating that the spherical
-particles reach a hexagonally arranged state at the interface upon
-jamming. In contrast, oblate and prolate particles respectively at the
-\(t = 10^5\) timesteps have values \(\langle Q6 \rangle \approx 0.44\)
-and \(\langle Q6 \rangle \approx 0.35\) respectively, indicating that
-the arrangement of colloids on the interface are not hexagonal close
-packed. We can verify these observations in the visualizations in
-Figures \ref{fig:microstructure_viz}
+From Figure \ref{fig:steinhardt_coverage}, we see an increase in disorder in all the bijel systems characterized as an increase in $\langle Q2 \rangle$. 
+This is a characteristic of how the particles were initialized and move once the simulation is initiated. The particles are initialized to be randomly placed 
+in the simulation domain with roughly equal spacing. As the interface sweeps through the simulation domain, particles irreversibly adsorb onto the interface 
+and move with the interface until the bijel jams. We see that $\langle Q2 \rangle$ is magnetic field dependent for oblate particles but not for the spherical 
+and prolate particles. We also see an aspect ratio dependence on the values characterized as differences in the time evolution of $\langle Q2 \rangle$. This 
+arises due to the differences in the aspect ratio of the particle causing them to arrange differently on the interface as the bijel microstructure evolves.
 
-We observe a magnetic field dependent increase in \(\langle Q6 \rangle\)
-for prolate particles to \(\langle Q6 \rangle \approx 0.4\) and decrease
-for oblate particles to \(\langle Q6 \rangle \approx 0.42\). As the
-magnetic field strength is increased, we observed the interface
-possessed a more negative gaussian curvature. Previous work by Cavallaro
-et al.~demonstrated that surfaces with large gaussian curvature
-gradients can be utilized to control particle self assembly at
-interfaces owing to the excess interfacial energy induced by the
-curvature gradient. \cite{cavallaro_curvature-driven_2011} Spherical
-particles have monopolar effects which for the colloid sizes we are
-modelling are negligible. Previous literature has also ascertained
-aspect ratio dependent self-assembly of ellipsoids. We attribute the
-changes in the local ordering to be due to aspect ratio dependent self
-assembly, amplified by the greater curvature gradient present upon
-application of a magnetic field. Next, we analyze how these local
-toplogical changes affect the microstructure of the bijel by analyzing
-the width of the domains in the bijel.
+An increase in $\langle Q6 \rangle$ can indicate an increase in the number of particles adopting icosahedral symmetry at the interface of the amorphous 
+interface. \cite{kapfer_jammed_2012} However due to the amorphous nature of the arrangement of particles at the particle monolayer, we use this parameter 
+only to gauge changes in local arrangements of particles at the interface and make no commentary on specific interfacial arrangements. For oblate particles, 
+we characterize a reduction in local order as the applied field strength is increased, consistent with the increase in $\langle Q2 \rangle$. For prolate 
+particles, we observe that $\langle Q6 \rangle$ increases with the applied field. This indicates that the application of the field causes particles to have 
+increased local order, even if we see no discernible changes in $\langle Q2 \rangle$. 
+
+The application of the magnetic field affects the prolate and oblate particle differently due to their aspect ratio. At interfaces, rod-like particles 
+prefer to orient themselves in an end to end fashion. \cite{eatson_capillary_2023} Disc-like particles have been shown to prefer stacking. \cite{dabat_mesoscale_2018} 
+Application of the magnetic field and the presence of an interface will constrain the rotation of the particles, meaning that naturally rods will pack better at 
+interfaces than discs as the magnetic field causes the particles to align to the field. This better packing at the interface manifests as greater local ordering 
+Next, we analyze how these local toplogical changes affect the microstructure of the bijel by analyzing the channel size distribution of the bijels.
 
 As hypothesized above, the alignment of the particle dipole axis with
 the magnetic field reduces the steric constraints within the interface.
