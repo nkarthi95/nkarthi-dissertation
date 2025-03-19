@@ -248,25 +248,48 @@ particles from the interface.
     \label{fig:particles_interface_prop_shear} 
 \end{figure}
 
-I show in Figure \ref{fig:particles_interface_prop_shear} that when the magnetic field is kept the same between the template and during shear, the
-proportion of particles on the interface ($n_{int}$) stays approximately the same. However when changing the applied field strength, $n_{int}$ more 
-sensitive to shear. Here I also characterize that increasing the applied field strength reduces $n_{int}$ more than decreasing it. To characterize 
-the role of the interface properties and the impact of particle ejection and tilting of particles out of the interface,the next section aims to 
-uncover the microstructural implications of these effects.
+From the results in Figure \ref{fig:particles_interface_prop_shear}, the impact of the initial microstructure on the number of particles on the interface
+differs for bijels stabilized by oblate and prolate ellipsoids. We split this analysis on processing history. While keeping the applied magnetic field
+the same, we see little differences in the behavior of $n_{int}$, with their behavior corresponding to changes in $\langle \psi \rangle$. 
+Looking at the case of $\bar{B}:0 \rightarrow 0$, there is little change in the number of particles at the interface upon application of shear. This implies that the 
+particles remain strongly adsorbed on the
+interface. The $\langle \psi \rangle$ results also show this as we see this parameter increasing slowly. This suggests that the particles remain firmly adsorbed
+on the interface. Looking to the $\bar{B}:0 \rightarrow 1$ case, the number of particles at the interface drops while $\langle \psi \rangle$ increases. This
+trend affects both particles which suggests that shear can pull particles out of the interface due to the decreased
+interfacial adsorption energy the particle experiences when rotating out of the interface to orient to the applied field. The $\bar{B}:1 \rightarrow 1$ and 
+$\bar{B}:1 \rightarrow 0$ have strong dependences on particle morphology. While an increase in $\langle \psi \rangle$ can be seen in both processing histories 
+for both particle morphologies, a decrease in $n_{int}$ can be seen for prolate particles with processing history $\bar{B}:1 \rightarrow 0$ and for 
+oblate particles with processing history $\bar{B}:1 \rightarrow 1$. We visualize $\langle \psi \rangle$ at the initial and final timestep for bijels stabilized with
+oblate and prolate particles with processing $\bar{B}:1 \rightarrow 0$.
 
-% This is consistent
-% with the amount of coarsening observed for each case seen in Figure \ref{fig:domain_size_time_shear} where $\bar{B}:0 \rightarrow 1$ shows the largest
-% change.
+\begin{figure} 
+    \centering 
+    \includegraphics[scale=0.4]{../figures/results/paper3/psi_concat_startB-1_endB-0.png} 
+    \caption{Visualization of the particle monolayer of bijels stabilized by prolate and oblate ellipsoidal particles with processing history $\bar{B}: 1 \rightarrow 0$
+             undergoing an applied shear of $Ca_s = 10^{-6}$. Particles with a deeper red shade have a larger angle to the interface. The top and bottom row show the 
+             configuration of the particles at the initial and final timestep respectively.} 
+    \label{fig:particle_viz_psi} 
+\end{figure}
+
+Figure \ref{fig:particle_viz_psi} shows that the increase in $\langle \psi \rangle$ seen in Figure \ref{fig:interface_angle_shear} occurs due to different
+reasons for both particle morphologies. For oblate particles, this is caused by particles orienting such that their symmetry axis is parallel to the interface
+while prolate particles experienced interparticle forces induced by the applied shear, resulting in particles being ejected from the interface when the magnetic 
+field is switched off. When keeping the magnetic field on, the oblate particles are forced to stay in sub-optimal particle orientations to the interface, resuling
+in ejection of particles from the interface. The presence of the magnetic field reduces shear induced interparticle interactions owing to the ordering of
+particles to the applied field, resulting in the mostly unchanged $n_{int}$ values. A increase in $\langle \psi \rangle$ and decrease in $n_{int}$ indicates domain
+can indicate coarsening of the fluid domains as the interfacial area is reduced. In the next section, I investigate the the role of the interface properties and the 
+impact of particle ejection and tilting of particles out of the interface on the microstructure of bijels.
 
 \subsection{Microstructure change}
 
 Bonaccorso et al. identified that the spherical particle stabilizers in their bijel simulations oriented to the direction of shear before being
 ejected from the interface. \cite{bonaccorso_shear_2020} This then led to the domains of the bijel to coalesce and eventually destruction of the
-bicontinuous microstructure. \cite{bonaccorso_shear_2020} In our bijels, we also characterize this behavior upon application of shear.
+bicontinuous microstructure. \cite{bonaccorso_shear_2020} In our bijels, we characterize particle morphology and initial microstructure specific 
+properties of the particle monolayer upon application of shear. 
 In this section, I probe the effect of applied shear to the microstructure of magnetically
-responsive bijels stabilized by ellipsoidal particles. To investigate the effect of the particle angle on the interfacial coverage of the bijel,
-I plot the area averaged gaussian curvature over time. This parameter will allow insight into the evolution of the interface, namely the presence of
-domain coarsening, coalscence or break-off events.
+responsive bijels stabilized by ellipsoidal particles. To investigate the effect of the particle angle and the interfacial coverage of the bijel on the
+microstructural evolution of the interface, I plot the area averaged gaussian curvature over time. This parameter will allow insight into the evolution 
+of the interface, namely the presence of domain coarsening, coalscence or break-off events.
 
 \begin{figure} 
     \centering 
@@ -278,14 +301,44 @@ domain coarsening, coalscence or break-off events.
 \end{figure}
 
 Figure \ref{fig:gaussian_curvature_time_shear} reveals that the area averaged Gaussian curvature generally decreases in magnitude over time for all cases except 
-$\bar{B}: 0 \to 1$. I also characterize that the curvature evolution of all systems are shear independent. $\bar{B}: 0 \to 1$ is
+$\bar{B}: 0 \to 1$ indicating that the increase in $\langle \psi \rangle$ causes domain coarsening of the bijel. $\bar{B}: 0 \to 1$ is
 unique because particle rearrangements at the interface dominates the dynamics of the microstructure, not observed in all other
-cases. From the time evolution of the curvature, I show that the same mechanism drives domain coarsening in all cases. Domain
-coarsening is driven through a reduction in the interfacial area covered by the particle monolayer. From the curvature results characterized in 
-Figure \ref{fig:gaussian_curvature_time_shear}, I saw that the coarsening is shear independent. This indicates that the surface area of the interface 
-decreases which can occur due to changes in the interfacial orientation of particles at the interface or a reduction in the number of particles at the interface. 
-I can characterize the former mechanism using the average interfacial angle between the particle and the interface $\langle \psi \rangle$.
+cases. From the time evolution of the curvature, the same mechanism drives coarsening in all cases. From the results in Figures \ref{fig:particles_interface_prop_shear} 
+and \ref{fig:interface_angle_shear}, domain coarsening is driven through a reduction in the interfacial area covered by the particle monolayer. 
+From the curvature results characterized in Figure \ref{fig:gaussian_curvature_time_shear}, the area averaged curvature coarsening is shear independent. This is further
+evidence that the mechanism of coarsening is identical in each case. 
 
+\begin{figure} 
+    \centering 
+    \includegraphics[scale=0.3]{../figures/results/paper3/anisotropy_compare.png} 
+    \caption{Comparisons of the time evolution of the directional domain sizes that increase upon application of a magnetic field for bijels stabilized 
+             by ellipsoidal particles undergoing various shear rates under four processes. The directional domain size increases in all cases except for when the
+             field is switched off.} 
+    \label{fig:domain_size_aniso_time_shear} 
+\end{figure}
+
+From Figure \ref{fig:domain_size_aniso_time_shear}, the directional domain sizes in the orientations with the maximum change were characterized. For oblate and prolate 
+particles, this was found to be $L_{\perp}$ and $L_{\parallel}$ respectively. In all cases except for $\bar{B}: 1 \to 0$, this length scale increases matching the expected
+trend that increasing $\langle \psi \rangle$ matches domain coarsening. The decrease in these length scales for $\bar{B}: 1 \to 0$ suggest that the shear induced
+reordering of interfacial particles after application of a field affects the evolution of the microstructure. For both particles, this is due to particle mediated
+shear forces causing domains to coarsen more in specific directions. From the snapshots of the particle arrangement in Figure \ref{fig:particle_viz_psi} the particles were
+shown to reorient at the interface. This process did not occur for $\bar{B}: 1 \to 1$ as the presence of magnetic fields acted to keep particles aligned a specific
+direction. 
+
+In this chapter, I investigated the rheology of bijels stabilized by ellipsoidal particles under shear, focusing on the influence of initial microstructure and the 
+application of a constant magnetic field on their shear response. The shear behavior was characterized using a Herschel-Bulkley fitting function to extract the flow index, 
+consistency index, and yield stress. My analysis confirmed that the shear-thinning nature of bijels remains robust, regardless of particle morphology or applied magnetic 
+field. However, the flow index and yield stress trends were strongly dependent on these factors.  
+I found that increased particle ordering led to distinct yield stress behaviors: oblate particles resulted in a lower yield stress, while prolate particles exhibited a 
+higher yield stress. When examining the properties of the particle monolayer, I identified a clear impact of particle morphology on interparticle interactions at the 
+interface. In the absence of a magnetic field, both particle monolayers remained adsorbed at the interface. However, when a magnetic field was initially applied, the 
+behavior diverged significantly oblate particles flipped out of the interface to minimize interfacial energy, whereas prolate particles tilted out. These differences 
+directly influenced the shear response, altering how the surrounding fluid flows around the particles and leading to the observed non-Newtonian behavior and yield 
+stress characteristics.  
+Furthermore, I investigated the microstructural effects of shear and magnetic field-induced particle ordering and found that coarsening was the primary driver of 
+domain size evolution in sheared bijels. This coarsening was facilitated by a reduction in interfacial particle coverage. When analyzing the anisotropic domain size evolution, 
+I observed that in most cases, the direction of greatest structural change aligned with expected trends—except when the magnetic field was switched off. This deviation is 
+attributed to differences in particle monolayer evolution, depending on whether the bijel was formed with or without an initially applied field.  
 
 % Previous investigations have 
 % demonstrated how the orientation and arrangement of particles on the interface affect the domain size. 
