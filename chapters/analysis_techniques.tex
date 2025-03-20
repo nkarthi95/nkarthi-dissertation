@@ -127,7 +127,7 @@ interface nematic order parameter $S_{\text{int}}$.
 \subsection{Channel size distribution}
 \label{section:channel_size_distribution}
 
-We use a method based on that outlined in Chan and Thornton. We create our distance function by performing an Eularian Distance Transform on 
+We use a method based on that outlined in Chan and Thornton. We create our distance function by performing an Eulerian Distance Transform on 
 our order parameter data $\phi$ to obtain $\phi_{edt}$. \cite{chan_channel_2012} We smooth $\phi_{edt}$ using a boxcar algorithm with side length 3. 
 We then normalize the distance from the interface in $\phi_{edt}$ using the characteristic length scale of the system defined as $\Sigma = \frac{V}{A_{int}}$
 to obtain $\bar{\phi}_{edt}$ and a normalized distance from the interface, $\bar{r}$. A schematic of this workflow is demonstrated in Figure \ref{fig:csd_prep_viz}.
