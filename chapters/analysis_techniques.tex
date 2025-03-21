@@ -1,20 +1,21 @@
 \section{Analysis techniques}
 
-In this work, the structure factor derived domain size, geometric pore size distribution and tortuosity will be 
-utilized to characterize the microstructure. The nematic order parameter will be used to characterize the particle 
-order to the magnetic field. The average angle to the interface will be utilized to characterize how the particles 
-ordering to the field affect the interface position. Finally, the radial distribution function will be used to probe 
-how differences in ordering change the packing of particles on the interface. The time evolution of viscosity will 
-provide insight into the rheological properties of the bijel, while the aforementioned analysis tools in addition to 
-proportion of particles on the interface will be calculated to provide insight into how the bijel reacts to shear, 
-parallel and perpendicular to the magnetic field. A more detailed description of the implementation of each method is 
-shown in subsequent sections.
+Many techniques used in the bijel literature such as various definitions of the domain size,
+nematic order parameter, radial distribution function and shear stress calculation were used in the characterization
+of bijels in this work. \cite{kendon_inertial_2001, jansen_bijels_2011, gunther_timescales_2014} Other techniques such
+as the curvature and channel size distribution have also been used to characterize the microstructure of bijels. 
+\cite{reeves_quantitative_2016,chan_channel_2012} Additional techniques such as the interfacial angle
+and the Steinhardt order parameters. \cite{karthikeyan_formation_2024,steinhardt_bond-orientational_1983, mickel_shortcomings_2013}
+This section introduces each method and they are calculated. The implementation of each function can be found in my 
+\href{https://github.com/nkarthi95/schiller_lab_tools}{github repository}.
+
 
 \subsection{Particle filling and interface smoothening}
 \label{section:filling_routine}
 
 Particles are the cause of bijels but they can also make characterization of domain size, curvature, pore size 
-distribution and tortuosity more difficult as particles may change these parameters. An extrapolation scheme is 
+distribution and tortuosity more difficult as the presence of particles affects measurement of these parameters. 
+An extrapolation scheme is 
 required to connect the interface one different sides of the particles and to fill in the particles themselves so 
 as to create a more accurate interface for other techniques.
 
@@ -134,7 +135,7 @@ to obtain $\bar{\phi}_{edt}$ and a normalized distance from the interface, $\bar
 
 \begin{figure}
     \centering
-    \includegraphics[scale = 0.4]{figures/analysis/csd_prep.png}
+    \includegraphics[scale = 0.5]{figures/analysis/csd_prep.png}
     \caption{Schematics detailing the order of operations of the steps to calculate the channel size distribution.}
     \label{fig:csd_prep_viz}
 \end{figure}
