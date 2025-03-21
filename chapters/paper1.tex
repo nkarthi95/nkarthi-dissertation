@@ -28,10 +28,10 @@ electric fields have been shown to cause percolating cylindrical domains in elec
 The electric field causes polar interactions between particles, which causes the formation of chains of particles that
 also function as nucleation sites for phase separation. \cite{carmack_tuning_2018}
 
-In this chapter, I investigate the effect of external magnetic fields on the formation of bijels stabilized by 
+In this chapter, We investigate the effect of external magnetic fields on the formation of bijels stabilized by 
 anisotropic magnetic particles. The microstructure of bijels stabilized with oblate, spherical and prolate particles, 
 namely the characteristic length scale and tortuosity, will be assessed as a function of the applied magnetic field
-strength. I also characterize the underlying mechanisms governing the observed behavior. 
+strength. We also characterize the underlying mechanisms governing the observed behavior. 
 
 % Anisotropic particles, when adsorbed at liquid interfaces, induce
 % shape-dependent capillary interactions that can have a distinct effect
@@ -106,14 +106,14 @@ electrodes
 \cite{vanoli_bijels_2022, chen_pore-scale_2022, lu_controllable_2020, garcia_scalable_2019}.
 The transport properties of porous materials depend on the porosity and
 tortuosity of the void space and can be linked to the phase-separated
-morphology of the bijel template. Therefore, I study the domain size
+morphology of the bijel template. Therefore, We study the domain size
 and tortuosity of the phase morphology of bijels stabilized by
-anisotropic particles. In particular, I investigate the effect of
+anisotropic particles. In particular, We investigate the effect of
 magnetic particles on the microstructure of bijels that are formed in
-external magnetic fields. I simulated bijels with a particle volume
+external magnetic fields. We simulated bijels with a particle volume
 fraction of \(\phi_p=0.15\) and varied the magnetic flux density such
 that the Bond numbers varies in the range \(0\le\bar{B}\le1\).
-In this work, I use a fixed particle volume fraction and focus on the dependence of the 
+In this work, We use a fixed particle volume fraction and focus on the dependence of the 
 bijel structure on the magnetic field. Bijels with varying particle loading and surface tension 
 and have been studied elsewhere in the literature, e.g., by Hijnen et al.\cite{hijnen_bijels_2015} 
 and Jansen and Harting\cite{jansen_bijels_2011}.
@@ -142,15 +142,15 @@ In LB simulations of spinodal decomposition, a characteristic length
 scale can be obtained from the structure factor, defined in Section \ref{section:domain_size}. \cite{kendon_3d_1999,kendon_inertial_2001} 
 It is worth noting that this definition of average domain size does not necessarily yield values that coincide with the typical
 domain size observed visually in snapshots such as those shown in Figure~\ref{fig:microstructure_viz}. However, in a dynamic
-scaling regime, different measures of domain size are expected to differ only by a constant ratio. I found that the commonly 
+scaling regime, different measures of domain size are expected to differ only by a constant ratio. We found that the commonly 
 used measure \(L_1(t)\) tends to overestimate the observed domain size. Numerically, the calculation of the spherically 
 averaged structure factor is subject to poor statistics in the low \(k\)-shells, where the average \(|\vec{k}|\) of the 
 lattice sites differs from the nominal shell radius. Additionally, the measurement of \(L(t)\) in simulations with
 periodic boundary conditions is subject to finite size effects. More importantly, in suspensions of anisotropic particles, 
-I cannot expect that the structure factor is isotropic. Therefore, I also used the 3D structure factor to calculate a lateral domain 
+We cannot expect that the structure factor is isotropic. Therefore, we also used the 3D structure factor to calculate a lateral domain 
 size in each Cartesian direction from the second moments also defined in Section \ref{section:domain_size}. 
-\cite{jansen_bijels_2011,gunther_timescales_2014} I add the additional processing calculating a parallel and perpendicular domain size
-from the results in each cartesian direction, defining $L_{\parallel}=L_z$ and $L_{\perp} = \frac{L_x+L_y}{2}$ I plot the structure factor of the structures in
+\cite{jansen_bijels_2011,gunther_timescales_2014} We add the additional processing calculating a parallel and perpendicular domain size
+from the results in each cartesian direction, defining $L_{\parallel}=L_z$ and $L_{\perp} = \frac{L_x+L_y}{2}$ we plot the structure factor of the structures in
 Figure \ref{fig:structure_factor}.
 
 \begin{figure*}
@@ -237,7 +237,7 @@ domain morphology.
 
 At first glance, the time-dependence of the domain size in Figure 
 \ref{fig:domain_size} suggests that the domain size is not strongly
-affected by the external magnetic field. In Figure \ref{fig:D2a_B}a) I
+affected by the external magnetic field. In Figure \ref{fig:D2a_B}a) we
 plotted the domain size measure \(L_d\) normalized by \(R\), the larger
 of the two radii of the ellipsoidal particles. The data points represent
 the domain size measured at the final time step and averaged over three
@@ -249,13 +249,13 @@ indicates that -- relative to their volume -- ellipsoidal particles
 stabilize a larger interface area than spherical particles. This is due
 to the larger cross-sectional area of ellipsoidal particles at the same
 volume. Furthermore, steric constraints prevent anisotropic particles to
-pack less densely in the interface than spherical particles, as I will
+pack less densely in the interface than spherical particles, as we will
 discuss in more detail below.
 
 The magnetic field does have an effect on the directional
-domain size as shown in Figure \ref{fig:D2a_B} where I plotted the
+domain size as shown in Figure \ref{fig:D2a_B} where we plotted the
 domain size in the direction parallel and perpendicular to \(\vec{B}\)
-separately. I find that for prolate particles, the domain size in the
+separately. We find that for prolate particles, the domain size in the
 parallel direction increases with the field strength up to approximately
 three particle radii for the largest field, while the perpendicular
 domain size stays constant. This trend is reversed for oblate particles
@@ -273,7 +273,7 @@ model, \(\vec{m}\) is aligned with the larger axis of prolate
 ellipsoids, whereas it is aligned with the smaller axis of oblate
 ellipsoids. Hence \(\vec{m}\) lies in the plane of the larger
 cross-section of prolate particles while \(\vec{m}\) is perpendicular to
-the larger cross-section of oblate particles. I thus expect that
+the larger cross-section of oblate particles. We thus expect that
 alignment of the particles with the magnetic field \(\vec{B}\)
 facilitates closer packing perpendicular to the field for prolate
 particles, and parallel to the field for oblate particles. The
@@ -293,13 +293,13 @@ strength and further increases of the field have no additional effect.
 The anisotropy of domain size suggests that the magnetic field
 influences the bijel morphology at the microscale. To investigate
 whether these structural changes have an effect on macroscopic
-transport properties, I also characterized the tortuosity of the
+transport properties, we also characterized the tortuosity of the
 bijels. Various definitions of tortuosity have been proposed in the
 literature \cite{dasilva_tortuosity_2022}, including geometric,
-diffusional, and hydraulic tortuosity. Here I use the diffusional
+diffusional, and hydraulic tortuosity. Here we use the diffusional
 tortuosity $\tau= \frac{\epsilon D}{D_{\text{eff}}}$, i.e., the ratio of the 
 effective diffusivity $D_{\text{eff}}$ and the intrinsic diffusivity
-$D$. I calculate the tortuosity using the procedure detailed in Section \ref{section:tortuosity}
+$D$. We calculate the tortuosity using the procedure detailed in Section \ref{section:tortuosity}
 
 Figure \ref{fig:tau_B} shows the results for the tortuosity as a
 function of the applied magnetic flux for the three particle aspect
@@ -326,12 +326,12 @@ anisotropic domain size and the alignment of particles with the magnetic
 field. For prolate particles, the longer axis is aligned with the
 magnetic moment and induces larger domain size and lower tortuosity in
 this direction. The results show that the magnetic field has a
-noticeable effect on the tortuosity of the bijel. I observe that the
+noticeable effect on the tortuosity of the bijel. We observe that the
 largest change of tortuosity is measured at intermediate field strength
 \(\bar{B}=0.5\). This suggests that the competition of interfacial and
 magnetic forces and the resulting alignment of particles and liquid
 domains induces morphological changes that are more complex than a
-monotonic increase or decrease. I therefore turn to investigate the
+monotonic increase or decrease. We therefore turn to investigate the
 microstructural changes within the bijel morphology in more detail.
 
 \subsection{Curvature}
@@ -339,7 +339,7 @@ microstructural changes within the bijel morphology in more detail.
 Beyond the length scale, curvature analysis offers insights into the
 topological landscape of the bijel, facilitating further
 microstructure optimization for various applications.
-\cite{reeves_quantitative_2016} I plot the area averaged mean and
+\cite{reeves_quantitative_2016} We plot the area averaged mean and
 gaussian curvature \(H\Sigma^{-1}\) and \(K\Sigma^{-2}\) for bijels
 stabilized with oblate, spherical and prolate ellipsoids at the final timestep in Figure
 \ref{fig:curvature-vs-B_ss}. 
@@ -365,7 +365,7 @@ near or at 0 is expected as the fluid volume fraction is equal and the
 particles are neutrally wetting, implying the interface should not have
 a preferred direction of curvature. \cite{jinnai_interfacial_2001} For
 ellipsoidal particles, the gaussian curvature becomes more negative as
-larger field strengths are applied. I also see that the gaussian
+larger field strengths are applied. We also see that the gaussian
 curvature becomes more positive as the interfacial area of the particle
 increases. The trend of these results are inverse to the interfacial
 area of each particle, \(A_{rm}\). This is expected behavior and is in
@@ -375,20 +375,20 @@ size on the curvature of bijels. \cite{reeves_quantitative_2016}
 To explain the reduction in $\langle K\Sigma^{-2} \rangle$ as a function of the applied field strength, two mechanisms are proposed. The first is that 
 the particle alignment to the magnetic field during coarsening changes the topology of the surface, which upon jamming of ellipsoidal particles is locked in. 
 The other proposed mechanism is that the time evolution of spinodal decomposition remains unaffected, but that the interface conforms to the magnetic field 
-driven arrangement of particles upon jamming. While I cannot apply the Gauss Bonnet theorem to characterize the results, I can still relate the coarsening 
+driven arrangement of particles upon jamming. While we cannot apply the Gauss Bonnet theorem to characterize the results, we can still relate the coarsening 
 behavior of the bijel through its change in genus to the curvature. The time evolution of the genus serves as a topological technique to characterize the 
 coarsening of the bijel, which alongside the $\langle K\Sigma^{-2} \rangle$, allows us to identify deviations from the coarsening behavior of bijels 
-stabilized with spherical particles, and with magnetic fields. I calculate the genus by extracting the isosurface of the filled order parameter, where 
+stabilized with spherical particles, and with magnetic fields. We calculate the genus by extracting the isosurface of the filled order parameter, where 
 $\phi = 0$. It is then meshed using the marching cubes algorithm implemented in scikit-image with a cube size of 1. \cite{van2014scikit} From the vertices(v) 
-and faces(f) generated from the marching cubes algorithm, I calculate the number of edges(e). The Euler Poincare characteristic, $\chi = n + f - e$. The genus is 
+and faces(f) generated from the marching cubes algorithm, we calculate the number of edges(e). The Euler Poincare characteristic, $\chi = n + f - e$. The genus is 
 then obtained from the Euler Poincare parameter as $g = 1 - \chi/2$.
 
 \begin{figure} 
     \centering 
     \includegraphics[scale = 0.4]{figures/results/paper1/genus_curvature_vs_coverage.png} 
     \caption{Plots of Gaussian $\langle K \rangle \Sigma^{-2}$ curvature over time averaged across 3 runs. 
-    From left to right, I have particles with $\alpha = 0.5, 1, 2$. I observe that the initial stages of 
-    evolution are unaffected by the applied magnetic field. However, after about 10000 timsteps, I see a 
+    From left to right, We have particles with $\alpha = 0.5, 1, 2$. We observe that the initial stages of 
+    evolution are unaffected by the applied magnetic field. However, after about 10000 timsteps, We see a 
     magnetic field dependence on the evolution of the Gaussian curvature. The preservation of this divergence 
     occurs when ellipsoidal particles are used but not spherical particles.} 
     \label{fig:curvature_vs_coverage}
@@ -397,12 +397,12 @@ then obtained from the Euler Poincare parameter as $g = 1 - \chi/2$.
 The time evolution of $g \Sigma^{-1}$ of bijels stabilized with spherical particles is unaffected by the application of a magnetic field. However, a 
 slight decrease in the genus as a function of the applied field is observed for bijels stabilized with ellipsoidal particles. This suggests that the 
 evolution of the surface corresponding to the interface is changed by the adsorption and orientation of magnetically responsive ellipsoidal particle. 
-I see effects of this change in $\langle G \rangle \Sigma^{-2}$ where I see the evolution of the curvature being delayed, indicated as a rightward 
+We see effects of this change in $\langle G \rangle \Sigma^{-2}$ where we see the evolution of the curvature being delayed, indicated as a rightward 
 shift of the plots as a function of the applied field. 
 
-Despite all our curvature calculations being normalized with their surface area to volume ratio, I still see curvature differences as a function of the applied 
+Despite all our curvature calculations being normalized with their surface area to volume ratio, we still see curvature differences as a function of the applied 
 magnetic field. Experiments have identified that curvature changes can occur due to the formation of monogels, which are particle networks formed from bijels that 
-can withstand the remixing of their constituent liquids. \cite{sanz_colloidal_2009, lee_making_2013} This process cannot occur in our simulations as I am utilizing 
+can withstand the remixing of their constituent liquids. \cite{sanz_colloidal_2009, lee_making_2013} This process cannot occur in our simulations as we am utilizing 
 electrically neutral particles that only interact through contact forces. Therefore, the change in curvature arises from microstructure changes driven by particle 
 alignment to the magnetic field direction. These results provide support for the mechanism of control being due to particle alignment to the magnetic field during 
 coarsening changes the topology of the surface, which upon jamming of ellipsoidal particles is locked in. As our particles only interact through contact forces, 
@@ -410,7 +410,7 @@ the only mechanism present that can change the topology of the interface would b
 controlled through the orientation of particles and the local ordering of particles on the interface. Seeing that there are differences in the gaussian curvature of the bijel,
 the domain anisotropy characterized in Figure \ref{fig:D2a_B} may be able to be characterized as changes in the topology of the surface. Chan and Thornton introduced a 
 topological technique to characterize the connectivity of surface as a function of a distance from the interface to calculate the channel size distribution. 
-\cite{chan_channel_2012} I can use the channel size distribution to investigate how the connectivity of the microstructure and thus the 
+\cite{chan_channel_2012} We can use the channel size distribution to investigate how the connectivity of the microstructure and thus the 
 channel size is affected as a function of the applied magnetic field.
 
 \begin{figure} 
@@ -418,7 +418,7 @@ channel size is affected as a function of the applied magnetic field.
         \includegraphics[scale = 0.4]{figures/results/paper1/CSD_ss.png} 
         \caption{Plots of the channel size distribution for bijels stabilized by oblate, spherical and oblate particles at the final timestep plotted
                  against the distance from the interface normalized with the characteristic length scale. The channel sizes obtained are averaged over 
-                 three runs. I see that the peak locations are shifted to larger and smaller positions for bijels stabilized with ellipsoidal particles
+                 three runs. We see that the peak locations are shifted to larger and smaller positions for bijels stabilized with ellipsoidal particles
                  upon field application} 
         \label{fig:CSD_B_ss}
     \end{figure}
@@ -432,9 +432,9 @@ These differences arise from the particle ordering and local distribution change
 \subsection{Kinetics of bijel formation in magnetic fields}
 
 To shed light on the mechanisms involved in the coarsening dynamics,
-I now turn to the kinetics of bijel formation in more detail. The
+we now turn to the kinetics of bijel formation in more detail. The
 coarsening dynamics can be characterized by a coarsening speed. Here,
-I use the finite difference of the directional domain size to
+we use the finite difference of the directional domain size to
 calculate the components of the coarsening velocity
 %
 \begin{equation}
@@ -453,13 +453,13 @@ show that the jamming time is different in the direction parallel and perpendicu
 \end{figure*}
 
 Figure \ref{fig:coarsening_velocity} shows the coarsening speed in the directions parallel and perpendicular to the applied magnetic field. 
-The data confirms that for spherical particles, domain coarsening remains isotropic. I observe a higher coarsening speed initially which slows 
+The data confirms that for spherical particles, domain coarsening remains isotropic. We observe a higher coarsening speed initially which slows 
 at later times when the particles begin to jam. This indicates that the
 coarsening is subject to different time scales, as reported previously
 by Harting and co-workers \cite{gunther_timescales_2014}. Reeves et
 al.~\cite{reeves_particle-size_2015} have pointed out that bijel
 formation hinges on the jamming time in relation to the disruption time, i.e., the time scale at which domain pinch-off events can cause bijel break-up through 
-depercolation. In our simulations, however, I have not observed disruption of bijel formation; stable bijels form for all parameters consistent with simulations 
+depercolation. In our simulations, however, we have not observed disruption of bijel formation; stable bijels form for all parameters consistent with simulations 
 by Stratford et
 al.~\cite{stratford_colloidal_2005} and Jansen et al.~\cite{jansen_bijels_2011}.
 
@@ -472,10 +472,10 @@ direction parallel to the field. The coarsening speed in the parallel
 direction remains comparable to the case without an applied magnetic
 field. This anisotropic behavior of the coarsening speed reverses for
 prolate particles, where the coarsening speed in the direction parallel to the field increases with increasing field strength, and jamming in this direction
-is delayed compared with the perpendicular direction. In addition, I observe a shoulder (around \(10^4\Delta t\)) where the coarsening speed decays more slowly before jamming sets in. These results suggest that the coarsening near the jamming time is affected by a mechanism that depends on the applied magnetic field and causes the anisotropic
+is delayed compared with the perpendicular direction. In addition, we observe a shoulder (around \(10^4\Delta t\)) where the coarsening speed decays more slowly before jamming sets in. These results suggest that the coarsening near the jamming time is affected by a mechanism that depends on the applied magnetic field and causes the anisotropic
 behavior. This mechanisms involves the re-orientation of anisotropic
 particles and their alignment relative to the direction of the
-magnetic field. To confirm this hypothesis, I analyze the
+magnetic field. To confirm this hypothesis, we analyze the
 orientational order of the particles and their alignment relative to
 the magnetic field and the interface, respectively.
 
@@ -509,7 +509,7 @@ order of the magnetic dipoles (shown for \(\bar{B}=1\)).
 \label{fig:nematic_time}
 \end{figure}
 
-To measure the particle alignment quantitatively, I computed the
+To measure the particle alignment quantitatively, we computed the
 nematic order tensor using the method detailed in Section \ref{section:nematic_order_parameter} 
 Figure \ref{fig:nematic_time} shows the time evolution of the nematic
 order parameter \(S\) for the three different particle aspect ratios
@@ -518,7 +518,7 @@ orientational order is nearly instantaneous and increases with
 increasing field strength. For magnetic flux densities
 \(\bar{B}\ge0.5\), the nematic order parameter saturates at
 \(S\approx 1.0\) towards the end of the simulation. For the prolate
-particles (\(\alpha=2.0\)), I observe a shoulder at around
+particles (\(\alpha=2.0\)), we observe a shoulder at around
 \(10^4\Delta t\) and an intermittent plateau. The occurrence of this
 plateau coincides with the slowed decay of the coarsening speed in Figure
 \ref{fig:coarsening_velocity}. This change in the orientational ordering
@@ -537,7 +537,7 @@ with the magnetic torque. This competition intermittently perturbs the
 nematic order of the particles leading to the observed decay and plateau
 of the nematic order parameter. Accordingly, the decay of \(S\) is most
 pronounced at the weakest magnetic field \(\bar{B}=0.2\). To further corroborate 
-this mechanism, I plot the time evolution of the orientational order of the interfaces. 
+this mechanism, We plot the time evolution of the orientational order of the interfaces. 
 
 \begin{figure}
 \centering
@@ -567,7 +567,7 @@ energetically preferred ``flat'' orientation and a tilted orientation
 occurs at a critical field strength of approximately \(\bar{B}=0.2\)
 \cite{bresme_orientational_2007,davies_interface_2014,newton_influence_2014}.
 In the case of bijels, however, the percolating interfaces are tortuous
-and thus more mobile. I therefore posit that, rather than tilting out
+and thus more mobile. We therefore posit that, rather than tilting out
 of the interface, rotating particles can ``pull'' the interface along
 and thereby align the liquid domains. For anisotropic particles, we
 expect that the interfaces align along the larger cross-section of the
@@ -620,7 +620,7 @@ the tilting of oblate particles. %For oblate particles, the liquid-solid
 %weaker and allows larger tilting relative to the the preferred alignment
 %with the interface.
 Hence the prolate particles remain mostly aligned with the interface
-even in the stronger applied magnetic fields. I plot the interface angle of bijels
+even in the stronger applied magnetic fields. We plot the interface angle of bijels
 stabilized by ellipsoidal particles at the final timestep to demonstrate the differences
 that the application of magnetic fields have on the particle monolayer.
 
@@ -628,16 +628,16 @@ that the application of magnetic fields have on the particle monolayer.
         \centering
         \includegraphics[scale = 0.4]{figures/results/paper1/psi_concat.png}
         \caption{Visualizations of the particle monolayer at the last timestep shaded with the interface angle of each particle in red. The top and bottom
-                 rows correspond to snapshots of bijels with no field and a field strength of $\bar{B} = 1$ applied. I see that the oblate particles flip
+                 rows correspond to snapshots of bijels with no field and a field strength of $\bar{B} = 1$ applied. We see that the oblate particles flip
                  out of the interface into a non energetically favored position while the bijels stabilized with prolate particles tilt out of the interface
                  but are less likely to flip out.}
         \label{fig:psi_viz_ss}
 \end{figure}
 
-From Figure \ref{fig:psi_viz_ss} I can see the differences in the particle alignment to the interface characerizing the differences in $\psi$ observed. Oblate
+From Figure \ref{fig:psi_viz_ss} We can see the differences in the particle alignment to the interface characerizing the differences in $\psi$ observed. Oblate
 particles can be seen to tilt out of the interface more readily than prolate particles at the same magnetic field strength. Due to the strong surface tension
-between the fluids, the particles are strongly adsorbed onto the interface. I also see that the arrangement of particles on the interface is modified through the
-application of the magnetic field for both particle morphologies. I can obtain quantitative metrics regarding this ordering using the Steinhardt 2 and 6 fold
+between the fluids, the particles are strongly adsorbed onto the interface. We also see that the arrangement of particles on the interface is modified through the
+application of the magnetic field for both particle morphologies. We can obtain quantitative metrics regarding this ordering using the Steinhardt 2 and 6 fold
 order parameters, $\langle Q2 \rangle$ and $\langle Q6 \rangle$. 
 
 This parameter has been used extensively to characterize nucleation rates, glass transitions of colloidal systems and crystal structure transitions of ceramics 
@@ -647,44 +647,44 @@ neighbor list instead of a cutoff distance. The latter provides a more robust de
 the particles and is implemented in the package Freud. \cite{ramasubramani_freud_2020} This method has been used to characterize the jamming of discs at 
 interfaces. \cite{ozawa_jamming_2012}
 
-I select $\langle Q6 \rangle$ and $\langle Q2 \rangle$ as the bond order parameters to calculate as I am interested in identifying the point when ordering 
+We select $\langle Q6 \rangle$ and $\langle Q2 \rangle$ as the bond order parameters to calculate as We am interested in identifying the point when ordering 
 of the material changes. Kapfer et al. demonstrated that only using $\langle Q6 \rangle$ to identify the ordering of particles in the system can result in 
 false positives when the particles have icosahedral or amorphous structure. \cite{kapfer_jammed_2012} Mickel et al. showed how increasing deviations from 
 $\langle Q2 \rangle = 0$ can be used to characterize increasing disorder in a system. \cite{mickel_shortcomings_2013} By plotting $\langle Q6 \rangle$ and 
-$\langle Q2 \rangle$, I will be able to identify changes in the local ordering of the system even if I cannot directly assess the local structure quantitatively.
+$\langle Q2 \rangle$, we will be able to identify changes in the local ordering of the system even if We cannot directly assess the local structure quantitatively.
 
 \begin{figure} 
     \centering 
     \includegraphics[width=\columnwidth]{figures/results/paper1/steinhardt_vs_coverage.png} 
     \caption{Time dependence of the mean two and six fold symmetry parameter, $\langle Q2 \rangle$ and $\langle Q6 \rangle$ 
-    for bijels stabilized with oblate(left), spherical(middle) and prolate(right) particles. I use $\langle Q2 \rangle$ as an
+    for bijels stabilized with oblate(left), spherical(middle) and prolate(right) particles. We use $\langle Q2 \rangle$ as an
     indicator of global particle translational order while $\langle Q6 \rangle$ is an indicator of local order.} 
     \label{fig:steinhardt_coverage} 
 \end{figure}
 
-From Figure \ref{fig:steinhardt_coverage}, I see an increase in disorder in all the bijel systems characterized as an increase in $\langle Q2 \rangle$. 
+From Figure \ref{fig:steinhardt_coverage}, we see an increase in disorder in all the bijel systems characterized as an increase in $\langle Q2 \rangle$. 
 This is a characteristic of how the particles were initialized and move once the simulation is initiated. The particles are initialized to be randomly placed 
 in the simulation domain with roughly equal spacing. As the interface sweeps through the simulation domain, particles irreversibly adsorb onto the interface 
-and move with the interface until the bijel jams. I see that $\langle Q2 \rangle$ is magnetic field dependent for oblate particles but not for the spherical 
-and prolate particles. I also see an aspect ratio dependence on the values characterized as differences in the time evolution of $\langle Q2 \rangle$. This 
+and move with the interface until the bijel jams. We see that $\langle Q2 \rangle$ is magnetic field dependent for oblate particles but not for the spherical 
+and prolate particles. We also see an aspect ratio dependence on the values characterized as differences in the time evolution of $\langle Q2 \rangle$. This 
 arises due to the differences in the aspect ratio of the particle causing them to arrange differently on the interface as the bijel microstructure evolves.
 
 An increase in $\langle Q6 \rangle$ can indicate an increase in the number of particles adopting icosahedral symmetry at the interface of the amorphous 
-interface. \cite{kapfer_jammed_2012} However due to the amorphous nature of the arrangement of particles at the particle monolayer, I use this parameter 
+interface. \cite{kapfer_jammed_2012} However due to the amorphous nature of the arrangement of particles at the particle monolayer, we use this parameter 
 only to gauge changes in local arrangements of particles at the interface and make no commentary on specific interfacial arrangements. For oblate particles, 
-I characterize a reduction in local order as the applied field strength is increased, consistent with the increase in $\langle Q2 \rangle$. For prolate 
-particles, I observe that $\langle Q6 \rangle$ increases with the applied field. This indicates that the application of the field causes particles to have 
-increased local order, even if I see no discernible changes in $\langle Q2 \rangle$. 
+we characterize a reduction in local order as the applied field strength is increased, consistent with the increase in $\langle Q2 \rangle$. For prolate 
+particles, we observe that $\langle Q6 \rangle$ increases with the applied field. This indicates that the application of the field causes particles to have 
+increased local order, even if we see no discernible changes in $\langle Q2 \rangle$. 
 
 The application of the magnetic field affects the prolate and oblate particle differently due to their aspect ratio. At interfaces, rod-like particles 
 prefer to orient themselves in an end to end fashion. \cite{eatson_capillary_2023} Disc-like particles have been shown to prefer stacking. \cite{dabat_mesoscale_2018} 
 Application of the magnetic field and the presence of an interface will constrain the rotation of the particles, meaning that naturally rods will pack better at 
 interfaces than discs as the magnetic field causes the particles to align to the field. This better packing at the interface manifests as greater local ordering 
-Next, I analyze how these local toplogical changes affect the microstructure of the bijel by analyzing the channel size distribution of the bijels.
+Next, we analyze how these local toplogical changes affect the microstructure of the bijel by analyzing the channel size distribution of the bijels.
 
 As hypothesized above, the alignment of the particle dipole axis with
 the magnetic field reduces the steric constraints within the interface.
-To corroborate this idea, I analyzed the radial distribution function
+To corroborate this idea, we analyzed the radial distribution function
 (RDF) of the particles, the calculation of which is detailed in Section
 \ref{section:radial_distribution} The time-evolution of the RDFs for the three particle shapes and
 varying magnetic flux density is illustrated in Figure \ref{fig:rdf}.
@@ -736,20 +736,20 @@ interface to shrink further and facilitates domain coarsening. In terms
 of the time-evolution, the rotation of particles due to the magnetic
 field occurs during the initial stages of the simulation, followed by
 the local re-alignment of interfaces due to capillary interactions. In
-the case of prolate particles, I observed the shrinking interface can
+the case of prolate particles, we observed the shrinking interface can
 force particles to tilt out of their preferential alignment to facilitate
 closer packing. Generally, our results show that when bijels stabilized
 by anisotropic magnetic particles form under the influence of a magnetic
 field, the domain size and tortuosity become anisotropic. Additionally,
-I observe that the particle packing in the interface becomes more
+we observe that the particle packing in the interface becomes more
 ordered due to the alignment effects.
 
 \section{Conclusions}
 
-In this work, I studied the effect of applied magnetic fields on the
+In this work, we studied the effect of applied magnetic fields on the
 formation of bijels stabilized by magnetic ellipsoidal particles. We
 considered oblate, spherical, and prolate particles with a permanent
-magnetic dipole moment suspended in a symmetric binary liquid. I found
+magnetic dipole moment suspended in a symmetric binary liquid. We found
 that, while the overall formation of a bijel is not disrupted by
 magnetic interactions, bijels stabilized by oblate or prolate ellipsoids
 exhibit anisotropic domain size and an anisotropic tortuosity. For
@@ -758,9 +758,9 @@ perpendicular to the magnetic field while the tortuosity increases in
 the parallel direction. Conversely, for prolate particles, the domain
 size increases in the direction parallel to the magnetic field while the
 tortuosity increases in the perpendicular direction. Compared with
-bijels formed in the absence of a magnetic field, I observed changes in
+bijels formed in the absence of a magnetic field, we observed changes in
 domain size up to \(30\%\) for non-spherical particles. When probing
-the differences in the microstructure, I identify that while the
+the differences in the microstructure, we identify that while the
 connectivity of the microstructure does not change, 
 the time evolution of the area averaged gaussian curvature shows that
 orientational ordering of the particles affects the shape of the
@@ -774,20 +774,20 @@ field, corroborating the microstructure anisotropy characterized.
 This effect can
 be explained by the re-orientation of the particle dipole axis with the
 magnetic field, which in turn re-aligns the interfaces in the direction
-of the longer axis of the particles. I further corroborated this
+of the longer axis of the particles. We further corroborated this
 mechanisms by analyzing the coarsening speed and the nematic order of
-the particles and the interfaces. I found that jamming of particles is
+the particles and the interfaces. We found that jamming of particles is
 delayed in the direction of the longer ellipsoidal axis leading to
 enhanced coarsening in this direction. The timescale of the delayed
 jamming coincides with a slow-down of the orientational ordering of the
-particles whereas the alignment of the interfaces increases. I also
+particles whereas the alignment of the interfaces increases. We also
 found that the angle between the particle dipole axis and the interface
 normal changes at this stage. Orientational ordering at the interface was
 observed to reduce for disc like particles and increase for rod like
-particles upon application of the magnetic field. I analyzed the radial
+particles upon application of the magnetic field. We analyzed the radial
 distribution function of the particles and found that prolate particles
 tend to align side by side, while the oblate particles exhibit a less
-regular arrangement. Based on these findings, I propose that bijel
+regular arrangement. Based on these findings, we propose that bijel
 formation in magnetic fields is governed by two coupled effects: During
 the initial stage, the magnetic torque rotates the particles to align
 the magnetic dipole moment with the field, and the orientational order
@@ -813,8 +813,8 @@ that could be leveraged to tune the bijel formation. Moreover, the
 particle volume fraction is another parameter that is known to affect
 the formation of particle-stabilized emulsions
 \cite{jansen_bijels_2011,hijnen_bijels_2015}. With respect to possible
-experimental realizations of our simulations, I should emphasize that
-I have generally considered micron-size particles and have neglected
+experimental realizations of our simulations, we should emphasize that
+we have generally considered micron-size particles and have neglected
 thermal fluctuations. At the nanoscale, thermal fluctuations may in
 principle play a role, however, Reeves et
 al.~\cite{reeves_particle-size_2015} have shown that nanoparticles
