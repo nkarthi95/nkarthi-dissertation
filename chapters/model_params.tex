@@ -103,7 +103,7 @@ The radius of the droplet can then be calculated from the mass and density of th
 $\sigma$ being the slope of the fit.
 
 Figure \ref{fig:young_laplace_valid} shows the results of the fit conducted of the Young-Laplace equation demonstrating 
-that under these fluid and mixing parameters, the surface tension is $\sigma = 0.0279$. The fit was performed using 
+that under these fluid and mixing parameters, the surface tension is $\sigma = 0.0273$. The fit was performed using 
 \texttt{scipy.optimize.curve\_fit} with the fit function defined as $y = mx$. Droplets with starting sizes $2R_d < 70\%$ 
 of the initial system size disappeared. This occurred due to the initial condition of each fluid set to not contain the 
 other fluid species, meaning once the simulation was initiated diffusion of mass from the droplet to the bulk occurred, 
@@ -112,45 +112,45 @@ in Figure \ref{fig:young_laplace_valid}, the fit is linear as long as the initia
 Alternatively, the composition of the system can be set to near equilibrium in order to allow access to smaller droplet 
 sizes.
 
-\subsection{Contact angle}
-\label{section:model_contact_angle}
+% \subsection{Contact angle}
+% \label{section:model_contact_angle}
 
-Contact angle plays a role in particle stabilized emulsions by controlling the free energy reduction that the interface 
-has in addition to the imparting of preferential curvature. LB3D allows for modification of the contact angle of a 
-particle through the addition of a shell of blue or red fluid to the surface of the Ladd particle termed as the particle 
-color $(\Delta \rho)$. \cite{jansen_bijels_2011, gunther_lattice_2013} To ensure that the correct settings are used in 
-these simulations, in addition to gaining understanding into how to change parameters if the need arises, the contact 
-angle as a function of the particle color was calculated.
+% Contact angle plays a role in particle stabilized emulsions by controlling the free energy reduction that the interface 
+% has in addition to the imparting of preferential curvature. LB3D allows for modification of the contact angle of a 
+% particle through the addition of a shell of blue or red fluid to the surface of the Ladd particle termed as the particle 
+% color $(\Delta \rho)$. \cite{jansen_bijels_2011, gunther_lattice_2013} To ensure that the correct settings are used in 
+% these simulations, in addition to gaining understanding into how to change parameters if the need arises, the contact 
+% angle as a function of the particle color was calculated.
 
-Experimentally and computationally, the contact angle can be calculated through direct measurement of the angle of a 
-droplet on a substrate. A droplet that preferentially wets a substrate has a lower contact angle relative to that 
-substrate material, physically manifesting as the droplet spreading on the substrate. At a liquid interface, the particle 
-will prefer to be in the particle it wets more. Thus for a spherical particle, the contact angle can be calculated as 
-$\theta_c = \arccos{\frac{h_p - h_i}{R_p}}$ where $h_p - h_i$ defines the distance between the center of the particle 
-after reaching its steady state position and the interface and $R_p$ is the radius of the spherical particle. 
-\cite{gunther_lattice_2013, davies_interface_2014} This has been extended to ellipsoidal particles through assuming 
-that the particle will have its largest cross sectional area flat on the interface and using the radius that is 
-perpendicular to the interface to calculate the contact angle, defined as $\theta_c = \arccos{\frac{h_p - h_i}{R_{\parallel}}}$ 
-and $\theta_c = \arccos{\frac{h_p - h_i}{R_{\perp}}}$ if $\alpha < 1$ and $\alpha \geq 1$ respectively. 
+% Experimentally and computationally, the contact angle can be calculated through direct measurement of the angle of a 
+% droplet on a substrate. A droplet that preferentially wets a substrate has a lower contact angle relative to that 
+% substrate material, physically manifesting as the droplet spreading on the substrate. At a liquid interface, the particle 
+% will prefer to be in the particle it wets more. Thus for a spherical particle, the contact angle can be calculated as 
+% $\theta_c = \arccos{\frac{h_p - h_i}{R_p}}$ where $h_p - h_i$ defines the distance between the center of the particle 
+% after reaching its steady state position and the interface and $R_p$ is the radius of the spherical particle. 
+% \cite{gunther_lattice_2013, davies_interface_2014} This has been extended to ellipsoidal particles through assuming 
+% that the particle will have its largest cross sectional area flat on the interface and using the radius that is 
+% perpendicular to the interface to calculate the contact angle, defined as $\theta_c = \arccos{\frac{h_p - h_i}{R_{\parallel}}}$ 
+% and $\theta_c = \arccos{\frac{h_p - h_i}{R_{\perp}}}$ if $\alpha < 1$ and $\alpha \geq 1$ respectively. 
 
-The simulation was setup in a box of size $32\cdot32\cdot64$ with an interface lying at $z = 32$, and a single particle 
-placed at the center of the box with periodic boundary conditions on all sides. Fluid and non-ideal mixing properties were 
-the same as those listed in table \ref{table:model_params}. The particle was then placed at the center of the simulation 
-box and run for $30000$ timesteps with data read every 500 timesteps. The contact angles shown are results from triplicate 
-runs, and averages of the final 10 data points. 
+% The simulation was setup in a box of size $32\cdot32\cdot64$ with an interface lying at $z = 32$, and a single particle 
+% placed at the center of the box with periodic boundary conditions on all sides. Fluid and non-ideal mixing properties were 
+% the same as those listed in table \ref{table:model_params}. The particle was then placed at the center of the simulation 
+% box and run for $30000$ timesteps with data read every 500 timesteps. The contact angles shown are results from triplicate 
+% runs, and averages of the final 10 data points. 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale = 0.5]{figures/model_validation/contact_angle_compare.png}
-    \caption{Contact angle with respect to the oil phase, $(\theta_c^{oil})$ of the particles plotted against the 
-    control parameter in LB3D}
-    \label{fig:contact_angle_valid}
-\end{figure}
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[scale = 0.5]{figures/model_validation/contact_angle_compare.png}
+%     \caption{Contact angle with respect to the oil phase, $(\theta_c^{oil})$ of the particles plotted against the 
+%     control parameter in LB3D}
+%     \label{fig:contact_angle_valid}
+% \end{figure}
 
-Figure \ref{fig:contact_angle_valid} demonstrates the contact angles of the three particle geometries analyzed, 
-confirming that $\Delta \rho = 0$ will result in neutrally wetting particles for all geometries. Oblate and spherical 
-particles have usable particle colors between $-0.10 \leq \Delta \rho \leq 0.10$ while for prolate ellipsoids this 
-value is $-0.05 \leq \Delta \rho \leq 0.05$. The slope of ellipsoidal particles appears to be lower which may arise 
-from a larger interfacial adsorption energy, making it more difficult for surface energy changes to move particles out 
-of the interface. At $\Delta \rho$ values further from 0, it was observed that the prolate particles tended to leave 
-the interface rather than stay at a slightly off center equilibrium position. 
+% Figure \ref{fig:contact_angle_valid} demonstrates the contact angles of the three particle geometries analyzed, 
+% confirming that $\Delta \rho = 0$ will result in neutrally wetting particles for all geometries. Oblate and spherical 
+% particles have usable particle colors between $-0.10 \leq \Delta \rho \leq 0.10$ while for prolate ellipsoids this 
+% value is $-0.05 \leq \Delta \rho \leq 0.05$. The slope of ellipsoidal particles appears to be lower which may arise 
+% from a larger interfacial adsorption energy, making it more difficult for surface energy changes to move particles out 
+% of the interface. At $\Delta \rho$ values further from 0, it was observed that the prolate particles tended to leave 
+% the interface rather than stay at a slightly off center equilibrium position. 
