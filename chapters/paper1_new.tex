@@ -88,20 +88,13 @@ of the bijel.
 
 \subsection{Effect of magnetic field on bijel microstructure}
 
-% In LB simulations of spinodal decomposition, a characteristic length
-% scale can be obtained from the structure factor, defined in Section \ref{section:domain_size}. \cite{kendon_3d_1999,kendon_inertial_2001} 
-% It is worth noting that this definition of average domain size does not necessarily yield values that coincide with the typical
-% domain size observed visually in snapshots such as those shown in Figure~\ref{fig:microstructure_viz}. However, in a dynamic
-% scaling regime, different measures of domain size are expected to differ only by a constant ratio. We found that the commonly 
-% used measure \(L_1(t)\) tends to overestimate the observed domain size. Numerically, the calculation of the spherically 
-% averaged structure factor is subject to poor statistics in the low \(k\)-shells, where the average \(|\vec{k}|\) of the 
-% lattice sites differs from the nominal shell radius. Additionally, the measurement of \(L(t)\) in simulations with
-% periodic boundary conditions is subject to finite size effects. More importantly, in suspensions of anisotropic particles, 
-% We cannot expect that the structure factor is isotropic. Therefore, we also used the 3D structure factor to calculate a lateral domain 
-% size in each Cartesian direction from the second moments also defined in Section \ref{section:domain_size}. 
-% \cite{jansen_bijels_2011,gunther_timescales_2014} We add the additional processing calculating a parallel and perpendicular domain size
-% from the results in each cartesian direction, defining $L_{\parallel}=L_z$ and $L_{\perp} = \frac{L_x+L_y}{2}$ we plot the structure factor of the structures in
-% Figure \ref{fig:structure_factor}.
+From figure \ref{fig:domain_size}, the jamming of the bijels were determined to occur after $\~50000$ timesteps, characterized as a plateauing
+of the domain size. Qualitative differences in the domain size were observed in Figure \ref{fig:microstructure_viz} which originate from particles
+reorienting to the direction of the applied field. To characterize the microstructure at the final timestep, we plot the domain size of the bijels
+stabilized by ellipsoidal particles and compare them to what is obtained with spherical particles. We also compare the results obtained from the
+first and second moment derived structure factors by plotting the directional domain sizes as a function of the applied field to characterize
+domain anisotropy. An additional simplification is made where the domain size parallel to the magnetic field is defined as $L_{\parallel}=L_z$
+and the average of the other domain sizes are defined as $L_{\perp} = \frac{L_x+L_y}{2}$. 
 
 \begin{figure}
     \centering
@@ -112,9 +105,28 @@ of the bijel.
     \label{fig:D2a_B}
 \end{figure}
 
-
+Figure \ref{fig:D2a_B} demonstrates that the first moment derived structure factor shows little change in the domain size as a function of the applied field for
+all particle aspect ratios. The second moment derived domain sizes demonstrate that the application of magnetic fields create domain anisotropy in the microstructure
+of bijels stabilized by ellipsoidal particles. Domain anisotropy is characterized as a divergence in the parallel and perpendicular domain sizes, seen in bijels
+stabilized by ellipsoidal particles but not in bijels stabilized by spherical particles upon application of a magnetic field. The characteristics of this divergence
+also differ for bijels stabilized by prolate particles and oblate particles. Bijels stabilized by prolate particles see an increase in $L_{\parallel}$ and a decrease in
+$L_{\perp}$ upon application of a magnetic field, while bijels stabilized by prolate particles see the opposite. This response is also dependent on the applied field,
+with the degree of response increasing from $\bar{B} = 0$ to $\bar{B} = 0.5$ before plateauing with field strengths applied above $\bar{B} = 0.5$.
+The particle aspect ratio dependent response arises from the differences in the orientation of
+the magnetic moment in prolate and oblate ellipsoids. In our simulations, the symmetry axis of prolate and oblate particles lies parallel to the long axis 
+and short axis of the particle respectively. In addition to the geometrical constraints imparted by the shape of the particles, this results in the orientation of the
+particles to differ upon application of the magnetic field.
 
 \subsection{Tortuosity}
+
+In Figure \ref{fig:D2a_B}, we quantitifed how the application of constant magnetic fields affects the microstructure of bijels stabilized by ellipsoidal particles
+and demonstrated that microstrucutre anisotropy is generated as a function of the applied field and the particle aspect ratio. Another parameter that controls the
+performance of porous materials is the tortuosity, characterized as the ratio between the parameter of interest in that system and the parameter of interest in
+the bulk system. While multiple definitions exist such as the geometric, hydraulic and diffusive tortuosity exist, we use the diffusive tortuosity due to its
+importance in characterizing porous material performance. A lower diffusive tortuosity in battery materials have been found to improve ion transport, reducing the
+likelihood of Lithium dendrite formation and improving the charging speed and number of cycles before battery degradation. 
+\cite{chen_tortuosity_2020, ebner_tortuosity_2014}. We calculate the using the method described in Section \ref{section:tortuosity}
+
 
 \begin{figure}
     \centering
@@ -124,19 +136,7 @@ of the bijel.
     \label{fig:tau_B}
 \end{figure}
 
-
-\begin{figure} 
-    \centering 
-    \includegraphics[scale = 0.4]{figures/results/paper1/curvature-vs-B_ss.png} 
-    \caption{Plot of the area averaged mean $\langle H \rangle \Sigma^{-1}$ and Gaussian 
-            $\langle K \rangle \Sigma^{-2}$ curvature in the left and right respectively. Each 
-            plot contains the $\langle H \rangle \Sigma^{-1}$ and $\langle K \rangle \Sigma^{-1}$ 
-            at the final timestep averaged across 3 runs for particles with $\alpha = 0.5, 1, 2$. 
-            The mean curvature remains 0 on average, while the Gaussian 
-            curvature shows a reduction as the magnetic field strength is increased for 
-            ellipsoidal particles.} 
-    \label{fig:curvature-vs-B_ss}
-\end{figure}
+From Figure \ref{fig:tau_B}, the tortuosities calculated for bijels stabilized by spherical particles 
 
 \subsection{Curvature}
 
