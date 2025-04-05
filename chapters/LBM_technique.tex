@@ -6,6 +6,8 @@ phase separation, particle-fluid and interparticle interactions are present. The
 to resolve nanometer to micrometer resolutions and must be able to capture the hydrodynamics, non-ideal mixing and interparticle interactions present
 in the system. A review of the physics in the system will be provided. 
 
+\section{Hydrodynamics}
+
 Mass conservation is established using simple differential equation of a control volume that characterizes the mass flow through the volume. Assuming no
 addition or subtraction of mass, the differential equation is the material derivative of the density, defined as
 
@@ -51,7 +53,11 @@ these parameters into the Naver Stokes equation this is obtained
     \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}} = -\nabla \bar{p} + \frac{1}{Re} \Delta \mathbf{\bar{v}} + \bar{\mathbf{f}}
 \end{equation}
 
-$Re = \frac{\rho u l}{\eta}$ which defines the ratio between inertial and viscous forces. Another physical phenomenon being described is non-ideal mixing. The free energy of mixing
+$Re = \frac{\rho u l}{\eta}$ which defines the ratio between inertial and viscous forces. 
+
+\section{Phase separation}
+
+Another physical phenomenon being described is non-ideal mixing. The free energy of mixing
 is defined as $\Delta G_m = \Delta H_m - T \Delta S_m$. In an ideal solution, $\Delta H_m = 0$. An expression for $\Delta S_m$ for a binary mixture is obtained from statistical mechanical 
 approximations of the configurations that binary mixtures can take, resulting in 
 
@@ -62,43 +68,54 @@ approximations of the configurations that binary mixtures can take, resulting in
 In a regular solution, $\Delta H_m \neq 0$. The free energy of mixing is defined as the sum of the ideal and excess contribution, $\Delta G_m = \Delta G_e + \Delta G_i$.
 $\Delta G_i = -TS_m$. $\Delta G_e = \Delta H_e + T \Delta S_e$. The excess entropy of mixing is 0, and the excess enthalpy of mixing is defined 
 
-The Shan-Chen pseudopotential
-model is used to simulate the Cahn-Hilliard equation, defined below
 
 \begin{equation}
     \begin{split}
-    \frac{\partial\phi}{\partial t}+\nabla\cdot\left(\phi\vec{u}\right) &= \nabla \cdot \left( \Gamma  \nabla\phi \right)
+    \frac{\partial\phi}{\partial t} = \nabla \cdot \left( \Gamma  \nabla\mu_\phi \right)
     \end{split}
 \end{equation}
 
-where $c^k$, $M^k$ and $u^k$ is the concentration, mobility and velocity of species $k$ respectively while $\mu$ is the free energy of system. 
-\cite{shan_lattice_1993, shan_simulation_1994, he_lattice_1997, he_discrete_1998}
+\section{Particle dynamics}
+
+\section{Magnetic fields and particles}
+
+% The Shan-Chen pseudopotential
+% model is used to simulate the Cahn-Hilliard equation, defined below
+
+% \begin{equation}
+%     \begin{split}
+%     \frac{\partial\phi}{\partial t}+\nabla\cdot\left(\phi\vec{u}\right) &= \nabla \cdot \left( \Gamma  \nabla\phi \right)
+%     \end{split}
+% \end{equation}
+
+% where $c^k$, $M^k$ and $u^k$ is the concentration, mobility and velocity of species $k$ respectively while $\mu$ is the free energy of system. 
+% \cite{shan_lattice_1993, shan_simulation_1994, he_lattice_1997, he_discrete_1998}
 
 
 
-A computational model designed to simulate soft matter systems 
-at the mesoscale must accurately represent both hydrodynamics and non-ideal mixing in order to capture the essential physics of emulsions, colloids, and phase-separating fluids. 
-A hydrodynamic model must be able to recover mass and momentum conservation of a incompressible fluid
+% A computational model designed to simulate soft matter systems 
+% at the mesoscale must accurately represent both hydrodynamics and non-ideal mixing in order to capture the essential physics of emulsions, colloids, and phase-separating fluids. 
+% A hydrodynamic model must be able to recover mass and momentum conservation of a incompressible fluid
 
-Modelling multicomponent dynamics requires incorporating a free energy model between fluids, allowing for the implementation of
-chemical potential driven mass transfer and surface tension. Typically this is done using a Cahn-Hilliard model based on a
-square gradient free energy functional. This captures the demixing characteristics of phase separating fluids and controls interface
-characteristics, providing surface tension and interface width characteristics. This model has been used in past investigations looking 
-into spinodal decomposition, domain growth and coarsening. 
+% Modelling multicomponent dynamics requires incorporating a free energy model between fluids, allowing for the implementation of
+% chemical potential driven mass transfer and surface tension. Typically this is done using a Cahn-Hilliard model based on a
+% square gradient free energy functional. This captures the demixing characteristics of phase separating fluids and controls interface
+% characteristics, providing surface tension and interface width characteristics. This model has been used in past investigations looking 
+% into spinodal decomposition, domain growth and coarsening. 
 
 
-To fully capture mesoscale dynamics, the model must also resolve the coupling between hydrodynamic flow and composition gradients. This coupling 
-is essential for simulating phenomena such as Marangoni flows, interfacial instabilities, and anisotropic stress distributions that arise from 
-non-uniform compositions or curvature-dependent surface tension. Moreover, the model must support anisotropic or time-dependent external fields 
-(e.g., magnetic, electric, or shear) that influence mixing behavior. Computational frameworks that can evolve velocity, pressure, and composition 
-fields simultaneously—while ensuring thermodynamic consistency and mechanical stability—are critical for accurately describing the emergent structures 
-and transport properties in non-ideal soft matter systems.
+% To fully capture mesoscale dynamics, the model must also resolve the coupling between hydrodynamic flow and composition gradients. This coupling 
+% is essential for simulating phenomena such as Marangoni flows, interfacial instabilities, and anisotropic stress distributions that arise from 
+% non-uniform compositions or curvature-dependent surface tension. Moreover, the model must support anisotropic or time-dependent external fields 
+% (e.g., magnetic, electric, or shear) that influence mixing behavior. Computational frameworks that can evolve velocity, pressure, and composition 
+% fields simultaneously—while ensuring thermodynamic consistency and mechanical stability—are critical for accurately describing the emergent structures 
+% and transport properties in non-ideal soft matter systems.
 
-Given the multiscale modeling necessary to correctly simulate the physical system, one approach suggested to tackle this problem is the multicomponent
-Lattice Boltzmann Method. This technique bridges the length and time scales necessary in soft matter modeling through modeling the evolution of a particle
-distribution function. Hydrodynamic parameters are recovered through calculating the moments of the particle distribution function. One of the advantages of
-the Lattice Boltzmann Method its parallelize nature and ease of adding multiple physical phenomena. In the following sections, the implementation of the LBM
-and alternatives to the LBM will be presented.
+% Given the multiscale modeling necessary to correctly simulate the physical system, one approach suggested to tackle this problem is the multicomponent
+% Lattice Boltzmann Method. This technique bridges the length and time scales necessary in soft matter modeling through modeling the evolution of a particle
+% distribution function. Hydrodynamic parameters are recovered through calculating the moments of the particle distribution function. One of the advantages of
+% the Lattice Boltzmann Method its parallelize nature and ease of adding multiple physical phenomena. In the following sections, the implementation of the LBM
+% and alternatives to the LBM will be presented.
 
 % This work uses a multicomponent Lattice Boltzmann Method (LBM) to simulate the hydrodynamics of two partially miscible, 
 % incompressible fluids as implemented in LB3D. The LBM solves the continuity and Navier-Stokes equation at low
