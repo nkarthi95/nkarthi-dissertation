@@ -5,52 +5,42 @@ Science (ICCS) 2025 in the Computing and Data Science for Materials Discovery an
 % [author and/or editor(s) of contribution], [volume and/or contribution title], [year of publication], [publisher (as it appears on our copyright page)] \
 reproduced with permission of Palgrave Springer Nature. 
 
-% Stimuli-responsive emulsions have attracted significant interest for applications in enhanced oil recovery, porous material templating, 
-% in-situ reaction separation systems, and drug delivery scaffolds \cite{tang_stimuli-responsive_2016, bago_rodriguez_capsules_2019}. 
-% These applications are facilitated by stimuli-induced microstructural modifications, which alter the permeability, surface area, and 
-% morphology of the emulsion. Advancements in particle synthesis techniques, along with growing concerns over surfactant toxicity and 
-% environmental impact, have contributed to the renewed interest in particle-stabilized emulsions since their initial discovery by Ramsden 
-% and Pickering in 1907 \cite{rozynek_opening_2019, zhou_magnetic_2011}. Stimuli-responsive behavior in these emulsions has been achieved 
-% through changes in pH, temperature, or chemical composition 
-% \cite{maingret_dextran-based_2020, lin_ph-responsive_2018, raju_ph-responsive_2018, zhang_ph_2022}.  
+Emulsions can adopt a variety of microstructures depending on fluid volume fractions and the affinity of stabilizing agents for each phase. Among these, bicontinuous 
+interfacially jammed emulsion gels (bijels) are characterized by a tortuous, co-continuous network of immiscible fluid domains stabilized by colloidal particles. This 
+unique architecture lends itself to numerous advanced applications, including membrane fabrication, catalyst supports, battery electrodes, and pharmaceutical delivery 
+systems. Bijels form through the arrest of spinodal decomposition in partially miscible fluid mixtures: as phase separation proceeds, the interface sweeps through the 
+system, adsorbing particles until the interfacial area becomes saturated, resulting in jamming. Microstructural features such as domain size, continuity, and interfacial 
+curvature critically influence material performance, affecting properties like mass transport, mechanical stability, and surface reactivity. Since their discovery via 
+simulation and subsequent experimental realization, research on bijels has expanded significantly, exploring diverse synthesis conditions and scalable processing methods.
 
-Due to their tortuous, co-continuous domain morphology, bijels have been 
-extensively studied for applications in membrane fabrication, catalyst supports, battery electrodes, and pharmaceutical 
-products \cite{yabuno_preparation_2020, samdani_bicontinuous_2017, cha_bicontinuous_2019, garcia_scalable_2019, santiago_cordoba_aerobijels_2020}.  
-Bijels form through the arrested spinodal decomposition of partially miscible fluids 
-\cite{stratford_colloidal_2005, herzig_bicontinuous_2007, tavacoli_novel_2011}. During phase separation, the emerging interface propagates 
-through the system, driving particle adsorption. Once the available interfacial area matches the total cross-sectional area of the adsorbed 
-particles, the structure becomes jammed in place \cite{stratford_colloidal_2005, herzig_bicontinuous_2007, tavacoli_novel_2011}. Since their 
-initial discovery in simulations and subsequent experimental synthesis, a diverse body of literature has emerged, exploring fluid systems 
-compatible with bijel formation, scalable fabrication techniques, and potential applications.
+The functional properties of bijels are inherently linked to their internal structure. For instance, lower tortuosities in the direction of ion transport yield improved 
+charge rates and cycling stability in battery electrodes \cite{ebner_tortuosity_2014, samdani_bicontinuous_2017}. In liquid-liquid extraction, the characteristic pore 
+lengthscale determines molecular selectivity \cite{khan_nanostructured_2022}, while in pharmaceutical applications, domain size influences drug release rates and cellular 
+behavior \cite{vanoli_bijels_2022, thorson_bijel-templated_2019}. Given the sensitivity of these properties to microstructural characteristics, the ability to dynamically 
+modify the morphology of bijels presents a promising strategy to adapt their behavior in situ for targeted performance.
 
-Bijels stabilized by ellipsoidal particles exhibit distinct domain evolution timescales compared to those stabilized by 
-spherical particles \cite{gunther_timescales_2014}. Unlike spherical particles, ellipsoidal particle reorientation at the 
-interface influences microstructure. After jamming, additional timescales emerge due to capillary interactions that drive 
-particle reorientation and prolonged domain coarsening \cite{gunther_timescales_2014}. Bijels behave as 2D glasses percolating 
-in 3D space, with locally jammed particles as observed by Günther et al. 
-\cite{ching_bijel_2022, torquato_jammed_2010, gunther_timescales_2014}. Studies on jammed suspensions indicate subdiffusive 
-particle movement, further confirming local jamming in bijel monolayers \cite{savelev_diffusion_2006}.
+Stimuli-responsive emulsions have garnered increasing interest for applications requiring dynamic control over material properties, including enhanced oil recovery, reaction 
+separation, and therapeutic delivery \cite{tham_magnetophoresis_2021, cui_stabilizing_2013, rozynek_opening_2019, lu_controllable_2020}. These systems operate by using 
+external stimuli to alter interfacial configurations, enabling modulation of permeability, interfacial area, and morphology. For example, in emulsions stabilized by 
+spherical particles, electric fields can induce droplet deformation via particle unjamming and migration before re-establishing interfacial jamming \cite{cui_stabilizing_2013}. 
+Among various external stimuli, magnetic fields are particularly attractive due to their remote addressability, material compatibility, and bio-relevance. 
+Core-shell ferrite-hydroxyapatite nanorods, for instance, exhibit reversible morphological changes depending on initial particle orientation and field direction 
+\cite{nakayama_stimuli-responsive_2018}. In magnetically stabilized Pickering emulsions, magnetophoresis has been shown to drive particle migration and interfacial 
+distortion or collapse \cite{tham_magnetophoresis_2021, yang_rapid_2020, misra_magnetic_2020}. Notably, Karthikeyan and Schiller demonstrated that magnetic fields applied 
+during bijel formation can bias domain coarsening, producing anisotropic microstructures via orientation-specific jamming \cite{karthikeyan_formation_2024}. However, the 
+structural response of bijels to magnetic fields after formation remains poorly understood.
 
-Magnetic fields have gained interest as external stimuli due to their targeted interactions, biocompatibility, and material 
-versatility. The structural response of magnetically responsive hydroxyapatite crystals depends on initial particle orientation
-\cite{nakayama_stimuli-responsive_2018}. Magnetophoresis, where particles move along field lines, has been observed in Pickering 
-emulsions stabilized by magnetic microspheres \cite{tham_magnetophoresis_2021}. Structural deformation and de-emulsification occur due 
-to particle migration or tilting at the interface \cite{yang_rapid_2020, misra_magnetic_2020}. However, how these effects influence 
-bijel microstructure post-jamming remains unclear. Given the locally jammed nature of bijels, magnetic field responses, combined with 
-anisotropic particle stabilization, may offer a means to control bijel microstructure.
+This study investigates the post-formation structural response of bijels stabilized by ellipsoidal magnetic particles under the influence of externally applied magnetic fields. 
+Using a hybrid Lattice Boltzmann Method coupled with Molecular Dynamics, we simulate the formation and evolution of bijel structures stabilized by rod-like particles modeled as 
+magnetic dipoles. We find that increasing the applied magnetic field after formation induces significant microstructural changes, including increased domain anisotropy and 
+coarsening, up to a saturation threshold. In contrast, decreasing or removing the magnetic field results in minimal morphological change, suggesting a strong hysteresis effect. 
+Analysis reveals that particle unjamming, reorientation at the interface, and subsequent re-jamming are responsible for these structural transformations.
 
-This work investigates the structural response of bijels stabilized by anisotropic magnetic particles. Using a Lattice Boltzmann Method 
-coupled with Molecular Dynamics, we simulate a binary fluid system where ellipsoidal particles, modeled as magnetic dipoles along their 
-symmetry axis, stabilize bijel templates. Magnetic fields applied to bijels made without a magnetic field reveal anisotropic bijel formation, 
-with microstructure evolution dependent on particle reordering at the interface, quantified using the six-fold 
-Steinhardt order parameter $\langle Q6 \rangle$.
-
-We further assess how initial microstructure influences structural changes, showing that the difference in order between initial and final 
-configurations of the particle monolayers dictates the extent of microstructure evolution if the applied field is increased in the direction of 
-the existing order. Additionally, applying and removing a 
-magnetic field results in distinct microstructural properties and timescales, highlighting the importance of processing history. These findings 
-demonstrate how magnetic fields, combined with anisotropic particle-stabilized bijels, enable on-demand microstructure switching for potential applications.
+To understand the saturation behavior, we applied magnetic fields of varying strength to bijel templates formed under increasing initial field conditions. We observed that 
+a greater initial nematic order parameter negatively correlated with the extent of microstructure change. Finally, switching off the magnetic field in pre-aligned bijels had little 
+impact on the microstructure, indicating that the jammed interfacial network prevents reversal of anisotropic features. These findings underscore the importance of processing 
+history and demonstrate how magnetic field manipulation, in combination with anisotropic particle stabilization, enables tunable, on-demand microstructure control in bijels, 
+offering new capabilities for adaptive material design.
 
 \section{Results}\label{sec:results_p2}
 \subsection{Hysteresis curve}\label{section:hysteresis_curve}
