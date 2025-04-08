@@ -9,8 +9,8 @@ Among the structures that can be generated through emulsion templating, the bico
 (bijel) stands out for its unique interconnected morphology and potential for functional material design.
 
 Traditional bijel fabrication relies on thermally induced phase separation (TIPS), a method that, while effective, does not 
-support continuous production. More recently developed techniques—such as Solvent Transfer Induced Phase Separation (STrIPS) 
-and Vapor Induced Phase Separation (VIPS)—enable continuous fabrication and offer greater control over microstructure. However, 
+support continuous production. More recently developed techniques such as Solvent Transfer Induced Phase Separation (STrIPS) 
+and Vapor Induced Phase Separation (VIPS) enable continuous fabrication and offer greater control over microstructure. However, 
 these methods typically require modifications to the initial emulsion formulation, coupling the casting mixture to the resulting 
 morphology. Decoupling these parameters would offer significantly greater flexibility in bijel design, allowing for independent 
 tuning of material properties and processing conditions.
@@ -106,37 +106,42 @@ flow better than others may lead to new materials with programmable viscoelastic
 
 \section{Future work}
 
-This work utilized 2 ellipsoidal particle geometries chosen for comparisons to previous literature using this 
-particle geometry. Particles based on cellulose nanocrystals or graphene nanoplates are now in use to fabricate
-particle stabilized emulsions. These particles have also been shown to have capillary bridging and particle stacking,
-not seen in the particles used in this work. These particles in bulk have been shown to have intrinsic ordering
-that can be predicted using onsager theory. An investigation into how using rods or plate like particles would be 
-instructive in identifying if onsager theory can be used in bijel formation and its link to bijel microstructure. 
-\cite{tan_2d_2021}
+Building on the observed coupling between interfacial particle dynamics and bijel microstructure, we propose extending 
+this work by investigating bijels stabilized with non-rigid, cohesive, or attractive particles. Unlike rigid ellipsoids, 
+soft and cohesive particles are known to exhibit distinct glass transition behaviors and rheological responses compared 
+to hard-sphere systems. \cite{weeks_introduction_2017, torquato_jammed_2010} In bijel architectures, attractive interactions have been 
+proposed as a strategy to form “armored” interfaces, potentially enhancing mechanical integrity and enabling higher flow rates in catalytic applications. 
+\cite{boakye-ansah_controlling_2020}
+Similarly, soft particles such as nanogels and hydrogels have attracted interest in biomedical contexts, offering tunable responsiveness 
+to environmental stimuli like temperature and pH—critical features for controlled drug delivery. Incorporating such particles 
+could significantly alter jamming dynamics, interfacial rearrangement, and field-induced responsiveness. These effects may be 
+explored computationally using Lattice Boltzmann Methods integrated with immersed boundary frameworks, incorporating attractive
+particle  interactions to account for electrostatic cohesion and deformability \cite{silva_lattice_2024}. This direction opens opportunities 
+to design bijel systems with enhanced adaptability and function, tailored for application-specific demands.
 
-Colloidal systems made with cohesive and soft particles have been shown in the literature to have different glass 
-transition points and rheological behavior from their hard sphere counterparts. In bijels, attractive particles in 
-particular have been suggested as a means to create "armored" bijels to improve their performance in catalytic materials, 
-allowing higher flow rates to be used. Investigations into soft particles are of interest in biomedical
-applications, with newly developed nanogels and hydrogels being suggested as drug carriers or vectors for stimuli 
-response through temperature or pH. LBM methods that implement the immersed boundary method can be used to model soft
-particles with a DLVO potential used to model electrostatics between particles. \cite{silva_lattice_2024}
+The current simulations, while able to capture structural evolution under external fields, do not fully resolve the complex dynamical landscape of the interfacial 
+particle monolayer. In particular, they lack the resolution to distinguish between fast particle rearrangements and slow collective dynamics near the glass transition, 
+which are known to govern the jamming and unjamming behavior of dense colloidal systems. \cite{weeks_introduction_2017, torquato_jammed_2010} 
+As such, the interplay between interfacial ordering, particle-scale dynamics, and existing order can be characterized more convincingly by investigating the dynamics of
+the particle more systematically by accounting for thermal fluctuations of the fluid. This would involve implementation of a fluctuating Lattice Boltzmann Method
+which would facilitate identification of the glassy dynamics in the system, including the onset of arrest and structural aging characterized with the microstructure
+in Gunther et al. \cite{gunther_timescales_2014}
 
-Another avenue of exploration would be the use of gradient or rotating magnetic fields in place of the constant magnetic 
-fields used here. One study on bijel microstructure showed that a gradient in the particle volume fraction can be used to 
-create a gradient in the eventual domain size. A gradient field may be able to generate nematic order 
-parameter gradients, affecting the particle packing of the bijel at different heights and varying the pore size as a function of 
-height in the field gradient direction. In a ferrofluid or solution of magnetic colloids, a rotating field can assemble 
-particles into chains or rings. In the context of bijel structural response, this can be used to tune bijel microstructure 
-as this process can control the unjamming and rejamming of the particle monolayer, allowing for greater control over the 
-resulting bijel microstructure than a constant field would have. In these simulations, the frequency of rotation would 
-likely need to be tuned based upon how quickly particles respond to field in the bijel.
+Another promising avenue for future investigation involves the use of gradient or rotating magnetic fields in place of constant fields. This
+would impart a force on the particles in addition to the torque that magnetic particles experience under constant fields. \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}
+Prior work has demonstrated that spatial gradients in particle volume fraction can generate domain size gradients in bijels, enabling spatial 
+control over porosity and connectivity \cite{french_bicontinuous_2022}. Analogously, applying a magnetic field gradient may induce vertical 
+gradients in nematic order, influencing local particle packing and yielding position-dependent pore structures across the bijel. This could be 
+particularly useful for creating functionally graded materials with hierarchical transport properties.
 
-
-% Extensions to this work can be accomplished by investigating the effect of applying a magnetic field on the bijel 
-% while under shear. Ferrofluid models that predict bingham plastic like flows, $\frac{\eta}{eta_{f}} = 1 + \frac{Mn^{*}(\phi_p)}{Mn}$, 
-% have been developed and defined using the Mason number, $Mn = \frac{8\eta_{f} \dot{\gamma}}{\mu_{0} \mu_{f} \beta^{2} H_0^2}$. 
-% \textcolor{blue}{https://doi.org/10.1122/1.4935850, https://linkinghub.elsevier.com/retrieve/pii/S1359029405000385} 
+In parallel, rotating magnetic fields offer a dynamic mechanism for restructuring particle arrangements at the interface. 
+\cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}
+In ferrofluids and magnetic colloidal suspensions, such fields have been shown to induce chain or ring formation, depending on the rotation frequency and field 
+strength. \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}
+Translating this mechanism to bijels, a rotating field could be used to modulate interfacial jamming behavior, promoting controlled 
+unjamming and reorientation of particles prior to re-jamming. This dynamic control could enable finer tuning of microstructure than static fields, 
+potentially achieving reversible and spatially patterned domain morphologies. Importantly, the effectiveness of this strategy would depend on 
+matching the rotation frequency to the particle relaxation timescales within the bijel, a factor that can be systematically explored in simulation.
 
 \section{Acknowledgments}
 
