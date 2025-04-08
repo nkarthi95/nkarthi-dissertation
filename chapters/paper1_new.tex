@@ -79,7 +79,7 @@ interfacial tension affect bijel morphology—for example, work by Hijnen et al.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{../figures/results/paper1/microstructure_viz.png}
+    \includegraphics[scale=0.6]{../figures/results/paper1/microstructure_viz.png}
     \caption{Snapshots of emulsion gels stabilized by prolate ellipsoids after $t=5\cdot10^3$ timesteps (left) and after $10^5$ timesteps (right). 
              The top row shows the structure forming without a magnetic field. The bottom row shows the structure forming in an applied magnetic 
              field of reduced strength $\bar{B}=1.0$. The snapshots are colored according to the order parameter $\phi$.}
@@ -292,7 +292,7 @@ orientational order of particles and their alignment relative to both the field 
     
     \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{../figures/results/paper1/particle_packing_viz.png}
+    \includegraphics[scale=0.6]{../figures/results/paper1/particle_packing_viz.png}
     \caption{Snapshots illustrating the particle packing at the interface for different particle shapes $\alpha$ with (left)
      and without (right) applied magnetic field $\bar{B}$. The right column shows the alignment of the symmetry axis of the oblate (top row) and prolate (bottom row) 
      particles in the direction of the magnetic field indicated by arrows.}
@@ -307,7 +307,7 @@ dipoles exhibit pronounced orientational order aligned with the field.
     
     \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{../figures/results/paper1/S-vs-t.png}
+    \includegraphics[scale=0.6]{../figures/results/paper1/S-vs-t.png}
     \caption{Time-dependence of the nematic order parameter $S$ of oblate ($\alpha=0.5$) and prolate ($\alpha=2$) particles at different field strength $\bar{B}$. Errorbars indicate the standard deviation taken over three independent simulation runs. Nematic order generally increases with applied field strength for all particle geometries. The increase slows down (for prolate particles) or reverses (for oblate particles) around $10^4$ timesteps.}
     \label{fig:nematic_time}
     \end{figure}
@@ -360,7 +360,8 @@ where the local tensor field \(\tens{A}\) is defined by
 The largest eigenvalue of \(\tens{Q}\) is taken as the interface nematic order parameter $S_{\text{int}}$.
     
     \begin{figure}
-    \includegraphics[width=\columnwidth]{../figures/results/paper1/interface_nematic.png}
+        \centering
+    \includegraphics[scale=0.6]{../figures/results/paper1/interface_nematic.png}
     \caption{Time-dependence of the interface nematic order for oblate ($\alpha=0.5$) and prolate ($\alpha=2$) particles at different magnetic field strength $\bar{B}$. The interface alignment tends to increase with increasing field strength. The rate of increase becomes larger around $10^4$ timesteps, indicating the alignment of the interfaces due to capillary interactions with the particles.}
     \label{fig:interface_nematic}
     \end{figure}
@@ -385,7 +386,7 @@ the local interface normal. We generated a mesh of the interface using the march
     
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{../figures/results/paper1/psi-vs-t.png}
+    \includegraphics[scale=0.6]{../figures/results/paper1/psi-vs-t.png}
     \caption{Time-dependence of the average angle $\psi$ between the particle axis and the interface normal for oblate ($\alpha=0.5$) and 
              prolate ($\alpha=2$) particles at different magnetic field strength $\bar{B}$. Errorbars indicate the standard deviation taken over 
              three independent simulation runs. The angle between between the particles and the interface normal generally approaches the energetically 
@@ -426,7 +427,7 @@ varying magnetic flux density is illustrated in Figure \ref{fig:rdf}.
     
     \begin{figure*}
     \centering
-    \includegraphics[width=\textwidth]{../figures/results/paper1/rdf_compare_time.png}
+    \includegraphics[scale=0.4]{../figures/results/paper1/rdf_compare_time.png}
     \caption{Time-evolution of the radial distribution function $g(r)$ of the particles at different magnetic field strength $\bar{B}$. The radial 
     distribution function is shown at $10^3$, $10^4$, and $10^5$ timesteps. The distance $r$ is normalized by the radius $R=\max(R_\parallel,R_\perp)$ 
     of the larger particle axis. The peaks illustrate the packing of particles in the interface. Dashed lines indicate the side-by-side, tip-to-tip, and 

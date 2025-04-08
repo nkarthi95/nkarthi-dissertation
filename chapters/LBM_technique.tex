@@ -1,81 +1,169 @@
 \section{Methods}
 \label{section:methods}
 
-Bijels require a multi-scale model to correctly simulate all the physical phenomena occurring at every scale. Within a bijel, fluid flow,
-phase separation, particle-fluid and interparticle interactions are present. The lengthscales present in a bijel imply a model must be able
-to resolve nanometer to micrometer resolutions and must be able to capture the hydrodynamics, non-ideal mixing and interparticle interactions present
-in the system. A review of the physics in the system will be provided. 
+Bijels require a multiscale modeling approach to accurately capture the rich array of physical phenomena 
+occurring across multiple length and time scales. Within a bijel, one must consider fluid flow, phase separation, particle-fluid coupling, and interparticle 
+interactions. The characteristic length scales span from nanometers to micrometers, demanding a model capable of resolving fine structural details while also 
+capturing mesoscale dynamics. In the following sections, a comprehensive review of the relevant physical processes is provided, laying the foundation for the 
+numerical methods used in this work.
 
 \section{Hydrodynamics}
 
-Mass conservation is established using simple differential equation of a control volume that characterizes the mass flow through the volume. Assuming no
-addition or subtraction of mass, the differential equation is the material derivative of the density, defined as
+Mass conservation is derived by applying the conservation principle to a differential control volume, which characterizes the mass flux through its boundaries. Assuming no sources or sinks of mass, the conservation equation takes the form of the continuity equation:
 
 \begin{equation}
     \frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\vec{u}\right) = 0
 \end{equation}
 
-Where $\rho$ is the fluid density and $\vec{u}$ is the fluid velocity vector. The fluid momentum can be derived from the mass conservation equation
-by calculating the material derivative of the momentum of the system. Changes in momentum from addition or subtraction of momentum cannot be ignored,
-with changes arising from pressure gradients, viscous forces and body force terms. If mass is conserved, the momentum equation is defined as
+where $\rho$ is the fluid density and $\vec{u}$ is the velocity vector field.
+Momentum conservation can be obtained by applying Newton's second law to the fluid element. This yields the momentum balance equation, where changes in momentum arise due to pressure gradients, 
+viscous stresses, and body forces. The general form of the momentum equation is:
 
 \begin{equation}
-    \rho (\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u}) = -\nabla p + \nabla \cdot \mathbf{\tau} + \mathbf{f}
+    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla p + \nabla \cdot \boldsymbol{\tau} + \vec{f}
 \end{equation}
 
-Where $p$ is the pressure applied to the control volume, $\mathbf{\tau}$ is a general stress tensor and $\mathbf{f}$ is the body force 
-applied on the box such as gravitational forces. $\mathbf{\tau}$ can be defined by assuming the fluid is isotropic, the shear stress depends
-linearly on the dynamic viscosity and the strain rate and net forces are zero at equilibrium.
+where $p$ is the pressure field, $\boldsymbol{\tau}$ is the viscous stress tensor, and $\vec{f}$ represents body forces such as gravity or magnetic interactions.
+
+For a Newtonian, isotropic fluid, the viscous stress tensor is defined as:
 
 \begin{equation}
-    \mathbf{\tau} = p\mathbf{I} + \eta(\nabla \mathbf{v} + (\nabla \mathbf{v})^T) - \frac{2}{3}\eta(\nabla \cdot \mathbf{v})\mathbf{I}
+    \boldsymbol{\tau} = p\mathbf{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T \right) - \frac{2}{3}\eta(\nabla \cdot \vec{u})\mathbf{I}
 \end{equation}
 
-Where $p = (\lambda + \frac{2}{3}\eta)\nabla \cdot \mathbf{v}$ is defined from the bulk viscosity $\lambda$. After substitution into the momentum equation, the compressible 
-Navier Stokes equation is obtained, defined as
+where $\eta$ is the dynamic viscosity. The pressure term can be related to the bulk viscosity $\lambda$ as
 
 \begin{equation}
-    \rho (\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u}) = -\nabla p + \eta \Delta \mathbf{v} + \frac{1}{3}\eta \nabla(\nabla \cdot \mathbf{v}) + \mathbf{f}
+    p = \left( \lambda + \frac{2}{3}\eta \right) \nabla \cdot \vec{u}
 \end{equation}
 
-If the fluid being modelled is assumed to be incompressible meaning that the density stays constant and the bulk viscosity is 0, $\nabla \cdot \mathbf{v} = 0$. This simplifies
-the Navier Stokes equation to
+Substituting this stress tensor into the momentum equation yields the compressible Navier-Stokes equation,
 
 \begin{equation}
-    \rho (\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u}) = -\nabla p + \eta \Delta \mathbf{v} + \mathbf{f}
+    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla p + \eta \Delta \vec{u} + \frac{1}{3}\eta \nabla(\nabla \cdot \vec{u}) + \vec{f}
 \end{equation}
 
-The Navier Stokes equation can be recast into a dimensionless form by rescaling length, time and density into dimensionless forms. These parameters are rescaled as 
-$\bar{l} = \frac{l}{l_0}$, $\bar{t} = \frac{t}{t_0}$ and $\bar{\rho} = \frac{\rho}{\rho_0}$ with barred quantities indicating dimensionless properties. After substituting
-these parameters into the Naver Stokes equation this is obtained
+For an incompressible fluid—meaning constant density and negligible bulk viscosity—the condition $\nabla \cdot \vec{u} = 0$ holds. Under this assumption, the Navier-Stokes equation simplifies to,
 
 \begin{equation}
-    \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}} = -\nabla \bar{p} + \frac{1}{Re} \Delta \mathbf{\bar{v}} + \bar{\mathbf{f}}
+    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla p + \eta \Delta \vec{u} + \vec{f}
 \end{equation}
 
-$Re = \frac{\rho u l}{\eta}$ which defines the ratio between inertial and viscous forces. 
+To facilitate numerical simulation and analysis, it is often useful to express the Navier-Stokes equation in non-dimensional form. Introducing characteristic scales for length 
+$l_0$, time $t_0$, and density $\rho_0$, dimensionless variables are defined as
+
+\begin{equation}
+    \bar{l} = \frac{l}{l_0}, \quad \bar{t} = \frac{t}{t_0}, \quad \bar{\rho} = \frac{\rho}{\rho_0}
+\end{equation}
+
+Substituting these into the incompressible Navier-Stokes equation leads to the dimensionless form:
+
+\begin{equation}
+    \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}} = -\nabla \bar{p} + \frac{1}{Re} \Delta \bar{\vec{u}} + \bar{\vec{f}}    
+\end{equation}
+
+where the Reynolds number is defined as $Re = \frac{\rho_0 u_0 l_0}{\eta}$ which characterizes the ratio of inertial to viscous forces in the system.
 
 \section{Phase separation}
-
-Another physical phenomenon being described is non-ideal mixing. The free energy of mixing
-is defined as $\Delta G_m = \Delta H_m - T \Delta S_m$. In an ideal solution, $\Delta H_m = 0$. An expression for $\Delta S_m$ for a binary mixture is obtained from statistical mechanical 
-approximations of the configurations that binary mixtures can take, resulting in 
+Another physical phenomenon relevant to bijel formation is non-ideal mixing. The free energy of mixing for a binary fluid is given by the thermodynamic relation
 
 \begin{equation}
-    S_m = -k N_\phi k_B T((1 - \phi)\ln{1 - \phi} + \phi ln(\phi)) 
+    \Delta G_m = \Delta H_m - T \Delta S_m
 \end{equation}
 
-In a regular solution, $\Delta H_m \neq 0$. The free energy of mixing is defined as the sum of the ideal and excess contribution, $\Delta G_m = \Delta G_e + \Delta G_i$.
-$\Delta G_i = -TS_m$. $\Delta G_e = \Delta H_e + T \Delta S_e$. The excess entropy of mixing is 0, and the excess enthalpy of mixing is defined 
-
+In an ideal solution, the enthalpy of mixing is zero, i.e., $\Delta H_m = 0$, and the entropy of mixing $\Delta S_m$ can be derived using statistical mechanical approximations of the 
+configurational states of the binary mixture. For a system with volume fractions $\phi$ and $1 - \phi$, the entropy of mixing becomes
 
 \begin{equation}
-    \begin{split}
-    \frac{\partial\phi}{\partial t} = \nabla \cdot \left( \Gamma  \nabla\mu_\phi \right)
-    \end{split}
+    \Delta S_m = -N_a k_B \left[(1 - \phi)\ln(1 - \phi) + \phi \ln(\phi)\right]
 \end{equation}
+
+In contrast, a regular solution includes non-zero enthalpic interactions. The total free energy of mixing is split into ideal and excess components,
+
+\begin{equation}
+    \Delta G_m = \Delta G_i + \Delta G_e
+\end{equation}
+
+The ideal contribution arises from the entropy of mixing: $\Delta G_i = -T \Delta S_m$. For regular solutions, the excess entropy is assumed to be zero, and the excess enthalpy is given by,
+
+\begin{equation}
+    \Delta H_m = \chi (1 - \phi)\phi
+\end{equation}
+
+where $\chi$ is the interaction parameter quantifying the energetic favorability of mixing. This term originates from mean-field approximations assuming equal-sized molecular species. 
+Combining both contributions, the free energy of mixing becomes:
+
+\begin{equation}
+    \Delta G_m = \chi (1 - \phi)\phi + N_a k_B T \left[(1 - \phi)\ln(1 - \phi) + \phi \ln(\phi)\right]
+\end{equation}
+
+This bulk free energy characterizes the thermodynamic driving forces for phase separation. Alternative forms, such as the Landau-Ginzburg or Flory-Huggins models, may also be used depending on system 
+specifics. In real systems, the interface between two partially miscible fluids is not sharp; rather, the composition transitions smoothly across a finite interface width. To account for this, a 
+gradient energy penalty is added to the free energy functional, penalizing sharp spatial variations in composition. The total free energy functional is written as
+
+\begin{equation}
+    F[\phi] = \int \left( f(\phi) + \frac{\kappa}{2}|\nabla \phi|^2 \right) \, dV
+\end{equation}
+
+where $\kappa$ is the gradient energy coefficient controlling the interface width. Larger \(\kappa\) values correspond to wider interfaces.
+The chemical potential is then defined as the variational derivative of the free energy functional,
+
+\begin{equation}
+    \mu = \frac{\delta F}{\delta \phi} = \frac{df}{d\phi} - \kappa \nabla^2 \phi
+\end{equation}
+
+This chemical potential enters the mass flux expression via a Fickian transport law,
+
+\begin{equation}
+    \vec{J} = -M \nabla \mu
+\end{equation}
+
+where $M$ is the mobility and could potentially be a function of $\phi$. Assuming no advection and applying mass conservation for the order parameter, we obtain,
+
+\begin{equation}
+    \frac{\partial \phi}{\partial t} = -\nabla \cdot \vec{J}
+\end{equation}
+
+Substituting in the expression for \(\vec{J}\) leads to the Cahn-Hilliard equation,
+
+\begin{equation}
+    \frac{\partial \phi}{\partial t} = \nabla \cdot \left( M \nabla \mu \right)
+\end{equation}
+
+This equation describes the diffusive evolution of the conserved field $\phi$ during phase separation. It captures the system's tendency to minimize its total free energy 
+by redistributing the order parameter according to gradients in chemical potential. The Cahn-Hilliard framework naturally incorporates interfacial tension and allows for smooth, 
+continuous transitions between phases, making it highly suitable for modeling non-ideal mixing in systems such as bijels.
 
 \section{Particle dynamics}
+
+In computational studies of particle-laden fluids, particles can be modeled either as point particles or as explicitly resolved rigid bodies. The choice between 
+these approaches depends on the physical fidelity required, the computational cost, and the scales at which particle-fluid and particle-interface interactions must be resolved.
+
+Point particle models treat colloids as infinitesimal entities that influence the surrounding fields through source terms or effective force laws. 
+\cite{mehrabadi_direct_2018, prosperetti_point-particle_2007, frohlich_validation_2018}
+In such models, 
+particles do not occupy physical volume and their influence on the fluid is typically introduced via body forces or perturbations to the chemical potential field. This 
+approach is computationally efficient and particularly useful for systems with a large number of particles or when only large-scale collective behavior is of interest. 
+However, point particles cannot capture rotational dynamics, or hydrodynamic effects such as lubrication forces. Additionally, 
+their interaction with phase interfaces is often prescribed rather than emergent, limiting their accuracy in systems like bijels where particles jam at fluid-fluid interfaces 
+and significantly modify the interface topology.
+
+In contrast, explicit particle models represent colloids as finite-size rigid bodies with well-defined shape, volume, and surface boundary conditions. 
+\cite{ladd_numerical_1994, jansen_bijels_2011,gunther_timescales_2014}
+These particles interact 
+with the surrounding fluid through no-slip or slip boundary conditions, and their motion responds dynamically to hydrodynamic, capillary, and interparticle forces. By resolving 
+particle geometry, these models allow for accurate representation of rotational motion, surface wetting and interfacial adsorption.
+\cite{jansen_bijels_2011, gunther_lattice_2013}
+This is important in bijel systems, where particle-induced jamming depend on particle shape, size, and surface wetting. 
+
+An intermediate approach between point particles and explicitly resolved rigid bodies is the immersed boundary method (IBM), which represents extended particles as collections of 
+point markers embedded in the fluid. \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017}
+These markers interact with the fluid through momentum exchange that impose motion onto the surrounding fluid, effectively reconstructing 
+the dynamics of a deformable or rigid object without requiring an explicit boundary mesh. \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017} 
+IBM has been widely used in biological and colloidal systems, to model the dynamics of deformable bodies. \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017}
+
+Ultimately, the choice between point and explicit particle models reflects a trade-off between computational efficiency and physical realism. For systems in which interfacial structure, 
+jamming, or near-field hydrodynamics play a central role as in bijel formation, explicit particle modeling is generally preferred.
 
 \section{Magnetic fields and particles}
 
@@ -146,20 +234,95 @@ $\Delta G_i = -TS_m$. $\Delta G_e = \Delta H_e + T \Delta S_e$. The excess entro
 % interactions. \cite{davies_interface_2014, xie_direct_2017, xie_controllable_2021} A more detailed description of the model is 
 % provided in the following sections
 
-\section{Lattice Boltzmann Method}
+Magnetically responsive particles can generally be classified as paramagnetic or ferromagnetic, depending on the nature and strength of their magnetization in response to external 
+magnetic fields. Paramagnetic particles do not possess a permanent magnetic moment but acquire a reversible magnetization that aligns with the applied field and 
+vanishes once the field is removed. \cite{sinn_magnetically_2011} Their response is typically linear with field strength and does not involve magnetic hysteresis. 
+In contrast, ferromagnetic particles exhibit strong, permanent magnetization due to the alignment of magnetic domains even in the absence of an external field. These particles can 
+exhibit hysteresis and significantly stronger dipole-dipole interactions. \cite{sinn_magnetically_2011}
+As a result, ferromagnetic particles are more likely to form irreversible aggregates or chains, while paramagnetic particles 
+respond more gently and reversibly, making them preferable in systems where tunability and field-off stability are important. The choice between these types depends on the desired 
+degree of responsiveness, reversibility, and control in applications such as field-directed assembly or responsive emulsions.
 
-The Lattice Boltzmann Method (LBM) is an evolution of preceding lattice gas automata techniques, which is a discretization of the Boltzmann equation of motion for 
-molecules. This means that unlike traditional CFD techniques such as FDM, VOF or level set methods, LBM tracks the evolution of a 
+Magnetic particles are often modeled using the magnetic dipole approximation, which treats each particle as possessing a single point dipole moment \(\vec{m}\) located at its center.
+\cite{davies_assembling_2014}
+The dipole-dipole interaction between two particles separated by a vector \(\vec{r}\) is described by the potential:
+
+\begin{equation}
+    U_{\text{d}} = \frac{\mu_0}{4\pi r^3} \left[ \vec{m}_1 \cdot \vec{m}_2 - 3(\vec{m}_1 \cdot \hat{r})(\vec{m}_2 \cdot \hat{r}) \right]
+\end{equation}
+
+This model captures the long-range, anisotropic nature of magnetic interactions and is commonly used due to its simplicity and computational efficiency. It is especially effective when 
+particles are small, well-separated, and uniformly magnetized, such that higher-order multipole contributions can be neglected. However, the dipole model becomes less accurate when particles 
+aggregate closely or experience strong magnetic fields that cause internal magnetization to deviate from a uniform state.
+
+To address these limitations, the demagnetization tensor method offers a more refined model by considering the particle as a uniformly magnetized ellipsoid and calculating the internal magnetic 
+field using an analytical or numerically tabulated demagnetization tensor. \cite{takahashi_ellipsoids_2017} 
+This method accounts for the effect of particle shape on the distribution of internal magnetization and enables the modeling of induced magnetic dipoles that respond to local fields. 
+The demagnetization field \(\vec{H}_d\) inside a particle is given by
+
+\begin{equation}
+    \vec{H}_d = -\mathbf{N} \cdot \vec{M}
+\end{equation}
+
+where \(\mathbf{N}\) is the demagnetization tensor and \(\vec{M}\) is the magnetization vector. \cite{takahashi_ellipsoids_2017} 
+This approach is particularly useful for modeling spheroidal or ellipsoidal particles and is widely used in magnetorheological systems, chain-forming ferrofluids, and dense suspensions where 
+particle-particle interactions are strongly shape-dependent.
+
+At a higher level of fidelity, micromagnetic continuum models resolve the internal magnetization field \(\vec{M}(\vec{r})\) throughout each particle by minimizing the total magnetic energy, which 
+includes exchange, anisotropy, Zeeman, and magnetostatic contributions. \cite{vivas_toward_2020} 
+The governing equations are typically derived from the Landau-Lifshitz-Gilbert (LLG) equation, which evolves \(\vec{M}(\vec{r}, t)\) over time under the influence of effective magnetic fields. 
+These models capture spatially varying domain structures, vortex states, and other complex magnetic configurations, making them essential for accurately simulating particles with nonuniform or dynamic 
+magnetization. However, micromagnetic simulations are computationally expensive and require fine discretization within each particle, often using finite element or finite difference methods.
+
+Since bijel formation and stabilization primarily depend on interfacial 
+jamming and long-range interactions between particles at fluid-fluid interfaces, the magnetic dipole approximation is often sufficient to model key behaviors such as chaining, orientation under external 
+fields, and capillary-mediated assembly. However, if particle shape anisotropy, proximity effects, or induced magnetization in response to local fields are important, incorporating demagnetization tensors 
+may offer improved realism.
+
+\section{Numerical modeling}
+
+\subsection{Multiscale modeling algorithms}
+
+A wide range of numerical methods exist for simulating the physics details in previous sections. The choice of method depends on the specific physical processes to be captured such as 
+interface dynamics, hydrodynamic interactions, and thermal fluctuations—as well as computational efficiency and scalability. Below, we outline several commonly used approaches that have been 
+applied in studies of complex fluids and soft matter systems.
+
+The Volume of Fluid (VOF) method is a sharp-interface technique used to track the evolution of fluid-fluid interfaces within a fixed computational grid.
+\cite{gopala_volume_2008, fleckenstein_volume-fluid-based_2015, deising_direct_2018}
+In VOF, a scalar field (the volume fraction) is defined for each grid cell to indicate the presence of each fluid component, with interface reconstruction algorithms used to localize the boundary 
+between phases. 
+The method conserves mass by construction and handles large interface deformations well, making it suitable for high-Reynolds-number flows and surface tension-driven dynamics. However, 
+VOF methods can struggle with accurately capturing interfacial curvature and do not easily accommodate diffuse interfaces or complex topological changes such as pinch-off or coalescence,
+which limits their applicability for simulating phase separation in bijels.
+
+Phase field methods take a diffuse-interface approach, representing fluid composition or phase identity using a continuous order parameter field and are often governed by the Cahn-Hilliard or 
+Allen-Cahn equations. \cite{mendoza_evolution_2006, carmack_tuning_2018, chan_channel_2012}
+These methods naturally capture smooth transitions between phases, allow for accurate calculation of interfacial forces, and can easily handle topological changes in the interface. 
+Phase field methods are thermodynamically consistent, as they are derived from free energy functionals, and are particularly well-suited for modeling systems undergoing spinodal decomposition 
+or wetting transitions. Their main limitations lie in the need for fine resolution near interfaces to maintain numerical accuracy and stability, and in the computational cost of solving 
+higher-order partial differential equations, especially when coupled with full hydrodynamics.
+
+Brownian dynamics is a particle-based method used to simulate the stochastic motion of colloidal particles in a fluid. 
+\cite{huber_brownian_2019, yip_brownian_2005, elsawy_utility_2025}
+It models the over-damped limit of Langevin dynamics by integrating particle 
+trajectories under the influence of deterministic forces (such as interparticle interactions or external fields) and random thermal forces representing collisions with solvent molecules. Hydrodynamic 
+interactions may be included via approximate mobility tensors or neglected altogether, depending on the level of detail required. Brownian dynamics is ideal for studying self-assembly, aggregation, 
+and diffusion of particles in dilute systems, but lacks the ability to capture bulk fluid motion or interface-mediated interactions unless coupled with continuum solvers. As such, it is not well-suited 
+for simulating the coupled fluid-particle dynamics characteristic of bijel formation on its own.
+
+The Lattice Boltzmann Method (LBM) is a discretization of the Boltzmann equation of motion for molecules. \cite{qian_lattice_1992, succi_lattice_2018, shan_multicomponent_1995, swift_lattice_1996}
+Unlike traditional CFD techniques such as phase field or VOF methods, LBM tracks the evolution of a 
 particle distribution function within grid cells evolved through a discretized Boltzmann equation of motion. Macroscopic variables such as fluid density and 
 velocity are recovered from the particle distributions through appropriate moment integration, and the Navier Stokes equation at the incompressible limit can be 
-obtained through a Chapman-Enskog expansion of the LBM. The LBM has become an attractive tool for meso-scale CFD simulations due to its ease of algorithm 
+obtained through a Chapman-Enskog expansion of the LBM. \cite{qian_lattice_1992} The LBM has become an attractive tool for meso-scale CFD simulations due to its ease of algorithm 
 implementation, highly parallelizable nature and ease of boundary condition implementation, allowing coupling to other physically relevant systems such as 
 particles with varieties of potentials, external fields and deformable bodies.
 
 The particle distribution function described earlier is advected on a pre-constructed lattice stencil, commonly denoted as DnQm where n and m represent the 
-number of dimensions and directions in the stencil. Common stencils include the D1Q5, D2Q9 and D3Q19 stencil, all of which recover mass and momentum conservation. 
-For energy conservation, a higher order stencil such as D3Q27 is necessary. The D2Q9 and D3Q19 stencils have 8 and 18 populations respectively that include 
-connections to nearest and next nearest neighbour points, in addition to a central rest point. The D3Q19 stencil is shown in Figure \ref{fig:d3q19_lattice}.
+number of dimensions and directions in the stencil. \cite{succi_lattice_2018, schmieschek_lb3d_2017}
+Common stencils include the D1Q5, D2Q9 and D3Q19 stencil, all of which recover mass and momentum conservation. 
+For energy conservation, a higher order stencil such as D3Q27 is necessary. The D2Q9 and D3Q19 stencils have 9 and 19 populations respectively that include 
+connections to nearest and next nearest neighbour points. The D3Q19 stencil is shown in Figure \ref{fig:d3q19_lattice}.
 
 \begin{figure}[h]
     \centering
@@ -172,9 +335,61 @@ connections to nearest and next nearest neighbour points, in addition to a centr
 
 The LBM is composed of a collision and advection step. In the advection step, the populations at each grid point are propagated to adjacent points in accordance 
 with the chosen stencil. During the collision step, the particle population distribution is relaxed towards an equilibrium with a collision operator, at a 
-specified relaxation rate. 
+specified relaxation rate. Importantly, LBM can be extended to handle multiphase and multicomponent fluids, using either color-gradient models, free energy formulations, 
+or pseudopotential approaches to model non-ideal mixing. It also couples well to particle dynamics through momentum exchange schemes, making it a powerful framework for 
+simulating colloidal suspensions, interfacial phenomena, and structurally complex systems like bijels. Its ability to capture both hydrodynamics and mesoscale thermodynamic 
+behavior makes it particularly suited for the multi-scale requirements of stimuli-responsive emulsions.
 
-\section{Hydrodynamics} 
+In summary, the Volume of Fluid method offers robust interface tracking and mass conservation but lacks the ability to naturally capture interfacial curvature and topological changes. 
+Phase field methods provide thermodynamically consistent, diffuse-interface models ideal for phase separation, though they require fine resolution and are computationally intensive. 
+Brownian dynamics excels at modeling particle-level stochastic motion but cannot resolve bulk fluid dynamics or interface evolution on its own. In contrast, the Lattice Boltzmann Method 
+combines the strengths of mesoscopic fluid modeling with efficient handling of complex interfaces and straightforward coupling to particle dynamics. Its balance between computational 
+efficiency, scalability, and physical fidelity across multiple scales makes LBM the most suitable method for simulating the rich interplay of hydrodynamics, phase separation, and particle 
+interactions in stimuli-responsive emulsions such as bijels.
+
+\subsection{Multicomponent models in the Lattice Boltzmann Method}
+
+Four primary techniques exist in the lattice Boltzmann literature for modeling multicomponent or multiphase systems. These are the Shan-Chen (SC) 
+pseudopotential model, the free energy (FE) model, the color gradient (CG) model, and the interface tracking (IT) model.
+These methods differ fundamentally in their formulation and implementation, each offering unique advantages and trade-offs in terms of accuracy, 
+stability, physical realism, and computational cost. Below, each approach is briefly reviewed, followed by a comparative discussion of their 
+suitability for modeling stimuli-responsive emulsions such as bijels.
+
+The SC model introduces fluid-fluid interactions via a local, density-dependent force, enabling spontaneous phase separation and interface 
+formation without requiring explicit interface tracking. 
+\cite{shan_lattice_1993, shan_simulation_1994, shan_multicomponent_1995, jansen_bijels_2011,gunther_timescales_2014}
+Its simplicity and computational efficiency have made it a widely used method. However,
+in this formulation, surface tension is not an independently controllable parameter. An effective mass defined from the density of each component
+in each lattice point is used in the force calculation, meaning that it indirectly determines the surface tension in addition to the interaction
+strength parameter.
+
+The FE model is derived from a square-gradient free energy functional, which modifies the equilibrium distribution to incorporate thermodynamic 
+forces driving phase separation. \cite{swift_lattice_1996, kendon_inertial_2001, briant_lattice_2004} Like the SC model, it naturally produces interfaces and captures interfacial tension. Unlike the SC model, however, 
+the FE model allows for explicit control of surface tension and interface thickness via the bulk free energy parameters. This thermodynamic 
+consistency makes it attractive for modeling systems with diffuse interfaces. The thermodynamics of the system can also be modified through changing the free energy used.
+\cite{swift_lattice_1996, briant_lattice_2004, kendon_inertial_2001}
+A key limitation, however, is its difficulty handling fluids with high density ratios, which can reduce its applicability in more extreme multiphase scenarios.
+
+The CG model assigns color labels to each fluid component and applies a recoloring step to enforce immiscibility and sharpen the interface 
+between fluids. 
+\cite{mora_optimal_2021, latva-kokko_static_2005, huang_study_2014, liu_multiphase_2016}
+This recoloring step is responsible for generating interfacial tension and enables precise control over interfacial properties such 
+as surface tension and width. The model has demonstrated success in soft matter systems where interfacial control is critical. However, implementing 
+the recoloring algorithm introduces additional complexity and requires careful parameter tuning to ensure stability and numerical consistency. \cite{mora_optimal_2021}
+
+The IT model employs level-set or front-tracking techniques to explicitly track the location of fluid interfaces by evolving a separate indicator 
+function alongside the LB solver. \cite{haghani_hassan_abadi_conservative_2018, liang_lattice_2023}
+This method achieves high accuracy in resolving interface position and curvature, making it ideal for problems 
+involving surface tension-driven flows or sharp interfacial features. However, it is computationally intensive and less well-suited for handling 
+topological changes such as coalescence or pinch-off, which are common in phase-separating systems like bijels.
+
+Given these trade-offs, the Shan-Chen pseudopotential model is chosen for this research due to its balance between physical realism and computational 
+efficiency. \cite{jansen_bijels_2011,gunther_timescales_2014, gunther_lattice_2013, xie_direct_2017}
+Its ability to capture phase separation, interface formation, and emergent domain morphology without requiring explicit interface 
+tracking or complex coupling makes it suitable for simulating the large-scale dynamics of bijels. Moreover, its straightforward coupling to 
+colloidal particles facilitates the inclusion of particle-fluid and particle-interface interactions central to the system being studied.
+
+\section{Implementing the multicomponent Lattice Boltzmann Method} 
 \label{section:lbm_hydrodynamics}
 
 The lattice boltzmann method works by evolving a population distribution $f_{i}(\mathbf{x}, t)$ on a cubic lattice with 
@@ -237,49 +452,8 @@ numbers can be recovered. \cite{qian_lattice_1992, he_lattice_1997} The regime a
 for simulations in this work as the $ 1 \leq Re \leq 100 $ and the mach number, $Ma < 0.01$, fulfilling the stability 
 criterion and usage requirements for the presented hydrodynamic model.
 
-\section{Non-ideal mixing}
+\subsection{Non-ideal mixing}
 \label{section:lbm_non_ideal_mixing}
-
-Four primary techniques to model multicomponent or multiphase systems exist in the LBM literature. They are the Shan-Chen (SC) pseudopotential
-model, the free energy (FE) model, the color gradient (CG) model and the interface tracking (IT) model. All techniques are fundamentally different to one
-another in implementation and tradeoff various properties. Each one will be briefly reviewed before a comparing and contrasting their applicability
-to this system. 
-
-The SC model introduces fluid interactions via a density-dependent force, enabling spontaneous phase separation 
-and interface formation without explicitly tracking the interface. It is simple to implement and computationally efficient. However the density
-dependence of the fluid interactions implies that the surface tension is controlled by the density of the fluids used and the strength parameter
-controlling interactions.
-
-The FE model derives from the implementation of a modified equilibrium distribution derived from a square gradient free energy functional. Similar to the
-SC model, the FE model enables spontaneous phase separation and interface formation without explicitly tracking the interface. The surface tension and
-interface width are explicitly defined from the bulk free energy, allowing for user defined surface tensions and interface widths. However in its multicomponent
-implementation, it cannot be used to simulate fluids with high density ratios.
-
-The CG model is defined with fluid components with color labels, followed by the application of a recoloring step to sharpen the interface. 
-\cite{liu_multiphase_2016} The recoloring step creates the surface tension present in phase separated multicomponent mixtures. This model
-provides fine control over the surface tension and narrow interface widths. However implementing the recoloring step is computationally complex 
-and requires tuning of the recoloring step to ensure numerical consistency.  
-% technique proposed by Latva-Kokko and Rothman is more commonly used for soft matter flows. \cite{liu_multiphase_2016}
-
-The IT model is defined using a level-set or front-tracking techniques coupled to LBM. This technique explicitly tracks the location of the
-interface by evolving a separate interface indicator. It offers the highest accuracy at capturing the interface. However it is computationally
-expensive and less suited to topological changes like coalescence. 
-
-% A quick review of the Shan-Chen (SC) or 
-% pseudopotential model will be provided here from the perspective of a binary mixture. Additionally, the names and descriptions of 
-% other techniques will be described as well. The interparticle potential model or Shan-Chen model that adds a non-local density dependent force 
-% between two species, effectively modelling non-ideal mixing and recovering the Cahn-Hilliard equation. To alleviate the standard Shan-Chen implementations 
-% weaknesses of not being thermodynamically consistent and reducing the existence of spurious velocities, thermodynamically consistent equations of state
-% such as the Van der walls or Carnahan Starling equations of state have been implemented and compared to the Shan-Chen equation of state. 
-
-% In addition to the Shan-Chen model, the color gradient model, free energy model and interface tracking technique all 
-% allow for simulations of various types of multiphase and/or multicomponent flows. The color gradient model proposed by Rothman and Keller and 
-% implemented by Gunstensen et al relies upon modelling two particle distributions. These represent a binary fluid mixture with the collision step 
-% able to recover the hydrodynamics and non-ideal mixing dynamics. The free energy model utilizes phase field theory and constructs a free energy 
-% functional to recover interfacial dynamics and effects in a thermodynamically consistent manner. Often, a square gradient free energy is used for 
-% simplicity and ease of implementation. The mean field theory The non-ideal mixing dynamics are 6
-
-Compared to other multicomponent methods, the SC model provides the 
 
 The SC model mimics Cahn-Hilliard type behaviour through a force applied from the other fluid species $k'$ in adjacent 
 cells $\mathbf{x'}$ on fluid species $k$ at point $\mathbf{x}$. \cite{shan_lattice_1993, shan_simulation_1994, 
@@ -314,7 +488,7 @@ This recasting of the velocity ensures that in the absence of forces, the total 
 
 % \textcolor{blue}{https://doi.org/10.1103/PhysRevE.84.046710}
 
-\section{Suspended particle dynamics}
+\subsection{Suspended particle dynamics}
 \label{section:lbm_colloids}
 
 Suspended particles will be coupled to the LB fluid based on the work conducted by Ladd. \cite{ladd_numerical_1994, 
@@ -368,7 +542,7 @@ Upon uncovering of a grid point, it is assigned a density value that represents 
     \label{eq:fill_particles}
 \end{equation}
 
-\subsection{Anisotropic particles}
+\subsubsection{Anisotropic particles}
 \label{section:lbm_colloids_ellipsoids}
 
 For particles close to contact, meaning with inter-surface distances under 1 lattice unit the hydrodynamics are unresolved as the

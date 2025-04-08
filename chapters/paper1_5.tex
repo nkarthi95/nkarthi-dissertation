@@ -47,7 +47,8 @@ of interfacial curvature. Additionally, we characterize the topology of the bije
 mechanisms in magnetically influenced systems.
 
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/results/paper1_5/particle_layer.png}%
+\centering
+\includegraphics[scale = 0.4]{../figures/results/paper1_5/particle_layer.png}%
 \caption{Visualizations of the order parameter $\phi$ for bijels stabilized by oblate (left), spherical (middle) and prolate (right) particles 
          after $10^5$ simulation time steps. The top row shows the structure of bijels formed in the 
          absence of a magnetic field, while the bottom row shows the structure of bijels formed at $\bar{B} = 1$. 
@@ -85,7 +86,8 @@ Mickel et al. identified that $q_2$ vanishes for ordered crystal arrangements an
 characterize the particle layer. 
 
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/results/paper1_5/steinhardt_time.png}%
+\centering
+\includegraphics[scale = 0.38]{../figures/results/paper1_5/steinhardt_time.png}%
 \caption{Time dependence of the Steinhardt order parameters $q_2$ and $q_4$ for different particles shapes $\alpha$ and at different magnetic field strengths $\bar{B}$. The filled bands around the lines indicate the standard deviation over three independent simulation runs.}
 \label{fig:steinhardt_time}%
 \end{figure}
@@ -99,7 +101,8 @@ particle vectors \(\vec{r}_{ij}\), resulting in non-canceling contributions to t
 colloidal glasses embedded within a curved, three-dimensional structure \cite{ching_bijel_2022}.
 
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/results/paper1_5/steinhardt_field.png}%
+\centering
+\includegraphics[scale=0.45]{../figures/results/paper1_5/steinhardt_field.png}%
 \caption{Dependence of the Steinhardt order parameter $q_2$ and $q_4$ on the magnetic field $\bar{B}$. The order parameters were computed for the final 
          bijel microstructure after $10^5$ simulation time steps. Errorbars indicate the standard deviation taken over three independent simulation runs.
 \label{fig:steinhardt_field}}%
@@ -136,7 +139,8 @@ We then compute the mean and Gaussian curvatures of the interface using the \tex
 
 
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/results/paper1_5/curvature_field.png}%
+    \centering
+\includegraphics[scale=0.5]{../figures/results/paper1_5/curvature_field.png}%
 \caption{Plot of the area averaged mean $\langle H \rangle \Sigma^{-1}$ and Gaussian $\langle K \rangle \Sigma^{-2}$ curvature in the left and right 
          respectively. Each plot contains the $\langle H \rangle \Sigma^{-1}$ and $\langle K \rangle \Sigma^{-1}$ at the final timestep averaged across 
          3 runs for particles with $\alpha = 0.5, 1, 2$. We observe that the mean curvature does not demonstrate any trends, while the Gaussian curvature 
@@ -181,7 +185,8 @@ by subtracting the Euler characteristic from the total number of connected objec
 excluding all regions connected to the boundary of the simulation volume. The number of handles was then obtained by applying Eq.~\ref{eq:genus}.
 
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/results/paper1_5/handles_time.png}%
+    \centering
+\includegraphics[scale=0.45]{../figures/results/paper1_5/handles_time.png}%
 \caption{Time dependence of the number of channels for different particle shapes $\alpha$ and at different magnetic field strength $\bar{B}$. 
          The bands around the lines indicate the standard deviation taken over three independent simulation results. The number of channels roughly 
          follows a power law behavior $\sim t^{-3/2}$ which suggests that it is inversely proportional to the characteristic domain size $L \sim t^{3/2}$.
@@ -215,7 +220,8 @@ f(r) = - \frac{d h(r)}{dr} .
 \end{equation}
 
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/results/paper1_5/CSD.png}%
+    \centering
+\includegraphics[scale = 0.4]{../figures/results/paper1_5/CSD.png}%
 \caption{Channel size distribution (CSD) in bijels stabilized by oblate ($\alpha=0.5$), spherical ($\alpha=1.0$), and prolate ($\alpha=2.0$) particles. 
          The channel size distribution was obtained as the negative derivative of the number of handles in isodistance structures of the Euclidean distance 
          transform of the order parameter field. The negative values are due to numerical artifacts when calculating the number of handles as a function of 
@@ -232,7 +238,7 @@ present data. It is possible that a larger simulation domain would be required t
 
 \begin{figure}
 \centering
-\includegraphics[width=.5\textwidth]{../figures/results/paper1_5/channel_size_field.png}%
+\includegraphics[scale = 0.6]{../figures/results/paper1_5/channel_size_field.png}%
 \caption{Average channel size $L_c$ for different particle shapes $\alpha$ and at different magnetic field strength $\bar{B}$. The average channel size was calculated from the channel size distribution shown in Fig.~\ref{fig:CSD}. Errorbars indicate the standard deviation taken over three independent simulation runs.
 \label{fig:channel_size_field}}%
 \end{figure}
