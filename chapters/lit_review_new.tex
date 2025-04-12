@@ -24,7 +24,7 @@ the nucleus radius, \(\Delta g_v\) is the free energy change per unit volume, an
 Nuclei that exceed the critical radius \(r_c = \frac{2\sigma}{|\Delta g_v|}\) will grow, driving the system toward phase separation via nucleation and growth \cite{thanh_mechanisms_2014}. 
 This transformation process is commonly modeled by the Avrami equation, \(Y = 1 - \exp(-K t^n)\), where \(Y\) is the 
 transformed fraction, \(K\) is a rate constant incorporating nucleation and growth kinetics, and \(n\) is the Avrami exponent, which reflects the dimensionality and mechanism of the transformation
-\cite{avrami_kinetics_1939} .
+\cite{avrami_kinetics_1939}.
 
 At the binodal, the system is still metastable, meaning that unless perturbations are introduced to form nuclei, the mixture remains homogeneous \cite{thanh_mechanisms_2014}.
 However, a deeper quench into the two-phase region leads to the spinodal line, defined by the stability criterion \(\frac{d^2G}{dx^2} = 0\) \cite{cahn_free_1958}. 
@@ -32,11 +32,11 @@ Within this region, the system is unstable to even infinitesimal composition flu
 separation proceeds spontaneously without the need for nucleation. This process, known as spinodal decomposition, is characterized by the continuous and simultaneous growth of interconnected 
 domains of both phases \cite{cahn_free_1958}. Unlike nucleation and growth, which relies on localized events, spinodal decomposition 
 results in a bicontinuous structure driven by the system's attempt to minimize 
-free energy through composition modulation \cite{cahn_free_1958}. The dynamics of spinodal decomposition were characterized by Cahn and Hilliard \cite{cahn_free_1958} . 
-We first begin by defining the free energy of a regular solution, known as the bulk free energy.
+free energy through composition modulation \cite{cahn_free_1958}. The dynamics of spinodal decomposition were characterized by Cahn and Hilliard \cite{cahn_spinodal_1961}. 
+We first begin by defining the free energy of a regular solution, known as the bulk free energy given by
 
 \begin{equation}
-    \Delta G_m = \chi (1 - \phi)\phi + N_a k_B T \left[(1 - \phi)\ln(1 - \phi) + \phi \ln(\phi)\right]
+    G_m (c) = \chi (1 - c)c + N_a k_B T \left[(1 - c)\ln(1 - c) + c \ln(c)\right]
 \end{equation}
 
 This bulk free energy characterizes the thermodynamic driving forces for phase separation. Alternative forms, such as the Landau-Ginzburg or Flory-Huggins models, may also be used depending on system 
@@ -44,14 +44,14 @@ specifics. In real systems, the interface between two partially miscible fluids 
 gradient energy penalty is added to the free energy functional, penalizing sharp spatial variations in composition. The total free energy functional is written as
 
 \begin{equation}
-    F[\phi] = \int \left( f(\phi) + \frac{\kappa}{2}|\nabla \phi|^2 \right) \, dV
+    F[c] = \int \left( f(c) + \frac{\kappa}{2}|\nabla c|^2 \right) \, dV
 \end{equation}
 
 where $\kappa$ is the gradient energy coefficient controlling the interface width. Larger \(\kappa\) values correspond to wider interfaces.
 The chemical potential is then defined as the variational derivative of the free energy functional,
 
 \begin{equation}
-    \mu = \frac{\delta F}{\delta \phi} = \frac{df}{d\phi} - \kappa \nabla^2 \phi
+    \mu = \frac{\delta F}{\delta c} = \frac{df}{dc} - \kappa \nabla^2 c
 \end{equation}
 
 This chemical potential enters the mass flux expression via a Fickian transport law,
@@ -60,25 +60,21 @@ This chemical potential enters the mass flux expression via a Fickian transport 
     \vec{J} = -M \nabla \mu
 \end{equation}
 
-where $M$ is the mobility and could potentially be a function of $\phi$. Assuming no advection and applying mass conservation for the order parameter, we obtain,
+where $M$ is the mobility and could potentially be a function of $c$. Assuming no advection and applying mass conservation for the order parameter, we obtain,
 
 \begin{equation}
-    \frac{\partial \phi}{\partial t} = -\nabla \cdot \vec{J}
+    \frac{\partial c}{\partial t} = -\nabla \cdot \vec{J}
 \end{equation}
 
-Substituting in the expression for \(\vec{J}\) leads to the Cahn-Hilliard equation \cite{cahn_free_1958},
+Substituting in the expression for \(\vec{J}\) leads to the Cahn-Hilliard equation 18 in reference \cite{cahn_spinodal_1961},
 
 \begin{equation}
-    \frac{\partial \phi}{\partial t} = \nabla \cdot \left( M \nabla \mu \right)
+    \frac{\partial c}{\partial t} = \nabla \cdot \left( M \nabla \mu \right)
 \end{equation}
 
-This equation describes the diffusive evolution of the conserved field $\phi$ during phase separation. It captures the system's tendency to minimize its total free energy 
+This equation describes the diffusive evolution of the conserved field $c$ during phase separation. It captures the system's tendency to minimize its total free energy 
 by redistributing the order parameter according to gradients in chemical potential. The Cahn-Hilliard framework naturally incorporates interfacial tension and allows for smooth, 
 continuous transitions between phases, making it highly suitable for modeling non-ideal mixing in systems such as bijels.
-
-\textcolor{blue}{add surface tension calculation}
-
-\textcolor{blue}{add interface width calculation}
 
 The most important difference between these two phase separation methods is the morphology of the phase separated structure. While nucleation and growth generates discontinuous droplets,
 spinodal decomposition creates continuous domains that have tunable domain sizes and tortuosity which are attractive in many materials applications such as battery electrodes, filtration
@@ -95,11 +91,8 @@ is especially useful in systems such as Pickering emulsions, where the interfaci
 \cite{ngai_particle-stabilized_2015,velankar_non-equilibrium_2015}.
 As such, understanding particle behavior at interfaces is essential for controlling the structure and longevity of particle-stabilized systems \cite{ngai_particle-stabilized_2015}. 
 For particles that are smooth and simple and at an interface of oil and water, the attachment energy at the fluid interface can be calculated the Pieranski model, 
-$E_{ads} = \sigma A_{rm} (1 - \cos{\theta_c})^2$, where $E_{ads}$ is the free energy reduction upon particle adsorption, $\sigma$ is the surface tension between the two 
-fluids, and $\theta_c$ is the contact angle of the stabilizing particle. 
-
-This expression is derived from an energy balance between the interactions between the interface and the 
-fluid phases, with a schematic shown in Figure \ref{fig:pieranski_model},
+$G_{ads} = \sigma A_{rm} (1 - \cos{\theta_c})^2$, where $G_{ads}$ is the free energy reduction upon particle adsorption, $\sigma$ is the surface tension between the two 
+fluids, and $\theta_c$ is the contact angle of the stabilizing particle. A schematic of a particle adsorbing at an interface is shown in Figure \ref{fig:pieranski_model},
 
 \begin{figure}
     \centering
@@ -110,93 +103,61 @@ fluid phases, with a schematic shown in Figure \ref{fig:pieranski_model},
     \label{fig:pieranski_model}
 \end{figure}
 
-From the Pieranski model, the adsorption energy can be seen to depend on the contact angle, surface tension and contact area of the particles. This indicates that larger, neutrally wetting
+To obtain the Pieranski model, an energy balance between the interactions between the interface and the fluid phases can be written. The energy of the system before and after particle adsorption is 
+different and can be characterized for the particle moving from water into the interface as,
+
+\begin{equation}
+    \Delta E_{IW} = E_I - E_w
+\end{equation}
+
+Where $\Delta E_{I}$ is the energy of the system when the particle is in the interface and $\Delta E_W$ is the energy of the system when the particle is completely in the water phase.
+We define $\Delta E_{I}$ as
+
+\begin{equation}
+    E_I = A_w \sigma_{pw} + A_o\sigma_{po} + A_{I_1}\sigma_{ow} + V_w P_w + V_o P_o
+\end{equation}
+
+Where subscripts $w$, $o$ and $I$ represents the water phase, oil phase and interface respectively. $A_w$ and $A_o$ are the surface areas of the particle in the water and oil phases 
+respectively, $V_w$ and $V_o$ are the volumes of water and oil phases respectively, $P_w$ and $P_o$ are the pressures of water and oil phases respectively. $A_{I_1}$ is the area of the 
+interface with the particle. A similar equation can be written for the energy of the water phase, $E_w$
+
+\begin{equation}
+    E_w = (A_w + A_o)\sigma_{pw} + A_{I_2}\sigma_{ow} + (V_w + V_o)P_w
+\end{equation}
+
+$A_{I_2}$ is the area of the interface without the particle. The change in the interface energy upon adsorption of the particle can be computed to obtain
+
+\begin{equation}
+    \Delta E_{IW} = A_o(\sigma_{po} - \sigma_{pw}) - A_p\sigma_{ow} + V_o(P_o - P_w)
+\end{equation}
+
+A similar construction can be done for the oil phase to obtain 
+
+\begin{equation}
+    % \Delta E_{IO} = -\sigma_{ow}(A_w\cos{\theta_c} + A_p - \frac{2 V_o}{R_d})
+    \Delta E_{IO} = A_w(\sigma_{pw} - \sigma_{po}) + A_p\sigma_{ow} - V_o(P_o - P_w)
+\end{equation}
+
+We now use the Young-Dupre equation relating the surface tensions of each component to one another, $\cos{\theta_c} = \frac{\sigma_{po} - \sigma_{pw}}{\sigma_{ow}}$ and the
+Young-Laplace equation for a sphere, relating the pressure difference inside and outside a droplet $\Delta P$ to the radius of the droplet $R_d$, $\Delta P = \frac{2\sigma}{R_d}$
+Substutions for $\sigma_{pw} - \sigma_{po}$ and $P_o - P_w$ are made, resulting in 
+
+\begin{equation}
+    \begin{split}
+        \Delta E_{IW} &= \sigma_{ow}(A_o\cos{\theta_c} - A_p - \frac{2 V_o}{R_d}) \\
+        \Delta E_{IO} &= -\sigma_{ow}(A_w\cos{\theta_c} + A_p - \frac{2 V_o}{R_d})
+    \end{split}
+\end{equation}
+
+From this the Pieranski model, the adsorption energy can be seen to depend on the contact angle, surface tension and contact area of the particles. This indicates that larger, neutrally wetting
 particles adsorbing onto interfaces with high surface tension have a high driving force for adsorption. \cite{ngai_particle-stabilized_2015,reeves_particle-size_2015} This adsorption process 
 can be orders of magnitude larger than the thermal energy of the system, calculated as $k_b T$ where $T$ is the temperature of the system and $k_b$ is the Boltzmann constant. This results in 
-irreversible adsorption of particles at interfaces \cite{binks_pickering_2001}.
+irreversible adsorption of particles at interfaces. \cite{binks_pickering_2001}
 
-In addition to the adsorption of particles on the interface, the contact angle of the particles determine the dispersed phase of an emulsion and its microstructure through the
-Bancroft rule \cite{velankar_non-equilibrium_2015,ngai_particle-stabilized_2015}. 
-Hydrophillic particles tend to prefer to form oil in water emulsions while hydrophobic particles prefer to form water in oil emulsions \cite{ngai_particle-stabilized_2015}.
+In addition to the adsorption of particles on the interface, the contact angle of the particles determine the dispersed phase of an emulsion and its microstructure. \cite{velankar_non-equilibrium_2015}
+Hydrophillic particles tend to prefer to form oil in water emulsions while hydrophobic particles prefer to form water in oil emulsions. \cite{ngai_particle-stabilized_2015}
 This occurs as the particles preferentially wet one phase over another, causing the interface to bend as the emulsion forms. Neutrally wetting particles are preferred in the formation of 
-bijels as no preferential curvature is imparted onto the bijels, fulfilling one of the requirements of a minimal surface in that the mean curvature must be zero \cite{jinnai_interfacial_2001}.
-
-% from a force 
-% balance between the force imparted from the particle on each fluid and the fluids between one another, known as the Young-Dupre equation.
-
-% \begin{equation}
-%     \cos{\theta_c} = \frac{\sigma_{po} - \sigma_{pw}}{\sigma_{ow}}
-% \end{equation}
-
-% Where $\theta_c$ is the contact angle, $\sigma_{po}$ is the surface tension between particle and oil, $\sigma_{pw}$ is the surface tension between particle and water and
-% $\sigma_{ow}$ is the surface tension between oil and water. The particle is considered to be preferentially wet by water or hydrophilic if $\theta_c < 90 ^{\circ}$ or 
-% hydrophobic if $\theta_c > 90 ^{\circ}$. The particle is said to be neutrally wetting if $\theta_c = 90 ^{\circ}$. 
-
-% \begin{figure}
-%     \centering
-%     \includegraphics[scale = 0.5]{../figures/literature_review/particle_at_interface.png }
-%     \caption{Particle schematic at an interface demonstrating the various quantities of interest. Reprinted Figure 2.1 from
-%              Particle-Stabilized Emulsions and Colloids: Formation and Applications; Ngai, T., Bon, S. A. F., Eds.; RSC soft matter series; 
-%              with permission Royal Society of Chemistry, RSC Publishing Cambridge, 2015 under license number 1597404-1}
-%     \label{fig:pieranski_model}
-% \end{figure}
-
-% The energy of the system before and after particle adsorption is different and can be characterized for a simple system with parameters shown in Figure \ref{fig:pieranski_model},
-
-% \begin{equation}
-%     \Delta E_{IW} = E_I - E_w
-% \end{equation}
-
-% Where $\Delta E_{I}$ is the energy of the system when the particle is in the interface and $\Delta E_W$ is the energy of the system when the particle is completely in the water phase.
-% We define $\Delta E_{I}$ as
-
-% \begin{equation}
-%     E_I = A_w \sigma_{pw} + A_o\sigma_{po} + A_{I_1}\sigma_{ow} + V_w P_w + V_o P_o
-% \end{equation}
-
-% Where $A_w$ and $A_o$ are the surface areas of the particle in the water and oil phases respectively, $V_w$ and $V_o$ are the volumes of water and oil phases respectively and 
-% $P_w$ and $P_o$ are the pressures of water and oil phases respectively. $A_{I_1}$ is the area of the interface with the particle. 
-% A similar equation can be written for the energy of the water phase, $E_w$
-
-% \begin{equation}
-%     E_w = (A_w + A_o)\sigma_{pw} + A_{I_2}\sigma_{ow} + (V_w + V_o)P_w
-% \end{equation}
-
-% $A_{I_2}$ is the area of the interface without the particle. The change in the interface energy upon adsorption of the particle can be computed to obtain
-
-% \begin{equation}
-%     \Delta E_{IW} = A_o(\sigma_{po} - \sigma_{pw}) - A_p\sigma_{ow} + V_o(P_o - P_w)
-% \end{equation}
-
-% Substituting the Young-Laplace law for a spherical droplet, $P_w - P_o = \frac{2\sigma_{ow}}{R_d}$ where $R_d$ is the droplet size, for $(P_o - P_w)$ and the Young-Dupre contact angle
-% expression, the following is obtained
-
-% \begin{equation}
-%     \Delta E_{IW} = \sigma_{ow}(A_o\cos{\theta_c} - A_p - \frac{2 V_o}{R_d})
-% \end{equation}
-
-% A similar construction can be done for the oil phase to obtain 
-
-% \begin{equation}
-%     \Delta E_{IW} = -\sigma_{ow}(A_w\cos{\theta_c} + A_p - \frac{2 V_o}{R_d})
-% \end{equation}
-
-% After making appropriate geometrical substitutions for $V_o$ and $A_p$, the Piersanski model is recovered,
-
-% \begin{equation}
-%     \Delta E_{ads} = \pi r^2 \sigma_{ow} (1 - |\cos{\theta_c}|)^2
-% \end{equation}
-
-% From this expression, the adsorption energy can be seen to depend on the contact angle, surface tension and contact area of the particles. This indicates that larger, neutrally wetting
-% particles adsorbing onto interfaces with high surface tension have a high driving force for adsorption. \cite{ngai_particle-stabilized_2015,reeves_particle-size_2015} This adsorption process 
-% can be orders of magnitude larger than the thermal energy of the system, calculated as $k_b T$ where $T$ is the temperature of the system and $k_b$ is the Boltzmann constant. This results in 
-% irreversible adsorption of particles at interfaces. \cite{binks_pickering_2001}
-
-% In addition to the adsorption of particles on the interface, the contact angle of the particles determine the dispersed phase of an emulsion and its microstructure. 
-% \cite{velankar_non-equilibrium_2015}
-% Hydrophillic particles tend to prefer to form oil in water emulsions while hydrophobic particles prefer to form water in oil emulsions. \cite{ngai_particle-stabilized_2015}
-% This occurs as the particles preferentially wet one phase over another, causing the interface to bend as the emulsion forms. Neutrally wetting particles are preferred in the formation of 
-% bijels as no preferential curvature is imparted onto the bijels, fulfilling one of the requirements of a minimal surface in that the mean curvature must be zero. \cite{jinnai_interfacial_2001}
+bijels as no preferential curvature is imparted onto the bijels, fulfilling one of the requirements of a minimal surface in that the mean curvature must be zero. \cite{jinnai_interfacial_2001}
 
 \section{Anisotropic particles}
 
@@ -462,29 +423,29 @@ these approaches depends on the physical fidelity required, the computational co
 
 Point particle models treat colloids as infinitesimal entities that influence the surrounding fields through source terms or effective force laws. 
 \cite{mehrabadi_direct_2018, prosperetti_point-particle_2007, frohlich_validation_2018}
-In such models, 
-particles do not occupy physical volume and their influence on the fluid is typically introduced via body forces or perturbations to the chemical potential field. This 
-approach is computationally efficient and particularly useful for systems with a large number of particles or when only large-scale collective behavior is of interest. 
+In such models, particles do not occupy physical volume and their influence on the fluid is typically introduced via body forces or perturbations to the chemical potential field. 
+This approach is computationally efficient and particularly useful for systems with a large number of particles or when only large-scale collective behavior is of interest. 
 However, point particles cannot capture rotational dynamics, or hydrodynamic effects such as lubrication forces. Additionally, 
 their interaction with phase interfaces is often prescribed rather than emergent, limiting their accuracy in systems like bijels where particles jam at fluid-fluid interfaces 
 and significantly modify the interface topology.
 
-In contrast, explicit particle models represent colloids as finite-size rigid bodies with well-defined shape, volume, and surface boundary conditions. 
-\cite{ladd_numerical_1994, jansen_bijels_2011,gunther_timescales_2014}
-These particles interact 
+In contrast, explicit particle models represent colloids as finite-size rigid bodies with well-defined shape, volume, and surface boundary conditions
+\cite{ladd_numerical_1994, jansen_bijels_2011,gunther_timescales_2014}. These particles interact 
 with the surrounding fluid through no-slip or slip boundary conditions, and their motion responds dynamically to hydrodynamic, capillary, and interparticle forces. By resolving 
-particle geometry, these models allow for accurate representation of rotational motion, surface wetting and interfacial adsorption.
-\cite{jansen_bijels_2011, gunther_lattice_2013}
+particle geometry, these models allow for accurate representation of rotational motion, surface wetting and interfacial adsorption
+\cite{jansen_bijels_2011, gunther_lattice_2013}.
 This is important in bijel systems, where particle-induced jamming depend on particle shape, size, and surface wetting. 
 
 An intermediate approach between point particles and explicitly resolved rigid bodies is the immersed boundary method (IBM), which represents extended particles as collections of 
-point markers embedded in the fluid. \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017}
+point markers embedded in the fluid \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017}.
 These markers interact with the fluid through momentum exchange that impose motion onto the surrounding fluid, effectively reconstructing 
-the dynamics of a deformable or rigid object without requiring an explicit boundary mesh. \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017} 
-IBM has been widely used in biological and colloidal systems, to model the dynamics of deformable bodies. \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017}
+the dynamics of a deformable or rigid object without requiring an explicit boundary mesh \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017}.
+IBM has been widely used in biological and colloidal systems, to model the dynamics of deformable bodies \cite{peskin_immersed_2002, luo_immersed-boundary_2008, spandan_parallel_2017}.
 
-For systems in which interfacial structure, jamming, or near-field hydrodynamics play a central role as in bijel formation, explicit particle modeling 
-is generally preferred as we are able to resolve the interfacial structure and near field hydrodynamics without the complications of IBM.
+For systems in which interfacial structure, jamming, or near-field hydrodynamics of rigid bodies play a central role as in bijel formation, explicit particle modeling 
+is generally preferred as we are able to resolve the interfacial structure and near field hydrodynamics without the complications of IBM. This technique has been used in simulations of
+bijels based on the Lattice Boltzmann Method and phase field techniques demonstrating its effectiveness in modeling
+phenomena relevant to bijels \cite{jansen_bijels_2011,gunther_timescales_2014,carmack_tuning_2018}.
 
 \subsection{Magnetic fields and particles}
 
@@ -557,40 +518,46 @@ is generally preferred as we are able to resolve the interfacial structure and n
 
 Magnetically responsive particles can generally be classified as paramagnetic or ferromagnetic, depending on the nature and strength of their magnetization in response to external 
 magnetic fields. Paramagnetic particles do not possess a permanent magnetic moment but acquire a reversible magnetization that aligns with the applied field and 
-vanishes once the field is removed. \cite{sinn_magnetically_2011} Their response is typically linear with field strength and does not involve magnetic hysteresis. 
+vanishes once the field is removed \cite{sinn_magnetically_2011}. Their response is typically linear with field strength and does not involve magnetic hysteresis. 
 In contrast, ferromagnetic particles exhibit strong, permanent magnetization due to the alignment of magnetic domains even in the absence of an external field. These particles can 
-exhibit hysteresis and significantly stronger dipole-dipole interactions. \cite{sinn_magnetically_2011}
+exhibit hysteresis and significantly stronger dipole-dipole interactions \cite{sinn_magnetically_2011}.
 As a result, ferromagnetic particles are more likely to form irreversible aggregates or chains, while paramagnetic particles 
 respond more gently and reversibly, making them preferable in systems where tunability and field-off stability are important. The choice between these types depends on the desired 
 degree of responsiveness, reversibility, and control in applications such as field-directed assembly or responsive emulsions.
 
-Magnetic particles are often modeled using the magnetic dipole approximation, which treats each particle as possessing a single point dipole moment \(\vec{m}\) located at its center.
-\cite{davies_assembling_2014}
-The dipole-dipole interaction between two particles separated by a vector \(\vec{r}\) is described by the potential:
+% Magnetic particles can be modeled using the magnetic dipole approximation, which treats each particle as possessing a single point dipole moment \(\vec{m}\) located at its center
+% \cite{davies_assembling_2014}. 
 
-\begin{equation}
-    U_{\text{d}} = \frac{\mu_0}{4\pi r^3} \left[ \vec{m}_1 \cdot \vec{m}_2 - 3(\vec{m}_1 \cdot \hat{r})(\vec{m}_2 \cdot \hat{r}) \right]
-\end{equation}
+% The dipole-dipole interaction between two particles separated by a vector \(\vec{r}\) is described by the potential:
 
+% \begin{equation}
+%     U_{\text{d}} = \frac{\mu_0}{4\pi |\vec{r}|^3} \left[ \vec{m}_1 \cdot \vec{m}_2 - 3(\vec{m}_1 \cdot \vec{r})(\vec{m}_2 \cdot \vec{r}) \right]
+% \end{equation}
+Magnetic particles can be modeled using the magnetic dipole approximation, which treats each particle as possessing a single point dipole moment \(\vec{m}\) located at its center
+\cite{davies_assembling_2014}. 
 This model captures the long-range, anisotropic nature of magnetic interactions and is commonly used due to its simplicity and computational efficiency. It is especially effective when 
 particles are small, well-separated, and uniformly magnetized, such that higher-order multipole contributions can be neglected. However, the dipole model becomes less accurate when particles 
 aggregate closely or experience strong magnetic fields that cause internal magnetization to deviate from a uniform state.
 
 To address these limitations, the demagnetization tensor method offers a more refined model by considering the particle as a uniformly magnetized ellipsoid and calculating the internal magnetic 
-field using an analytical or numerically tabulated demagnetization tensor. \cite{takahashi_ellipsoids_2017} 
+field using an analytical or numerically tabulated demagnetization tensor \cite{takahashi_ellipsoids_2017}. 
 This method accounts for the effect of particle shape on the distribution of internal magnetization and enables the modeling of induced magnetic 
-dipoles that respond to local fields. The total magnetic field of an ellipsoids can be written,
-
-\begin{equation}
-    \mathbf{H}(r) = \mathbf{H}_0 + \mathbf{N}(r)\mathbf{K}\mathbf{H}^{\dagger}
-\end{equation}
-
-Where $\mathbf{H}(r)$ is the total magnetic field of the ellipsoids, $\mathbf{H}_0$ is the inducing magnetic field in each direction,
-$\mathbf{K}$ is the susceptibility tensor and $\mathbf{H}^{\dagger}$ is the resultant uniform magnetic field at any point within
-the ellipsoids. \cite{takahashi_ellipsoids_2017}  This approach is particularly useful for modeling spheroidal or ellipsoidal particles and is widely 
+dipoles that respond to local fields. This approach is particularly useful for modeling spheroidal or ellipsoidal particles and is widely 
 used in magnetorheological systems, chain-forming ferrofluids, and dense suspensions where particle-particle interactions are shape-dependent.
 
-Since bijel formation and stabilization primarily depend on interfacial 
-jamming and long-range interactions between particles at fluid-fluid interfaces, the magnetic dipole approximation is often sufficient to model key behaviors such as chaining, orientation under external 
-fields, and capillary-mediated assembly. However, if particle shape anisotropy, proximity effects, or induced magnetization in response to local fields are important, incorporating demagnetization tensors 
-may offer improved realism.
+% The total magnetic field of an ellipsoids can be written,
+
+% \begin{equation}
+%     \mathbf{H}(r) = \mathbf{H}_0 + \mathbf{N}(r)\mathbf{K}\mathbf{H}^{\dagger}
+% \end{equation}
+
+% Where $\mathbf{H}(r)$ is the total magnetic field of the ellipsoids, $\mathbf{H}_0$ is the inducing magnetic field in each direction,
+% $\mathbf{K}$ is the susceptibility tensor and $\mathbf{H}^{\dagger}$ is the resultant uniform magnetic field at any point within
+% the ellipsoids. \cite{takahashi_ellipsoids_2017}  This approach is particularly useful for modeling spheroidal or ellipsoidal particles and is widely 
+% used in magnetorheological systems, chain-forming ferrofluids, and dense suspensions where particle-particle interactions are shape-dependent.
+
+Since bijel formation and stabilization primarily depend on interfacial jamming and long-range interactions between particles at fluid-fluid interfaces, the magnetic dipole approximation 
+is often sufficient to model key behaviors such as chaining, orientation under external fields, and capillary-mediated assembly. However, if incoroprating the effect of particle shape anisotropy, 
+proximity effects, or induced magnetization in response to local fields are important, incorporating demagnetization tensors may offer improved realism. Investigations of particle reorientation at
+interfaces has been conducted using the magnetic dipole model, showing that a rich variety of interfacial phenomena can be captured by this model such as the balance between capillary interactions
+and magnetic field induced torque and capillary self assembly of microparticles at interfaces. \cite{xie_direct_2017,davies_interface_2014,davies_assembling_2014}

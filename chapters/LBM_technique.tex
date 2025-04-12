@@ -6,15 +6,23 @@ numerical methods used in this work.
 
 \section{Hydrodynamics}
 
-We begin with a restatement of Reynolds Transport Theorem (RTT) which relates the change in a parameter in a volume over time to the change in that quantity in a control volume,
-defined as
+We begin with a restatement of Reynolds Transport Theorem (RTT) which relates the accumulation of a parameter within a control volume to the difference between the values
+of the parameter entering and leaving the volume and the generation and consumption within the volume. The derivation from page 135 to 147 in reference \cite{batchelor_introduction_2000}
+is followed. For a non moving and non-deforming volume, the transport equation is given by,
 
 \begin{equation}
-    \frac{d}{dt} \int_V f \, dV = \int_V \frac{\partial f}{\partial t} \, dV + \int_{\partial V} f (\vec{v}_{\text{surf}} \cdot \vec{n}) \, dA
+    \frac{d}{dt} \int \theta \rho \, dV = \int Q \, dV - \int \theta \rho (\vec{v}_{\text{surf}} \cdot \vec{n}) \, dA
 \end{equation}
 
-Where $f$ can be a scalar, vector or tensor, $V$ is the volume of the control element, $t$ is time, $\vec{v}_{surf}$ is the velocity vector of the surface of the volume element,
-$\vec{n}$ is the surface normal unit vector. From the RTT, the continuity equation can be written to analyze the mass flux of a control volume given by,
+Where $\theta$ is an intensive quantity of the system such as mass, momentum or energy, $\rho$ is the density of the fluid in the control volume, $Q$ is an effective density
+of a source, $V$ is the volume of the control element, $t$ is time, $\vec{v}_{surf}$ is the velocity vector 
+of the surface of the volume element and $\vec{n}$ is the surface normal unit vector. \cite{batchelor_introduction_2000} Using the divergence theorem, the expression can be rewritten as
+
+\begin{equation}
+    \int \frac{\partial \theta \rho}{\partial t} \, dV = \int Q \, dV - \int \nabla \cdot (\theta \rho \vec{v}_{\text{surf}}) \, dV
+\end{equation}
+
+If $\theta = 1$ and $Q = 0$ the continuity equation for fluid density can be written to analyze the mass flux of a control volume given by,
 
 \begin{equation}
     \frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\vec{u}\right) = 0
@@ -25,18 +33,18 @@ $\nabla\cdot \vec{u} = 0$ The momentum conservation equation can also be written
 incompressible fluid, where changes in momentum arise due to pressure gradients, viscous stresses, and body forces. The general form of the momentum equation is given by,
 
 \begin{equation}
-    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla p + \nabla \cdot \boldsymbol{\tau} + \vec{f}
+    \rho \left(\frac{\partial u_i}{\partial t} + (u_i\cdot\frac{\partial u_i}{x_i}) \right) = \frac{\partial \sigma_{ij}}{\partial x_j} + f_i
 \end{equation}
 
-where $p$ is the pressure, $\boldsymbol{\tau}$ is the viscous stress tensor, and $\vec{f}$ represents external forces such as gravity or magnetic interactions.
-
-For a Newtonian, isotropic fluid, the viscous stress tensor is given by
+where $f_i$ is the force exerted on the fluid from external forces such as gravity or magnetic interactions and $\sigma_{ij}$ is the stress tensor. For a Newtonian, isotropic fluid, 
+the viscous stress tensor is given by
 
 \begin{equation}
-    \boldsymbol{\tau} = p\mathbf{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T \right)
+    \sigma_{ij} = -p\delta_{ij} + \eta((\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}) - \frac{2}{3}(\frac{\partial u_j}{\partial x_i})^2\delta_{ij})
 \end{equation}
 
-Substituting this stress tensor into the momentum equation yields the incompressible Navier-Stokes equation,
+Substituting this stress tensor into the momentum equation and using the relation, $\nabla\cdot \vec{u} = 0$ from the incompressibility constraint, the incompressible 
+Navier-Stokes equation can be derived which in vector notation is given by,
 
 \begin{equation}
     \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla p + \eta \nabla^2 \vec{u} + \vec{f}
@@ -66,18 +74,20 @@ where the Reynolds number is defined as $Re = \frac{\rho_0 u_0 l_0}{\eta}$ which
 
 \section{Phase separation}
 
-Bijels form through spinodal decomposition of two partially miscible fluids, a process that can be effectively modeled using the Cahn-Hilliard equation, which describes the diffusive dynamics 
-of a conserved scalar order parameter $\phi$, typically representing the local concentration difference between the two fluid components,
+Bijels form through spinodal decomposition of two partially miscible fluids, a process that can be effectively modeled using the Cahn-Hilliard equation. \cite{cahn_spinodal_1961} While the
+original equation is written for a concentration of species $c$. For a binary mixture, it can be recast in terms of a conserved scalar order parameter $\phi$, typically representing the 
+local concentration difference between the two fluid components,
 
 \begin{equation}
     \frac{\partial \phi}{\partial t} = \nabla \cdot \left( M \nabla \mu \right)
 \end{equation}
 
-Here, $M$ is the mobility coefficient and $\mu$ is the chemical potential, which is derived from the variation of the free energy functional $F[\phi]$. This formulation allows for the modeling of 
+Here, $M$ is the mobility coefficient and $\mu$ is the chemical potential, which is derived from the variation of the free energy functional $F[\phi]$ which is the sum of a bulk free energy
+$f(\phi)$ and an interfacial contribution. This formulation allows for the modeling of 
 interfacial tension and the spontaneous formation of bicontinuous domains characteristic of spinodal decomposition.
-To capture not only the diffusive separation of phases but also the resulting fluid motion, the Cahn-Hilliard equation is coupled with the Navie-Stokes equations, leading to the 
+To capture not only the diffusive separation of phases but also the resulting fluid motion, the Cahn-Hilliard equation is coupled with the Navier-Stokes equations, leading to the 
 Cahn-Hilliard-Navier-Stokes (CHNS) framework. This coupling is essential in systems like bijels, where advection play a significant role in domain coarsening and morphology arrest. 
-The momentum conservation equation in this framework is written as:
+The momentum conservation equation in this framework is given by,
 
 \begin{equation}
     \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = \eta \nabla^2 \vec{u} - \nabla p - \phi \nabla \mu
@@ -107,7 +117,7 @@ to the second order. It can be seen in Figure \ref{fig:d3q19_lattice}.
     \includegraphics[scale = 1]{figures/methods/d3q19_lattice.jpg}
     \caption{D3Q19 lattice demonstrating the rest, nearest and next nearest direction that correspond to the 19 
     directions $(i)$ of the lattice with lattice velocity $c_{i}$. \cite{schmieschek_lb3d_2017} Reproduced from 
-    Schmieschek et al. Computer Physics Communications 2017, 217, 149--161, under the Creative Commons license.}
+    Schmieschek et al. Computer Physics Communications 2017, 217, 149--161, under the CC-BY license.}
     \label{fig:d3q19_lattice}
 \end{figure}
 
@@ -171,7 +181,7 @@ The momentum flux tensor is calculated from the Chapman-Enskog expansion of \ref
     \end{split}
 \end{equation}
 
-The momentum flux tensor can be further expressed as a function of macroscopic variables, 
+The momentum flux tensor can be further expressed as a sum of the equilibrium and non-equilibrium components of the stress tensor, denoted by 0 and 1 given by,
 
 \begin{equation}
     \begin{split}
@@ -296,7 +306,7 @@ a hertzian contact force is also added to ensure that there is no particle overl
 
 $K_H$ is the force constant used to push particles apart. 
 
-\subsection{ellipsoidal_particles}
+\subsection{Ellipsoidal_particles}
 \label{section:ellipsoidal_particles}
 
 To correct for the ellipsoidal particles used in this work, 
