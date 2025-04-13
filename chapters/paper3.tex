@@ -60,28 +60,28 @@ the shear stress, as shown in Figure~\ref{fig:stress_time}.
     \includegraphics[scale=0.3]{../figures/results/paper3/stress-time_compare.png} 
     \caption{Time evolution of the shear stress of bijels stabilized with ellipsoidal particles as a function of the applied strain rate as
              a function of the initial microstructure and applied magnetic field. The observed stress response is difficult to say when a steady
-             state is reached, with pseudo-steady states being obtained from the regions with the circular markers.} 
+             state is reached, with pseudo-steady states being obtained from the regions demarcated with the circular markers.} 
     \label{fig:stress_time} 
 \end{figure}
 
 Figure \ref{fig:stress_time} demonstrates that a definitive steady-state shear stress is not reached within the simulated timeframes across all conditions. 
 This absence of steady-state behavior is attributed to the continued coarsening of the bicontinuous domains and the progressive reorientation of interfacial 
-particles under shear \cite{tavacoli_novel_2011, macmillan_rheological_2019}. Tavacoli et al.\ showed that mechanical perturbation of bijels, such as the 
+particles under shear \cite{tavacoli_novel_2011, macmillan_rheological_2019}. Tavacoli et al. showed that mechanical perturbation of bijels, such as the 
 insertion of a needle to measure yield stress, resulted in irreversible structural deformation, particularly in ethanediol/nitromethane systems 
-\cite{tavacoli_novel_2011}. Similarly, Macmillan et al.\ observed that repeated shearing of bijels synthesized by direct mixing led to degraded mechanical 
+\cite{tavacoli_novel_2011}. Similarly, Macmillan et al. observed that repeated shearing of bijels synthesized by direct mixing led to degraded mechanical 
 performance over time, suggesting a link between structural evolution and rheological response \cite{macmillan_rheological_2019}. To characterize the rheology 
 of these evolving systems, we identify pseudo-steady-state regions within the stress-time profiles, defined as intervals where the rate of change of shear 
 stress is minimal and persists for the longest continuous duration. Within these regions, the stress response is fitted to the applied shear rate using a 
 Herschel-Bulkley model:  
 
 \begin{equation}
-    \sigma_{xz} = \sigma_{y} + K\dot{\gamma}^{n}    
+    \sigma = \sigma_{y} + K\dot{\gamma}^{n}    
 \end{equation}
 
-In the Herschel-Bulkley model, $\sigma_{xz}$ denotes the computed shear stress, $\sigma_y$ is the yield stress, $K$ represents the flow consistency index, 
+In the Herschel-Bulkley model, $\sigma$ denotes the computed shear stress, $\sigma_y$ is the yield stress, $K$ represents the flow consistency index, 
 and $n$ is the flow index characterizing the degree of shear thinning. In certain cases, simulations conducted at the lowest shear capillary number 
 ($Ca_s = 10^{-6}$) exhibited insufficient stress resolution or high variability, and were excluded from model fitting where appropriate. For each case, 
-$\sigma_{xz}$ is extracted from the pseudo-steady-state region of the stres-time curves, while the corresponding shear rate $\dot{\gamma}$ is derived from 
+$\sigma$ is extracted from the pseudo-steady-state region of the stress-time curves, while the corresponding shear rate $\dot{\gamma}$ is derived from 
 the imposed capillary number, $Ca_s$. The resulting fits for the various bijel systems are presented in Figure~\ref{fig:stress_strain}.
 
 \begin{figure} 
@@ -95,7 +95,7 @@ the imposed capillary number, $Ca_s$. The resulting fits for the various bijel s
 \end{figure}
 
 Figure~\ref{fig:stress_strain} presents the shear stress $\sigma_{xz}$ as a function of shear rate $\dot{\gamma}$ for bijels stabilized by oblate ($\alpha = 0.5$) 
-and prolate ($\alpha = 2.0$) ellipsoidal particles, fitted using the Herschel-Bulkley model. In both cases, the curves exhibit nonlinear scaling with $\dot{\gamma}$, 
+and prolate ($\alpha = 2.0$) ellipsoidal particles, fitted using the Herschel-Bulkley model. In both cases, the curves exhibit sublinear scaling with $\dot{\gamma}$, 
 confirming a non-Newtonian, shear-thinning response. For bijels stabilized by oblate particles, the stress-strain curves are more widely separated, indicating 
 greater sensitivity to the initial microstructural configuration induced by magnetic field history. Specifically, increased orientational ordering—achieved through 
 magnetic pre-alignment—correlates with a reduced yield stress, as observed by the downward shift of the stress curves. In contrast, bijels stabilized by prolate 

@@ -1,9 +1,8 @@
-\section{Introduction}
-
-Sections of this chapter appear in a manuscript submitted to Springerlink as part of the International Conference on Computational 
+\section[Introduction]{Introduction\protect\footnote{Sections of this chapter appear in a manuscript submitted to Springerlink as part of the International Conference on Computational 
 Science (ICCS) 2025 in the Computing and Data Science for Materials Discovery and Design track, submission number 259 and is
+reproduced with permission of Palgrave Springer Nature.}}
+
 % [author and/or editor(s) of contribution], [volume and/or contribution title], [year of publication], [publisher (as it appears on our copyright page)] \
-reproduced with permission of Palgrave Springer Nature. 
 
 Emulsions can adopt a variety of microstructures depending on fluid volume fractions and the affinity of stabilizing agents for each phase. Among these, bicontinuous 
 interfacially jammed emulsion gels (bijels) are characterized by a tortuous, co-continuous network of immiscible fluid domains stabilized by colloidal particles. This 
@@ -42,7 +41,12 @@ impact on the microstructure, indicating that the jammed interfacial network pre
 history and demonstrate how magnetic field manipulation, in combination with anisotropic particle stabilization, enables tunable, on-demand microstructure control in bijels, 
 offering new capabilities for adaptive material design.
 
-\section{Results}\label{sec:results_p2}
+\section{Results}
+% \section[Results]{Introduction\protect\footnote{Sections of this chapter appear in a manuscript submitted to Springerlink as part of the International Conference on Computational 
+% Science (ICCS) 2025 in the Computing and Data Science for Materials Discovery and Design track, submission number 259 and is
+% reproduced with permission of Palgrave Springer Nature.}}
+% \label{sec:results_p2}
+
 \subsection{Kinetic arrest}
 \label{section:hysteresis_curve}
 
@@ -73,7 +77,7 @@ field at the end of the equilibration step.
 
 The domain sizes characterized in Figure~\ref{fig:hysteresis_curve} demonstrates that as the field is increased, domain size increases, indicating coarsening 
 of the fluid domains in the bijel. Chapter 4 showed that application of magnetic fields cause reordering of particles at interfaces towards the
-direction of the applied field, making the particle monolayer have nematic ordering. In the case of already formed bijels,
+direction of the applied field, enforcing nematic order in the particle monolayer. In the case of already formed bijels,
 this reorientation reduces the interface area stabilized, facilitating local unjamming and domain growth. In contrast, when the field strength is reduced, 
 the domain size does not revert to its original value, suggesting that the microstructure remains kinetically arrested in the coarsened configuration.
 
@@ -84,7 +88,7 @@ structural change is field-strength dependent, indicating that stronger fields d
 we investigate how the magnitude of the applied field and the initial degree of particle ordering influence the extent and reversibility of microstructural 
 evolution in magnetically responsive bijels.
 
-\subsection{Switching a field onto a bijel with disordered particles}
+\subsection{Applying a field onto a bijel with disordered particles}
 \subsubsection{Field strength dependence on domain size}
 \label{section:field-strength-dependence-on-domain-size}
 
@@ -112,9 +116,8 @@ To quantitatively characterize this response, we compute the average domain size
 \begin{figure} 
     \centering 
     \includegraphics[scale=0.6]{../figures/results/paper2/domain_size-field_on.png} 
-    \caption{Plots of the time evolution of the normalized domain size \(L/R\) (markers) and nematic order parameter 
-             \(S\) (lines) for bijels stabilized by oblate (left, \(\alpha = 0.5\)) and prolate (right, \(\alpha = 2.0\)) ellipsoidal particles under varying 
-             magnetic field strengths. Here, \(R = 7.9\) is the volume-equivalent sphere radius.} 
+    \caption{Plots of the time evolution of the normalized domain size \(L/R\) (markers) for bijels stabilized by oblate (left, \(\alpha = 0.5\)) 
+             and prolate (right, \(\alpha = 2.0\)) ellipsoidal particles under varying magnetic field strengths. Here, \(R = 7.9\) is the volume-equivalent sphere radius.} 
     \label{fig:domain_size-field_on} 
 \end{figure}
 
@@ -124,14 +127,7 @@ prolate particle-stabilized systems.
 In both oblate and prolate systems, domain coarsening follows a characteristic three-stage evolution: an initial slow growth phase, a period of rapid 
 coarsening, and eventual plateauing as the structure reaches a new jammed configuration. Even in the absence of a magnetic field (\(\bar{B}_z = 0\)), 
 domain growth is observed driven by steric rearrangement of interfacial particles, consistent 
-with findings by Günther et al.~\cite{gunther_timescales_2014}. Notably, the initiation of domain coarsening under applied magnetic fields is more rapid 
-for bijels stabilized by oblate particles compared to prolate systems. However, the rejamming process takes longer.
-
-In the absence of magnetic fields, a slight increase in $S(t)$ is observed, consistent with the sterically driven reorientation of particles at the interface.
-\cite{gunther_timescales_2014} Upon application of a magnetic field, the curves for \(S(t)\) increase before plateauing, indicating the parameter has reached
-its saturation value. Notably at stronger field strengths, $S(t)$ precedes the increase in domain size for both particle shapes analyzed. Overall, these results 
-confirm that domain coarsening in magnetically responsive bijels occurs as a result of applied magnetic fields, with the degree of change observed dependent 
-on the strength of the applied field. 
+with findings by Günther et al.~\cite{gunther_timescales_2014}. 
 
 In Chapter 4, it was identified that the microstructure became anisotropic upon application of magnetic fields. To characterize if the same is observed
 when applying a magnetic field onto a formed bijel, we plot the anisotropic domain size and tortuosity as a function of the applied magnetic field. The
@@ -149,7 +145,7 @@ using the technique used to generate the data for Figure \ref{fig:tau_B}.
     \label{fig:domain_size_aniso-field_on} 
 \end{figure}
 
-Figure~\ref{fig:domain_size_aniso-field_on} shows that the application of a magnetic field induces clear domain size anisotropy in bijels stabilized by both oblate 
+Figure~\ref{fig:domain_size_aniso-field_on} shows that the application of a magnetic field induces domain size anisotropy in bijels stabilized by both oblate 
 and prolate particles. Even at zero field, a small degree of anisotropy is observed, which increases substantially with rising field strength. For oblate particles, 
 the domain sizes perpendicular (\(L_\perp\)) and parallel (\(L_\parallel\)) to the applied field increase by approximately 73\% and 7\%, respectively. In contrast, 
 for prolate particles, \(L_\perp\) increases by 10\%, while \(L_\parallel\) increases by 44\%. These results indicate that the dominant direction of coarsening 
@@ -197,8 +193,9 @@ in the same technique used for Figure \ref{fig:nematic_time}.
 From Figure \ref{fig:nematic-field_on}, as field strength increases, particles exhibit earlier and more pronounced alignment, with \( S \) approaching unity 
 for \( \bar{B} = 1.0 \), indicating strong global nematic order. In contrast, systems with no applied field (\( \bar{B} = 0 \)) remain disordered throughout, 
 with low \( S \) values. The time-dependent development of nematic ordering reflects the interplay between magnetic torque and interfacial mechanics. 
-The increase in \( S \) suggests a process of unjamming and re-jamming at the fluid-fluid interface caused by the magnetic field inducing rotational 
-motion of the dipolar particles, overcoming initial interfacial jamming and allowing particles to realign to the field. As alignment 
+The increase in \( S \) demonstrates the application of a constant magnetic field causes particle to rotate at the interface to align with the magnetic field.
+Linking the alignment of the particles to the domain size change showed in Figure \ref{fig:domain_size-field_on}, the rotation of particles to the magnetic field 
+overcomes the initial interfacial jamming. allowing particles to realign to the field. As alignment 
 progresses, the particles re-jam. In Chapters 4 and 5, the application of the magnetic field modified the angle of the particle to the interface and the
 local packing of the particles. This was caused by orientational of the particles to the magnetic field causing direction dependent cessation of coarsening.
 To understand how the rotation of particles affects the particle monolayer, the interfacial angle $\langle \psi \rangle$ is analyzed to understand
@@ -282,7 +279,7 @@ reorientation driven by magnetic torque. Third, reorganization of the local part
 drive the unjamming of the particle monolayer, causing coarsening of the fluid domains before the interface rejams in place with anisotropy dictated by the orientation
 of particles to the magnetic field.
 
-\subsection{Decreasing the applied field}
+\subsection{Switching off an applied field}
 \label{decreasing-the-applied-field}
 
 Bijels are kinetically arrested systems whose long-term structural properties are governed by the stability and arrangement 
@@ -302,7 +299,7 @@ we now examine the post-stimulus structural response of bijels formed under diff
 constant magnetic field, we switch off the field and observe the subsequent time evolution of both the 
 microstructure and interfacial particle behavior over a duration of \(t = 10^5 \Delta t\). This analysis aims to 
 clarify the mechanisms that underpin the apparent irreversibility captured in the hysteresis response and further 
-assess the role of processing history in bijel stability.
+assess the role of the particles in bijel stability.
 
 \begin{figure} 
 \centering 
@@ -319,7 +316,7 @@ kinetic stability and arrested nature of the bijel.
 However, closer inspection of the interfacial particle arrangement reveals that in the
 \(\bar{B}: 0.2 \rightarrow 0.0\) case, the particles retain a degree of orientational order, although slight deviations 
 from the field-aligned configuration begin to emerge. In contrast, for \(\bar{B}: 1.0 \rightarrow 0.0\), where the 
-initial nematic order was stronger, the system exhibits more apparent disorganization by the final time step. This 
+initial nematic order was stronger, the particles exhibits more apparent disorganization by the final time step. This 
 suggests that while the jammed interface resists large-scale rearrangement, there is a gradual relaxation of particle 
 orientations in the absence of the aligning field. The extent of this relaxation correlates with the initial field strength when 
 the field is removed. We probe the effect of these reorientations by calculating the time evolution of the domain size
@@ -344,7 +341,10 @@ A notable exception arises in the oblate \(\bar{B}: 0.0 \rightarrow 0.0\) case, 
 increase in domain size at later times. These results reinforce the interpretation that bijel microstructure 
 is resilient to field removal, with no meaningful reversal in the fluid once jamming has occurred even though local particle reorientation occurs.
 
-\section{Conclusions}
+\section{Conclusion}
+% \section[Conclusion]{Conclusion\protect\footnote{Sections of this chapter appear in a manuscript submitted to Springerlink as part of the International Conference on Computational 
+% Science (ICCS) 2025 in the Computing and Data Science for Materials Discovery and Design track, submission number 259 and is
+% reproduced with permission of Palgrave Springer Nature.}}
 
 In this work, we investigated how magnetic fields influence the structure and dynamics of bijels stabilized by magnetically responsive ellipsoidal particles. Motivated 
 by the relevance of bijels in applications such as catalysis, membrane filtration, and drug delivery, we explored how external stimuli can enable in-situ control over 
@@ -353,18 +353,17 @@ the effect of applying a magnetic field and the initial microstructure on the st
 magnetic field strength exhibit kinetic arrest in its structural response, where the domain size increases with field application but does not revert upon field removal.
 
 When investigating the effect of the application of magnetic fields, our results revealed that applying magnetic fields post-formation induces domain coarsening up to 5\%, with 
-field-induced anisotropy dependent on particle shape. Oblate particles exhibited growth primarily in the perpendicular direction by up to 60\%, while prolate particles showed 
-coarsening along the field direction up to 40\%, both accompanied by a decrease in tortuosity. These changes arise from particle reorientation to the field, followed by 
+field-induced anisotropy dependent on particle shape. These changes arise from particle reorientation to the field, followed by 
 local unjamming and interfacial rearrangement before re-jamming occurs, as characterized using the average interface angle of the particles and the 
 Steinhardt bond orientational order parameter. In contrast, removing the magnetic field had little effect 
 on bijel structure. Domain size and anisotropy remained largely unchanged, regardless of initial particle order. While minor relaxation in particle alignment was observed, 
 capillary forces alone were insufficient to drive significant structural reorganization.
 
-These results show that rapid reorientation of the particle stabilizers is necessary to induce structural response in bijels. This is illustrated through structural response
+These results show that rapid coordinated reorientation of the particle stabilizers is necessary to induce structural response in bijels. This is illustrated through structural response
 of bijels occurring upon application of the field, causing rapid realignment of particles to the applied field direction while slow realignment of particles away from
 the field when switching the field off generated no meaningful changes in the microstructure.
 
-While our simulations offer valuable insights into the tunability of bijels, they were limited to a single set of fluid and particle parameters. Future work could explore the 
+While our simulations offer insights into the tunability of bijels, they were limited to a single set of fluid and particle parameters. Future work could explore the 
 effects of particle size, volume fraction, interparticle forces, and field orientation or gradients, all of which may unlock additional control over bijel structure.
 Ultimately, this study establishes a foundation for stimuli-responsive bijels, showing how particle-level interactions and monolayer dynamics translate into controllable, 
 application-relevant changes in material microstructure.

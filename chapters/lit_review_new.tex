@@ -34,22 +34,25 @@ separation proceeds spontaneously without the need for nucleation. This process,
 domains of both phases \cite{cahn_free_1958}. Unlike nucleation and growth, which relies on localized events, spinodal decomposition 
 results in a bicontinuous structure driven by the system's attempt to minimize 
 free energy through composition modulation \cite{cahn_free_1958}. The dynamics of spinodal decomposition were characterized by Cahn and Hilliard \cite{cahn_spinodal_1961}. 
-We first begin by defining the free energy of a regular solution given by,
+We first begin by defining the free energy of a regular binary solution given by,
 
 \begin{equation}
-    G_m (c) = \chi (1 - c)c + N_a k_B T \left[(1 - c)\ln(1 - c) + c \ln(c)\right]
+    \Delta G_m (c) = \chi (1 - c)c + N_a k_B T \left[(1 - c)\ln(1 - c) + c \ln(c)\right]
 \end{equation}
 
-This bulk free energy characterizes the thermodynamic driving forces for phase separation. Alternative forms of the free energy can be defined based on the double well potential or
-Flory-Huggins theory based on the desired objectives of the model. In real systems, the interface between two partially miscible fluids is diffuse, meaning that the composition 
-transitions smoothly across a finite interface width. To account for this, a gradient energy penalty is added to the free energy to penalize sharp spatial variations in 
-composition, yielding the free energy functional of the system. The total free energy functional is given by,
+When $\chi = 0$ the free energy of an ideal solution is recovered. When $\chi > 0$ repulsive interactions between the components 
+causes the system to phase separate. Alternative forms of the free energy can be defined based on the double well potential or
+Flory-Huggins theory based on the desired objectives of the model. In real systems, the interface between two partially miscible fluids is 
+diffuse, meaning that the composition transitions smoothly across a finite interface width. To account for this, a gradient energy penalty is 
+added to the free energy to penalize sharp spatial variations in composition, yielding the free energy functional of the system. 
+The total free energy functional is given by,
 
 \begin{equation}
     F[c] = \int \left( f(c) + \frac{\kappa}{2}|\nabla c|^2 \right) \, dV
 \end{equation}
 
 where $\kappa$ is the gradient energy coefficient controlling the interface width. Larger \(\kappa\) values correspond to wider interfaces.
+$f(c)$ is obtained from $\Delta G_m (c)$.
 The chemical potential is then defined as the variational derivative of the free energy functional,
 
 \begin{equation}
