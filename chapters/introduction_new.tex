@@ -8,11 +8,11 @@ can be orders of magnitude larger than the thermal energy of the system $k_b T$ 
 
 Compared to surfactant-stabilized emulsions, particle-stabilized emulsions (Pickering emulsions) exhibit enhanced resistance to coalescence and coarsening
 due to the irreversibility of particle adsorption at the interface \cite{ngai_particle-stabilized_2015} .
-Additionally, growing environmental and toxicity concerns associated with small-molecule surfactants have increased interest in the applications of particle-stabilized emulsions.
-\cite{kaczerewska_environmental_2020, lechuga_acute_2016}. In contrast, particle stabilizers lower toxicity and improved biocompatibility, in addition to 
-sustainable sourcing from particles based on cellulose or chitin. \cite{fujisawa_nanocellulose-stabilized_2017, tang_stimuli-responsive_2016, kalliola_carboxymethyl_2018}.
+Additionally, growing environmental and toxicity concerns surrounding small-molecule surfactants have increased interest in particle-stabilized emulsions, due to their lower toxicity, 
+enhanced biocompatibility, and potential for sustainable sourcing from renewable materials such as chitin and cellulose.
+\cite{kaczerewska_environmental_2020, lechuga_acute_2016, fujisawa_nanocellulose-stabilized_2017, tang_stimuli-responsive_2016, kalliola_carboxymethyl_2018}.
 The microstructure of Pickering emulsions has been extensively studied, notably by Binks and Lumsdon in the early 2000s. Their investigations revealed that the emulsion droplet radius 
-follows the relationship $R_e \propto \frac{\phi_w}{\phi_p}$, where $\phi_w$ and $\phi_p$ represent the volume fractions of water and particles, respectively \cite{binks_pickering_2001}. 
+follows the relationship $R_e \propto \frac{1}{\phi_p}$, where $\phi_p$ represent the volume fractions of particles \cite{binks_pickering_2001}. 
 They also identified key parameters influencing microstructure, such as fluid composition and particle wettability. Neutrally wetting particles tend to stabilize nearly spherical droplets, 
 while non-neutrally wetting particles can induce curvature, leading to the formation of bridged droplets, capillary aggregates, and other anisotropic structures, as illustrated in 
 Figure~\ref{fig:state_diagram_particle_emulsions}.
@@ -20,9 +20,9 @@ Figure~\ref{fig:state_diagram_particle_emulsions}.
 \begin{figure}
     \centering
     \includegraphics[scale = 0.3]{figures/literature_review/state_diagram.jpg}
-    \caption{Formation criteria for a particle stabilized emulsion that can form bijel \cite{velankar_non-equilibrium_2015}.
-            Used with permission of Royal Society of Chemistry, from A non-equilibrium state diagram for liquid/fluid/particle 
-            mixtures, Velankar, 1, 11, 2015 under license number 1551968-1}
+    \caption{Formation criteria for a particle stabilized emulsion that can form bijel. Reprinted Figure 3 with permission from the Royal Society of Chemistry from 
+             \textit{Velankar, S. S. A Non-Equilibrium State Diagram for Liquid/Fluid/Particle Mixtures. Soft Matter 2015, 11 (43), 8393-8403}
+             with permission from the Royal Society of Chemistry under license number 1551968-1; Permission conveyed through Copyright Clearence Center}
     \label{fig:state_diagram_particle_emulsions}
 \end{figure}
 
@@ -36,8 +36,9 @@ resulting in a jammed, tortuous, co-continuous morphology characteristic of bije
     \centering
     \includegraphics[scale = 0.3]{figures/introduction/bijel_coarsening.jpg}
     \caption{Initiation and arrest of spinodal decomposition as particles adsorb onto the interface, followed by jamming once the 
-    interfacial area matches the cross sectional area of the adsorbed particles\cite{stratford_colloidal_2005}. 
-    Reproduced from K. Stratford et al., Science 309, 2198-2201(2005) under license number 5966820525314.}
+            interfacial area matches the cross sectional area of the adsorbed particles. Reprint of Figure 1 from
+            \textit{Stratford, K.; Adhikari, R.; Pagonabarraga, I.; Desplat, J.-C.; Cates, M. E. Colloidal Jamming at Interfaces: A Route to Fluid-Bicontinuous Gels. Science 2005, 309 (5744), 2198-2201}
+            Reprinted with permission from AAAS under license number 5966820525314.}
     \label{fig:bijel_coarsen}
 \end{figure}
 
@@ -45,12 +46,15 @@ Bijel microstructures are of interest because their bicontinuous, interpenetrati
 synthesize bijels was succeeded by the experimental synthesis of a bijel in 2007 by Herzig et al., who used a 2,6-lutidine/water system stabilized with surface-modified silica particles
 \cite{herzig_bicontinuous_2007}.
 This binary fluid system exhibits a lower critical solution temperature (LCST) of 34.1\textdegree C and a critical composition at approximately 28\% lutidine by weight. By preparing the mixture at this 
-critical composition and heating it past the LCST, phase separation was thermally induced, a process known as Thermally Induced Phase Separation (TIPS). The system underwent coarsening until gelation 
-occurred, forming a bijel. Since this initial experimental synthesis, TIPS has been widely used in laboratory-scale studies to synthesize a variety of small molecule, oligomeric, and polymeric systems 
+critical composition and heating it past the LCST, phase separation was induced in a process known as Thermally Induced Phase Separation (TIPS). The system underwent coarsening until particle
+interactions at the interface jammed the microstructure in place, once the cross-sectional area of the particles matched the interfacial area, forming a bijel. Since this initial 
+experimental synthesis, TIPS has been widely used in laboratory-scale studies to synthesize a variety of small molecule, oligomeric, and polymeric systems 
 \cite{tavacoli_novel_2011, lee_bicontinuous_2010, bai_dynamics_2015, ching_rapid_2021}. 
 
-However, industrial applications require continuous, scalable fabrication techniques capable of generating application specific tailored microstructures. STrIPS has emerged as a promising solution 
-for this need. As illustrated in Figure~\ref{fig:strips}, STrIPS involves a ternary fluid system composed of two immiscible fluids 
+However, industrial applications require continuous, scalable fabrication techniques capable of generating application specific tailored microstructures. The thermal induction of phase separation
+does not permit easy scale up due to limitations of suitable systems that forms bijels and the need to have constant cooling rates to ensure consistent microstructures through the entire reaction
+vessel. Solvent Transfer Induced Phase Separation (STrIPS) has emerged as a promising solution to address these issues.
+As illustrated in Figure~\ref{fig:strips}, STrIPS involves a ternary fluid system composed of two immiscible fluids 
 and a solvent. In the initial stage (Figure~\ref{fig:strips}a), a casting mixture is prepared. Phase separation is then triggered by flowing a co-solvent past the mixture to extract the solvent 
 (Figure~\ref{fig:strips}b). This solvent transfer must occur within the spinodal region of the ternary phase diagram to ensure spinodal decomposition. By adjusting flow rates of both the casting 
 mixture and the solvent removal stream, the resulting bijel morphology can be finely controlled. STrIPS has been successfully employed in applications ranging from battery electrode templating to drug 
@@ -58,16 +62,16 @@ delivery systems, liquid-in-liquid printing, and the creation of intrinsically p
 \cite{garcia_scalable_2019, thorson_bijel-templated_2019, amirfattahi_fabrication_2024, ching_rapid_2021}. The method is flexible with respect to fluid choice, with 
 the only requirement being a well-characterized phase diagram that keeps the system within the spinodal regime throughout the solvent exchange process. Other techniques based on
 induced phase separation such as Vapor Induced Phase Separation(VIPS) and controlled coalescence of droplets to form bijels through shear (homogenization) have also been identified as techniques
-to synthesize bijels \cite{wang_scalable_2020, huang_bicontinuous_2017}.
+to synthesize bijels \cite{wang_scalable_2020, huang_bicontinuous_2017, cai_bijels_2017}.
 
 \begin{figure}
     \centering
     \includegraphics[scale = 5]{figures/introduction/STrIPS.jpg}
     \caption{Extrusion of the bijel casting mixture into a non-solvent bath, followed by removal of solvent from 
-             the casting mixture through diffusion, demonstrating the working principal of STrIPS. \cite{haase_continuous_2015}. Reproduced with permission from Wiley-VCH Verlag GmbH 
-             \& Co. KGaA from \textit{Continuous Fabrication of Hierarchical and Asymmetric Bijel Microparticles, Fibers, and Membranes by 
-             Solvent Transfer-Induced Phase Separation (STRIPS)}, Haase, M. F., Stebe, K. J., 
-             \& Lee, D., \textit{Advanced Materials}, 27(44), 7065-7071, 2015 under license number 5913140219015}
+             the casting mixture through diffusion, demonstrating the working principal of STrIPS. \cite{haase_continuous_2015}. 
+             Reprint of Figure 2 from 
+             \textit{Haase, M. F.; Stebe, K. J.; Lee, D. Continuous Fabrication of Hierarchical and Asymmetric Bijel Microparticles, Fibers, and Membranes by Solvent Transfer-Induced Phase Separation (STRIPS). Advanced Materials 2015, 27 (44), 7065-7071}
+             with permission from Wiley-VCH Verlag GmbH \& Co. KGaA under license number 5913140219015}
     \label{fig:strips}
 \end{figure}
 
@@ -83,7 +87,7 @@ to synthesize bijels \cite{wang_scalable_2020, huang_bicontinuous_2017}.
 % Despite these advances, a persistent limitation is that bijel microstructure remains tightly coupled to the composition of the casting mixture and the kinetics of phase separation. Achieving controlled 
 % morphology often requires fine-tuning of fluid concentrations or external conditions, which may not be feasible for all applications \cite{haase_continuous_2015, reeves_particle-size_2015}.
 
-Despite these advances, a persistent limitation is that bijel microstructure remains tightly coupled to the composition of the casting mixture and the kinetics of phase separation. Achieving controlled 
+Despite these advances, a limitation is that bijel microstructure remains tightly coupled to the composition of the casting mixture and the kinetics of phase separation. Achieving controlled 
 morphology often requires fine-tuning of fluid concentrations or external conditions, which may not be feasible for all applications \cite{haase_continuous_2015, reeves_particle-size_2015}.
 The ability to tune these structural features would significantly expand the versatility and functionality of bijel-based systems.
 In many of the proposed applications such as water filtration membranes or drug delivery 
@@ -103,8 +107,9 @@ have shown limited success in modifying the microstructure, due to the isotropic
     \centering
     \includegraphics[scale = 0.5]{figures/literature_review/interfacial_curvature.png}
     \caption{Quadropolar capillary interactions around prolate ellipsoidal particles caused by interfacial deformations 
-             around the particle \cite{loudet_capillary_2005}. Reprinted Figure 4 with permission from
-             Loudet et al, Phys. Rev. Letter., 94, 08301, 2003 Copyright 2025 by the American Physical Society under license number RNP/25/FEB/088185}
+             around the particle. Reprinted Figure 4 with permission from
+             \textit{Loudet, J. C.; Alsayed, A. M.; Zhang, J.; Yodh, A. G. Capillary Interactions Between Anisotropic Colloidal Particles. Phys. Rev. Lett. 2005, 94 (1), 018301}
+             Copyright 2025 by the American Physical Society.}
     \label{fig:anisotropic_particle_interface}
 \end{figure}
 
@@ -120,33 +125,33 @@ particles adsorb and align with the interface, followed by a slower reorganizati
 confirm that the domain size in rod and ellipsoid stabilized bijels still follows the scaling law $L \propto \frac{1}{\phi_p}$, though the proportionality constant depends on particle geometry 
 \cite{hijnen_bijels_2015, madivala_exploiting_2009, daware_emulsions_2015}.
 
-The geometry of the stabilizing particles plays a key role in determining rheological behavior. Madivala et al. showed that Pickering emulsions stabilized with rod-like particles had enhanced stability under 
-shear, with greater resistance observed as particle aspect ratio increased \cite{madivala_exploiting_2009}. This enhancement was attributed to improved interfacial coverage and capillary interactions induced by 
-interface deformations, which reinforced the particle monolayer. Similarly, emulsions stabilized by graphene nanosheets exhibited higher viscosity and viscoelasticity compared to those stabilized by spherical 
-particles, underscoring the importance of particle shape \cite{imperiali_simple_2014}. The elasticity of the interface has also been shown to depend on the nature of the particle stabilizer used 
-\cite{sun_assembly_2013}.
+The geometry of the stabilizing particles plays a key role in determining rheological behavior. Madivala et al. showed that Pickering emulsions stabilized with rod-like particles had enhanced 
+stability under shear, with greater resistance observed as particle aspect ratio increased \cite{madivala_exploiting_2009}. This enhancement was attributed to improved interfacial coverage 
+and capillary interactions induced by interface deformations, which reinforced the particle monolayer. Similarly, emulsions stabilized by graphene nanosheets exhibited higher viscosity and 
+viscoelasticity compared to those stabilized by spherical particles, underscoring the importance of particle shape \cite{imperiali_simple_2014}. The elasticity of the interface has also been 
+shown to depend on the nature of the particle stabilizer used \cite{sun_assembly_2013}.
 
-The rheological properties of bijels are of fundamental importance due to their direct influence on both fabrication and application. For instance, STrIPS fabrication relies on the controlled flow of a 
-casting mixture into a solvent bath, necessitating precise knowledge of the material's rheology to optimize processing parameters \cite{haase_situ_2016, haase_continuous_2015}. In applied systems such as 
-cross-flow reactors, the mechanical stability of the particle monolayer is critical; failure under shear or compositional gradients can limit performance \cite{boakye-ansah_controlling_2020}. Under 
-constant shear, bijels exhibit shear-thinning behavior, which at moderate shear rates is well described by the Herschel-Bulkley model \cite{macmillan_rheological_2019, wang_morphology_2023}. At higher 
-shear rates, the internal structure of the bijel is disrupted, leading to a transition toward Newtonian flow behavior \cite{cai_bijels_2017, bonaccorso_shear_2020}.
+The rheological properties of bijels are of fundamental importance due to their direct influence on both fabrication and application. For instance, STrIPS fabrication relies on the controlled 
+flow of a casting mixture into a solvent bath, necessitating precise knowledge of the material's rheology to optimize processing parameters \cite{haase_situ_2016, haase_continuous_2015}. 
+In applied systems such as cross-flow reactors, the mechanical stability of the particle monolayer is critical; failure under shear or compositional gradients can limit performance 
+\cite{boakye-ansah_controlling_2020}. Under constant shear, bijels exhibit shear-thinning behavior, which at moderate shear rates is well described by the Herschel-Bulkley model 
+\cite{macmillan_rheological_2019, wang_morphology_2023}. At higher shear rates, the internal structure of the bijel is disrupted, leading to a transition toward Newtonian 
+flow behavior \cite{cai_bijels_2017, bonaccorso_shear_2020}.
 
 \begin{figure}
     \centering
     \includegraphics[scale = 1.5]{figures/introduction/magnetophoresis_emulsion.jpeg}
     \caption{Enhanced oil recovery of oil from water using magnetically responsive emulsion stabilizers, allowing for 
-             locomotion and controlled coalescence of cargo from a matrix phase using magnetic fields \cite{tham_magnetophoresis_2021}. 
-             K. Tham, W. M. Ng, S. S. Leong, S. P. Yeap, S. C. Low, H. L. Lee and J. Lim. Magnetophoresis of magnetic pickering 
-             emulsions under low field gradient: Macroscopic and microscopic motion. 37, 1811: Reprinted (adapted) with permission from 
-             Langmuir 2021, 37, 5, 1811-1822. Copyright 2025 American Chemical Society.}
+             locomotion and controlled coalescence of cargo from a matrix phase using magnetic fields. Reprint of the graphical abstract from
+             \textit{Tham, F. K.; Ng, W. M.; Leong, S. S.; Yeap, S. P.; Low, S. C.; Lee, H. L.; Lim, J. Magnetophoresis of Magnetic Pickering Emulsions Under Low Field Gradient: Macroscopic and Microscopic Motion. Langmuir 2021, 37 (5), 1811-1822}
+             Reprinted (adapted) with permission from Langmuir 2021, 37, 5, 1811-1822. Copyright 2025 American Chemical Society.}
     \label{fig:magnetophoresis_droplet}
 \end{figure}
 
 Introducing magnetic responsiveness into anisotropic particles offers a strategy for controlling their behavior at fluid interfaces. Such particles can be fabricated via surface deposition of 
-magnetic materials or synthesized as core-shell structures with magnetic cores and non-magnetic shells \cite{fei_magneto-capillary_2020, nakayama_stimuli-responsive_2018}. The interplay between magnetic 
-and capillary interactions governs particle orientation in response to external magnetic fields. According to Bresme-Faraudo theory, a neutrally wetting ellipsoidal particle at an interface experiences 
-competing forces: the magnetic field seeks to reorient the particle's magnetic dipole moment, while capillary forces resist deformation away from the interface plane 
+magnetic materials or synthesized as core-shell structures with magnetic cores and non-magnetic shells \cite{fei_magneto-capillary_2020, nakayama_stimuli-responsive_2018}. The interplay between 
+magnetic and capillary interactions governs particle orientation in response to external magnetic fields. According to Bresme-Faraudo theory, a neutrally wetting ellipsoidal particle at an 
+interface experiences competing forces: the magnetic field seeks to reorient the particle's magnetic dipole moment, while capillary forces resist deformation away from the interface plane 
 \cite{bresme_orientational_2007, davies_interface_2014}.
 
 \begin{figure}
@@ -154,8 +159,9 @@ competing forces: the magnetic field seeks to reorient the particle's magnetic d
     \includegraphics[scale = 0.4]{figures/introduction/anisotropic_particles_assembly.jpg}
     \caption{Assembly of prolate particles on a flat interface at various interfacial coverages and field strengths,
              showing the self assembly into chains that ellipsoidal particles can undergo under applied magnetic fields at
-             interfaces. \cite{davies_assembling_2014} Reproduced from Davies et al. Adv. Mater., 26: 6715-6719 under the 
-             Creative Commons CC BY license.}
+             interfaces. Reprint of Figure 3 from
+             \textit{Davies, G. B.; Krüger, T.; Coveney, P. V.; Harting, J.; Bresme, F. Assembling Ellipsoidal Particles at Fluid Interfaces Using Switchable Dipolar Capillary Interactions. Advanced Materials 2014, 26 (39), 6715-6719}
+             with permission from Wiley-VCH Verlag GmbH \& Co. KGaA under the Creative Commons CC BY license.}
     \label{fig:anisotropic_assembly}
 \end{figure}
 
