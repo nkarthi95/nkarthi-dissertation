@@ -70,17 +70,16 @@ demonstrated weaker anchoring and a greater likelihood of particle dislodgment. 
 and flow resistance highlights the importance of shape-selective design for applications requiring tunable rheological properties, such as 
 drug delivery, 3D printing, or adaptive templating.
 
-This work provides several key insights that significantly advance the current understanding of field-responsive emulsions and structurally 
-tunable soft materials. By integrating ellipsoidal particle design with magnetic field stimuli, we demonstrate a new axis of control over 
+This work provides several insights that advance the current understanding of field-responsive emulsions and structurally 
+tunable soft materials. By integrating ellipsoidal particles with magnetic field stimuli, we demonstrate a new axis of control over 
 bijel formation and function. Conceptually, our results refine the understanding of interfacial jamming in bijels. The identification of
 unjamming-rejamming mechanisms, modulated by both field strength and particle ordering, reveals that bijel structures are not passively 
-determined by initial phase separation dynamics. Instead, they are dynamically reconfigurable under external fields, with the extent of 
-reconfiguration governed by prior structural states.
+determined by initial phase separation dynamics. Instead, they are dynamically reconfigurable under external fields
 
 While prior studies have focused heavily on global measures such as domain size or volume fraction, our use of implemented bond orientational order, 
 curvature metrics, and channel topology creates a more nuanced toolkit for evaluating local and global bijel structure. This multiscale 
 perspective provides better predictive capacity for tailoring materials with application-specific structural features, such as tortuosity 
-for mass transport or local ordering for mechanical performance.
+for transport limited applications or local ordering for mechanical performance.
 
 The broader impacts of this work span several disciplines. In materials science, our findings inform the design of smart scaffolds and porous 
 networks with tunable permeability or rheology. For instance, magnetic field-tunable tortuosity or anisotropy could be leveraged in filtration 
@@ -100,9 +99,9 @@ proposed as a strategy to form “armored” interfaces, potentially enhancing m
 applications \cite{boakye-ansah_controlling_2020}. 
 Similarly, soft particles such as nanogels and hydrogels have attracted interest in biomedical contexts, offering tunable responsiveness 
 to environmental stimuli like temperature and pH—critical features for controlled drug delivery. Incorporating such particles 
-could significantly alter jamming dynamics, interfacial rearrangement, and field-induced responsiveness. These effects may be 
-explored computationally using Lattice Boltzmann Methods integrated with immersed boundary frameworks, incorporating attractive
-particle  interactions to account for electrostatic cohesion and deformability \cite{silva_lattice_2024}. This direction opens opportunities 
+could alter jamming dynamics, interfacial rearrangement, and field-induced responsiveness. These effects may be 
+explored computationally using Lattice Boltzmann Methods integrated with immersed boundary method based frameworks to account for
+particle deformation or attractive particle interactions to account for electrostatic cohesion \cite{silva_lattice_2024}. This direction opens opportunities 
 to design bijel systems with enhanced adaptability and function, tailored for application-specific demands.
 
 The current simulations, while able to capture structural evolution under external fields, do not fully resolve the complex dynamical 
@@ -110,26 +109,17 @@ landscape of the interfacial particle monolayer. In particular, they lack the re
 and slow collective dynamics near the glass transition, which are known to govern the jamming and unjamming behavior of dense 
 colloidal systems \cite{weeks_introduction_2017, torquato_jammed_2010}. 
 As such, the interplay between interfacial ordering, particle-scale dynamics, and existing order can be characterized more convincingly by 
-investigating the dynamics of the particle more systematically by accounting for thermal fluctuations of the fluid. This would involve 
+investigating the dynamics of the particle monolayer more convincingly by accounting for thermal fluctuations of the fluid. This would involve 
 implementation of a fluctuating Lattice Boltzmann Method which would facilitate identification of the glassy dynamics in the system, 
-including the onset of arrest and structural aging characterized with the microstructure in Gunther et al \cite{gunther_timescales_2014}.
+including the onset of arrest and structural aging characteristic of colloidal glasses \cite{weeks_introduction_2017, torquato_jammed_2010}.
 
-Another promising avenue for future investigation involves the use of gradient or rotating magnetic fields in place of constant fields. This
+Another avenue for future investigation involves the use of gradient or rotating magnetic fields in place of constant fields. This
 would impart a force on the particles in addition to the torque that magnetic particles experience under 
 constant fields \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}.
 Prior work has demonstrated that spatial gradients in particle volume fraction can generate domain size gradients in bijels, enabling spatial 
 control over porosity and connectivity \cite{french_bicontinuous_2022}. Analogously, applying a magnetic field gradient may induce vertical 
 gradients in nematic order, influencing local particle packing and yielding position-dependent pore structures across the bijel. This could be 
 particularly useful for creating functionally graded materials with hierarchical transport properties.
-
-In parallel, rotating magnetic fields offer a dynamic mechanism for restructuring particle arrangements 
-at the interface \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}. 
-In ferrofluids and magnetic colloidal suspensions, such fields have been shown to induce chain or ring formation, depending on the rotation frequency and field 
-strength \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}. 
-Translating this mechanism to bijels, a rotating field could be used to modulate interfacial jamming behavior, promoting controlled 
-unjamming and reorientation of particles prior to re-jamming. This dynamic control could enable finer tuning of microstructure than static fields, 
-potentially achieving reversible and spatially patterned domain morphologies. Importantly, the effectiveness of this strategy would depend on 
-matching the rotation frequency to the particle relaxation timescales within the bijel, a factor that can be systematically explored in simulation.
 
 \section{Acknowledgments}
 
@@ -141,7 +131,7 @@ Foundation.
 
 This research was supported in part through the use of DARWIN computing system: DARWIN - A Resource for Computational 
 and Data-intensive Research at the University of Delaware and in the Delaware Region, Rudolf Eigenmann, Benjamin E. 
-Bagozzi, Arthi Jayaraman, William Totten, and Cathy H. Wu, University of Delaware, 2021
+Bagozzi, Arthi Jayaraman, William Totten, and Cathy H. Wu, University of Delaware, 2021.
 
 This work used Delta at the University of Illinois Urbana Champaign through allocation PHY220131 from the Advanced 
 Cyberinfrastructure Coordination Ecosystem: Services $\&$ Support (ACCESS) program, which is supported by National 
