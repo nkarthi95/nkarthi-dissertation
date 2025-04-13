@@ -74,13 +74,15 @@ onto spherical harmonics of degree \(l\), and are defined as
 
 
 \begin{equation}
-q_l(i) = \left( \frac{4\pi}{2l+1} \sum_{m=-l}^{l} \left| \frac{1}{N(i)} \sum_{j=1}^{n(i)} Y_{lm}(\vec{r}_{ij}) \right|^2 \right)^{\frac{1}{2}} ,
+% q_l(i) = \left( \frac{4\pi}{2l+1} \sum_{m=-l}^{l} \left| \frac{1}{N(i)} \sum_{j=1}^{n(i)} Y_{lm}(\vec{r}_{ij}) \right|^2 \right)^{\frac{1}{2}} ,
+q_l(i) = \sqrt{ \frac{4 \pi}{2l + 1} \Sigma_{m = -l}^{l} | \Sigma_{f} \frac{A(f)}{A}, Y_{lm}(\theta_f, \phi_f) |^2 }
 \label{eq:steinhardt_definition}
 \end{equation} 
-%\TODO{update formula to the one actually used}
 
-Here, \(n(i)\) denotes the number of nearest neighbors of particle \(i\), \(\vec{r}_{ij}\) is the vector connecting the centers of particles \(i\) and \(j\), and \(m\) is an integer ranging from \(-l\) 
-to \(l\) that indexes the spherical harmonic components \(Y_{lm}\). Neighbor lists are typically defined using a fixed cutoff radius around each particle, identifying nearby particles as neighbors. 
+Here $A(f)$ denotes the area of face f of the Voronoi cell around a reference particle, $A$ is the surface area of the Voronoi cell, 
+$\theta_f$ and $\phi_f$ are the polar and azimuth angles of the outer normal vector connecting the reference particle to the vertex representing
+an adjacent particle and $Y_{lm}$ is the spherical harmonic component. 
+Neighbor lists are typically defined using a fixed cutoff radius around each particle, identifying nearby particles as neighbors. 
 We calculate the python package Freud to calculate the bond order parameters and use a Voronoi cell to determine the particle neighborhood rather than the standard distance criterion 
 \cite{ramasubramani_freud_2020,mickel_shortcomings_2013}. The Voronoi-based method avoids the need for a predefined cutoff and yields more robust neighbor definitions, particularly in disordered systems. 
 Bond orientational order parameters have been widely employed to study structural transitions in colloidal and ceramic systems, including crystallization, nucleation, and glass formation 

@@ -151,24 +151,9 @@ different processing conditions is essential for interpreting the mechanical
 behavior observed. In particular, the contrasting effects seen for prolate and oblate particles, where increased magnetic ordering leads to a larger
 and smaller yield stress respectively. To quantitatively assess the local arrangement of particles at the interface, we compute the ensemble-averaged 
 Steinhardt bond orientational order parameters $q_2$ and $q_6$. 
-\cite{steinhardt_bond-orientational_1983, lechner_accurate_2008, mickel_shortcomings_2013}. These parameters characterize the local structural ordering by 
-projecting the orientations of neighboring particles onto spherical harmonics of degree \(l\), and are defined as
-
-
-\begin{equation}
-q_l(i) = \left( \frac{4\pi}{2l+1} \sum_{m=-l}^{l} \left| \frac{1}{N(i)} \sum_{j=1}^{n(i)} Y_{lm}(\vec{r}_{ij}) \right|^2 \right)^{\frac{1}{2}} ,
-\end{equation} 
-%\TODO{update formula to the one actually used}
-
-Here, \(n(i)\) denotes the number of nearest neighbors of particle \(i\), \(\vec{r}_{ij}\) is the vector connecting the centers of particles \(i\) and \(j\), 
-and \(m\) is an integer ranging from \(-l\) to \(l\) that indexes the spherical harmonic components \(Y_{lm}\). Neighbor lists are typically defined using a 
-fixed cutoff radius around each particle, identifying nearby particles as neighbors. We calculate the python package Freud to calculate the bond order parameters 
-and use a Voronoi cell to determine the particle neighborhood rather than the standard distance criterion \cite{ramasubramani_freud_2020,mickel_shortcomings_2013}. 
-The Voronoi-based method avoids the need for a predefined cutoff and yields more robust neighbor definitions, particularly in disordered systems. Bond 
-orientational order parameters have been widely employed to study structural transitions in colloidal and ceramic systems, including crystallization, nucleation, 
-and glass formation \cite{vagberg_glassiness_2011, besseling_three-dimensional_2007, schall_structural_2007, ozawa_jamming_2012}. $q_6$ is most commonly used 
-to identify crystal structures by matching the calculated values to reference values for specific crystal structures such as fcc or hcp. We plot the change in 
-$q_6$ of the microstructures as a function of the processing applied in Figure \ref{fig:q6_rheology_init}
+\cite{steinhardt_bond-orientational_1983, lechner_accurate_2008, mickel_shortcomings_2013}. The technique to calculate this parameter is provided in
+Equation \ref{eq:steinhardt_definition} We plot the change in 
+$\langle Q6 \rangle$ of the microstructures as a function of the processing applied in Figure \ref{fig:q6_rheology_init}
 
 \begin{figure} 
     \centering 
@@ -207,7 +192,7 @@ by taking the numerical average of $\theta_z$ for all particles. The results are
 
 \begin{figure} 
     \centering 
-    \includegraphics[scale=0.3]{../figures/results/paper3/theta_z-time_compare-specific.png} 
+    \includegraphics[scale=0.5]{../figures/results/paper3/theta_z-time_compare-specific.png} 
     \caption{Comparisons of the average orientation of particles to the direction of the applied shear for bijels stabilized by
              ellipsoidal particles as a function of the applied shear rate for bijels made with no field and a field strength of $\bar{B} = 1$,
              keeping the field strength the same. We show that the orientation of particles to the applied shear is dependent on the
@@ -224,14 +209,13 @@ necessary to cause particle reorientation on the interface. When taking the $\la
 the effect of magnetic field driven ordering of particles can be seen.
 
 As the particles are adsorbed onto the interface, there is an open question whether the reorientation of particles to the shear also causes the interface to move with the
-particles. To analyze this effect, we analyzed the angle between each particles symmetry axis and the local interface normal by generating a mesh of the interface using the marching 
-cubes algorithm and, for each particle, identified the nearest mesh vertex (excluding those beyond the length of the particle's long axis). We then calculated 
-the angle $\psi$ between the particle orientation vector \(\hat{\vec{o}}_i\) and the local surface normal. The time evolution of the average interface
-angle of all particles $\langle \psi \rangle$, calculated as a numerical average of $\psi$ for all particles, is shown in Figure~\ref{fig:interface_angle_shear}.
+particles. To analyze this effect, we analyzed the angle between each particles symmetry axis and the local interface, calculated in the technique described in Chapter 4.
+The time evolution of the average interface angle of all particles $\langle \psi \rangle$, calculated as a numerical average of $\psi$ for all particles, is shown in 
+Figure~\ref{fig:interface_angle_shear}.
 
 \begin{figure} 
     \centering 
-    \includegraphics[scale=0.3]{../figures/results/paper3/psi-time_compare-specific.png} 
+    \includegraphics[scale=0.5]{../figures/results/paper3/psi-time_compare-specific.png} 
     \caption{Comparisons of the average orientation of particles to the interface for bijels stabilized by
              ellipsoidal particles as a function of the applied shear rate for bijels made with no field and a field strength of $\bar{B} = 1$,
              keeping the field strength the same. We show that the particles tilt out of the interface upon application of shear with the degree of
