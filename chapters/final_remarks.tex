@@ -21,21 +21,19 @@ studies have shown that bijels stabilized with spherical particles exhibit limit
 contrast, anisotropic particles such as ellipsoids have demonstrated the capacity to reorient and tilt out of fluid interfaces 
 under magnetic influence. However, the effect of magnetic fields on bijels stabilized by ellipsoidal particles remains unexplored.
 
-This study addresses that gap through a series of hybrid simulations using a coupled Molecular Dynamics-Lattice Boltzmann framework. 
+This study addresses that gap through a series of hybrid simulations using a coupled Lattice Boltzmann-Molecular Dynamics framework. 
 We investigated how magnetic fields influence bijel formation and structure when stabilized by ellipsoidal particles, focusing on 
 three key aspects: the impact of magnetic field strength on microstructure compared to systems stabilized by spherical particles; 
 the structural response of these bijels under post-formation magnetic fields and how this response depends on the initial ordering 
 of the interfacial particle monolayer; and the rheological behavior of such systems under constant shear, particularly in relation 
 to prior magnetic field exposure and pre-existing interfacial particle alignment.
 
-We first demonstrated that ellipsoidal particles alter the formation dynamics of bijels when subjected to external magnetic 
-fields during phase separation. We also explored how varying magnetic flux densities and particle aspect ratios affect structural outcomes. 
-In the absence of a magnetic field, ellipsoidal particles 
-aligned with the interface over time due to capillary interactions, contributing to slower coarsening and finer domain features compared 
-to spherical particles. Upon introducing magnetic fields, particles experienced additional torques that promoted alignment along the field 
-direction during formation. This field-induced reorientation improved interfacial packing efficiency and introduced directional cessation
-of coarsening, leading to bijels with domain anisotropy. Importantly, these effects were achieved without preventing the formation of a 
-stable, bicontinuous structure.
+We first demonstrated that ellipsoidal particles can be used to modify the microstructure of bijels during synthesis of bijels.
+We also explored how varying magnetic flux densities and particle aspect ratios affect structural outcomes. 
+In the absence of a magnetic field, ellipsoidal particles aligned with the interface over time due to capillary interactions, contributing to 
+anisotropic coarsening rates and finer domain features compared to spherical particles. Upon introducing magnetic fields, particles experienced 
+additional torques that promoted alignment along the field direction during formation. This field-induced reorientation improved interfacial 
+packing efficiency and introduced directional cessation of coarsening, leading to bijels with domain anisotropy.
 
 Structural characterization of bijels stabilized by ellipsoids revealed morphological detail across particle shapes and magnetic field strengths. 
 Six-fold bond orientational order emerged within the interfacial particle layers, but true crystalline order remained suppressed due to the 
@@ -46,24 +44,18 @@ deformation of each particle. This reduction in curvature indicated a more hyper
 Topological analysis showed that the number of handles, or interconnected channels, decreased over time as coarsening progressed, following 
 a power-law relationship inversely proportional to domain size. After the onset of jamming, this decay slowed considerably. Notably, 
 channel size distributions (CSDs) revealed a wide range of channel dimensions but did not show systematic variation with 
-field strength, suggesting that magnetic field effects manifest more prominently in local structure and domain anisotropy. Still, the 
+field strength, suggesting that magnetic field effects manifest more prominently in local structure and domain anisotropy. The 
 average channel size derived from the CSD aligned well with conventional domain measurements, reinforcing the results obtained throughout
 the course of this work.
 
-Upon applying magnetic fields post formation, we observed significant structural rearrangements in bijels depending on the initial particle 
+Upon applying magnetic fields post formation, we observed structural rearrangements in bijels depending on the initial particle 
 configuration. Systems with disordered interfacial layers underwent domain coarsening and anisotropic growth due to field-induced unjamming 
 and subsequent re-jamming. Specifically, oblate particles induced perpendicular domain elongation of up to 60\%, while prolate particles led 
 to axial coarsening of up to 40\%. These shape-dependent responses were driven by particle rotation and interface realignment under magnetic 
 torque, and were quantified using average interface angles and Steinhardt $Q_6$ bond orientational order parameters. Importantly, once the 
 magnetic field was removed, the bijel structure largely remained in its field-aligned state. Only minor particle relaxation occurred, 
-indicating that capillary forces alone were insufficient to reverse the structural transformations, revealing a hysteresis-like behavior 
-in the response to magnetic stimuli.
-
-The degree of structural reorganization was closely linked to the initial state of the particle monolayer. We identified two primary 
-response modes. The first is where initially disordered layers unjammed and reorganized under magnetic fields before settling into a new 
-jammed configuration, and another where partially ordered particles reoriented to align with the field, modifying domain structure 
-without full unjamming. Systems with high initial order showed minimal structural change, suggesting that the dynamic response of bijels 
-can be pre-programmed via the interfacial order established during formation.
+indicating that capillary forces alone were insufficient to reverse the structural transformations, revealing a that the particle monolayer
+was kinetically arrested.
 
 The rheological behavior of these systems was equally sensitive to particle shape, magnetic field history, and interfacial order. All 
 bijels exhibited shear-thinning behavior, which is characteristic of non-Newtonian fluids. However, yield stress and flow 
@@ -80,38 +72,32 @@ drug delivery, 3D printing, or adaptive templating.
 
 This work provides several key insights that significantly advance the current understanding of field-responsive emulsions and structurally 
 tunable soft materials. By integrating ellipsoidal particle design with magnetic field stimuli, we demonstrate a new axis of control over 
-bijel formation and function. 
-Conceptually, our results refine the understanding of interfacial jamming in bijels. The identification of distinct 
+bijel formation and function. Conceptually, our results refine the understanding of interfacial jamming in bijels. The identification of
 unjamming-rejamming mechanisms, modulated by both field strength and particle ordering, reveals that bijel structures are not passively 
 determined by initial phase separation dynamics. Instead, they are dynamically reconfigurable under external fields, with the extent of 
-reconfiguration governed by the memory of prior structural states. This introduces a paradigm in which bijels can be treated as 
-non-equilibrium materials with tunable hysteresis, offering a controllable blend of stability and adaptability.
+reconfiguration governed by prior structural states.
 
-Our work also implements structural characterization for describing bijel microstructures. While prior studies have focused heavily on global 
-measures such as domain size or volume fraction, our use of bond orientational order, curvature metrics, and channel topology creates a more 
-nuanced toolkit for evaluating local and global bijel structure. This multiscale perspective provides better predictive capacity for 
-tailoring materials with application-specific structural features, such as tortuosity for mass transport or local ordering for mechanical 
-performance.
+While prior studies have focused heavily on global measures such as domain size or volume fraction, our use of implemented bond orientational order, 
+curvature metrics, and channel topology creates a more nuanced toolkit for evaluating local and global bijel structure. This multiscale 
+perspective provides better predictive capacity for tailoring materials with application-specific structural features, such as tortuosity 
+for mass transport or local ordering for mechanical performance.
 
-The broader impacts of this work span several disciplines. In materials science, our findings inform the design of smart scaffolds and 
-porous networks with tunable permeability or rheology. For instance, magnetic field-tunable tortuosity or anisotropy could 
-be leveraged in filtration membranes that dynamically adjust flow pathways or in tissue scaffolds where curvature-sensitive cell adhesion 
-is critical. In energy systems, the ability to control interfacial curvature and connectivity may influence electrochemical transport and 
-reaction kinetics in battery electrodes or catalytic substrates.
-
-The rheological tunability demonstrated here has direct implications for soft robotics, adaptive damping materials, and controlled release 
-systems. The distinction between oblate and prolate behavior under shear and field stresses provides a foundation for selecting particle 
-geometries based on the desired flow performance of the end-use material. Furthermore, the discovery that certain configurations can resist 
-flow better than others may lead to new materials with programmable viscoelasticity—materials that stiffen or soften in response to field inputs.
+The broader impacts of this work span several disciplines. In materials science, our findings inform the design of smart scaffolds and porous 
+networks with tunable permeability or rheology. For instance, magnetic field-tunable tortuosity or anisotropy could be leveraged in filtration 
+membranes that dynamically adjust flow pathways or in tissue scaffolds where curvature-sensitive cell adhesion is critical. In energy systems, 
+the ability to control interfacial curvature and connectivity may influence electrochemical transport and reaction kinetics in battery electrodes 
+or catalytic substrates. Additionally, the demonstrated control over yield stress and flow behavior through particle shape and magnetic history 
+opens new pathways for engineering responsive soft materials in applications such as injectable therapeutics, adaptive 3D printing inks, or 
+magnetorheological fluids.
 
 \section{Future work}
 
 Building on the observed coupling between interfacial particle dynamics and bijel microstructure, we propose extending 
 this work by investigating bijels stabilized with non-rigid, cohesive, or attractive particles. Unlike rigid ellipsoids, 
 soft and cohesive particles are known to exhibit distinct glass transition behaviors and rheological responses compared 
-to hard-sphere systems. \cite{weeks_introduction_2017, torquato_jammed_2010} In bijel architectures, attractive interactions have been 
-proposed as a strategy to form “armored” interfaces, potentially enhancing mechanical integrity and enabling higher flow rates in catalytic applications. 
-\cite{boakye-ansah_controlling_2020}
+to hard-sphere systems \cite{weeks_introduction_2017, torquato_jammed_2010}. In bijel architectures, attractive interactions have been 
+proposed as a strategy to form “armored” interfaces, potentially enhancing mechanical integrity and enabling higher flow rates in catalytic 
+applications \cite{boakye-ansah_controlling_2020}. 
 Similarly, soft particles such as nanogels and hydrogels have attracted interest in biomedical contexts, offering tunable responsiveness 
 to environmental stimuli like temperature and pH—critical features for controlled drug delivery. Incorporating such particles 
 could significantly alter jamming dynamics, interfacial rearrangement, and field-induced responsiveness. These effects may be 
@@ -119,25 +105,27 @@ explored computationally using Lattice Boltzmann Methods integrated with immerse
 particle  interactions to account for electrostatic cohesion and deformability \cite{silva_lattice_2024}. This direction opens opportunities 
 to design bijel systems with enhanced adaptability and function, tailored for application-specific demands.
 
-The current simulations, while able to capture structural evolution under external fields, do not fully resolve the complex dynamical landscape of the interfacial 
-particle monolayer. In particular, they lack the resolution to distinguish between fast particle rearrangements and slow collective dynamics near the glass transition, 
-which are known to govern the jamming and unjamming behavior of dense colloidal systems. \cite{weeks_introduction_2017, torquato_jammed_2010} 
-As such, the interplay between interfacial ordering, particle-scale dynamics, and existing order can be characterized more convincingly by investigating the dynamics of
-the particle more systematically by accounting for thermal fluctuations of the fluid. This would involve implementation of a fluctuating Lattice Boltzmann Method
-which would facilitate identification of the glassy dynamics in the system, including the onset of arrest and structural aging characterized with the microstructure
-in Gunther et al. \cite{gunther_timescales_2014}
+The current simulations, while able to capture structural evolution under external fields, do not fully resolve the complex dynamical 
+landscape of the interfacial particle monolayer. In particular, they lack the resolution to distinguish between fast particle rearrangements 
+and slow collective dynamics near the glass transition, which are known to govern the jamming and unjamming behavior of dense 
+colloidal systems \cite{weeks_introduction_2017, torquato_jammed_2010}. 
+As such, the interplay between interfacial ordering, particle-scale dynamics, and existing order can be characterized more convincingly by 
+investigating the dynamics of the particle more systematically by accounting for thermal fluctuations of the fluid. This would involve 
+implementation of a fluctuating Lattice Boltzmann Method which would facilitate identification of the glassy dynamics in the system, 
+including the onset of arrest and structural aging characterized with the microstructure in Gunther et al \cite{gunther_timescales_2014}.
 
 Another promising avenue for future investigation involves the use of gradient or rotating magnetic fields in place of constant fields. This
-would impart a force on the particles in addition to the torque that magnetic particles experience under constant fields. \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}
+would impart a force on the particles in addition to the torque that magnetic particles experience under 
+constant fields \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}.
 Prior work has demonstrated that spatial gradients in particle volume fraction can generate domain size gradients in bijels, enabling spatial 
 control over porosity and connectivity \cite{french_bicontinuous_2022}. Analogously, applying a magnetic field gradient may induce vertical 
 gradients in nematic order, influencing local particle packing and yielding position-dependent pore structures across the bijel. This could be 
 particularly useful for creating functionally graded materials with hierarchical transport properties.
 
-In parallel, rotating magnetic fields offer a dynamic mechanism for restructuring particle arrangements at the interface. 
-\cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}
+In parallel, rotating magnetic fields offer a dynamic mechanism for restructuring particle arrangements 
+at the interface \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}. 
 In ferrofluids and magnetic colloidal suspensions, such fields have been shown to induce chain or ring formation, depending on the rotation frequency and field 
-strength. \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}
+strength \cite{spatafora-salazar_hierarchical_2021, martinezpedrero_collective_2020}. 
 Translating this mechanism to bijels, a rotating field could be used to modulate interfacial jamming behavior, promoting controlled 
 unjamming and reorientation of particles prior to re-jamming. This dynamic control could enable finer tuning of microstructure than static fields, 
 potentially achieving reversible and spatially patterned domain morphologies. Importantly, the effectiveness of this strategy would depend on 
@@ -151,15 +139,15 @@ Foundation under award numbers DMR-1944942 and OIA-2131996. Any opinions, findin
 expressed in this material are those of the author(s) and do not necessarily reflect those of the National Science 
 Foundation.  
 
-Clemson University is acknowledged for generous allotment of compute time on Palmetto cluster. This research used the 
-Delta advanced computing and data resource which is supported by the National Science Foundation (award OAC 2005572) 
-and the State of Illinois. Delta is a joint effort of the University of Illinois Urbana-Champaign and its National 
-Center for Supercomputing Applications. 
+This research was supported in part through the use of DARWIN computing system: DARWIN - A Resource for Computational 
+and Data-intensive Research at the University of Delaware and in the Delaware Region, Rudolf Eigenmann, Benjamin E. 
+Bagozzi, Arthi Jayaraman, William Totten, and Cathy H. Wu, University of Delaware, 2021
 
 This work used Delta at the University of Illinois Urbana Champaign through allocation PHY220131 from the Advanced 
 Cyberinfrastructure Coordination Ecosystem: Services $\&$ Support (ACCESS) program, which is supported by National 
 Science Foundation grants 2138259, 2138286, 2138307, 2137603, and 2138296. 
 
-This research was supported in part through the use of DARWIN computing system: DARWIN - A Resource for Computational 
-and Data-intensive Research at the University of Delaware and in the Delaware Region, Rudolf Eigenmann, Benjamin E. 
-Bagozzi, Arthi Jayaraman, William Totten, and Cathy H. Wu, University of Delaware, 2021
+Clemson University is acknowledged for generous allotment of compute time on Palmetto cluster. This research used the 
+Delta advanced computing and data resource which is supported by the National Science Foundation (award OAC 2005572) 
+and the State of Illinois. Delta is a joint effort of the University of Illinois Urbana-Champaign and its National 
+Center for Supercomputing Applications. 
