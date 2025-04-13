@@ -83,64 +83,66 @@ through thick and thin, and to many more celebrations of our achievements.
     Porous materials are important across a wide range of applications, including water filtration, catalyst supports, 
     battery electrodes, and bioengineered materials. To accommodate a broader range of pore sizes and enable scalable 
     fabrication with minimal waste, bottom-up synthesis techniques have gained increasing attention. Emulsion templating 
-    leverages thermodynamically or kinetically arrested structures formed by phase-separating fluids. Among these, bicontinuous 
-    interfacially jammed emulsion gels (bijels) are particularly promising due to their tortuous and co-continuous microstructures.
+    leverages thermodynamic or kinetically arrested structures formed by phase-separating fluids. Among these, bicontinuous 
+    interfacially jammed emulsion gels (bijels) are particularly interesting due to their tortuous and co-continuous microstructures.
 
-    Bijels form via thermally induced spinodal decomposition of partially miscible fluid mixtures in the presence of neutrally 
+    Bijels were first formed via thermally induced spinodal decomposition of partially miscible fluid mixtures in the presence of neutrally 
     wetting particles. As the fluid domains coarsen, particles adsorb onto the interface until the interfacial area matches the 
     total cross-sectional area of the particles, resulting in a jammed monolayer that locks the microstructure in place. Traditional 
-    bijel synthesis via thermal phase separation is not readily scalable. However, newer techniques such as Solvent Transfer Induced 
-    Phase Separation (STrIPS) have been developed to address this limitation, utilizing the removal of solvent from a bijel casting
-    mixture to induce phase separation. However, the microstructure obtained is coupled to the casting mixture composition, 
-    and the flow rate during STrIPS.
+    bijel synthesis via thermal phase separation is not readily scalable as the cooling rate cannot be uniformly controlled, which
+    reduces uniformity of the structure. However, newer techniques such as Solvent Transfer Induced Phase Separation (STrIPS) have been 
+    developed to address the scale up limitation/ utilizing the removal of solvent from a bijel casting
+    mixture to induce phase separation. STrIPS allows for the decoupling of spinodal decomposition from temperature, allowing for greater
+    material compatibility and tunable bijel shapes and microstructure through controlling the solvent exchange rate. However, the 
+    microstructure obtained is coupled to the casting mixture composition, and the flow rate during STrIPS.
     
     One promising approach to modulate bijel microstructure is through stimulus-responsive systems. Magnetic stimuli, in particular, 
-    offer a non-invasive, controllable, and targeted mechanism. Earlier studies using spherical particles under magnetic fields showed 
-    limited microstructural changes. More recent work, however, has revealed that ellipsoidal particles can respond to magnetic actuation 
-    by tilting, leading to the formation of particle chains or rings at interfaces. This phenomenon opens the door to controllable 
-    modifications in bijel microstructures using magnetic fields.
+    offer a controllable and targeted mechanism. Earlier studies using spherical particles under magnetic fields showed 
+    limited microstructural changes. However, ellipsoidal particles can respond to magnetic actuation 
+    by tilting, leading to the multipolar capillary interactions between particles facilitating formation of particle chains or rings at 
+    interfaces. This phenomenon opens the door to controllable modifications in bijel microstructures using magnetic fields.
     
     This dissertation investigates whether constant magnetic fields can be used to control the microstructure of bijels stabilized by 
     magnetically responsive ellipsoidal particles. To explore this, we employ a multicomponent Lattice Boltzmann Method coupled with a 
-    molecular dynamics representation of rigid particles and a dipole-based magnetic field model. The system simulates a water-2,6-lutidine 
-    mixture stabilized by micron-sized nickel-coated polystyrene particles.
-    
-    We first examine the ability of magnetic fields to influence bijel formation by applying a constant field during spinodal decomposition 
+    molecular dynamics representation of rigid particles and a dipole-based magnetic field model. The system is modelled on a water-2,6-lutidine 
+    bijel casting mixture stabilized by micron-sized nickel-coated polystyrene particles.
+    We first examine the ability of magnetic fields to influence bijel formation by applying a constant field during spinodal decomposition
     of fluid mixtures containing disc-like, spherical, and rod-like particles. While no significant change in domain size is observed for 
     spherical particles, bijels stabilized by discs and rods show slight increases in domain size and become anisotropic, as measured by 
-    tortuosity and directional domain size.Further analysis reveals that the coarsening rates become direction-specific for ellipsoidal particles, 
+    tortuosity and directional domain size.
+    
+    Further analysis reveals that the coarsening rates become direction-specific for ellipsoidal particles, 
     suggesting that jamming occurs anisotropically due to particle alignment with the magnetic field. This alignment, governed by the 
     orientation of the magnetic moment relative to the particle's long axis, also affects how particles arrange themselves at the fluid 
-    interface. Particle reorientation affects the curvature of the interface as particles with smaller cross sectional area are less disruptive
-    to the saddle like interface shape that minimal surfaces possess. Topological examinations of the interface surface, 
+    interface. Particle alignment to the magnetic field affects the curvature of the interface as particles with smaller cross sectional area 
+    are less disruptive to the hyperbolic interface shape. Topological examinations of the morphology, 
     demonstrating that the number of interconnected channels in the system decreased over time and that the average channel sizes obtained follow
-    the same trend as that of the domain size.
+    the same trend as that of the domain size. These results highlight how particle shape and magnetic field interactions can be leveraged to 
+    guide bijel formation in a directional and controllable manner.
     
-    Having established that magnetic fields can influence microstructure during synthesis, we then assess whether similar control can be exerted 
-    after bijel formation. This has implications for applications like crossflow reactors and filtration systems, where reversible control over 
+    Next, we examine the ability of bijels to undergo microstructure modification post formation.
+    This has implications for applications like crossflow reactors and filtration systems, where reversible control over 
     permeability and flow resistance is desirable. By incrementally increasing and decreasing the magnetic field on a bijel stabilized with 
-    rod-like particles, we observe that the microstructure can indeed be modified post-synthesis. Domain size increases nonlinearly with 
-    applied field strength and remains altered even after the field is reduced, indicating a saturation threshold and a history-dependent 
-    response.
-    
-    To probe this further, we evaluate field-driven coarsening in bijels stabilized with rod and disc-like particles. Upon field application, 
+    rod-like particles, we observe that the microstructure can be modified post-synthesis. Domain size increases nonlinearly with 
+    applied field strength and remains altered even after the field is reduced, indicating that the structure remains in a kinetically arrested
+    state.To probe this further, we evaluate field-driven coarsening in bijels stabilized with rod and disc-like particles. Upon field application, 
     particles reorient, leading to anisotropic domains similar to those formed during synthesis under a field. The temporal evolution of 
     microstructure involves increased particle ordering, interface alignment, and rearrangement, demonstrating a complex interplay of factors. 
-    Notably, the extent of domain size change is negatively correlated with the initial ordering of particles, suggesting a memory effect 
-    rooted in the starting microstructure.
+    Notably, the extent of domain size change is negatively correlated with the initial ordering of particles.
     
     Given that many magnetically responsive materials exhibit field-dependent rheological behavior (e.g., shear thickening in ferrofluids), 
     we investigate whether bijels exhibit similar effects. Prior studies have shown that shear can induce domain coarsening and particle 
-    ejection in bijels. Additionally, emulsions stabilized by ellipsoidal particles show viscosity decreases with increased ordering due 
-    to weakened particle-fluid interactions. In this work, we explore how magnetic fields and initial microstructure affect the shear 
-    response of bijels stabilized by ellipsoidal particles.As particle ordering increases, the viscosity and shear-thinning behavior decrease for 
-    bijels stabilized by disc- and rod-like particles. Interestingly, the yield stress decreases with increased order for discs, but increases for 
-    rods due to differences in local particle arrangement and frictional contacts. Under shear, domain coarsening occurs due to shear induced particle 
-    tilting out of the interface.
+    ejection in bijels. Additionally, emulsions stabilized by ellipsoidal particles exhibit reduced viscosity with increased particle ordering because 
+    aligned particles create less resistance to flow. In this work, we explore how magnetic fields and initial microstructure affect the shear 
+    response of bijels stabilized by ellipsoidal particles. As particle ordering increases, the viscosity and shear-thinning behavior decrease for 
+    bijels stabilized by disc- and rod-like particles. We also characterize that the yield stress is dependent upon the friction between particles
+    that is a function of the arrangement of particles on the interface, affected by the application of magnetic fields. These results suggest 
+    that magnetic field-driven particle ordering can be used to tailor the rheological behavior of bijels, offering a strategy to reduce viscosity 
+    and modulate shear-thinning by controlling interfacial microstructure. 
     
-    In conclusion, this dissertation demonstrates that magnetic fields offer a viable and tunable method for controlling bijel microstructures both 
-    during and after synthesis, and it provides a detailed characterization of the constant shear response of magnetically responsive bijels. These findings 
-    lay the groundwork for developing adaptive, magnetically responsive porous materials through both conventional synthesis techniques and Solvent 
-    Transfer Induced Phase Separation (STrIPS), enabling scalable and application-specific design.
+    In conclusion, this dissertation demonstrates that magnetic fields offer a viable and tunable method for controlling bijel microstructures 
+    both during and after synthesis, and it characterizes the constant shear response of magnetically responsive bijels. These findings 
+    lay the groundwork for developing adaptive, magnetically responsive bijels suitable for porous material templates or as a soft matter 
+    system for use in drug release or bioengineering applications.
 
 \end{front}
