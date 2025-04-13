@@ -1,10 +1,10 @@
 \section{Phase separation}
 
 To understand the formation of bijels, the difference between nucleation and growth and spinodal decomposition must be understood. These processes 
-govern how distinct domains emerge and evolve within a binary mixture upon quenching into the two-phase region of the phase diagram. While nucleation and growth involve the formation 
+govern how distinct domains emerge and evolve within a binary mixture upon quenching into the demixing region of the phase diagram. While nucleation and growth involves the formation 
 and expansion of isolated domains, spinodal decomposition leads to the spontaneous, interconnected structuring characteristic of bijels. Investigating both mechanisms provides insight 
-into how thermodynamic and kinetic pathways influence the resulting microstructure, and why spinodal decomposition is uniquely suited for producing the bicontinuous 
-architecture essential to bijels. A schematic free energy and phase diagram is plotted in Figure \ref{fig:phase_diagram}
+into how phase separation can be leveraged to generate microstructures for porous materials and why spinodal decomposition specifically underpins bijel formation. A schematic free 
+energy and phase diagram is shown in Figure \ref{fig:phase_diagram}
 
 \begin{figure}
     \centering
@@ -33,15 +33,16 @@ separation proceeds spontaneously without the need for nucleation. This process,
 domains of both phases \cite{cahn_free_1958}. Unlike nucleation and growth, which relies on localized events, spinodal decomposition 
 results in a bicontinuous structure driven by the system's attempt to minimize 
 free energy through composition modulation \cite{cahn_free_1958}. The dynamics of spinodal decomposition were characterized by Cahn and Hilliard \cite{cahn_spinodal_1961}. 
-We first begin by defining the free energy of a regular solution, known as the bulk free energy given by
+We first begin by defining the free energy of a regular solution given by,
 
 \begin{equation}
     G_m (c) = \chi (1 - c)c + N_a k_B T \left[(1 - c)\ln(1 - c) + c \ln(c)\right]
 \end{equation}
 
-This bulk free energy characterizes the thermodynamic driving forces for phase separation. Alternative forms, such as the Landau-Ginzburg or Flory-Huggins models, may also be used depending on system 
-specifics. In real systems, the interface between two partially miscible fluids is not sharp, meaning that the composition transitions smoothly across a finite interface width. To account for this, a 
-gradient energy penalty is added to the free energy functional, penalizing sharp spatial variations in composition. The total free energy functional is written as
+This bulk free energy characterizes the thermodynamic driving forces for phase separation. Alternative forms of the free energy can be defined based on the double well potential or
+Flory-Huggins theory based on the desired objectives of the model. In real systems, the interface between two partially miscible fluids is diffuse, meaning that the composition 
+transitions smoothly across a finite interface width. To account for this, a gradient energy penalty is added to the free energy to penalize sharp spatial variations in 
+composition, yielding the free energy functional of the system. The total free energy functional is given by,
 
 \begin{equation}
     F[c] = \int \left( f(c) + \frac{\kappa}{2}|\nabla c|^2 \right) \, dV
@@ -54,7 +55,7 @@ The chemical potential is then defined as the variational derivative of the free
     \mu = \frac{\delta F}{\delta c} = \frac{df}{dc} - \kappa \nabla^2 c
 \end{equation}
 
-This chemical potential enters the mass flux expression via a Fickian transport law,
+The chemical potential enters the mass flux expression via a Fickian transport law,
 
 \begin{equation}
     \vec{J} = -M \nabla \mu
@@ -66,13 +67,13 @@ where $M$ is the mobility and could potentially be a function of $c$. Assuming n
     \frac{\partial c}{\partial t} = -\nabla \cdot \vec{J}
 \end{equation}
 
-Substituting in the expression for \(\vec{J}\) leads to the Cahn-Hilliard equation 18 in reference \cite{cahn_spinodal_1961},
+Substituting in the expression for \(\vec{J}\) leads to the Cahn-Hilliard equation, shown in Equation 18 in reference \cite{cahn_spinodal_1961},
 
 \begin{equation}
     \frac{\partial c}{\partial t} = \nabla \cdot \left( M \nabla \mu \right)
 \end{equation}
 
-This equation describes the diffusive evolution of the conserved field $c$ during phase separation. It captures the system's tendency to minimize its total free energy 
+The Cahn-Hilliard equation describes the diffusive evolution of the conserved field $c$ during phase separation. It captures the system's tendency to minimize its total free energy 
 by redistributing the order parameter according to gradients in chemical potential. The Cahn-Hilliard framework naturally incorporates interfacial tension and allows for smooth, 
 continuous transitions between phases, making it highly suitable for modeling non-ideal mixing in systems such as bijels.
 
@@ -82,17 +83,14 @@ membranes and catalyst supports.
 
 \section{Solid particles at fluid interfaces}
 
-When micron sized particles are adsorbed by interfaces the attachment energy is large enough that they can become irreversibly trapped at fluid-fluid interfaces \cite{ngai_particle-stabilized_2015}. 
-Once adsorbed, these 
-particles reduce interfacial tension and act as physical barriers that prevent the coalescence of droplets, thereby making them highly effective emulsion stabilizers. Unlike molecular surfactants, 
-which are dynamic and can desorb under certain conditions, colloidal particles remain adsorbed at the interface due to the significant energy required to detach them \cite{ngai_particle-stabilized_2015}. 
-This mechanism 
-is especially useful in systems such as Pickering emulsions, where the interfacial coverage and wettability of the particles determine the type and stability of the emulsion formed 
-\cite{ngai_particle-stabilized_2015,velankar_non-equilibrium_2015}.
-As such, understanding particle behavior at interfaces is essential for controlling the structure and longevity of particle-stabilized systems \cite{ngai_particle-stabilized_2015}. 
-For particles that are smooth and simple and at an interface of oil and water, the attachment energy at the fluid interface can be calculated the Pieranski model, 
-$G_{ads} = \sigma A_{rm} (1 - \cos{\theta_c})^2$, where $G_{ads}$ is the free energy reduction upon particle adsorption, $\sigma$ is the surface tension between the two 
-fluids, and $\theta_c$ is the contact angle of the stabilizing particle. A schematic of a particle adsorbing at an interface is shown in Figure \ref{fig:pieranski_model},
+When micron sized particles are adsorbed by interfaces the attachment energy is large enough that they can become irreversibly trapped at fluid-fluid interfaces 
+\cite{ngai_particle-stabilized_2015}. Once adsorbed, these particles act as physical barriers that prevent the coalescence of droplets, thereby making them highly effective 
+emulsion stabilizers. Unlike molecular surfactants, which are dynamic and can desorb under certain conditions, colloidal particles remain adsorbed at the interface due to the 
+significant energy required to detach them \cite{ngai_particle-stabilized_2015}. The microstructure of the resultant particle stabilized emulsion is dependant upon the wettability 
+of the particles \cite{ngai_particle-stabilized_2015,velankar_non-equilibrium_2015}.
+As such, understanding particle behavior at interfaces is essential for controlling the structure of particle-stabilized systems \cite{ngai_particle-stabilized_2015}. 
+For particles that are smooth and simple and at an interface of oil and water, the attachment energy at the fluid interface can be calculated based on the schematic shown in 
+Figure \ref{fig:pieranski_model},
 
 \begin{figure}
     \centering
@@ -103,7 +101,7 @@ fluids, and $\theta_c$ is the contact angle of the stabilizing particle. A schem
     \label{fig:pieranski_model}
 \end{figure}
 
-To obtain the Pieranski model, an energy balance between the interactions between the interface and the fluid phases can be written. The energy of the system before and after particle adsorption is 
+Am energy balance between the interactions between the interface and the fluid phases can be written. The energy of the system before and after particle adsorption is 
 different and can be characterized for the particle moving from water into the interface as,
 
 \begin{equation}
@@ -149,15 +147,24 @@ Substutions for $\sigma_{pw} - \sigma_{po}$ and $P_o - P_w$ are made, resulting 
     \end{split}
 \end{equation}
 
-From this the Pieranski model, the adsorption energy can be seen to depend on the contact angle, surface tension and contact area of the particles. This indicates that larger, neutrally wetting
-particles adsorbing onto interfaces with high surface tension have a high driving force for adsorption. \cite{ngai_particle-stabilized_2015,reeves_particle-size_2015} This adsorption process 
-can be orders of magnitude larger than the thermal energy of the system, calculated as $k_b T$ where $T$ is the temperature of the system and $k_b$ is the Boltzmann constant. This results in 
-irreversible adsorption of particles at interfaces. \cite{binks_pickering_2001}
+After applying geometric constrains, the Pieranski model is given by 
 
-In addition to the adsorption of particles on the interface, the contact angle of the particles determine the dispersed phase of an emulsion and its microstructure. \cite{velankar_non-equilibrium_2015}
-Hydrophillic particles tend to prefer to form oil in water emulsions while hydrophobic particles prefer to form water in oil emulsions. \cite{ngai_particle-stabilized_2015}
-This occurs as the particles preferentially wet one phase over another, causing the interface to bend as the emulsion forms. Neutrally wetting particles are preferred in the formation of 
-bijels as no preferential curvature is imparted onto the bijels, fulfilling one of the requirements of a minimal surface in that the mean curvature must be zero. \cite{jinnai_interfacial_2001}
+\begin{equation}
+    E_{ads} = \sigma A_{rm} (1 - \cos{\theta_c})^2
+\end{equation}
+
+where $E_{ads}$ is the free energy reduction upon particle adsorption, $\sigma$ is the surface tension between the two fluids, and $\theta_c$ is the contact angle of the stabilizing particle. 
+From this the Pieranski model, the adsorption energy can be seen to depend on the contact angle, surface tension and contact area of the particles. This indicates that larger, neutrally wetting
+particles adsorbing onto interfaces with high surface tension have a high driving force for adsorption \cite{ngai_particle-stabilized_2015,reeves_particle-size_2015}. This adsorption process 
+can be orders of magnitude larger than the thermal energy of the system, calculated as $k_b T$ where $T$ is the temperature of the system and $k_b$ is the Boltzmann constant. This results in 
+irreversible adsorption of particles at interfaces \cite{binks_pickering_2001}.
+
+In addition to the adsorption of particles on the interface, the contact angle of the particles determine the dispersed phase of an emulsion and its 
+microstructure \cite{velankar_non-equilibrium_2015}.
+This occurs as the particles preferentially wet one phase over another, causing the interface to bend as the emulsion forms. This bending causes hydrophillic and hydrophobic particles preferentially 
+forming oil in water and water in oil emulsions respectively in an empirical observation named the Bancroft rule \cite{ngai_particle-stabilized_2015}.
+Neutrally wetting particles are preferred in the formation of bijels as no preferential curvature is imparted onto the bijels, fulfilling one of the requirements of a saddle shaped interface
+in that the mean curvature must be zero. \cite{jinnai_interfacial_2001}
 
 \section{Anisotropic particles}
 
@@ -236,7 +243,7 @@ particle interactions influence flow behavior.
 
 Suspensions and emulsions are examples of non-Newtonian fluids due to the presence of dispersed particles or droplets within a continuous phase
 \cite{brader_nonlinear_2010, besseling_three-dimensional_2007, xu_relation_2013}.
-In suspensions, the interaction  between solid particles—such as hydrodynamic forces, electrostatic repulsion, and steric hindrance—creates microstructural rearrangements under flow, leading to 
+In suspensions, the interaction  between solid particles such as hydrodynamic forces, electrostatic repulsion, and steric hindrance creates microstructural rearrangements under flow, leading to 
 non-linear viscosity responses \cite{brader_nonlinear_2010, besseling_three-dimensional_2007}. Figure \ref{fig:suspension_shear} demonstrates the shear properties of an example suspension, 
 demonstrating how shear thinning and shear thickening can occur in suspensions. At low shear, particles may aggregate or form a network that resists deformation, while higher shear rates can break 
 down these structures, resulting in shear thinning. In dense systems, particles may experience contact-induced resistance or jamming, causing shear thickening \cite{brader_nonlinear_2010}. 
@@ -286,43 +293,6 @@ In Pickering emulsions, magnetic fields can induce droplet deformation and chang
 For bijels incorporating magnetic particles, external fields can affect the stability and elasticity of the interfacial particle layer or cause domain reorganization. These effects can lead to 
 tunable yield stress, viscosity, and viscoelastic properties.
 
-\section{Emulsion studies using Lattice Boltzmann}
-
-Understanding the complex interplay between fluid phases and particles in emulsions requires modeling approaches that can capture hydrodynamic interactions, interfacial tension, and particle 
-behavior at mesoscopic scales. The multicomponent Lattice Boltzmann method has emerged as a powerful tool for simulating such systems, as it bridges the gap between continuum fluid dynamics 
-and molecular-level detail. LB models can naturally incorporate smooth interfaces, phase separation dynamics, and solid-fluid coupling, making them particularly well-suited for studying 
-emulsion formation, coarsening, and stabilization mechanisms. This has enabled detailed investigations into how particle properties and flow conditions influence emulsion structure and rheology.
-
-One significant contribution of LB simulations to emulsion research has been the study of dynamical scaling during spinodal decomposition, characterized as the growth of the lengthscale
-over time following a power law behavior \cite{siggia_late_1979, furukawa_role_1994}. From the multicomponent Navier Stokes equation, Reynolds number dependent scaling exponents for the 
-lengthscale of the system were identified that were termed the viscous limit, where the Reynolds number was low, and the inertial limit, where the Reynolds number is high \cite{kendon_inertial_2001}.
-Multicomponent LB studies definitively demonstrated the ranges of Reynolds number where these scaling laws held and identified a broad crossover region \cite{kendon_inertial_2001, kendon_3d_1999}.
-
-Additionally, the bijel itself was first realized computationally using LB simulations. \cite{stratford_colloidal_2005} A multicomponent LB model with neutrally wetting colloids based on the 
-implementation by Ladd showed that coarsening interfaces could catch particles irreversibly adsorbing them and arresting coarsening once the interfacial area matched the cross sectional area of 
-particles adsorbed \cite{stratford_colloidal_2005,ladd_numerical_1994}. The simulations also showed that these structures were stable over long periods of time, motivating and guiding the 
-experimental realization of bijels in 2007 \cite{herzig_bicontinuous_2007}. These simulations provided an explanation of the dynamics and mechanistic reasoning behind the formation of bijels, 
-allowing for the prediction of the microstructure. More recent LB studies have extended these findings by identifying the volume fraction and wetting angle needed to form bijels as opposed to 
-Pickering emulsions \cite{jansen_bijels_2011}. The effect of the surface tension, fluid density and volume fraction of particles were also studied, showing that surface tension and fluid density 
-had little effect on the microstructure of bijels and that the length scale of the bijel was inversely proportional to the volume fraction of particles \cite{jansen_bijels_2011}.
-
-More recent LB studies by Gunther et al. have extended these findings by incorporating nonspherical particles, such as ellipsoids or rods, to explore how anisotropy influences interfacial behavior 
-and emulsion morphology \cite{gunther_timescales_2014}. These particles introduce directional capillary interactions and exhibit preferred orientations at the interface, which can lead to enhanced 
-jamming and altered domain stabilization with timescales of domain size change not observed with spherical particles arising from steric force driven particle reorientation. The orientation of 
-ellipsoidal particles at interfaces was also characterized using a multicomponent LB, demonstrating the adsorption of ellipsoidal particles at interfaces could result in metastable orientations of 
-particles \cite{gunther_lattice_2013}.
-
-The LB method has also enabled exploration of external field effects, particularly magnetic fields acting on particles at interfaces. Simulations involving magnetic dipolar particles show that 
-applying an external field can induce tilting, chaining, or reorientation of particles at the interface \cite{davies_interface_2014, davies_assembling_2014}. This effect was caused by interface 
-deformation that caused dipolar or quadropolar capillary interactions. This was extended to analyzing the effect of Janus particles at interfaces of evaporating droplets that showed how they preferred 
-to stick together on curved interfaces \cite{xie_direct_2017}.
-
-These studies demonstrate the effectiveness of multicomponent LB methods in identifying and characterizing mesoscale phenomena relevant to soft matter systems. By capturing 
-complex fluid-fluid and fluid-particle interactions, LB models provide a versatile platform for simulating emulsion dynamics, interfacial assembly, and 
-microstructural evolution. From revealing the scaling laws of spinodal decomposition to enabling the computational discovery of bijels, LB simulations have offered valuable insights that would be 
-difficult to obtain experimentally. Furthermore, the ability to incorporate anisotropic particles and external fields, such as magnetism, highlights the method's adaptability for exploring 
-increasingly sophisticated and tunable systems. 
-
 \section{Numerical modeling}
 
 \subsection{Multiscale modeling algorithms}
@@ -349,11 +319,11 @@ high computational cost of solving fourth-order PDEs, especially when coupled wi
 
 Brownian dynamics is a particle-based simulation method used to model the stochastic motion of colloidal particles suspended in a fluid 
 \cite{huber_brownian_2019, yip_brownian_2005, elsawy_utility_2025}. It approximates the over-damped limit of Langevin dynamics by integrating 
-particle trajectories under the influence of both deterministic forces—such as interparticle potentials or external fields—and random thermal 
+particle trajectories under the influence of both deterministic forces such as interparticle potentials or external field and random thermal 
 forces representing collisions with solvent molecules. Hydrodynamic interactions may be included through approximate mobility tensors or omitted 
 entirely, depending on the desired level of fidelity. Brownian dynamics is particularly well-suited for studying self-assembly, aggregation, and 
 diffusion in dilute suspensions, where particle motion is dominated by thermal fluctuations. However, it does not model the surrounding fluid 
-explicitly, limiting its ability to capture bulk fluid flow or interface-mediated interactions. As a result, Brownian dynamics is not sufficient 
+explicitly, limiting its ability to capture the effect of multicomponent flow. As a result, Brownian dynamics is not sufficient 
 on its own for simulating the coupled fluid-particle dynamics involved in bijel formation.
 
 The Lattice Boltzmann Method (LBM) is a discretization of the Boltzmann equation of motion for molecules. \cite{qian_lattice_1992, succi_lattice_2018, shan_multicomponent_1995, swift_lattice_1996}
@@ -361,18 +331,58 @@ Unlike traditional CFD techniques such as phase field or VOF methods, LBM tracks
 particle distribution function within grid cells evolved through a discretized Boltzmann equation of motion. Macroscopic variables such as fluid density and 
 velocity are recovered from the particle distributions through appropriate moment integration, and the Navier Stokes equation at the incompressible limit can be 
 obtained through a Chapman-Enskog expansion of the LBM. \cite{qian_lattice_1992} The LBM has become an attractive tool for meso-scale CFD simulations due to its ease of algorithm 
-implementation, highly parallelizable nature and ease of boundary condition implementation, allowing coupling to other physically relevant systems such as 
-particles with varieties of potentials, external fields and deformable bodies. Importantly, LBM can be extended to handle multiphase and multicomponent fluids, using either color-gradient models, free energy formulations, 
-or pseudopotential approaches to model non-ideal mixing. It also couples well to particle dynamics through momentum exchange schemes, making it a powerful framework for 
+implementation, highly parallelizable nature and ease of implemeting boundary conditions, allowing coupling to other physically relevant systems such as 
+particles with varieties of potentials, external fields and deformable bodies. Importantly, LBM can be extended to handle multiphase and multicomponent fluids through a variety of methods.
+It also can be coupled to particle dynamics through momentum exchange schemes, making it a powerful framework for 
 simulating colloidal suspensions, interfacial phenomena, and structurally complex systems like bijels. Its ability to capture both hydrodynamics and mesoscale thermodynamic 
 behavior makes it particularly suited for the multi-scale requirements of stimuli-responsive emulsions.
 
 In summary, the Volume of Fluid method offers robust interface tracking and mass conservation but lacks the ability to naturally capture interfacial curvature. 
 Phase field methods provide thermodynamically consistent, diffuse-interface models ideal for phase separation, though they require fine resolution and are computationally intensive. 
-Brownian dynamics excels at modeling particle-level stochastic motion but cannot resolve bulk fluid dynamics or interface evolution on its own. In contrast, the Lattice Boltzmann Method 
+Brownian dynamics excels at modeling particle-level stochastic motion but cannot resolve interface evolution on its own. In contrast, the Lattice Boltzmann Method 
 combines the strengths of mesoscopic fluid modeling with efficient handling of complex interfaces and straightforward coupling to particle dynamics. Its balance between computational 
-efficiency, scalability, and physical fidelity across multiple scales makes LBM the most suitable method for simulating the rich interplay of hydrodynamics, phase separation, and particle 
+efficiency, scalability, and physical fidelity across multiple scales makes the LBM the most suitable method for simulating the rich interplay of hydrodynamics, phase separation, and particle 
 interactions in stimuli-responsive emulsions such as bijels.
+
+\subsection{Emulsion studies using Lattice Boltzmann}
+
+Understanding the complex interplay between fluid phases and particles in emulsions requires modeling approaches that can capture hydrodynamic interactions, interfacial tension, and particle 
+behavior at mesoscopic scales. The multicomponent LBM has emerged as a powerful tool for simulating such systems, as it bridges the gap between continuum fluid dynamics 
+and molecular-level detail. LB models can naturally incorporate smooth interfaces, phase separation dynamics, and solid-fluid coupling, making them particularly well-suited for studying 
+emulsion formation, coarsening, and stabilization mechanisms. This has enabled detailed investigations into how particle properties and flow conditions influence emulsion structure and rheology.
+
+Dynamical scaling provides a basis for the characterization of the driving force for phase separation in a binary system. It posits that, at late times, the system's 
+morphology becomes self-similar, characterized by a single length scale \( l(t) \) that grows over time following a power-law behavior defined as $l(t) \propto t^{\alpha}$ where $\alpha$ is
+the scaling exponent characterizing phase separation \cite{siggia_late_1979, furukawa_role_1994}.
+The regimes identified from previous investigations were the diffusive regime where $\alpha = 1/3$, inertial scaling where $\alpha = 2/3$ and the viscous regime where $\alpha = 1$.
+Kendon et al. characterized the transition between viscous to inertial scaling using a free energy based LBM \cite{kendon_inertial_2001, kendon_3d_1999}. They obtained a master 
+curve for systems undergoing spinodal decomposition which showed the transition from viscous to inertially driven spinodal decomposition, characterized using a length and timescales 
+derived from the surface tension, viscosity and fluid density and the Reynolds number \cite{kendon_inertial_2001, kendon_3d_1999}.
+
+Additionally, the bijel itself was first realized computationally using LB simulations \cite{stratford_colloidal_2005}. A multicomponent LB model with neutrally wetting colloids based on the 
+implementation by Ladd showed that coarsening interfaces could catch particles irreversibly adsorbing them and arresting coarsening once the interfacial area matched the cross sectional area of 
+particles adsorbed \cite{stratford_colloidal_2005,ladd_numerical_1994}. The simulations also showed that these structures were stable over long periods of time, motivating and guiding the 
+experimental realization of bijels in 2007 \cite{herzig_bicontinuous_2007}. These simulations provided an explanation of the dynamics and mechanistic reasoning behind the formation of bijels, 
+allowing for the prediction of the microstructure. More recent LB studies have extended these findings by identifying the volume fraction and wetting angle needed to form bijels as opposed to 
+Pickering emulsions \cite{jansen_bijels_2011}. The effect of the surface tension, fluid density and volume fraction of particles were also studied, showing that surface tension and fluid density 
+had little effect on the microstructure of bijels and that the length scale of the bijel was inversely proportional to the volume fraction of particles \cite{jansen_bijels_2011}.
+
+More recent LB studies by Gunther et al. have extended these findings by incorporating nonspherical particles, such as ellipsoids or rods, to explore how anisotropy influences interfacial behavior 
+and emulsion morphology \cite{gunther_timescales_2014}. These particles introduce directional capillary interactions and exhibit preferred orientations at the interface, which can lead to enhanced 
+jamming and altered domain stabilization with timescales of domain size change not observed with spherical particles arising from steric force driven particle reorientation. The orientation of 
+ellipsoidal particles at interfaces was also characterized using a multicomponent LB, demonstrating the adsorption of ellipsoidal particles at interfaces could result in metastable orientations of 
+particles \cite{gunther_lattice_2013}.
+
+The LB method has also enabled exploration of external field effects, particularly magnetic fields acting on particles at interfaces. Simulations involving magnetic dipolar particles show that 
+applying an external field can induce tilting, chaining, or reorientation of particles at the interface \cite{davies_interface_2014, davies_assembling_2014}. This effect was caused by interface 
+deformation that caused dipolar or quadropolar capillary interactions. This was extended to analyzing the effect of Janus particles at interfaces of evaporating droplets that showed how they preferred 
+to stick together on curved interfaces \cite{xie_direct_2017}.
+
+These studies demonstrate the effectiveness of multicomponent LB methods in identifying and characterizing mesoscale phenomena relevant to soft matter systems. By capturing 
+complex fluid-fluid and fluid-particle interactions, LB models provide a versatile platform for simulating emulsion dynamics, interfacial assembly, and 
+microstructural evolution. From revealing the scaling laws of spinodal decomposition to enabling the computational discovery of bijels, LB simulations have offered valuable insights that would be 
+difficult to obtain experimentally. Furthermore, the ability to incorporate anisotropic particles and external fields, such as magnetism, highlights the method's adaptability for exploring 
+increasingly sophisticated and tunable systems. 
 
 \subsection{Multicomponent models in the Lattice Boltzmann Method}
 
@@ -421,8 +431,8 @@ colloidal particles facilitates the inclusion of particle-fluid and particle-int
 In computational studies of particle-laden fluids, particles can be modeled either as point particles or as explicitly resolved rigid bodies. The choice between 
 these approaches depends on the physical fidelity required, the computational cost, and the scales at which particle-fluid and particle-interface interactions must be resolved.
 
-Point particle models treat colloids as infinitesimal entities that influence the surrounding fields through source terms or effective force laws. 
-\cite{mehrabadi_direct_2018, prosperetti_point-particle_2007, frohlich_validation_2018}
+Point particle models treat colloids as infinitesimal entities that influence the surrounding fields through source terms or effective force laws
+\cite{mehrabadi_direct_2018, prosperetti_point-particle_2007, frohlich_validation_2018}.
 In such models, particles do not occupy physical volume and their influence on the fluid is typically introduced via body forces or perturbations to the chemical potential field. 
 This approach is computationally efficient and particularly useful for systems with a large number of particles or when only large-scale collective behavior is of interest. 
 However, point particles cannot capture rotational dynamics, or hydrodynamic effects such as lubrication forces. Additionally, 
@@ -560,4 +570,8 @@ Since bijel formation and stabilization primarily depend on interfacial jamming 
 is often sufficient to model key behaviors such as chaining, orientation under external fields, and capillary-mediated assembly. However, if incoroprating the effect of particle shape anisotropy, 
 proximity effects, or induced magnetization in response to local fields are important, incorporating demagnetization tensors may offer improved realism. Investigations of particle reorientation at
 interfaces has been conducted using the magnetic dipole model, showing that a rich variety of interfacial phenomena can be captured by this model such as the balance between capillary interactions
-and magnetic field induced torque and capillary self assembly of microparticles at interfaces. \cite{xie_direct_2017,davies_interface_2014,davies_assembling_2014}
+and magnetic field induced torque and capillary self assembly of microparticles at interfaces \cite{xie_direct_2017,davies_interface_2014,davies_assembling_2014}.
+
+In this chapter, a survey of why spinodal decomposition is important in the formation of bijels, how particle stabilizes work, dynamics of anisotropic particles at interfaces 
+and numerical methods that can be selected to model the dynamics of the system were shown. In the next chapter, we elaborate on the specific physics being modelled, explain the implementation 
+of the simulation technique and present a model experimental system that we are simulating.
