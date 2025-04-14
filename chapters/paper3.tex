@@ -19,9 +19,10 @@ bijels have been conceptualized as two-dimensional colloidal glasses embedded in
 particle layers \cite{ching_bijel_2022}. However, existing frameworks for bijel rheology focus on bijels stabilized by spherical, non-stimuli responsive particles, and do not yet capture the complex 
 rheology arising from anisotropic particle shapes or magnetic interactions, which are increasingly relevant in functionalized bijel systems.
 
-While the rheology of emulsions stabilized by spherical particles has been extensively characterized, ellipsoidal particles introduce additional complexity through interfacial locking and anisotropic drag, 
-which can suppress coalescence and resist flow differently under shear \cite{madivala_self-assembly_2009, daware_emulsions_2015, sun_assembly_2013}. Under shear, ellipsoidal particles 
-can promote shear banding, wherein particle-fluid interactions create localized variations in velocity profiles \cite{xu_relation_2013}. Furthermore, suspensions of magnetically responsive particles, 
+Suspensions made with spherical particle have non-Newtonian behavior, originating from particle-particle interactions and particle-fluid interactions
+affecting the shear shear stress. \cite{xu_relation_2013}
+Ellipsoidal particles introduce additional complexity through interfacial locking and anisotropic drag, 
+which can suppress coalescence and resist deformation under shear \cite{madivala_self-assembly_2009, daware_emulsions_2015, sun_assembly_2013}. Furthermore, suspensions of magnetically responsive particles, 
 such as ferrofluids, exhibit a pronounced increase in viscosity due to field-induced self-assembly that restricts fluid flow \cite{qiao_magnetorheological_2012}. 
 Theoretical predictions and experimental observations have identified that orientational ordering of anisotropic particles in the direction of shear reduces viscosity by minimizing hydrodynamic drag and interfacial 
 disruption, allowing the fluid to flow more easily along the direction of least resistance.\cite{vermant_flow-induced_2005, xu_relation_2013}. 
@@ -41,18 +42,18 @@ and magnetic field application. The initial bijel structures are obtained from p
 ellipsoids at a particle volume fraction of $\phi_p = 0.15$, generated with and without an applied magnetic field of dimensionless strength $\bar{B} = 1$. To evaluate the combined and decoupled effects 
 of field history and applied shear, we systematically vary the magnetic field configuration, yielding four distinct processing pathways: 
 $\bar{B}:0 \rightarrow 0$, $\bar{B}:0 \rightarrow 1$, $\bar{B}:1 \rightarrow 0$, and $\bar{B}:1 \rightarrow 1$. These setups enable us to isolate the contributions of pre-aligned versus dynamically aligning 
-particles during flow. Shear is imposed via a range of dimensionless shear capillary numbers, defined as $Ca_s = \frac{\dot{\gamma} R_s \eta_f}{\sigma}$, where $\dot{\gamma}$ is the applied shear rate, 
+particles during flow. Shear is imposed via a range of dimensionless shear capillary numbers, defined as $\text{Ca_s}  = \frac{\dot{\gamma} R_s \eta_f}{\sigma}$, where $\dot{\gamma}$ is the applied shear rate, 
 $R_s = 7.9$ is the equivalent spherical radius of the ellipsoids, $\eta_f$ is the dynamic viscosity of the continuous phase, and $\sigma$ is the interfacial tension. 
-\cite{frijters_effects_2012, yang_capillary_2022} We explore five shear conditions spanning $Ca_s = 1 \times 10^{-4}$ to $1 \times 10^{-6}$, capturing the transition from strong deformation to 
+\cite{frijters_effects_2012, yang_capillary_2022} We explore five shear conditions spanning $\text{Ca_s} = 1 \times 10^{-4}$ to $1 \times 10^{-6}$, capturing the transition from strong deformation to 
 near-equilibrium interfacial response.
 
 \subsection{Viscosity measurement}
 
 Particle ordering is one factor that affects the rheological behavior of suspensions, as aligned particles reduce particle-fluid interactions, reducing the
 induced shear stress. In bijels, where particles are adsorbed at the fluid-fluid interface, interfacial confinement may significantly 
-influence the degree of slip and the onset of yielding. Prior studies have shown that bijels exhibit shear-thinning behavior consistent with the Herschel-Bulkley fluid model, 
-indicating a non-Newtonian response governed by both interfacial structure and particle dynamics \cite{macmillan_rheological_2019}. To investigate these effects in 
-the presence of magnetic fields and varying degrees of particle ordering, we apply constant shear to the bijel templates and plot the resulting time evolution of 
+influence the degree of slip and the onset of yielding. Prior studies have shown that bijels exhibit shear-thinning behavior consistent 
+with the Herschel-Bulkley fluid model \cite{macmillan_rheological_2019}. To investigate the particle ordering and reorientation effects of magnetic fields
+applied onto bijels, we apply constant shear to the bijel templates and plot the resulting time evolution of 
 the shear stress, as shown in Figure~\ref{fig:stress_time}.
 
 \begin{figure} 
@@ -65,24 +66,24 @@ the shear stress, as shown in Figure~\ref{fig:stress_time}.
 \end{figure}
 
 Figure \ref{fig:stress_time} demonstrates that a definitive steady-state shear stress is not reached within the simulated timeframes across all conditions. 
-This absence of steady-state behavior is attributed to the continued coarsening of the bicontinuous domains and the progressive reorientation of interfacial 
+This is attributed to the continued coarsening of the bicontinuous domains and the progressive reorientation of interfacial 
 particles under shear \cite{tavacoli_novel_2011, macmillan_rheological_2019}. Tavacoli et al. showed that mechanical perturbation of bijels, such as the 
 insertion of a needle to measure yield stress, resulted in irreversible structural deformation, particularly in ethanediol/nitromethane systems 
-\cite{tavacoli_novel_2011}. Similarly, Macmillan et al. observed that repeated shearing of bijels synthesized by direct mixing led to degraded mechanical 
-performance over time, suggesting a link between structural evolution and rheological response \cite{macmillan_rheological_2019}. To characterize the rheology 
+\cite{tavacoli_novel_2011}. Similarly, Macmillan et al. observed that shearing of bijels synthesized by direct mixing led to degraded mechanical performance 
+over time, as the applied shear progressively disrupted the bijel structure \cite{macmillan_rheological_2019}. To characterize the rheology 
 of these evolving systems, we identify pseudo-steady-state regions within the stress-time profiles, defined as intervals where the rate of change of shear 
-stress is minimal and persists for the longest continuous duration. Within these regions, the stress response is fitted to the applied shear rate using a 
+stress is minimal and persists for the longest continuous duration. Within these regions, the stress response is fit to the applied shear rate using a 
 Herschel-Bulkley model:  
 
 \begin{equation}
     \sigma = \sigma_{y} + K\dot{\gamma}^{n}    
 \end{equation}
 
-In the Herschel-Bulkley model, $\sigma$ denotes the computed shear stress, $\sigma_y$ is the yield stress, $K$ represents the flow consistency index, 
+where $\sigma$ denotes the computed shear stress, $\sigma_y$ is the yield stress, $K$ represents the consistency index, 
 and $n$ is the flow index characterizing the degree of shear thinning. In certain cases, simulations conducted at the lowest shear capillary number 
-($Ca_s = 10^{-6}$) exhibited insufficient stress resolution or high variability, and were excluded from model fitting where appropriate. For each case, 
+($ \text{Ca_s} = 10^{-6}$) exhibited insufficient stress resolution or high variability, and were excluded from model fitting where appropriate. For each case, 
 $\sigma$ is extracted from the pseudo-steady-state region of the stress-time curves, while the corresponding shear rate $\dot{\gamma}$ is derived from 
-the imposed capillary number, $Ca_s$. The resulting fits for the various bijel systems are presented in Figure~\ref{fig:stress_strain}.
+the imposed capillary number, $\text{Ca_s}$. The resulting fits for the various bijel systems are presented in Figure~\ref{fig:stress_strain}.
 
 \begin{figure} 
     \centering 
@@ -128,7 +129,7 @@ Table~\ref{table:rheology_fit}.
      $\bar{B}: 1 \rightarrow 1$ & 2 & 0.605 & 0.868 & $6.153 \cdot 10^{-5}$ \\ [1ex] 
      \hline
     \end{tabular}
-    \caption{Hershel Bulkley fit parameters for different processing conditions applied to bijels stabilized by ellipsoidal particles.}
+    \caption{Fit parameters for different processing conditions applied to bijels stabilized by ellipsoidal particles.}
     \label{table:rheology_fit}
 \end{table}
  
@@ -143,15 +144,15 @@ interface—enhancing ordering for prolate particles while reducing it for oblat
 interfacial monolayers leads to structural buckling and early mechanical failure, whereas increased ordering enables more uniform stress distribution 
 across particles, thereby enhancing resistance to deformation \cite{prakash_buckling_2024}.
 
-\subsection{Shear induced particle rearrangement}
+\subsection{Effect of local particle rearrangement on shear properties}
 
 Given that magnetic fields can modify the local arrangement of ellipsoidal particles at fluid interfaces, understanding how this arrangement evolves under 
 different processing conditions is essential for interpreting the mechanical 
 behavior observed. In particular, the contrasting effects seen for prolate and oblate particles, where increased magnetic ordering leads to a larger
 and smaller yield stress respectively. To quantitatively assess the local arrangement of particles at the interface, we compute the ensemble-averaged 
-Steinhardt bond orientational order parameters $q_2$ and $q_6$. 
+Steinhardt bond orientational order parameter $Q6$. 
 \cite{steinhardt_bond-orientational_1983, lechner_accurate_2008, mickel_shortcomings_2013}. The technique to calculate this parameter is provided in
-Equation \ref{eq:steinhardt_definition} We plot the change in 
+Equation \ref{eq:steinhardt_definition}. We plot the change in the ensemble average
 $\langle Q6 \rangle$ of the microstructures as a function of the processing applied in Figure \ref{fig:q6_rheology_init}
 
 \begin{figure} 
@@ -176,18 +177,17 @@ ordering and rheological response.
 \subsection{Shear induced reorientation of particles}
 
 Bonaccorso et al. identified that the spherical particle stabilizers in their bijel simulations oriented to the direction of shear before being
-ejected from the interface. \cite{bonaccorso_shear_2020} Due to the shape of ellipsoidal particles, they adopt a preferred orientation which
-maximizes the interface covered by the particle. \cite{davies_dipolar_2015, davies_interface_2014} Energy must be imparted to rotate the particles
+ejected from the interface \cite{bonaccorso_shear_2020}. Due to the shape of ellipsoidal particles, they adopt a preferred orientation which
+maximizes the interface covered by the particle \cite{davies_dipolar_2015, davies_interface_2014}. Energy must be imparted to rotate the particles
 out of the interface. Upon application of shear, the orientation of particles on the interface will be a function of the applied shear rate, 
-applied magnetic field and the capillary forces of the interface on the particle. \cite{cao_modeling_2021, chhabra_drag_1999, brenner_stokes_1963, naga_capillary_2021}
-Therefore, the degree of interface angle change observed can shed light onto the rheological 
+applied magnetic field and the capillary forces of the interface on the particle \cite{cao_modeling_2021, chhabra_drag_1999, brenner_stokes_1963, naga_capillary_2021}.
+Therefore, the degree of orientational realignment observed can shed light onto the rheological 
 differences of bijels stabilized by prolate and oblate particles as the shear stress determined is affected by the particle rotation on the interface. We focus on
 the effect of particle alignment to the shear direction to isolate the effect of shear driven particle realignment at the interface. 
 
-To assess the particle alignment to the applied shear, we calculate the average angle to the direction of shear, $\langle \theta_z \rangle$. This is calculated
-by calculating the angle between the orientation vector $\vec{o}$ and the z axis $\vec{r_z}$ given by 
-$\theta_z = \arccos(\frac{ \vec{o} \cdot \vec{r_z} }{ |\vec{o}| |\vec{r_z}| })$. This is done for all particles with $\langle \theta_z \rangle$ calculated from
-by taking the numerical average of $\theta_z$ for all particles. The results are plotted in Figure \ref{fig:theta_z_specific}.
+To assess the particle alignment to the applied shear, we calculate the average angle to the direction of shear, $\langle \theta_z \rangle$ by calculating the angle 
+between the orientation vector $\vec{o}$ and the z axis $\vec{r_z}$ given by $\theta_z = \arccos(\frac{ \vec{o} \cdot \vec{r_z} }{ |\vec{o}| |\vec{r_z}| })$. 
+This is done for all particles with the numerical mean of all particles, $\langle \theta_z \rangle$, plotted in Figure \ref{fig:theta_z_specific}.
 
 \begin{figure} 
     \centering 
@@ -198,13 +198,12 @@ by taking the numerical average of $\theta_z$ for all particles. The results are
     \label{fig:theta_z_specific} 
 \end{figure}
 
-From Figure \ref{fig:theta_z_specific}, the effect of the aspect ratio of the particle stabilizer and the ordering of particles to the magnetic field. For oblate 
-particles, the change in $\langle \theta_z \rangle$ over time can be seen to stay approximately the same at shear rates below $Ca = 1e-4$ However at higher shear rates,
-$\langle \theta_z \rangle$ increases rapidly. When comparing this to the results when beginning with magnetic field ordering, $\langle \theta_z \rangle$ can be seen to
-stay approximately the same only at $Ca = 1e-6$. This indicates shear driven reorientation of particles at the interface occurs at higher shear rates in bijels stabilized
-with disordered particles and matching the trend observed in the yield stress. The results for the prolate particles show that particle order increases the applied shear
-necessary to cause particle reorientation on the interface. When taking the $\langle Q6 \rangle$ results into context from Figure \ref{fig:q6_rheology_init}, 
-the effect of magnetic field driven ordering of particles can be seen.
+From Figure \ref{fig:theta_z_specific}, the effect of the aspect ratio of the particle stabilizer and the ordering of particles to the magnetic field can be seen. For oblate 
+particles, $\langle \theta_z \rangle$ stays approximately the same at shear rates below $\text{Ca_s} = 10^{-4}$. However at higher shear rates,
+$\langle \theta_z \rangle$ increases rapidly, indicating that the particle monolayer is reorienting due to the applied shear. When comparing this to the results when beginning with 
+magnetic field ordering, $\langle \theta_z \rangle$ can be seen to stay unaffected by shear only at $\text{Ca_s} = 10^{-6}$. This indicates shear driven reorientation of particles at the interface 
+occurs at higher shear rates in bijels stabilized with disc-like particles with orientational disorder. matching the trend observed in the yield stress. The results for the prolate particles show 
+that particle order increases the applied shear necessary to cause particle reorientation on the interface.
 
 As the particles are adsorbed onto the interface, there is an open question whether the reorientation of particles to the shear also causes the interface to move with the
 particles. To analyze this effect, we analyzed the angle between each particles symmetry axis and the local interface, calculated in the technique described in Chapter 4.
@@ -220,24 +219,22 @@ Figure~\ref{fig:interface_angle_shear}.
     \label{fig:interface_angle_shear} 
 \end{figure}
 
-The interfacial angle results reveal how particle orientation relative to the local interface evolves under varying shear conditions, highlighting the interplay between particle shape, 
-initial ordering, and shear rate. For disc-like particles, $\langle \psi \rangle$ increases steadily with time, especially at higher shear rates, indicating that shear 
-flow drives discs to tilt further away from the interface normal. This effect is strengthened when the particles are initially ordered as the particles are easier to rotate out of the
+For disc-like particles, $\langle \psi \rangle$ increases steadily with time, especially at higher shear rates, indicating that shear 
+flow drives discs to tilt further away from the interface. This effect is strengthened when the particles are initially ordered as the particles are easier to rotate out of the
 interface when they are tilted. In contrast, rod-like particles exhibit more modest changes in $\langle \psi \rangle$ as the particles are closer to lying flat on the interface, meaning
 that higher shear rates are needed to tilt them out of the interface. This effect can be seen more clearly when comparing the results for ordered disc and rod like particles, with
 rod like particles demonstrating smaller average interfacial tilting than disc like particles.  
 
 Comparing the trends in $\langle \psi \rangle$ and $\langle \theta_z \rangle$ reveals a complementary view of how shear flow governs particle reorientation in bijels. For systems 
 stabilized with oblate particles under no magnetic field and prolate particles subjected to a magnetic field, the results show that at low shear rates, particles largely resist 
-reorientation due to interfacial jamming and anchoring forces. However, as the shear rate increases, both $\langle \psi \rangle$ and $\langle \theta_z \rangle$ rise, indicating that 
-particles begin to tilt away from both the interface normal and the shear direction. This suggests that while the particles remain adsorbed at the interface, the imposed shear is strong 
-enough to overcome local resistance and drive reorientation. The resulting changes in local packing and alignment are reflected in variations in the bond-orientational order parameter 
-$\langle Q6 \rangle$.
+reorientation due to interfacial jamming, strengthened through a greater number of particle contacts. However, as the shear rate increases, both $\langle \psi \rangle$ and 
+$\langle \theta_z \rangle$ rise, indicating that particles begin to tilt away from the interface and the shear direction. This suggests that while the particles remain adsorbed 
+at the interface, the imposed shear is strong enough to overcome local resistance and drive reorientation.
 
 \section{Conclusions}
 
 In this study, we investigated the rheological behavior of bijels stabilized by magnetically responsive ellipsoidal particles subjected to constant shear. 
-In systems like Solvent Transfer Induced Phase Separation (STrIPS) and Vapor-Induced Phase Separation (VIPS), rheology plays a key role in determining the
+In systems like STrIPS and VIPS, rheology plays a key role in determining the
 microstructure and morphology of the bijel. The presence of anisotropic particles and external magnetic fields further complicates this behavior 
 by altering interfacial structure. To systematically probe these effects, we employed a hybrid Lattice Boltzmann-Molecular Dynamics (LBM-MD) simulation 
 framework to evaluate how particle shape, magnetic field history, and interfacial microstructure jointly influence the flow response of bijels. 
