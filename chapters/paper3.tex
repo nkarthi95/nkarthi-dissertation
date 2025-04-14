@@ -48,9 +48,9 @@ near-equilibrium interfacial response.
 
 \subsection{Viscosity measurement}
 
-Particle ordering plays a critical role in determining the rheological behavior of suspensions, as aligned particles can more readily slide past one another 
-under shear, delaying structural breakdown. In bijels, where particles are adsorbed at the fluid-fluid interface, this interfacial confinement may significantly 
-influence the degree of slip and the onset of yielding. Prior studies have shown that bijels exhibit shear-thinning behavior consistent with Herschel-Bulkley rheology, 
+Particle ordering is one factor that affects the rheological behavior of suspensions, as aligned particles reduce particle-fluid interactions, reducing the
+induced shear stress. In bijels, where particles are adsorbed at the fluid-fluid interface, interfacial confinement may significantly 
+influence the degree of slip and the onset of yielding. Prior studies have shown that bijels exhibit shear-thinning behavior consistent with the Herschel-Bulkley fluid model, 
 indicating a non-Newtonian response governed by both interfacial structure and particle dynamics \cite{macmillan_rheological_2019}. To investigate these effects in 
 the presence of magnetic fields and varying degrees of particle ordering, we apply constant shear to the bijel templates and plot the resulting time evolution of 
 the shear stress, as shown in Figure~\ref{fig:stress_time}.
@@ -87,10 +87,9 @@ the imposed capillary number, $Ca_s$. The resulting fits for the various bijel s
 \begin{figure} 
     \centering 
     \includegraphics[scale=0.5]{../figures/results/paper3/stress_strain-all.png} 
-    \caption{Fitting the experimental shear stress to the strain rate using the Herschel-Bulkley model. We characterize the bijels are 
-             shear thinning in all cases and that the bijels become less shear thinning as the particle order increases. We also
-             demonstrate that the particle ordering affects the yield stress differently for particles stabilized by oblate and 
-             prolate particles.} 
+    \caption{Fitting the experimental shear stress to the strain rate using the Herschel-Bulkley model for bijels stabilized by
+             ellipsoidal particles with no magnetic field applied $\bar{B} = 0$ and an applied field of $\bar{B} = 1$ when starting at different
+             initial microstructures.} 
     \label{fig:stress_strain} 
 \end{figure}
 
@@ -195,8 +194,7 @@ by taking the numerical average of $\theta_z$ for all particles. The results are
     \includegraphics[scale=0.5]{../figures/results/paper3/theta_z-time_compare-specific.png} 
     \caption{Comparisons of the average orientation of particles to the direction of the applied shear for bijels stabilized by
              ellipsoidal particles as a function of the applied shear rate for bijels made with no field and a field strength of $\bar{B} = 1$,
-             keeping the field strength the same. We show that the orientation of particles to the applied shear is dependent on the
-             applied shear rate, particle ordering to the field and the particle shape.} 
+             keeping the field strength the same.} 
     \label{fig:theta_z_specific} 
 \end{figure}
 
@@ -218,8 +216,7 @@ Figure~\ref{fig:interface_angle_shear}.
     \includegraphics[scale=0.5]{../figures/results/paper3/psi-time_compare-specific.png} 
     \caption{Comparisons of the average orientation of particles to the interface for bijels stabilized by
              ellipsoidal particles as a function of the applied shear rate for bijels made with no field and a field strength of $\bar{B} = 1$,
-             keeping the field strength the same. We show that the particles tilt out of the interface upon application of shear with the degree of
-             interfacial tilting a function of the initial particle order and particle shape.} 
+             keeping the field strength the same during shear.} 
     \label{fig:interface_angle_shear} 
 \end{figure}
 
@@ -235,7 +232,7 @@ stabilized with oblate particles under no magnetic field and prolate particles s
 reorientation due to interfacial jamming and anchoring forces. However, as the shear rate increases, both $\langle \psi \rangle$ and $\langle \theta_z \rangle$ rise, indicating that 
 particles begin to tilt away from both the interface normal and the shear direction. This suggests that while the particles remain adsorbed at the interface, the imposed shear is strong 
 enough to overcome local resistance and drive reorientation. The resulting changes in local packing and alignment are reflected in variations in the bond-orientational order parameter 
-$\langle Q6 \rangle$, particularly under conditions where the bijel retains structural integrity and resists complete flow-induced breakdown.
+$\langle Q6 \rangle$.
 
 \section{Conclusions}
 
