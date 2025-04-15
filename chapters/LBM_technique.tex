@@ -32,27 +32,19 @@ where $\rho$ is the fluid density and $\vec{u}$ is the fluid velocity. Based on 
 $\nabla\cdot \vec{u} = 0$ The momentum conservation equation can also be written by applying Newton's second law to the fluid element. This yields the Cauchy momentum equation, 
 where changes in momentum arise due to pressure gradients, viscous stresses, and body forces. The general form of the momentum equation is given by,
 
-% \begin{equation}
-    % \rho \left(\frac{\partial u_i}{\partial t} + (u_i\cdot\frac{\partial u_i}{x_i}) \right) = \frac{\partial \sigma_{ij}}{\partial x_j} + f_i
-% \end{equation}
-
 \begin{equation}
-    \rho \left( \frac{\partial \vec{u}}{\partial t} + (\vec{u}\cdot \nabla \vec{u})  \right) = \nabla \cdot \sigma + \vec{f}
+    \rho \left( \frac{\partial \vec{u}}{\partial t} + (\vec{u}\cdot \nabla \vec{u})  \right) = \nabla \cdot \vec{\vec{\sigma}} + \vec{f}
 \end{equation}
 
-where $\vec{f}$ is the force exerted on the fluid from external forces such as gravity or magnetic interactions and $\sigma$ is the stress tensor. For a Newtonian, isotropic fluid, 
-the viscous stress tensor is given by
-
-% \begin{equation}
-%     \sigma_{ij} = -p\delta_{ij} + \eta((\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}) - \frac{2}{3}(\frac{\partial u_j}{\partial x_i})^2\delta_{ij})
-% \end{equation}
+where $\vec{f}$ is the force exerted on the fluid from external forces such as gravity or magnetic interactions and $\vec{\vec{\sigma}}$ is the stress tensor. 
+For a Newtonian, isotropic fluid, the viscous stress tensor is given by
 
 \begin{equation}
-    \sigma = -P\mathbb{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T -\frac{2}{3}(\nabla \vec{u})\mathbb{I} \right)
+    \vec{\vec{\sigma}} = -P\mathbb{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T\right) - \frac{2}{3}(\nabla \cdot \vec{u})\mathbb{I} 
 \end{equation}
 
-Substituting this stress tensor into the momentum equation and using the relation, $\nabla\cdot \vec{u} = 0$ from the incompressibility constraint, the incompressible 
-Navier-Stokes equation can be derived given by,
+An additional approximation is made that that bulk and dynamic viscosities are related by $\lambda = -\frac{2}{3} \eta$. Substituting this stress tensor into the momentum equation 
+and using the relation, $\nabla\cdot \vec{u} = 0$ from the incompressibility constraint, the incompressible Navier-Stokes equation can be derived given by,
 
 \begin{equation}
     \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla P + \eta \nabla^2 \vec{u} + \vec{f}
@@ -80,7 +72,7 @@ where viscous effects dominate, $Re << 1$ the dimensionless pressure is defined 
     Re\left( \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}}  \right) = \nabla^2 \bar{\vec{u}} - \nabla\bar{P}
 \end{equation}
 
-When substituting the value of $Re$ into the above, the Stokes equation is recovered.
+When substituting the value of $Re$ into the above and approximating the LHS to 0, the Stokes equation is recovered.
 
 \section{Phase separation}
 
@@ -120,7 +112,7 @@ coarsening. The momentum conservation equation in this framework is given by,
 % and effectively couples the compositional dynamics to the fluid flow.
 
 The CHNS model enables simulation of complex phase-separating fluid systems, capturing both the interfacial evolution and the momentum transfer within the fluid. In the context of bijels, this 
-model can be used to predict the formation and stabilization of the bicontinuous structure, especially when interfacial jamming by colloidal particles is introduced in more advanced extensions.
+model can be used to predict the formation and stabilization of the bicontinuous structure, especially when interfacial jamming by colloidal particles is introduced.
 
 \section{Implementing the multicomponent Lattice Boltzmann Method} 
 \label{section:lbm_hydrodynamics}
@@ -169,7 +161,8 @@ collision step in LBM, using the BGK operator, is expressed in Equation \ref{eq:
 
 The BGK operator limits simulations to low reynolds number and mach numbers to prevent numerical instabilities. 
 \cite{qian_lattice_1992} The kinematic viscosity, if using the BGK operator, is obtained from the Chapman-Enskog expansion of \ref{eq:LBM_BGK}
-as $\nu = c_s^2(\tau - \frac{\Delta t}{2})$. The equilibrium distribution is obtained from a projection of the 
+as $\nu = c_s^2(\tau - \frac{\Delta t}{2})$. $c_s$ is the speed of sound of the lattice and is set to $c_s = \frac{1}{\sqrt{3}}$ in the D3Q19 velocity set. 
+The equilibrium distribution is obtained from a projection of the 
 Maxwell-Boltzmann distribution onto Hermite polynomials. \cite{he_theory_1997, succi_lattice_2018} This is shown in equation 
 \ref{eq:LBM_Feq}.
 
@@ -178,9 +171,8 @@ Maxwell-Boltzmann distribution onto Hermite polynomials. \cite{he_theory_1997, s
     \label{eq:LBM_Feq}
 \end{equation}
 
-where $w_i$ and $\vec{c}_i$ correspond to the weights and lattice velocity vector of each direction in the D3Q19 lattice shown in Figure \ref{fig:d3q19_lattice}, $\rho$ and $\vec{u}$ are the fluid density
-and velocity at each lattice point, and $c_s$ is the speed of sound of the lattice, set to $c_s = \frac{1}{\sqrt{3}}$. $\rho$ and $\vec{u}$ can be calculated from the zeroth and first moment of the 
-mass distribution $f_i$, given by 
+where $w_i$ and $\vec{c}_i$ correspond to the weights and lattice velocity vector of each direction in the D3Q19 lattice and $\rho$ and $\vec{u}$ are the fluid density
+and velocity at each lattice point. $\rho$ and $\vec{u}$ can be calculated from the zeroth and first moment of the mass distribution $f_i$, given by 
 
 \begin{equation}
     \begin{split}
@@ -191,7 +183,7 @@ mass distribution $f_i$, given by
 
 Using the Chapman-Enskog expansion, the Navier-Stokes equation at the incompressible limit at low Mach
 numbers can be recovered. \cite{qian_lattice_1992, he_lattice_1997} The regime accessible through this method is suitable 
-for simulations in this work as the $ 1 \leq Re \leq 100 $ and the mach number, $Ma < 0.01$, fulfilling the stability 
+for simulations in this work given that $Re < 100$ and $Ma < 0.01$, fulfilling the stability 
 criterion and usage requirements for the presented hydrodynamic model.
 The momentum flux tensor is calculated from the Chapman-Enskog expansion of \ref{eq:LBM_BGK} to the second order yielding,
 
@@ -304,8 +296,8 @@ Upon uncovering of a grid point, it is assigned a density value that represents 
     \label{eq:fill_particles}
 \end{equation}
 
-where $N_{\text{f}}$ is the number of fluid nodes around the node being uncovered and $\vec{c}_{i_{\text{f}}n}$ is the direction of the lattice velocity 
-in the grid point being uncovered that points to a surrounding fluid node.
+where $N_{\text{f}}$ is the number of fluid nodes around the uncovered node and $\vec{c}_{i_{\text{f}}n}$ is the lattice velocity 
+in the uncovered grid point that points to a surrounding fluid node.
 
 \subsection{Particles near contact}
 \label{section:particles_near_contact}
@@ -351,7 +343,7 @@ For the lubrication force \eqref{eq:lubrication}, we choose
 ${\gamma}=R_1+R_2$ and ${\epsilon}=\frac{6\pi\eta R_1^2 R_2^2}{{\gamma^3}}$, and for the
 Hertz potential we chose ${\gamma}=R_1+R_2$ and ${\epsilon}=K_H\gamma^{5/2}$. For two identical, rotationally
 symmetric ellipsoidal particles with unit orientation vectors $\hat{\vec{o}}_i$ and $\hat{\vec{o}}_j$, we then replace $\epsilon$ and $\gamma$ by
-the anisotropic functions
+the functions
 
 \begin{equation}
     \begin{split}
