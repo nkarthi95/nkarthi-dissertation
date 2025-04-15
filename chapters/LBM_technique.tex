@@ -36,11 +36,11 @@ where changes in momentum arise due to pressure gradients, viscous stresses, and
     \rho \left( \frac{\partial \vec{u}}{\partial t} + (\vec{u}\cdot \nabla \vec{u})  \right) = \nabla \cdot \vec{\vec{\sigma}} + \vec{f}
 \end{equation}
 
-where $\vec{f}$ is the force exerted on the fluid from external forces such as gravity or magnetic interactions and $\vec{\vec{\sigma}}$ is the stress tensor. 
-For a Newtonian, isotropic fluid, the viscous stress tensor is given by
+where $\vec{f}$ is the force exerted on the fluid from external forces such as gravity and $\vec{\vec{\sigma}}$ is the stress tensor. 
+For a Newtonian, isotropic fluid, the stress tensor is given by
 
 \begin{equation}
-    \vec{\vec{\sigma}} = -P\mathbb{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T\right) - \frac{2}{3}(\nabla \cdot \vec{u})\mathbb{I} 
+    \vec{\vec{\sigma}} = -P\mathbb{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T - \frac{2}{3}(\nabla \cdot \vec{u})\mathbb{I} \right)
 \end{equation}
 
 An additional approximation is made that that bulk and dynamic viscosities are related by $\lambda = -\frac{2}{3} \eta$. Substituting this stress tensor into the momentum equation 
@@ -248,8 +248,8 @@ rotational inertia defined using differential equations
 
 \begin{equation}
     \begin{split}
-    \vec{F_p} = m_p \frac{\vec{u}_p}{dt} , \\
-    \vec{D_p} = \vec{J}_p \frac{\vec{\omega}_p}{dt} ,
+    \vec{F_p} = m_p \frac{d \vec{u}_p}{dt} , \\
+    \vec{D_p} = \vec{J}_p \frac{d \vec{\omega}_p}{dt} ,
     \label{eq:md}
     \end{split}
 \end{equation}
@@ -384,15 +384,15 @@ can be found. These expressions are shown in equations \ref{eq:dipole_magnetic_f
 for the force and torque respectively.
 
 \begin{equation}
-    \vec{F}_{ij} = \frac{3 \mu_0 m_i m_j}{4 \pi} [\frac{5( \Hat{\vec{o_i}} \cdot \Hat{\vec{r_{ij}}} )(\Hat{\vec{o_j}}
+    \vec{F}_{ij} = \frac{3 \mu_0 m_i m_j}{4 \pi} \left[ \frac{5( \Hat{\vec{o_i}} \cdot \Hat{\vec{r_{ij}}} )(\Hat{\vec{o_j}}
     \cdot \Hat{\vec{r_{ij}}})}{|\vec{r_{ij}}^4|}\Hat{\vec{r_{ij}}} - \frac{(\Hat{\vec{o_i}} \cdot \Hat{\vec{o_j}})\Hat{\vec{r_{ij}}} + 
-    (\Hat{\vec{o_i}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_j}} + (\Hat{\vec{o_j}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_j}} }{|\vec{r_{ij}}|^4}]
+    (\Hat{\vec{o_i}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_j}} + (\Hat{\vec{o_j}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_j}} }{|\vec{r_{ij}}|^4} \right]
 \label{eq:dipole_magnetic_force}
 \end{equation}
 
 \begin{equation}
-    \vec{T}_{ij} = \frac{\mu_0 m_i m_j}{4 \pi}[ \frac{3(\Hat{\vec{o_j}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_i}} \times \Hat{\vec{r_{ij}}} }
-    {|\vec{r}_{ij}|^3} - \frac{\Hat{\vec{o_i}} \cdot \Hat{\vec{o_j}} }{|\vec{r}_{ij}|^3} ]
+    \vec{T}_{ij} = \frac{\mu_0 m_i m_j}{4 \pi}\left[ \frac{3(\Hat{\vec{o_j}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_i}} \times \Hat{\vec{r_{ij}}} }
+    {|\vec{r}_{ij}|^3} - \frac{\Hat{\vec{o_i}} \cdot \Hat{\vec{o_j}} }{|\vec{r}_{ij}|^3}\right]
     \label{eq:dipole_magnetic_torque}
 \end{equation}
 
