@@ -1,4 +1,4 @@
-Bijels require a multiscale modeling approach to accurately capture the rich array of physical phenomena 
+Bijels require a multiphysics modeling approach to accurately capture the rich array of physical phenomena 
 occurring across multiple length and time scales. Within a bijel, one must consider fluid flow, phase separation, particle-fluid coupling, and interparticle 
 interactions. The length scales of interest range in the hundreds of nanometer to  tens of micron scale, demanding a model capable of resolving fine structural details while also 
 capturing mesoscale dynamics. In the following sections, a comprehensive review of the relevant physical processes is provided, laying the foundation for the 
@@ -29,18 +29,26 @@ If $\theta = 1$ and $Q = 0$ the continuity equation for fluid density can be wri
 \end{equation}
 
 where $\rho$ is the fluid density and $\vec{u}$ is the fluid velocity. Based on the system being modeled, we assume that the fluid is incompressible, reducing the continuity equation to
-$\nabla\cdot \vec{u} = 0$ The momentum conservation equation can also be written by applying Newton's second law to the fluid element. This yields the Cauchy momentum equation for an
-incompressible fluid, where changes in momentum arise due to pressure gradients, viscous stresses, and body forces. The general form of the momentum equation is given by,
+$\nabla\cdot \vec{u} = 0$ The momentum conservation equation can also be written by applying Newton's second law to the fluid element. This yields the Cauchy momentum equation, 
+where changes in momentum arise due to pressure gradients, viscous stresses, and body forces. The general form of the momentum equation is given by,
+
+% \begin{equation}
+    % \rho \left(\frac{\partial u_i}{\partial t} + (u_i\cdot\frac{\partial u_i}{x_i}) \right) = \frac{\partial \sigma_{ij}}{\partial x_j} + f_i
+% \end{equation}
 
 \begin{equation}
-    \rho \left(\frac{\partial u_i}{\partial t} + (u_i\cdot\frac{\partial u_i}{x_i}) \right) = \frac{\partial \sigma_{ij}}{\partial x_j} + f_i
+    \rho \left( \frac{\partial \vec{u}}{\partial t} + (\vec{u}\cdot \nabla \vec{u})  \right) = \nabla \cdot \sigma + \vec{f}
 \end{equation}
 
-where $f_i$ is the force exerted on the fluid from external forces such as gravity or magnetic interactions and $\sigma_{ij}$ is the stress tensor. For a Newtonian, isotropic fluid, 
+where $\vec{f}$ is the force exerted on the fluid from external forces such as gravity or magnetic interactions and $\sigma$ is the stress tensor. For a Newtonian, isotropic fluid, 
 the viscous stress tensor is given by
 
+% \begin{equation}
+%     \sigma_{ij} = -p\delta_{ij} + \eta((\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}) - \frac{2}{3}(\frac{\partial u_j}{\partial x_i})^2\delta_{ij})
+% \end{equation}
+
 \begin{equation}
-    \sigma_{ij} = -p\delta_{ij} + \eta((\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}) - \frac{2}{3}(\frac{\partial u_j}{\partial x_i})^2\delta_{ij})
+    \sigma = -p\mathbb{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T -\frac{2}{3}(\nabla \vec{u})\mathbb{I} \right)
 \end{equation}
 
 Substituting this stress tensor into the momentum equation and using the relation, $\nabla\cdot \vec{u} = 0$ from the incompressibility constraint, the incompressible 
@@ -50,24 +58,17 @@ Navier-Stokes equation can be derived which in vector notation is given by,
     \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla p + \eta \nabla^2 \vec{u} + \vec{f}
 \end{equation}
 
-In the single component case, $-\nabla p = \vec{f} = 0$ as there are no external forces like gravity acting on the fluid and there are is no hydrodynamic pressure being applied to the 
-fluid resulting in the following form of the incompressible Navier Stokes equation.
-
-\begin{equation}
-    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = \eta \nabla^2 \vec{u}
-\end{equation}
-
 To facilitate numerical simulation and analysis, it is often useful to express the Navier-Stokes equation in non-dimensional form. Introducing characteristic scales for length 
 $l_0$, time $t_0$, and density $\rho_0$, dimensionless variables are defined as
 
 \begin{equation}
-    \bar{l} = \frac{l}{l_0}, \quad \bar{t} = \frac{t}{t_0}, \quad \bar{\rho} = \frac{\rho}{\rho_0}
+    \bar{l} = \frac{l}{l_0}, \quad \bar{t} = \frac{t}{t_0}, \quad \bar{\rho} = \frac{\rho}{\rho_0}, \quad \bar{\vec{u}} = \frac{\bar{l}}{\bar{t}}, 
 \end{equation}
 
 Substituting these into the incompressible Navier-Stokes equation leads to the dimensionless form:
 
 \begin{equation}
-    \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}} = \frac{1}{Re} \nabla^2 \bar{\vec{u}}
+    \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}} = \frac{1}{Re} \nabla^2 \bar{p} = \frac{p}{\rho \vec{u}^2} - \nabla\bar{p}
 \end{equation}
 
 where the Reynolds number is defined as $Re = \frac{\rho_0 u_0 l_0}{\eta}$ which characterizes the ratio of inertial to viscous forces in the system.
@@ -76,18 +77,30 @@ where the Reynolds number is defined as $Re = \frac{\rho_0 u_0 l_0}{\eta}$ which
 
 Bijels form through spinodal decomposition of two partially miscible fluids, a process that can be effectively modeled using the Cahn-Hilliard equation. \cite{cahn_spinodal_1961} While the
 original equation is written for a concentration of species $c$. For a binary mixture, it can be recast in terms of a conserved scalar order parameter $\phi$, typically representing the 
-local concentration difference between the two fluid components,
+local concentration difference between the two fluid components. As we are also accounting for the effect of hydrodynamics on the flow of mass, the advection term
+from the mass flux $\vec{J}$ cannot be set to 0. Therefore the Cahn-Hilliard equation is given by,
 
 \begin{equation}
-    \frac{\partial \phi}{\partial t} = \nabla \cdot \left( M \nabla \mu \right)
+    \begin{split}
+        \nabla \cdot \vec{J} &= \nabla \cdot \vec{u} - M \nabla \mu \\
+        \frac{\partial \phi}{\partial t} + \nabla \cdot \vec{J} &= 0 \\
+        \frac{\partial \phi}{\partial t} + \nabla \cdot \phi \vec{u} &= \nabla \cdot \left( M \nabla \mu \right)
+    \end{split}
 \end{equation}
 
 Here, $M$ is the mobility coefficient and $\mu$ is the chemical potential, which is derived from the variation of the free energy functional $F[\phi]$ which is the sum of a bulk free energy
-$f(\phi)$ and an interfacial contribution. This formulation allows for the modeling of 
-interfacial tension and the spontaneous formation of bicontinuous domains characteristic of spinodal decomposition.
-To capture not only the diffusive separation of phases but also the resulting fluid motion, the Cahn-Hilliard equation is coupled with the Navier-Stokes equations, leading to the 
-Cahn-Hilliard-Navier-Stokes (CHNS) framework. This coupling is essential in systems like bijels, where advection play a significant role in domain coarsening and morphology arrest. 
-The momentum conservation equation in this framework is given by,
+$f(\phi)$ and an interfacial contribution. This formulation allows for the modeling of interfacial tension and the spontaneous formation of bicontinuous domains characteristic of spinodal decomposition.
+To capture not only the diffusive separation of phases but also the resulting fluid motion, the Cahn-Hilliard equation is coupled with the Navier-Stokes equation. This is done
+through the pressure which is expressed as the sum of the mechanical $p$ and chemical pressure $p_{chem}$ contributions to yield $p_{tot} = p + p_{chem}$. For a binary system, $p_{chem}$ 
+can be written as a function of $\phi$ given by,
+
+\begin{equation}
+    p_{chem} = \left[ \phi \mu - f(\phi) - \kappa(\phi \nabla^2 \phi + \frac{1}{2}|\nabla \phi |^2 )\right] \mathbb{I} + \kappa \nabla \phi \otimes \nabla \phi
+\end{equation}
+
+The divergence of the above expression is found to be $\nabla \cdot p_{chem} = -\phi \nabla \mu$. Substituting the $p_{tot}$ for $p$ in the Navier Stokes equation,
+the Cahn-Hilliard-Navier-Stokes (CHNS) framework is obtained. This coupling is essential in systems like bijels, where advection play a significant role in domain 
+coarsening and morphology arrest. The momentum conservation equation in this framework is given by,
 
 \begin{equation}
     \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = \eta \nabla^2 \vec{u} - \nabla p - \phi \nabla \mu
@@ -151,8 +164,7 @@ Maxwell-Boltzmann distribution onto Hermite polynomials. \cite{he_theory_1997, s
 \ref{eq:LBM_Feq}.
 
 \begin{equation}
-    f_{i}^{eq}(\rho, \vec{u}) = w_i\rho(1 + \frac{\mathbf{c_i} \cdot \mathbf{u}}{c_s^2} + \frac{ \vec{u}(c_{i,\alpha}c_{i,\beta}-c_s^2\mathbb{I}) }{2c_s^4})
-    % \frac{(\mathbf{c_i} \cdot \mathbf{u})^2}{2c_s^4} + \frac{\mathbf{u} \cdot \mathbf{u}}{2c_s^2})
+    f_i^{\text{eq}}(\rho, \vec{u}) = w_i \rho \left( 1 + \frac{\vec{c}_i \cdot \vec{u}}{c_s^2} + \frac{(\vec{c}_i \otimes \vec{c}_i - c_s^2 \mathbb{I}) : (\vec{u} \otimes \vec{u})}{2c_s^4} \right)
     \label{eq:LBM_Feq}
 \end{equation}
 
@@ -173,12 +185,11 @@ distribution,
     \end{split}
 \end{equation}
 
-The momentum flux tensor is calculated from the Chapman-Enskog expansion of \ref{eq:LBM_BGK} to the first order yielding,
+The momentum flux tensor is calculated from the Chapman-Enskog expansion of \ref{eq:LBM_BGK} to the second order yielding,
 
 \begin{equation}
     \begin{split}
-        \rho\frac{\partial \vec{v}}{\partial t} + \nabla \cdot \Pi &= 0 \\
-        \Pi_{\alpha \beta} &= \sum_i \mathbf{c_i}_\alpha \mathbf{c_i}_\beta (f_i^{eq} + (1 - \frac{1}{2 \tau})f_i^1)
+        \rho\frac{\partial \vec{u}}{\partial t} + \nabla \cdot \Pi &= 0 \\
     \end{split}
 \end{equation}
 
@@ -186,12 +197,14 @@ The momentum flux tensor can be further expressed as a sum of the equilibrium an
 
 \begin{equation}
     \begin{split}
-        \Pi^{(0)}_{\alpha \beta} &= \sum_i \mathbf{c_i}_\alpha \mathbf{c_i}_\beta f_i^{eq} = p \delta_{\alpha \beta} + \rho \vec{u}_\alpha \vec{u}_\beta \\
-        \Pi^{(1)}_{\alpha \beta} &= (1 - \frac{1}{2 \tau})\sum_i \mathbf{c_i}_\alpha \mathbf{c_i}_\beta f_i^{eq} = \nu (\nabla_{\alpha}(\rho \vec{\beta}) + \nabla_{\beta}(\rho \vec{\alpha}))
+        % \Pi^{(0)}_{\alpha \beta} &= \sum_i \mathbf{c_i}_\alpha \mathbf{c_i}_\beta f_i^{eq} = p \delta_{\alpha \beta} + \rho \vec{u}_\alpha \vec{u}_\beta \\
+        % \Pi^{(1)}_{\alpha \beta} &= (1 - \frac{1}{2 \tau})\sum_i \mathbf{c_i}_\alpha \mathbf{c_i}_\beta f_i^{eq} = \nu (\nabla_{\alpha}(\rho \vec{\beta}) + \nabla_{\beta}(\rho \vec{\alpha}))
+        \Pi^{(0)} &= \sum_i f_i^{eq} \vec{c}_i \otimes \vec{c}_i = p\mathbb{I} + \rho \vec{u} \otimes \vec{u} \\
+        \Pi^{(1)} &= (1 - \frac{1}{2 \tau})\sum_i f_i^{neq} \vec{c}_i \otimes \vec{c}_i = -\eta (\nabla \vec{u} + (\nabla \vec{u})^T)
     \end{split}
 \end{equation}
 
-With $p = \rho c_s^2$ and $\delta_{\alpha \beta}$ the kronecker delta.
+With $p = \rho c_s^2$.
 
 \subsection{Non-ideal mixing}
 \label{section:lbm_non_ideal_mixing}
@@ -356,7 +369,7 @@ force are then defined as
 The magnetic dipole potential is defined as
 
 \begin{equation}
-    \mathbf{U_{ij}} = \frac{\mu_0 \vec{m}_i \vec{m}_j}{4\pi |r_{ij}|^{3}} \left[ \vec{o}_i \cdot \vec{o}_j - 
+    U_{ij} = \frac{\mu_0 \vec{m}_i \vec{m}_j}{4\pi |r_{ij}|^{3}} \left[ \vec{o}_i \cdot \vec{o}_j - 
     3(\vec{o}_i \cdot \vec{r}_{ij})(\vec{o}_j \cdot \vec{r}_{ij}) \right]
     \label{eq:magnet_potential}
 \end{equation}
@@ -368,14 +381,14 @@ can be found. These expressions are shown in equations \ref{eq:dipole_magnetic_f
 for the force and torque respectively.
 
 \begin{equation}
-    \mathbf{F}_{ij} = \frac{3 \mu_0}{4 \pi} [\frac{5(\vec{m}_i \cdot \vec{r}_{ij} )(\vec{m}_j
+    \vec{F}_{ij} = \frac{3 \mu_0}{4 \pi} [\frac{5(\vec{m}_i \cdot \vec{r}_{ij} )(\vec{m}_j
     \cdot \vec{r}_{ij})}{|\vec{r}_{ij}|^7}\vec{r}_{ij} - \frac{(\vec{m}_{i} \cdot \vec{m}_{j})\vec{r}_{ij} + 
     (\vec{m}_{i} \cdot \vec{r}_{ij})\vec{m}_{i} + (\vec{m}_{j} \cdot \vec{r}_{ij})\vec{m}_{j} }{|\vec{r}_{ij}|^5}]
 \label{eq:dipole_magnetic_force}
 \end{equation}
 
 \begin{equation}
-    \mathbf{T}_{ij} = \frac{\mu_0}{4 \pi}[ \frac{3(\vec{m}_{j} \cdot \vec{r}_{ij})m_i \times \vec{r}_{ij} }
+    \vec{T}_{ij} = \frac{\mu_0}{4 \pi}[ \frac{3(\vec{m}_{j} \cdot \vec{r}_{ij})m_i \times \vec{r}_{ij} }
     {|\vec{r}_{ij}|^5} - \frac{\vec{m}_{i} \cdot \vec{m}_{j} }{|\vec{r}_{ij}|^3} ]
     \label{eq:dipole_magnetic_torque}
 \end{equation}
@@ -384,12 +397,12 @@ Equations \ref{eq:magnet_force} and \ref{eq:magnet_torque} are used to calculate
 field exerts on each particle.
 
 \begin{equation}
-    \mathbf{F_{j}} = \vec{m}_{j}(\vec{o}_{j} \cdot \nabla \vec{B}_{i})
+    \vec{F}_{j} = \vec{m}_{j}(\vec{o}_{j} \cdot \nabla \vec{B}_{i})
     \label{eq:magnet_force}
 \end{equation}
 
 \begin{equation}
-    \mathbf{\tau_j} = \vec{m}_{j}(\vec{o}_{j} \times \vec{B}_{i})
+    \vec{T}_{j} = \vec{m}_{j}(\vec{o}_{j} \times \vec{B}_{i})
     \label{eq:magnet_torque}
 \end{equation}
 
@@ -413,9 +426,9 @@ Parameters for the fluid, particle, and non-ideal mixing model used in the simul
 \centering
 \begin{tabular}{||c c c c c c c c c c c c c||} 
  \hline
- $t_{sim}$ & $L_x$ & $\rho_f$ & $\tau$ & $\eta_f$ & $g_{cc'}$ & $\sigma$ & $\phi_f$ & $\rho_p$ & $\phi_p$ & $V_p$ & $d_c$ & $K_H$ \\ [0.5ex] 
+ $t_{sim}$ & $L_x$ & $\rho_f $ & $\tau$ & $\eta_f $ & $g_{cc'} \Delta m(\Delta t)^2/(\Delta x)^5$ & $\sigma$ & $\phi_f$ & $\rho_p$ & $\phi_p$ & $V_p (\Delta x)^3$ & $d_c \Delta x$ & $K_H$ \\ [0.5ex] 
  \hline\hline
- $10^5$ & 256 & 0.7 & 1 & 0.117 & 0.08 & 0.0267 & 0.5 & 1 & 0.15 & 2000$\pi$ & 2/3 & 100\\ [1ex] 
+ $10^5 \Delta t$ & 256$\Delta x$ & 0.7 $\frac{\Delta m}{(\Delta x)^3}$ & 1$\Delta t$ & 0.117 $\frac{\Delta m}{\Delta x \Delta t}$ & 0.08 & 0.0267 $\frac{\Delta m}{(\Delta t)^2}$ & 0.5 & 1 $\frac{\Delta m}{(\Delta x)^3}$ & 0.15 & 2000$\pi (\Delta x)^3$ & 2/3 $\Delta x$& 100 $(\Delta x)^{1/2}(\Delta t)^2/\Delta m$\\ [1ex] 
  \hline
 \end{tabular}
 \caption{Summary of the fluid, particle and model parameters used in the proposed simulations}

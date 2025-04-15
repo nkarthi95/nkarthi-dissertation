@@ -17,7 +17,7 @@ energy and phase diagram is shown in Figure \ref{fig:phase_diagram}
     \label{fig:phase_diagram}
 \end{figure}
 
-The thermodynamic equilibrium of a binary fluid mixture can be described by its Gibbs free energy, given as $G = \Delta H - T \Delta S$, where \(\Delta H\) is the enthalpy change, 
+The thermodynamic equilibrium of a binary fluid mixture can be described by its Gibbs free energy, given as $\Delta G = \Delta H - T \Delta S$, where \(\Delta H\) is the enthalpy change, 
 \(T\) is temperature, and \(\Delta S\) is the entropy change. The onset of phase separation occurs at the binodal line, defined where \(\frac{dG}{dx} = 0\), with \(x\) representing the composition. 
 Although the system is metastable, it remains uniform until fluctuations give rise to small nuclei. The free energy of each nucleus reflects a 
 balance between the bulk free energy gain from phase separation and the interfacial energy penalty, expressed as \(\Delta G = \frac{4}{3}\pi r^3 \Delta g_v + 4 \pi r^2 \sigma\), where \(r\) is 
@@ -33,7 +33,7 @@ Within this region, the system is unstable to even infinitesimal composition flu
 separation proceeds spontaneously without the need for nucleation. This process, known as spinodal decomposition, is characterized by the continuous and simultaneous growth of interconnected 
 domains of both phases \cite{cahn_free_1958}. Unlike nucleation and growth, which relies on localized events, spinodal decomposition 
 results in a bicontinuous structure driven by the system's attempt to minimize 
-free energy through composition modulation \cite{cahn_free_1958}. The dynamics of spinodal decomposition were characterized by Cahn and Hilliard \cite{cahn_spinodal_1961}. 
+free energy through composition modulation \cite{cahn_free_1958}. The dynamics of spinodal decomposition were characterized by Cahn \cite{cahn_spinodal_1961}. 
 We first begin by defining the free energy of a regular binary solution given by,
 
 \begin{equation}
@@ -82,8 +82,7 @@ by redistributing the order parameter according to gradients in chemical potenti
 continuous transitions between phases, making it highly suitable for modeling non-ideal mixing in systems such as bijels.
 
 The most important difference between these two phase separation methods is the morphology of the phase separated structure. While nucleation and growth generates discontinuous droplets,
-spinodal decomposition creates continuous domains that have tunable domain sizes and tortuosity which are attractive in many materials applications such as battery electrodes, filtration
-membranes and catalyst supports.
+spinodal decomposition creates continuous domains which are attractive in many materials applications such as battery electrodes, filtration membranes and catalyst supports.
 
 \section{Solid particles at fluid interfaces}
 

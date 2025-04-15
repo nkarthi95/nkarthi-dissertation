@@ -11,23 +11,49 @@ particle's cross-sectional area. The system's velocity and length scale are set 
 Parameters for the fluid, particle, and non-ideal mixing model used in the simulations are summarized in Table 
 \ref{table:model_params}.
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{||c c c c c c c c c c c c c||} 
- \hline
- $t_{sim}$ & $L_x$ & $\rho_f$ & $\tau$ & $\eta_f$ & $g_{cc'}$ & $\sigma$ & $\phi_f$ & $\rho_p$ & $\phi_p$ & $V_p$ & $d_c$ & $K_H$ \\ [0.5ex] 
- \hline\hline
- $10^5$ & 256 & 0.7 & 1 & 0.117 & 0.08 & 0.0267 & 0.5 & 1 & 0.15 & 2000$\pi$ & 2/3 & 100\\ [1ex] 
- \hline
-\end{tabular}
-\caption{Summary of the fluid, particle and model parameters used in the proposed simulations}
-\label{table:model_params}
+% \begin{table}[h!]
+% \centering
+% \begin{tabular}{||c c c c c c c c c c c c c||} 
+%  \hline
+%  $t_{sim}$ & $L_x$ & $\rho_f$ & $\tau$ & $\eta_f$ & $g_{cc'}$ & $\sigma$ & $\phi_f$ & $\rho_p$ & $\phi_p$ & $V_p$ & $d_c$ & $K_H$ \\ [0.5ex] 
+%  \hline\hline
+%  $10^5$ & 256 & 0.7 & 1 & 0.117 & 0.08 & 0.0267 & 0.5 & 1 & 0.15 & 2000$\pi$ & 2/3 & 100\\ [1ex] 
+%  \hline
+% \end{tabular}
+% \caption{Summary of the fluid, particle and model parameters used in the proposed simulations}
+% \label{table:model_params}
+% \end{table}
+
+\begin{table}
+    \centering
+    \caption{Summary of the parameters corresponding to the fluid, particle and model used in the simulations}
+    \label{table:model_params}
+    \begin{tabular}{|c|r|}
+    \hline
+    % Parameter & Value \\
+    % \hline
+    $L_V/\Delta x$ & 256 \\
+    $\rho \cdot (\Delta x)^3/\Delta m$ & 0.7 \\
+    $\nu \cdot \Delta t/(\Delta x)^2$ & 1/6 \\
+    $\sigma \cdot (\Delta t)^2/\Delta m$ & 0.0267 \\
+    $\tau/\Delta t$ & 1 \\
+    $g \cdot \Delta m(\Delta t)^2/(\Delta x)^5$ & 0.08 \\
+    $\phi_f$ & 0.5 \\
+    $\phi_p$ & 0.15 \\
+    $n_p$ & 1200 \\
+    $\rho_p \cdot (\Delta x)^3/\Delta m$ & 1 \\
+    $V_p/(\Delta x)^3$ & $2000\pi/3$ \\
+    $m/(\Delta i(\Delta x)^2)$ & 1 \\
+    $d_c/\Delta x$ & 2/3 \\
+    $K_H\cdot (\Delta x)^{1/2}(\Delta t)^2/\Delta m$ & 100 \\
+    \hline
+    \end{tabular}
 \end{table}
 
 In these simulations, the aspect ratio is defined as $\alpha = \frac{R_{\parallel}}{R_{\perp}}$ with $\alpha = 0.5, 1, 2$ 
 used in these simulations. All particle geometries are volume matched, based on the spherical particle volume. For the 
-spherical particle, the radius was set at $R_{\parallel} = R_{\perp} = 7.9$ which sets the $\alpha = 0.5$ particles to 
-$R_{\parallel} = 5, R_{\perp} = 10$ and the $\alpha = 2$ particles to $R_{\parallel} = 12.6, R_{\perp} = 6.3$. 
+spherical particle, the radius was set at $R_{\parallel} = R_{\perp} = 7.9 \Delta x$ which sets the $\alpha = 0.5$ particles to 
+$R_{\parallel} = 5 \Delta x, R_{\perp} = 10 \Delta x$ and the $\alpha = 2$ particles to $R_{\parallel} = 12.6, R_{\perp} = 6.3 \Delta x$. 
 $R_{\parallel}$ and $R_{\perp}$ is the radius of the particle parallel and perpendicular to the symmetry axis of 
 the particle respectively. These values are identical to what was used in Gunther et al, allowing comparisons to the 
 trends they observed. \cite{gunther_timescales_2014} The particles were randomly placed in the system and an equilibration
@@ -47,11 +73,11 @@ Bijel templates have been synthesized using water/2-6-lutidine for further appli
 While intrinsically polymerizable bijels have been prepared using oligomeric polymers, STRIPS and VIPS currently 
 utilize small molecule liquids in their bijel casting mixtures. Therefore, an experimentally viable system using 
 water/2-6-lutidine will be discussed in the context of the work presented here. The critical temperature (UCST) 
-for this system is $T_c = 34 ^{\circ}C$, with many systems heated to $T = 40^{\circ}C$ to form the bijel. At this 
-temperature, the fluid properties are $\sigma = 0.22 mN/m$ and $\eta = 2.38 mPas$. \cite{grattoni_lower_1993} 
-Fei et al. developed a method to synthesize polystyrene microparticles ($(R_p = 2 \mu m)$) with tunable geometries 
+for this system is $T_c = 34 ^{\circ}\text{C}$, with many systems heated to $T = 40^{\circ}\text{C}$ to form the bijel. At this 
+temperature, the fluid properties are $\sigma = 0.22 \text{mN/m}$ and $\eta = 2.38 \text{mPas}$. \cite{grattoni_lower_1993} 
+Fei et al. developed a method to synthesize polystyrene microparticles ($(R_p = 2 \text{\mu m})$) with tunable geometries 
 by mechanically stretching or compressing them, then coating them with nickel to create magnetic microparticles with 
-a dipole moment of approximately$\approx 3 \cdot 10^{-14} Am^2$. \cite{fei_active_2017, fei_magneto-capillary_2020} 
+a dipole moment of approximately$\approx 3 \cdot 10^{-14} \text{Am^2}$. \cite{fei_active_2017, fei_magneto-capillary_2020} 
 Comparing the physical properties to simulation parameters, the simulations correspond to a length scale of
 $\Delta x = 252 \cdot 10^{-9} \text{m}$, timescale of $\Delta t = 624 \cdot 10^{-9} \text{s}$, 
 mass scale of $\Delta m = 2.24 \cdot 10^{-15} \text{kg}$ and charge scale of $\Delta q = 2.948 \cdot 10^{-7} \text{C}$. 
