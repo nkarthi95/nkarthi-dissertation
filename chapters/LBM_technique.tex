@@ -116,7 +116,7 @@ model can be used to predict the formation and stabilization of the bicontinuous
 \section{Implementing the multicomponent Lattice Boltzmann Method} 
 \label{section:lbm_hydrodynamics}
 
-The lattice boltzmann method works by evolving a population distribution $f_{i}(\mathbf{x}, t)$ on a cubic lattice with 
+The lattice boltzmann method works by evolving a population distribution $f_{i}(\vec{x}, t)$ on a cubic lattice with 
 timestep $\Delta t$ with lengthscale $\Delta x$. \cite{qian_lattice_1992, succi_lattice_2018, he_theory_1997} The cubic lattice or stencil is described
 DnQm where n and m represent the number of dimensions and directions in the stencil. \cite{succi_lattice_2018, schmieschek_lb3d_2017}
 Common stencils include the D1Q5, D2Q9 and D3Q19 stencil, all of which recover mass and momentum conservation and are Galilean invariant.
@@ -152,8 +152,8 @@ operator is selected due to the additional computational performance needed by M
 collision step in LBM, using the BGK operator, is expressed in Equation \ref{eq:LBM_BGK}.
 
 \begin{equation}
-    f_{i}(\mathbf{x} + \mathbf{c}_{i}\Delta t, t + \Delta t) = f_{i}(\mathbf{x}, t) - \frac{1}{\tau}(f_{i}(\mathbf{x}, t) 
-    - f_{i}^{eq}(\mathbf{x}, t))
+    f_{i}(\vec{x} + \vec{c}_{i}\Delta t, t + \Delta t) = f_{i}(\vec{x}, t) - \frac{1}{\tau}(f_{i}(\vec{x}, t) 
+    - f_{i}^{eq}(\rho, \vec{u}))
     \label{eq:LBM_BGK}
 \end{equation}
 
@@ -169,7 +169,7 @@ Maxwell-Boltzmann distribution onto Hermite polynomials. \cite{he_theory_1997, s
 \end{equation}
 
 $\rho$ and $\textbf{u}$ in Equation \ref{eq:LBM_Feq} are defined as the macroscopic parameters for density and velocity 
-and can be calculated from the mass distribution using $\rho = \sum f_i$ and $\rho \mathbf{u} = \sum f_i \mathbf{c}_i$ 
+and can be calculated from the mass distribution using $\rho = \sum f_i$ and $\rho \vec{u} = \sum f_i \vec{c}_i$ 
 respectively. Using the Chapman-Enskog expansion, the Navier-Stokes equation at the incompressible limit at low Mach
 numbers can be recovered. \cite{qian_lattice_1992, he_lattice_1997} The regime accessible through this method is suitable 
 for simulations in this work as the $ 1 \leq Re \leq 100 $ and the mach number, $Ma < 0.01$, fulfilling the stability 
@@ -181,7 +181,7 @@ distribution,
 \begin{equation}
     \begin{split}
         \rho &= \sum_i f_i \\
-        \rho\vec{u} &= \sum_i f_i \mathbf{c_i}
+        \rho\vec{u} &= \sum_i f_i \vec{c}_i
     \end{split}
 \end{equation}
 
@@ -197,8 +197,6 @@ The momentum flux tensor can be further expressed as a sum of the equilibrium an
 
 \begin{equation}
     \begin{split}
-        % \Pi^{(0)}_{\alpha \beta} &= \sum_i \mathbf{c_i}_\alpha \mathbf{c_i}_\beta f_i^{eq} = p \delta_{\alpha \beta} + \rho \vec{u}_\alpha \vec{u}_\beta \\
-        % \Pi^{(1)}_{\alpha \beta} &= (1 - \frac{1}{2 \tau})\sum_i \mathbf{c_i}_\alpha \mathbf{c_i}_\beta f_i^{eq} = \nu (\nabla_{\alpha}(\rho \vec{\beta}) + \nabla_{\beta}(\rho \vec{\alpha}))
         \Pi^{(0)} &= \sum_i f_i^{eq} \vec{c}_i \otimes \vec{c}_i = p\mathbb{I} + \rho \vec{u} \otimes \vec{u} \\
         \Pi^{(1)} &= (1 - \frac{1}{2 \tau})\sum_i f_i^{neq} \vec{c}_i \otimes \vec{c}_i = -\eta (\nabla \vec{u} + (\nabla \vec{u})^T)
     \end{split}
@@ -210,21 +208,19 @@ With $p = \rho c_s^2$.
 \label{section:lbm_non_ideal_mixing}
 
 The SC model mimics Cahn-Hilliard type behaviour through a force applied from the other fluid species $k'$ in adjacent 
-cells $\mathbf{x'}$ on fluid species $k$ at point $\mathbf{x}$. \cite{shan_lattice_1993, shan_simulation_1994, 
+cells $\vec{x'}$ on fluid species $k$ at point $\vec{x}$. \cite{shan_lattice_1993, shan_simulation_1994, 
 shan_multicomponent_1995, he_discrete_1998, jansen_bijels_2011, chin_lattice_2002} Both fluid species are defined
 by their own distribution equation defined in Equation \ref{eq:LBM_BGK} The strength of this force is controlled 
 through an interaction parameter, $g_{kk'}$ with no contribution from self interaction of the fluid as these are 
 set to zero. The SC force can then be written out in Equation \ref{eq:sc_model}.
 
 \begin{equation}
-% F_{k}^{SC}(\mathbf{x}, t) = -\Psi^{k}(\mathbf{x}, t)\sum_{k'}g_{cc'}\sum_{\mathbf{x'}}\Psi_{k'}(\mathbf{x'}, t)(\mathbf{x'} 
-% - \mathbf{x})
 \vec{F}_k(\vec{x}) \Delta t = - \sum_{k'} \sum_i \frac{w_i}{c_s^2} g_{kk'} \psi_k(\vec{x})\psi_{k'}(\vec{x}+\vec{c}_i) \vec{c}_i
 \label{eq:sc_model}
 \end{equation}
 
-An effective mass of each fluid at node $\mathbf{x}$ is used in place of the actual density to scale it between zero 
-and one and is defined as $\psi^{k}(\mathbf{x},t) = \rho_{0}\left[1 - \exp(-\frac{\rho^{k}(\mathbf{x}, t)}{\rho_{0}})\right]$. 
+An effective mass of each fluid at node $\vec{x}$ is used in place of the actual density to scale it between zero 
+and one and is defined as $\psi^{k}(\vec{x},t) = \rho_{0}\left[1 - \exp(-\frac{\rho^{k}(\vec{x}, t)}{\rho_{0}})\right]$. 
 In this model, the SC force is incorporated into the macroscopic velocities that are then used to calculate the equilibrium
 distribution $f_{i}^{k, eq}$ for fluid $k$, defined as,
 
@@ -252,13 +248,13 @@ rotational inertia defined using differential equations
 \begin{equation}
     \begin{split}
     \vec{F_p} = m_p \frac{\vec{u}_p}{dt} , \\
-    \vec{D_p} = \mathbf{J}_p \frac{\vec{\omega}_p}{dt} ,
+    \vec{D_p} = \vec{J}_p \frac{\vec{\omega}_p}{dt} ,
     \label{eq:md}
     \end{split}
 \end{equation}
 
-$\mathbf{F_p}$ and $\mathbf{D_p}$ represent the force and torque acting on a particle with mass $m_p$ and moment of inertia 
-$\mathbf{J}_p$. $\mathbf{u}_p$ and $\mathbf{\omega_{p}}$ are the linear and angular velocities of the particle. The equations of 
+$\vec{F_p}$ and $\vec{D_p}$ represent the force and torque acting on a particle with mass $m_p$ and moment of inertia 
+$\vec{J}_p$. $\vec{u}_p$ and $\vec{\omega_{p}}$ are the linear and angular velocities of the particle. The equations of 
 motion are evolved over time using a leapfrog integrator. \cite{jansen_bijels_2011}
 
 The particles are discretized on the lattice according to the method laid out in Ladd 1994 and Aidun 1998
@@ -309,12 +305,12 @@ spherical particles, this is defined in Equation \eqref{eq:lubrication}
 \end{equation}
 
 where $R_i$ and $R_j$ are the radii of each particle involved in the interaction, $\vec{r}_{ij}$ is the distance
-vector between the particle centers, $\mathbf{u}_{ij}$ are the relative velocities of the particles and $\Delta_c$ 
+vector between the particle centers, $\vec{u}_{ij}$ are the relative velocities of the particles and $\Delta_c$ 
 is the cutoff distance when the lubrication force begins to act. If particles are able to overcome the lubrication forces, 
 a hertzian contact force is also added to ensure that there is no particle overlap, defined in Equation \eqref{eq:hertz}
 
 \begin{equation}
-    \phi_{H} = K_{H}(R_i + R_j - |\mathbf{r}_{ij}|)^{5/2}, r < R_i + R_j
+    \phi_{H} = K_{H}(R_i + R_j - |\vec{r}_{ij}|)^{5/2}, r < R_i + R_j
     \label{eq:hertz}
 \end{equation}
 
@@ -374,7 +370,7 @@ The magnetic dipole potential is defined as
     \label{eq:magnet_potential}
 \end{equation}
 
-Where $\mu_0 = 4\pi \cdot 10^{-7} \frac{H}{m}$,  $\Hat{\mathbf{o_i}}$ is the orientation unit vector of particle 
+Where $\mu_0 = 4\pi \cdot 10^{-7} \frac{H}{m}$,  $\Hat{\vec{o_i}}$ is the orientation unit vector of particle 
 $i$, $\Hat{\vec{r}_{ij}}$ is the distance vector between particles $i$ and $j$ and $m_i$ is the magnitude the 
 magnetic dipole of particle $i$. From the potential, the force and torque of the dipole force between particles 
 can be found. These expressions are shown in equations \ref{eq:dipole_magnetic_force} and \ref{eq:dipole_magnetic_torque} 
@@ -422,23 +418,50 @@ particle's cross-sectional area. The system's velocity and length scale are set 
 Parameters for the fluid, particle, and non-ideal mixing model used in the simulations are summarized in Table 
 \ref{table:model_params}.
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{||c c c c c c c c c c c c c||} 
- \hline
- $t_{sim}$ & $L_x$ & $\rho_f $ & $\tau$ & $\eta_f $ & $g_{cc'} \Delta m(\Delta t)^2/(\Delta x)^5$ & $\sigma$ & $\phi_f$ & $\rho_p$ & $\phi_p$ & $V_p (\Delta x)^3$ & $d_c \Delta x$ & $K_H$ \\ [0.5ex] 
- \hline\hline
- $10^5 \Delta t$ & 256$\Delta x$ & 0.7 $\frac{\Delta m}{(\Delta x)^3}$ & 1$\Delta t$ & 0.117 $\frac{\Delta m}{\Delta x \Delta t}$ & 0.08 & 0.0267 $\frac{\Delta m}{(\Delta t)^2}$ & 0.5 & 1 $\frac{\Delta m}{(\Delta x)^3}$ & 0.15 & 2000$\pi (\Delta x)^3$ & 2/3 $\Delta x$& 100 $(\Delta x)^{1/2}(\Delta t)^2/\Delta m$\\ [1ex] 
- \hline
-\end{tabular}
-\caption{Summary of the fluid, particle and model parameters used in the proposed simulations}
-\label{table:model_params}
+% \begin{table}[h!]
+% \centering
+% \begin{tabular}{||c c c c c c c c c c c c c||} 
+%  \hline
+%  $t_{sim}$ & $L_x$ & $\rho_f $ & $\tau$ & $\eta_f $ & $g_{cc'} \Delta m(\Delta t)^2/(\Delta x)^5$ & $\sigma$ & $\phi_f$ & $\rho_p$ & $\phi_p$ & $V_p (\Delta x)^3$ & $d_c \Delta x$ & $K_H$ \\ [0.5ex] 
+%  \hline\hline
+%  $10^5 \Delta t$ & 256$\Delta x$ & 0.7 $\frac{\Delta m}{(\Delta x)^3}$ & 1$\Delta t$ & 0.117 $\frac{\Delta m}{\Delta x \Delta t}$ & 0.08 & 0.0267 $\frac{\Delta m}{(\Delta t)^2}$ & 0.5 & 1 $\frac{\Delta m}{(\Delta x)^3}$ & 0.15 & 2000$\pi (\Delta x)^3$ & 2/3 $\Delta x$& 100 $(\Delta x)^{1/2}(\Delta t)^2/\Delta m$\\ [1ex] 
+%  \hline
+% \end{tabular}
+% \caption{Summary of the fluid, particle and model parameters used in the proposed simulations}
+% \label{table:model_params}
+% \end{table}
+
+\begin{table}
+    \centering
+    \caption{Summary of the parameters corresponding to the fluid, particle and model used in the simulations}
+    \label{table:model_params}
+    \begin{tabular}{|c|r|}
+    \hline
+    % Parameter & Value \\
+    % \hline
+    $L_x$ & 256 $\Delta x$ \\
+    $\rho_f$ & 0.7 $ \frac{\Delta m}{(\Delta x)^3}$\\
+    $\nu_f$ & 1/6 $\frac{\Delta x}{(\Delta t)^2}$ \\
+    $\sigma $ & 0.0267 $\frac{\Delta m}{(\Delta t)^2}$ \\
+    $\tau$ & 1 $\Delta t$\\
+    $g_{kk'}$ & 0.08 $\frac{(\Delta x)^5}{\Delta m(\Delta t)^2}$\\
+    $\phi_f$ & 0.5 \\
+    $\phi_p$ & 0.15 \\
+    $n_p$ & 1200 \\
+    $\rho_p$ & 1 $ \frac{\Delta m}{(\Delta x)^3}$\\
+    $V_p$ & $2000\pi/3 (\Delta x)^3$ \\
+    $m$ & 1 $\frac{\Delta q}{\Delta t(\Delta x)^2}$\\
+    $d_c$ & 2/3 $\Delta x$ \\
+    $K_H$ & 100 $\frac{\Delta m}{(\Delta x)^{1/2}(\Delta t)^2} $\\
+    \hline
+    \end{tabular}
 \end{table}
+
 
 In these simulations, the aspect ratio is defined as $\alpha = \frac{R_{\parallel}}{R_{\perp}}$ with $\alpha = 0.5, 1, 2$ 
 used in these simulations. All particle geometries are volume matched, based on the spherical particle volume. For the 
-spherical particle, the radius was set at $R_{\parallel} = R_{\perp} = 7.9$ which sets the $\alpha = 0.5$ particles to 
-$R_{\parallel} = 5, R_{\perp} = 10$ and the $\alpha = 2$ particles to $R_{\parallel} = 12.6, R_{\perp} = 6.3$. 
+spherical particle, the radius was set at $R_{\parallel} = R_{\perp} = 7.9 \Delta x$ which sets the $\alpha = 0.5$ particles to 
+$R_{\parallel} = 5 \Delta x, R_{\perp} = 10 \Delta x$ and the $\alpha = 2$ particles to $R_{\parallel} = 12.6, R_{\perp} = 6.3 \Delta x$. 
 $R_{\parallel}$ and $R_{\perp}$ is the radius of the particle parallel and perpendicular to the symmetry axis of 
 the particle respectively. These values are identical to what was used in Gunther et al, allowing comparisons to the 
 trends they observed. \cite{gunther_timescales_2014} The particles were randomly placed in the system and an equilibration
@@ -458,11 +481,11 @@ Bijel templates have been synthesized using water/2-6-lutidine for further appli
 While intrinsically polymerizable bijels have been prepared using oligomeric polymers, STRIPS and VIPS currently 
 utilize small molecule liquids in their bijel casting mixtures. Therefore, an experimentally viable system using 
 water/2-6-lutidine will be discussed in the context of the work presented here. The critical temperature (UCST) 
-for this system is $T_c = 34 ^{\circ}C$, with many systems heated to $T = 40^{\circ}C$ to form the bijel. At this 
-temperature, the fluid properties are $\sigma = 0.22 mN/m$ and $\eta = 2.38 mPas$. \cite{grattoni_lower_1993} 
-Fei et al. developed a method to synthesize polystyrene microparticles ($(R_p = 2 \mu m)$) with tunable geometries 
+for this system is $T_c = 34 ^{\circ}\text{C}$, with many systems heated to $T = 40^{\circ}\text{C}$ to form the bijel. At this 
+temperature, the fluid properties are $\sigma = 0.22 \text{mN/m}$ and $\eta = 2.38 \text{mPas}$. \cite{grattoni_lower_1993} 
+Fei et al. developed a method to synthesize polystyrene microparticles ($R_p = 2\,\mu\text{m}$) with tunable geometries 
 by mechanically stretching or compressing them, then coating them with nickel to create magnetic microparticles with 
-a dipole moment of approximately$\approx 3 \cdot 10^{-14} Am^2$. \cite{fei_active_2017, fei_magneto-capillary_2020} 
+a dipole moment of approximately$\approx 3 \cdot 10^{-14} \text{Am}^2$. \cite{fei_active_2017, fei_magneto-capillary_2020} 
 Comparing the physical properties to simulation parameters, the simulations correspond to a length scale of
 $\Delta x = 252 \cdot 10^{-9} \text{m}$, timescale of $\Delta t = 624 \cdot 10^{-9} \text{s}$, 
 mass scale of $\Delta m = 2.24 \cdot 10^{-15} \text{kg}$ and charge scale of $\Delta q = 2.948 \cdot 10^{-7} \text{C}$. 
@@ -494,8 +517,8 @@ of the interface and $R_d$ is the radius of the droplet.
 
 Using the fluid and non-ideal mixing parameters defined in Table \ref{table:model_params}, a single water in oil 
 droplet, was initialized in the center of the system and run till the droplet radii reached steady state. 
-This process was repeated for various droplet diameters, specified between $70$ and $85 \%$ of the system size at $5\%$ 
-increments. The system had a box length of $L = 64$ and was run for $50000$ timesteps with periodic boundary conditions 
+This process was repeated for various droplet diameters, specified between 70 and 85 \% of the system size at 5\% 
+increments. The system had a box length of $L = 64 \Delta x$ and was run for 50000 timesteps with periodic boundary conditions 
 on all sides. Data was dumped every 10000 timesteps with only the last timestep used to calculate the values shown. Due 
 to the diffuse interface present in this method, the density profiles were verified to be at steady state at the end of 
 the simulation before further analysis was performed. \cite{frijters_effects_2012} Past work also showed that the 
@@ -508,7 +531,7 @@ and the second is based upon the total mass and density of the fluid making up t
 accuracy by avoiding discretization errors that may exist in the first method, and also allows for the correction of 
 particle volume at the interface if the system contained them. First, a local effective mass density 
 $\rho^b_{eff} = \rho^{b}_{d} - \rho^{b}_{m}$ is found by calculating the difference in density between the blue 
-fluid in the droplet and in the matrix. Next, the droplet mass is calculated as $M_d = \sum_{\mathbf{x}}{\rho_{eff}^{b}}$. 
+fluid in the droplet and in the matrix. Next, the droplet mass is calculated as $M_d = \sum_{\vec{x}}{\rho_{eff}^{b}}$. 
 The radius of the droplet can then be calculated from the mass and density of the droplets as $R_d = \sqrt[3]{\frac{3}{4\pi} 
 \frac{M_d}{\rho^b_d - \rho^b_m}}$. To linearize the plot, the $\Delta P$ was plotted against $\frac{2}{R_d}$ with 
 $\sigma$ being the slope of the fit.
