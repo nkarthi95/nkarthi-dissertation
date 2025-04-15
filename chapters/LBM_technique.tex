@@ -48,62 +48,71 @@ the viscous stress tensor is given by
 % \end{equation}
 
 \begin{equation}
-    \sigma = -p\mathbb{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T -\frac{2}{3}(\nabla \vec{u})\mathbb{I} \right)
+    \sigma = -P\mathbb{I} + \eta\left( \nabla \vec{u} + (\nabla \vec{u})^T -\frac{2}{3}(\nabla \vec{u})\mathbb{I} \right)
 \end{equation}
 
 Substituting this stress tensor into the momentum equation and using the relation, $\nabla\cdot \vec{u} = 0$ from the incompressibility constraint, the incompressible 
-Navier-Stokes equation can be derived which in vector notation is given by,
+Navier-Stokes equation can be derived given by,
 
 \begin{equation}
-    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla p + \eta \nabla^2 \vec{u} + \vec{f}
+    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = -\nabla P + \eta \nabla^2 \vec{u} + \vec{f}
 \end{equation}
 
 To facilitate numerical simulation and analysis, it is often useful to express the Navier-Stokes equation in non-dimensional form. Introducing characteristic scales for length 
-$l_0$, time $t_0$, and density $\rho_0$, dimensionless variables are defined as
+$l_0$, velocity $u_0$, and density $\rho_0$, dimensionless variables are defined as
 
 \begin{equation}
-    \bar{l} = \frac{l}{l_0}, \quad \bar{t} = \frac{t}{t_0}, \quad \bar{\rho} = \frac{\rho}{\rho_0}, \quad \bar{\vec{u}} = \frac{\bar{l}}{\bar{t}}, 
+    \bar{l} = \frac{l}{l_0}, \quad \bar{u} = \frac{u}{u_0}, \quad \bar{t} = \frac{u_0 t}{l_0} \quad \bar{\rho} = \frac{\rho}{\rho_0}, \quad \bar{P} = \frac{P}{\rho u^2}, 
 \end{equation}
 
-Substituting these into the incompressible Navier-Stokes equation leads to the dimensionless form:
+The form of the dimensionless pressure $\bar{P}$ is not unique and depends on whether inertial or viscous effects dominate. The expression shown is 
+relevant to an inertial regime. Substituting these into the incompressible Navier-Stokes equation and approximating that no external forces are present 
+leads to the dimensionless form:
 
 \begin{equation}
-    \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}} = \frac{1}{Re} \nabla^2 \bar{p} = \frac{p}{\rho \vec{u}^2} - \nabla\bar{p}
+    \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}} = \frac{1}{Re} \nabla^2 \bar{\vec{u}} - \nabla\bar{P}
 \end{equation}
 
-where the Reynolds number is defined as $Re = \frac{\rho_0 u_0 l_0}{\eta}$ which characterizes the ratio of inertial to viscous forces in the system.
+where the Reynolds number is defined as $Re = \frac{\rho_0 u_0 l_0}{\eta}$ which characterizes the ratio of inertial to viscous forces in the system. For a system
+where viscous effects dominate, $Re << 1$ the dimensionless pressure is defined as $\bar{P} = \frac{P l_0}{\eta u_0}$. This yields the alterate form,
+
+\begin{equation}
+    Re\left( \frac{\partial \bar{\vec{u}}}{\partial \bar{t}} + (\bar{\vec{u}} \cdot\nabla)\bar{\vec{u}}  \right) = \nabla^2 \bar{\vec{u}} - \nabla\bar{P}
+\end{equation}
+
+When substituting the value of $Re$ into the above, the Stokes equation is recovered.
 
 \section{Phase separation}
 
 Bijels form through spinodal decomposition of two partially miscible fluids, a process that can be effectively modeled using the Cahn-Hilliard equation. \cite{cahn_spinodal_1961} While the
 original equation is written for a concentration of species $c$. For a binary mixture, it can be recast in terms of a conserved scalar order parameter $\phi$, typically representing the 
 local concentration difference between the two fluid components. As we are also accounting for the effect of hydrodynamics on the flow of mass, the advection term
-from the mass flux $\vec{J}$ cannot be set to 0. Therefore the Cahn-Hilliard equation is given by,
+from the mass flux $\vec{J}$ cannot be set to 0. Therefore the advective Cahn-Hilliard equation of an incompressible fluid ($\nabla \cdot \vec{v} = 0$) is given by,
 
 \begin{equation}
     \begin{split}
-        \nabla \cdot \vec{J} &= \nabla \cdot \vec{u} - M \nabla \mu \\
+        \nabla \cdot \vec{J} &= \nabla \cdot \phi\vec{u} - M \nabla \mu \\
         \frac{\partial \phi}{\partial t} + \nabla \cdot \vec{J} &= 0 \\
-        \frac{\partial \phi}{\partial t} + \nabla \cdot \phi \vec{u} &= \nabla \cdot \left( M \nabla \mu \right)
+        \frac{\partial \phi}{\partial t} + \vec{u}\nabla \cdot \phi &= \nabla \cdot \left( M \nabla \mu \right)
     \end{split}
 \end{equation}
 
-Here, $M$ is the mobility coefficient and $\mu$ is the chemical potential, which is derived from the variation of the free energy functional $F[\phi]$ which is the sum of a bulk free energy
+Here, $M$ is the mobility coefficient and $\mu$ is the chemical potential derived from the variation of the free energy functional $F[\phi]$ which is the sum of a bulk free energy
 $f(\phi)$ and an interfacial contribution. This formulation allows for the modeling of interfacial tension and the spontaneous formation of bicontinuous domains characteristic of spinodal decomposition.
 To capture not only the diffusive separation of phases but also the resulting fluid motion, the Cahn-Hilliard equation is coupled with the Navier-Stokes equation. This is done
-through the pressure which is expressed as the sum of the mechanical $p$ and chemical pressure $p_{chem}$ contributions to yield $p_{tot} = p + p_{chem}$. For a binary system, $p_{chem}$ 
+through the pressure which is expressed as the sum of the mechanical $P$ and chemical pressure $P_{chem}$ contributions to yield $P_{tot} = P + P_{chem}$. For a binary system, $P_{chem}$ 
 can be written as a function of $\phi$ given by,
 
 \begin{equation}
-    p_{chem} = \left[ \phi \mu - f(\phi) - \kappa(\phi \nabla^2 \phi + \frac{1}{2}|\nabla \phi |^2 )\right] \mathbb{I} + \kappa \nabla \phi \otimes \nabla \phi
+    P_{chem} = \left[ \phi \mu - f(\phi) - \kappa(\phi \nabla^2 \phi + \frac{1}{2}|\nabla \phi |^2 )\right] \mathbb{I} + \kappa \nabla \phi \otimes \nabla \phi
 \end{equation}
 
-The divergence of the above expression is found to be $\nabla \cdot p_{chem} = -\phi \nabla \mu$. Substituting the $p_{tot}$ for $p$ in the Navier Stokes equation,
-the Cahn-Hilliard-Navier-Stokes (CHNS) framework is obtained. This coupling is essential in systems like bijels, where advection play a significant role in domain 
-coarsening and morphology arrest. The momentum conservation equation in this framework is given by,
+The divergence of the above expression is found to be $\nabla \cdot P_{chem} = \phi \nabla \mu$. Substituting $P_{tot}$ for $P$ in the Navier Stokes equation,
+the Cahn-Hilliard-Navier-Stokes (CHNS) framework is obtained. This coupling is essential in systems like bijels, where advection plays a role in domain 
+coarsening. The momentum conservation equation in this framework is given by,
 
 \begin{equation}
-    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = \eta \nabla^2 \vec{u} - \nabla p - \phi \nabla \mu
+    \rho \left(\frac{\partial\vec{u}}{\partial t} + (\vec{u}\cdot\nabla)\vec{u} \right) = \eta \nabla^2 \vec{u} - \nabla P - \phi \nabla \mu
 \end{equation}
 
 % Here, $\vec{u}$ is the velocity field, $\rho$ is the fluid density, and $\eta$ is the dynamic viscosity. The term $P_{\text{therm}}$ represents the thermodynamic pressure tensor, which incorporates 
@@ -147,8 +156,9 @@ at higher fluid velocities. \cite{liu_simulation_2023, adhikari_fluctuating_2005
 a Multiple Relaxation Time (MRT) collision operator. However the relaxation rates used in an MRT collision operator must be tuned carefully
 to ensure that the appropriate fluid properties are modelled. Simpler variants of the MRT collision operator such as the Two Relaxation Time (TRT)
 collision operator have been proposed as a solution that provides some of the benefits of MRT models with the simplicity of SRT models. These 
-have facilitated simulation of a wider range of physical phenomena \cite{adhikari_fluctuating_2005, liu_simulation_2023}. The SRT collision 
-operator is selected due to the additional computational performance needed by MRT not being needed. The combined streaming and 
+have facilitated simulation of a wider range of physical phenomena \cite{adhikari_fluctuating_2005, liu_simulation_2023}. The regimes that the simulations 
+performed here will take place will be at relatively small Reynolds numbers, mitigating many of the weaknesses of the SRT model while being computatinally
+more efficient. Therefore, the SRT collision operator is selected. The combined streaming and 
 collision step in LBM, using the BGK operator, is expressed in Equation \ref{eq:LBM_BGK}.
 
 \begin{equation}
@@ -168,15 +178,9 @@ Maxwell-Boltzmann distribution onto Hermite polynomials. \cite{he_theory_1997, s
     \label{eq:LBM_Feq}
 \end{equation}
 
-$\rho$ and $\textbf{u}$ in Equation \ref{eq:LBM_Feq} are defined as the macroscopic parameters for density and velocity 
-and can be calculated from the mass distribution using $\rho = \sum f_i$ and $\rho \vec{u} = \sum f_i \vec{c}_i$ 
-respectively. Using the Chapman-Enskog expansion, the Navier-Stokes equation at the incompressible limit at low Mach
-numbers can be recovered. \cite{qian_lattice_1992, he_lattice_1997} The regime accessible through this method is suitable 
-for simulations in this work as the $ 1 \leq Re \leq 100 $ and the mach number, $Ma < 0.01$, fulfilling the stability 
-criterion and usage requirements for the presented hydrodynamic model.
-
-The density and velocity of the fluid at each grid point is calculated from the zeroth and first moment of the particle density
-distribution, 
+where $w_i$ and $\vec{c}_i$ correspond to the weights and lattice velocity vector of each direction in the D3Q19 lattice shown in Figure \ref{fig:d3q19_lattice}, $\rho$ and $\vec{u}$ are the fluid density
+and velocity at each lattice point, and $c_s$ is the speed of sound of the lattice, set to $c_s = \frac{1}{\sqrt{3}}$. $\rho$ and $\vec{u}$ can be calculated from the zeroth and first moment of the 
+mass distribution $f_i$, given by 
 
 \begin{equation}
     \begin{split}
@@ -185,6 +189,10 @@ distribution,
     \end{split}
 \end{equation}
 
+Using the Chapman-Enskog expansion, the Navier-Stokes equation at the incompressible limit at low Mach
+numbers can be recovered. \cite{qian_lattice_1992, he_lattice_1997} The regime accessible through this method is suitable 
+for simulations in this work as the $ 1 \leq Re \leq 100 $ and the mach number, $Ma < 0.01$, fulfilling the stability 
+criterion and usage requirements for the presented hydrodynamic model.
 The momentum flux tensor is calculated from the Chapman-Enskog expansion of \ref{eq:LBM_BGK} to the second order yielding,
 
 \begin{equation}
@@ -193,7 +201,7 @@ The momentum flux tensor is calculated from the Chapman-Enskog expansion of \ref
     \end{split}
 \end{equation}
 
-The momentum flux tensor can be further expressed as a sum of the equilibrium and non-equilibrium components of the stress tensor, denoted by 0 and 1 given by,
+The momentum flux tensor can be expressed as a sum of the equilibrium and non-equilibrium components of the stress tensor, denoted by 0 and 1 respectively given by,
 
 \begin{equation}
     \begin{split}
@@ -219,8 +227,9 @@ set to zero. The SC force can then be written out in Equation \ref{eq:sc_model}.
 \label{eq:sc_model}
 \end{equation}
 
-An effective mass of each fluid at node $\vec{x}$ is used in place of the actual density to scale it between zero 
-and one and is defined as $\psi^{k}(\vec{x},t) = \rho_{0}\left[1 - \exp(-\frac{\rho^{k}(\vec{x}, t)}{\rho_{0}})\right]$. 
+An effective mass of each fluid at node $\vec{x}$ is used in place of the density to scale it between zero 
+and one and is defined as $\psi^{k}(\vec{x},t) = \rho_{0}\left[1 - \exp(-\frac{\rho^{k}(\vec{x}, t)}{\rho_{0}})\right]$ where
+$\rho_0$ is the reference density and is set to $\rho_0 = 1 \frac{\Delta m}{\Delta x^3}$. 
 In this model, the SC force is incorporated into the macroscopic velocities that are then used to calculate the equilibrium
 distribution $f_{i}^{k, eq}$ for fluid $k$, defined as,
 
@@ -260,14 +269,17 @@ motion are evolved over time using a leapfrog integrator. \cite{jansen_bijels_20
 The particles are discretized on the lattice according to the method laid out in Ladd 1994 and Aidun 1998
 \cite{ladd_numerical_1994,aidun_direct_1998}. Nodes representing the particle are marked as solid nodes that replicate
 a no-slip boundary condition through a moving bounce-back boundary. This is implemented into the distribution function
-by reflecting the outgoing populations of $f_i^k$ to the opposite lattice velocity
+by reflecting the outgoing populations of $f_i^k$ to the opposite lattice velocity $f^k_{i^\star}$ given by
 
 \begin{equation}
     f^k_{i^\star}(\vec{x}, t+\Delta t) = f^{k,\star}_i(\vec{x}, t) - \frac{2w_i}{c_s^2} \rho \vec{u}_i \cdot \vec{c}_i ,
 \end{equation}
 
+where $\vec{u}_i = \vec{u}_p + \vec{omega}\times \vec{r_i}$ which represents the difference between the particle velocity and the 
+velocity of the particle surface. The location of the particle surface $r_i$ is calculated as $r_i = \vec{x} + \frac{\Delta t}{2}\vec{c}_i - \vec{x}_{cm}$ 
+where $\vec{x}_{cm}$ is the center of mass of the particle.
 This facilitates momentum exchange between particle and fluid which can be calculated analytically as 
-\(\Delta\vec{p}^k_i \frac{\Delta t}{(\Delta x)^3} = 2 f^{k,\star}_i(\vec{x},t)\vec{c}_i - \frac{2w_i}{c_s^2}\rho(\vec{u}_i\cdot\vec{c}_i)\vec{c}_i\).
+\(\Delta\vec{p}^k_i = 2 f^{k,\star}_i(\vec{x},t)\vec{c}_i - \frac{2w_i}{c_s^2}\rho(\vec{u}_i\cdot\vec{c}_i)\vec{c}_i\).
 The sum of the momentum change across the surface of the particle is computed to obtain the force and torque on the particle,
 
 \begin{equation}
@@ -292,6 +304,9 @@ Upon uncovering of a grid point, it is assigned a density value that represents 
     \label{eq:fill_particles}
 \end{equation}
 
+where $N_{\text{f}}$ is the number of fluid nodes around the node being uncovered and $\vec{c}_{i_{\text{f}}n}$ is the direction of the lattice velocity 
+in the grid point being uncovered that points to a surrounding fluid node.
+
 \subsection{Particles near contact}
 \label{section:particles_near_contact}
 
@@ -305,7 +320,7 @@ spherical particles, this is defined in Equation \eqref{eq:lubrication}
 \end{equation}
 
 where $R_i$ and $R_j$ are the radii of each particle involved in the interaction, $\vec{r}_{ij}$ is the distance
-vector between the particle centers, $\vec{u}_{ij}$ are the relative velocities of the particles and $\Delta_c$ 
+vector between the particle centers, $\vec{u}_{ij}$ are the relative velocities of the particles and $d_c$ 
 is the cutoff distance when the lubrication force begins to act. If particles are able to overcome the lubrication forces, 
 a hertzian contact force is also added to ensure that there is no particle overlap, defined in Equation \eqref{eq:hertz}
 
@@ -327,35 +342,35 @@ aspect ratio of the particles.
 
 \begin{equation}
     \begin{split}
-    \phi(\vec{r}_{ij}) &= {\epsilon} \tilde{\phi}\left(\frac{\vec{r}_{ij}}{{\sigma}}\right) , \\
-    \vec{F}(\vec{r}_{ij}) &= {\epsilon} \tilde{\vec{F}}\left(\frac{\vec{r}_{ij}}{{\sigma}}\right) .
+    \phi(\vec{r}_{ij}) &= {\epsilon} \tilde{\phi}\left(\frac{\vec{r}_{ij}}{{\gamma}}\right) , \\
+    \vec{F}(\vec{r}_{ij}) &= {\epsilon} \tilde{\vec{F}}\left(\frac{\vec{r}_{ij}}{{\gamma}}\right) .
     \end{split}
 \end{equation}
 
 For the lubrication force \eqref{eq:lubrication}, we choose
-${\sigma}=R_1+R_2$ and ${\epsilon}=\frac{6\pi\eta R_1^2 R_2^2}{{\sigma^3}}$, and for the
-Hertz potential we chose ${\sigma}=R_1+R_2$ and ${\epsilon}=K_H\sigma^{5/2}$. For two identical, rotationally
-symmetric ellipsoidal particles with orientations $\hat{\vec{o}}_i$ and $\hat{\vec{o}}_j$, we then replace $\epsilon$ and $\sigma$ by
+${\gamma}=R_1+R_2$ and ${\epsilon}=\frac{6\pi\eta R_1^2 R_2^2}{{\gamma^3}}$, and for the
+Hertz potential we chose ${\gamma}=R_1+R_2$ and ${\epsilon}=K_H\gamma^{5/2}$. For two identical, rotationally
+symmetric ellipsoidal particles with unit orientation vectors $\hat{\vec{o}}_i$ and $\hat{\vec{o}}_j$, we then replace $\epsilon$ and $\gamma$ by
 the anisotropic functions
 
 \begin{equation}
     \begin{split}
     \tilde\epsilon\left(\hat{\vec{o}}_i, \hat{\vec{o}}_j\right) &= \frac{{\epsilon}}{\sqrt{1-\chi^2}} , \\
     %\qquad \chi = \frac{\left(\alpha^2-1\right)R_\parallel^2}{\left(\alpha^2+1\right)R_\parallel^2}\left(\hat{\vec{o}}_i\hat{\vec{o}}_j\right) , \\
-    \tilde\sigma\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right) &= \frac{{\sigma}}{\sqrt{1-\frac{\chi}{2}\left[ \frac{\left(\hat{\vec{r}}_{ij}\cdot\hat{\vec{o}}_i+\hat{\vec{r}}_{ij}\cdot\hat{\vec{o}}_j\right)^2}{1+\chi\left(\hat{\vec{o}}_i\hat{\vec{o}}_j\right)} + \frac{\left(\hat{\vec{r}}_{ij}\cdot\hat{\vec{o}}_i-\hat{\vec{r}}_{ij}\cdot\hat{\vec{o}}_j\right)^2}{1-\chi\left(\hat{\vec{o}}_i\hat{\vec{o}}_j\right)} \right] }} , \\
+    \tilde\gamma\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right) &= \frac{{\gamma}}{\sqrt{1-\frac{\chi}{2}\left[ \frac{\left(\hat{\vec{r}}_{ij}\cdot\hat{\vec{o}}_i+\hat{\vec{r}}_{ij}\cdot\hat{\vec{o}}_j\right)^2}{1+\chi\left(\hat{\vec{o}}_i\hat{\vec{o}}_j\right)} + \frac{\left(\hat{\vec{r}}_{ij}\cdot\hat{\vec{o}}_i-\hat{\vec{r}}_{ij}\cdot\hat{\vec{o}}_j\right)^2}{1-\chi\left(\hat{\vec{o}}_i\hat{\vec{o}}_j\right)} \right] }} , \\
     \chi &= \frac{\alpha^2-1}{\alpha^2+1} , \\
     \end{split}
 \end{equation}
 
 where $R_{\parallel}$ is the particle radius along the
-symmetry axis $\hat{o}$ and $\alpha=\frac{R_{\parallel}}{R_{\perp}}$ the aspect
+symmetry axis and $\alpha=\frac{R_{\parallel}}{R_{\perp}}$ the aspect
 ratio of the particle. The anisotropic Hertz potential and lubrication
 force are then defined as
 %
 \begin{equation}
     \begin{split}
-    \phi\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right) &= \epsilon\left(\hat{\vec{o}}_i, \hat{\vec{o}}_j\right) \tilde{\phi}\left(\frac{\vec{r}_{ij}}{\sigma\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right)} \right) , \\
-    \vec{F}\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right) &= \epsilon\left(\hat{\vec{o}}_i, \hat{\vec{o}}_j\right) \tilde{\vec{F}}\left(\frac{\vec{r}_{ij}}{\sigma\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right)} \right) .
+    \phi\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right) &= \epsilon\left(\hat{\vec{o}}_i, \hat{\vec{o}}_j\right) \tilde{\phi}\left(\frac{\vec{r}_{ij}}{\gamma\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right)} \right) , \\
+    \vec{F}\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right) &= \epsilon\left(\hat{\vec{o}}_i, \hat{\vec{o}}_j\right) \tilde{\vec{F}}\left(\frac{\vec{r}_{ij}}{\gamma\left(\vec{r}_{ij}, \hat{\vec{o}}_i, \hat{\vec{o}}_j\right)} \right) .
     \end{split}
 \end{equation}
 
@@ -365,27 +380,27 @@ force are then defined as
 The magnetic dipole potential is defined as
 
 \begin{equation}
-    U_{ij} = \frac{\mu_0 \vec{m}_i \vec{m}_j}{4\pi |r_{ij}|^{3}} \left[ \vec{o}_i \cdot \vec{o}_j - 
-    3(\vec{o}_i \cdot \vec{r}_{ij})(\vec{o}_j \cdot \vec{r}_{ij}) \right]
+    U_{ij} = \frac{\mu_0 m_i m_j}{4\pi |r_{ij}|^{3}} \left[ \Hat{\vec{o_i}}\cdot \Hat{\vec{o_j}} - 
+    3(\Hat{\vec{o_i}} \cdot \Hat{\vec{r_{ij}}})(\Hat{\vec{o_j}} \cdot \Hat{\vec{r_{ij}}}) \right]
     \label{eq:magnet_potential}
 \end{equation}
 
 Where $\mu_0 = 4\pi \cdot 10^{-7} \frac{H}{m}$,  $\Hat{\vec{o_i}}$ is the orientation unit vector of particle 
-$i$, $\Hat{\vec{r}_{ij}}$ is the distance vector between particles $i$ and $j$ and $m_i$ is the magnitude the 
+$i$, $\Hat{\vec{r_{ij}}}$ is the unit distance vector between particles $i$ and $j$ and $m_i$ is the magnitude the 
 magnetic dipole of particle $i$. From the potential, the force and torque of the dipole force between particles 
 can be found. These expressions are shown in equations \ref{eq:dipole_magnetic_force} and \ref{eq:dipole_magnetic_torque} 
 for the force and torque respectively.
 
 \begin{equation}
-    \vec{F}_{ij} = \frac{3 \mu_0}{4 \pi} [\frac{5(\vec{m}_i \cdot \vec{r}_{ij} )(\vec{m}_j
-    \cdot \vec{r}_{ij})}{|\vec{r}_{ij}|^7}\vec{r}_{ij} - \frac{(\vec{m}_{i} \cdot \vec{m}_{j})\vec{r}_{ij} + 
-    (\vec{m}_{i} \cdot \vec{r}_{ij})\vec{m}_{i} + (\vec{m}_{j} \cdot \vec{r}_{ij})\vec{m}_{j} }{|\vec{r}_{ij}|^5}]
+    \vec{F}_{ij} = \frac{3 \mu_0 m_i m_j}{4 \pi} [\frac{5( \Hat{\vec{o_i}} \cdot \Hat{\vec{r_{ij}}} )(\Hat{\vec{o_j}}
+    \cdot \Hat{\vec{r_{ij}}})}{|\vec{r_{ij}}^4|}\Hat{\vec{r_{ij}}} - \frac{(\Hat{\vec{o_i}} \cdot \Hat{\vec{o_j}})\Hat{\vec{r_{ij}}} + 
+    (\Hat{\vec{o_i}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_j}} + (\Hat{\vec{o_j}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_j}} }{|\vec{r_{ij}}|^4}]
 \label{eq:dipole_magnetic_force}
 \end{equation}
 
 \begin{equation}
-    \vec{T}_{ij} = \frac{\mu_0}{4 \pi}[ \frac{3(\vec{m}_{j} \cdot \vec{r}_{ij})m_i \times \vec{r}_{ij} }
-    {|\vec{r}_{ij}|^5} - \frac{\vec{m}_{i} \cdot \vec{m}_{j} }{|\vec{r}_{ij}|^3} ]
+    \vec{T}_{ij} = \frac{\mu_0 m_i m_j}{4 \pi}[ \frac{3(\Hat{\vec{o_j}} \cdot \Hat{\vec{r_{ij}}})\Hat{\vec{o_i}} \times \Hat{\vec{r_{ij}}} }
+    {|\vec{r}_{ij}|^3} - \frac{\Hat{\vec{o_i}} \cdot \Hat{\vec{o_j}} }{|\vec{r}_{ij}|^3} ]
     \label{eq:dipole_magnetic_torque}
 \end{equation}
 
@@ -393,12 +408,12 @@ Equations \ref{eq:magnet_force} and \ref{eq:magnet_torque} are used to calculate
 field exerts on each particle.
 
 \begin{equation}
-    \vec{F}_{j} = \vec{m}_{j}(\vec{o}_{j} \cdot \nabla \vec{B}_{i})
+    \vec{F}_{j} = m_j(\Hat{\vec{o_j}} \cdot \nabla \vec{B}_{i})
     \label{eq:magnet_force}
 \end{equation}
 
 \begin{equation}
-    \vec{T}_{j} = \vec{m}_{j}(\vec{o}_{j} \times \vec{B}_{i})
+    \vec{T}_{j} = m_j(\Hat{\vec{o_j}} \times \vec{B}_{i})
     \label{eq:magnet_torque}
 \end{equation}
 
@@ -418,27 +433,15 @@ particle's cross-sectional area. The system's velocity and length scale are set 
 Parameters for the fluid, particle, and non-ideal mixing model used in the simulations are summarized in Table 
 \ref{table:model_params}.
 
-% \begin{table}[h!]
-% \centering
-% \begin{tabular}{||c c c c c c c c c c c c c||} 
-%  \hline
-%  $t_{sim}$ & $L_x$ & $\rho_f $ & $\tau$ & $\eta_f $ & $g_{cc'} \Delta m(\Delta t)^2/(\Delta x)^5$ & $\sigma$ & $\phi_f$ & $\rho_p$ & $\phi_p$ & $V_p (\Delta x)^3$ & $d_c \Delta x$ & $K_H$ \\ [0.5ex] 
-%  \hline\hline
-%  $10^5 \Delta t$ & 256$\Delta x$ & 0.7 $\frac{\Delta m}{(\Delta x)^3}$ & 1$\Delta t$ & 0.117 $\frac{\Delta m}{\Delta x \Delta t}$ & 0.08 & 0.0267 $\frac{\Delta m}{(\Delta t)^2}$ & 0.5 & 1 $\frac{\Delta m}{(\Delta x)^3}$ & 0.15 & 2000$\pi (\Delta x)^3$ & 2/3 $\Delta x$& 100 $(\Delta x)^{1/2}(\Delta t)^2/\Delta m$\\ [1ex] 
-%  \hline
-% \end{tabular}
-% \caption{Summary of the fluid, particle and model parameters used in the proposed simulations}
-% \label{table:model_params}
-% \end{table}
-
 \begin{table}
     \centering
-    \caption{Summary of the parameters corresponding to the fluid, particle and model used in the simulations}
+    \caption{Summary of the parameters corresponding to the fluid, particle and model used in the simulations. 
+             LB parameters can be converted to their real world equivalents using the unit conversions provided.}
     \label{table:model_params}
-    \begin{tabular}{|c|r|}
+    \begin{tabular}{|c|c|}
     \hline
-    % Parameter & Value \\
-    % \hline
+    Parameter & Value \\ [0.5ex] 
+    \hline\hline
     $L_x$ & 256 $\Delta x$ \\
     $\rho_f$ & 0.7 $ \frac{\Delta m}{(\Delta x)^3}$\\
     $\nu_f$ & 1/6 $\frac{\Delta x}{(\Delta t)^2}$ \\
@@ -461,7 +464,7 @@ Parameters for the fluid, particle, and non-ideal mixing model used in the simul
 In these simulations, the aspect ratio is defined as $\alpha = \frac{R_{\parallel}}{R_{\perp}}$ with $\alpha = 0.5, 1, 2$ 
 used in these simulations. All particle geometries are volume matched, based on the spherical particle volume. For the 
 spherical particle, the radius was set at $R_{\parallel} = R_{\perp} = 7.9 \Delta x$ which sets the $\alpha = 0.5$ particles to 
-$R_{\parallel} = 5 \Delta x, R_{\perp} = 10 \Delta x$ and the $\alpha = 2$ particles to $R_{\parallel} = 12.6, R_{\perp} = 6.3 \Delta x$. 
+$R_{\parallel} = 5 \Delta x, R_{\perp} = 10 \Delta x$ and the $\alpha = 2$ particles to $R_{\parallel} = 12.6 \Delta x, R_{\perp} = 6.3 \Delta x$. 
 $R_{\parallel}$ and $R_{\perp}$ is the radius of the particle parallel and perpendicular to the symmetry axis of 
 the particle respectively. These values are identical to what was used in Gunther et al, allowing comparisons to the 
 trends they observed. \cite{gunther_timescales_2014} The particles were randomly placed in the system and an equilibration
@@ -518,8 +521,8 @@ of the interface and $R_d$ is the radius of the droplet.
 Using the fluid and non-ideal mixing parameters defined in Table \ref{table:model_params}, a single water in oil 
 droplet, was initialized in the center of the system and run till the droplet radii reached steady state. 
 This process was repeated for various droplet diameters, specified between 70 and 85 \% of the system size at 5\% 
-increments. The system had a box length of $L = 64 \Delta x$ and was run for 50000 timesteps with periodic boundary conditions 
-on all sides. Data was dumped every 10000 timesteps with only the last timestep used to calculate the values shown. Due 
+increments. The system had a box length of $L = 64 \Delta x$ and was run for $50000 \Delta t$ timesteps with periodic boundary conditions 
+on all sides. Data was saved every 10000 timesteps with only the last timestep used to calculate the values shown. Due 
 to the diffuse interface present in this method, the density profiles were verified to be at steady state at the end of 
 the simulation before further analysis was performed. \cite{frijters_effects_2012} Past work also showed that the 
 pressures remained constant after 5 lattice units away from the interface. \cite{frijters_effects_2012} 
